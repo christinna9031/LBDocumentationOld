@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="main.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="main.js"></script>
+<title>FAQ | LioranBoard</title>
+
+</head>
+
+<body>
+    <header>
+
+        <div class=title>
+            <h1>LioranBoard Documentation</h1>
+        </div>
+        <div class="slide">
+            <nav class="sidebar" id=sidebar>
+             <div class="scroller">
+
+                <dl>
+                    <dt>
+                        <a href="main.html" >
+                            About LioranBoard</a>
+                    </dt>
+                </dl>
+
+                <dl>
+                    <dt>
+                        <a href="setup.html">
+                            Basic Setup</a>
+                    </dt>
+                </dl>
+
+                <dl>
+                    <dt>
+                        <a href="commands.html">
+                            Commands</a>
+                    </dt>
+                </dl>
+
+                <dl>
+                    <dt>
+                        <a href="faq.html" class="active">
+                            FAQ</a>
+                    </dt>
+
+                    <dd>
+                        <a href="#howdoidox">
+                            How do I do X?
+                        </a>
+                    </dd>
+
+                    <dd>
+                        <a href="#mathoperators">
+                            Math Operators
+                        </a>
+                    </dd>
+
+                    <dd>
+                        <a href="#commanddelays">
+                            Command Delays
+                        </a>
+                    </dd>
+
+                    <dd>
+                        <a href="#howtoseevariables">
+                            How to see variables
+                        </a>
+                    </dd>
+
+                    <dd>
+                        <a href="#variablesasparameters">
+                            Using variables as parameters
+                        </a>
+                    </dd>
+
+
+                    <dd>
+                        <a href="#turntoreal">
+                            What it means Turn to Real
+                        </a>
+                    </dd>
+
+
+                    <dd>
+                        <a href="#buttonshortcuts">
+                            How to trigger buttons with shortcuts
+                        </a>
+                    </dd>
+
+
+
+                    <dd>
+                        <a href="#wildcards">
+                            Wild Cards
+                        </a>
+                    </dd>
+
+
+                    <dd>
+                        <a href="#obstreamlabs">
+                            LioranBoard and OBS Streamlabs
+                        </a>
+                    </dd>
+
+                    <dd>
+                        <a href="#elgato">
+                            LioranBoard and Elgato
+                        </a>
+                    </dd>
+
+                    <dd>
+                        <a href="#anyapp">
+                            How to connect LioranBoard to any app
+                        </a>
+                    </dd>
+
+                    <dd>
+                        <a href="#extensions">
+                            Making your own extensions
+                        </a>
+                    </dd>
+
+                </dl>
+                <dl>
+                    <dt>
+                        <a href="extensions.html">
+                            Extensions</a>
+                    </dt>
+                </dl>
+
+                <dl>
+                    <dt>
+                        <a href="troubleshooting.html">
+                            Troubleshooting</a>
+                    </dt>
+                </dl>
+            </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <div class="main">
+            <section class="doc-content">
+
+
+                <h2>FAQ
+                </h2>
+
+                <h3 id="howdoidox"> How do I do X?</h3>
+
+                <p>
+                    Making your own buttons in LioranBoard is a little bit like programming. It definitely takes some time to learn how everything works. Don't expect to be able to create complex buttons right away, but rather learn what each command does and try making something as simple as switching scenes. You can then slowly transition to more advanced buttons. <br>
+                    We welcome new members on our Discord server to ask questions if they encounter a problem with their buttons or commands, but discourage asking for a whole button to be created just for their needs. If you're not interested in learning LB whatsoever and only want the finished product, you can request a commission instead.
+                </p>
+
+                <h3 id="mathoperators"> Math Operators
+                </h3>
+                <table>
+
+                    <tr>
+                        <td>Operator</td>
+                        <td>Explanation</td>
+                        <td>Example</td>
+                    </tr>
+                    <tr>
+                        <td>=</td>
+                        <td>Equal. <code>x = y</code></td>
+                        <td><code>x = 7</code></td>
+                    </tr>
+                    <tr>
+                        <td>+=</td>
+                        <td>Addition. Same as <code>x = x + y</code></td>
+                        <td><code>7 += 2 // 9</code></td>
+                    </tr>
+                    <tr>
+                        <td>-= </td>
+                        <td>Subtraction. Same as <code>x = x - y</code></td>
+                        <td><code>7 -= 2 // 5</code></td>
+                    </tr>
+                    <tr>
+                        <td>Multiply</td>
+                        <td>Multiplication *=. Same as <code>x = x * y</code></td>
+                        <td><code>7 *= 2 // 14</code></td>
+                    </tr>
+                    <tr>
+                        <td>Divide</td>
+                        <td>Division /=. Same as <code>x = x / y</code></td>
+                        <td><code>7 /= 2 // 3.5</code></td>
+                    </tr>
+                    <tr>
+                        <td>DIV</td>
+                        <td>Integer division. Same as division, but the remainder is discarded. </td>
+                        <td><code>7 DIV 2 // 3</code></td>
+                    </tr>
+                    <tr>
+                        <td>MOD</td>
+                        <td>Modulus. Returns the remainder of division.</td>
+                        <td><code>7 MOD 2 // 1</code></td>
+                    </tr>
+                    <tr>
+                        <td>&=</td>
+                        <td>Bitwise AND. Same as <code>x = x & y</code></td>
+                        <td><code>7 = 000111</code><br><code>2 = 000010</code><br><code>7 &= 2 // 2</code><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>^=</td>
+                        <td>Bitwise XOR. Same as <code> x = x ^ y</code></td>
+                        <td><code>7 = 000111</code><br><code>2 = 000010</code><br><code>7 ^= 2 // 5</code></td>
+                    </tr>
+                    <tr>
+                        <td>| =</td>
+                        <td>Bitwise OR. Same as <code>x = x | y</code></td>
+                        <td><code>7 = 000111</code><br><code>2 = 000010</code><br><code>7 |= 2 // 7</code></td>
+                    </tr>
+                    <tr>
+                        <td>= String</td>
+                        <td>String equal.<code> x = y</code></td>
+                        <td><code>x =string “hi”</code></td>
+                    </tr>
+                    <tr>
+                        <td>+= String</td>
+                        <td>String addition. Same as <code>x = x + y</code></td>
+                        <td><code>hi +=string there // ”hi there"</code></td>
+                    </tr>
+                    <tr>
+                        <td>Cos</td>
+                        <td>Returns a numeric value between -1 and 1, which represents the cosine of the angle given in radians. </td>
+                        <td><code>Cos 90 // -0.45</code></td>
+                    </tr>
+                    <tr>
+                        <td>Sin</td>
+                        <td>Returns a numeric value between -1 and 1, which represents the sine of the angle given in radians</td>
+                        <td><code>Sin 90 // 0.89</code></td>
+                    </tr>
+                    <tr>
+                        <td>Tan</td>
+                        <td>Returns a numeric value that represents the tangent of the angle. Tan = Sin/Cos.</td>
+                        <td><code>Tan 90 = 1/0 // -2.00</code></td>
+                    </tr>
+
+
+                </table>
+
+
+
+
+
+                <h3 id="commanddelays"> How command delays work
+                </h3>
+
+                <p>Command delays are absolute, they’re NOT related to each other. If you set up the first command to trigger at 1000ms and the second command to trigger at 1000ms, both commands will trigger at 1000ms, one after another (in this case order matters), exactly 1000ms from when the button was pressed. <br>
+                    The command delay is superior to the command order, which means that a second command in the list with 0ms delay will trigger before the first command in the list with 1000ms delay. <br>
+
+                    <button id="example" onclick="toggle_visibility('delayexamplex')">Show example</button>
+                <div id="delayexamplex" style="display:none"> <br><img src="https://i.imgur.com/bzbYOrv.png"> </div>
+                </p>
+
+
+                <h3 id="howtoseevariables"> How to see variables and their values
+                </h3>
+                <p>
+                    Press tab in the main LioranBoard Receiver menu. You can then type in the variable name. You can see the stack values if you type the whole name of the stack.
+                </p>
+
+                <h3 id="variablesasparameters"> What if I want to use a variable in a string or as a parameter?
+                </h3>
+                <p>
+                    Wrap the variable in <code>/$$/</code>. For example, variable <code>name</code> will become <code>/$name$/</code>. Remember that this is done only if the field name is NOT "variable". In this case you want to use the name of the variable without any wrappers. <br>
+                    For example, field "value" can contain either a real value (number) or a string (text). By wrapping the ariable in <code>/$$/</code>, you're telling it to work with the value of the variable rather than the variable itself.
+                    <button id="example" onclick="toggle_visibility('simpledeathcounterX')">Show example</button>
+                <div id="simpledeathcounterX" style="display:none"> <br><img src="https://i.imgur.com/7DF5M5R.png"> <img src="https://i.imgur.com/MvXuqGt.png"><br></div>
+                </p>
+
+
+                <h3 id="turntoreal"> What it means "Turn to Real"</h3>
+                <p>
+                    Turn to real means you want a real value (=number). String = text, real = number. While a string can contain numbers, a real value cannot contain letters. <br>
+                <ul>
+                    <li>Turning string <code>“Hello there”</code> to real will result in <code>0</code>.</li>
+                    <li>Turning string <code>“1234”</code> to real will result in <code>1234</code>.</li>
+                    <li>Turning string <code>“Hello there 1234”</code> will result in <code>0</code>.
+                    <li>Turning string <code>“5 Hello there 1234”</code> to real will result in <code>5</code>. </li>
+
+
+                </ul>
+                </p>
+
+
+
+
+                <h3 id="buttonshortcuts">How to trigger buttons with shortcuts</h3>
+                <p>You can set up hotkeys to trigger LioranBoard buttons by selecting Trigger Shortcut button in the main Receiver menu. Click on the little <code>+</code>, choose the type (only keyboard, gamepad and midi keyboard supported), key + optional modifier and fill in your button ID. </p>
+
+
+
+                <h3 id="wildcards"> Wild Cards
+                </h3>
+
+                <p>
+                    A wild card <code>*</code> refers to a character that can be substituted for zero or more characters in a string. They are used to search for partial matches instead of exact ones. <br>
+
+                    Wild cards can be used for Twitch Chat triggers and Redeem points with message triggers. They need to match exactly. You can pull their value by using the String: Wildcard pull command. <br>
+
+                    You can use as many wild cards as you want as long as the formatting is matched. </p>
+                <p>
+                    Wild card trigger examples:
+
+                <table>
+                    <tr>
+                        <td>
+                            Trigger
+                        </td>
+                        <td colspan=4>
+                            Chat Input (green=accepted, red=rejected)
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            word *
+                        </td>
+                        <td>
+                            <mark id="accept">world hello</mark>
+                        </td>
+                        <td>
+                            <mark id="accept">world hello hi there</mark>
+                        </td>
+                        <td>
+                            <mark id="refuse">hello world</mark>
+                        </td>
+                        <td>
+                            <mark id="refuse">hello world hello</mark>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            * word
+                        </td>
+                        <td>
+                            <mark id="refuse">world hello</mark>
+                        </td>
+                        <td>
+                            <mark id="refuse">world hello hi there</mark>
+                        </td>
+                        <td>
+                            <mark id="accept">hello world</mark>
+                        </td>
+                        <td>
+                            <mark id="refuse">hello world hello</mark>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            * word *
+                        </td>
+                        <td>
+                            <mark id="refuse">world hello</mark>
+                        </td>
+                        <td>
+                            <mark id="refuse">world hello hi there</mark>
+                        </td>
+                        <td>
+                            <mark id="accept">hello world</mark>
+                        </td>
+                        <td>
+                            <mark id="accept">hello world hello</mark>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            word * *
+                        </td>
+                        <td>
+                            <mark id="refuse">world hello</mark>
+                        </td>
+                        <td>
+                            <mark id="accept">world hello hi there</mark>
+                        </td>
+                        <td>
+                            <mark id="refuse">hello world</mark>
+                        </td>
+                        <td>
+                            <mark id="refuse">hello world hello</mark>
+                        </td>
+                    </tr>
+
+                </table>
+                </p>
+
+                <p>
+
+
+                    If you want to allow a single word for your trigger, no matter where it is placed in the sentence, you will need 4 different triggers: <code>word</code>,<code>word *</code>, <code>* word</code> and <code>* word *</code>. <br>
+
+                    You can use Math: Trigger Pull command to fetch whatever is covered by a wild card. <br>
+                    For example, with a trigger <code>!set * to *</code> and a chat message <code>!set timer to 5</code> , you can pull wild card 1 value (<code>timer</code>) and wild card 2 value (<code>5</code>). </p>
+                <p>
+                    Now, what if you have a command <code>!lights *</code> where the wildcard is a color to set your Philips Hue lights to, but your viewers sometimes include extra text after they specify the color? For example, they send a chat message: <code>!lights red Hello there!</code> and you're only interested in pulling the color name instead of the whole <code>red Hello there!</code> value. In this case, you need to use these two chat triggers: <code>lights * *</code> , <code>lights *</code> (order and spaces matter). Now it will always only pull the color, no matter if there is any additional text.</p>
+                <p>
+                    <i>You can't have 2 wild cards back to back without a space, as it will be turned into just one wildcard. <br>Twitch automatically removes double space, so you don't have to worry about that.</i> <br>
+
+                </p>
+
+                <button id="example" onclick="toggle_visibility('variabletovarX')">Show example</button>
+                <div id="variabletovarX" style="display:none"> <img src="https://i.imgur.com/ILFEpTy.png"><br></div>
+
+                <h3 id="obstreamlabs"> LioranBoard and OBS Streamlabs
+                </h3>
+                <p>LioranBoard natively supports only OBS Studio, as it uses OBS Websocket to communicate. It is possible to make an extension to communicate with OBS Streamlabs, but as of now that hasn't been done yet. </p>
+
+                <h3 id="elgato"> LioranBoard and Elgato Stream Deck
+                </h3>
+                <p>The only way Elgato and LioranBoard can communicate is through key presses. You can trigger LB buttons from your Elgato, but not the other way around. Elgato plugins are unfortunately quite limited, and there is currently no way to trigger Elgato keys within a plugin or via keyboard hotkeys. </p>
+                <iframe width="420" height="315" src="https://www.youtube.com/embed/sLnU2mOOxQg?controls=1">
+                </iframe>
+
+                <h3 id="anyapp"> How to connect LioranBoard to any app
+                </h3>
+                <p>Lioranboard can connect to any app or service that has public API or websocket access. It is done via custom made extension in JavaScript. If there isn't one you need listed in the Extensions channel in our Discord server, then you will need to create your own or ask in General channel for its possible implementation. </p>
+
+
+                <h3 id="extensions"> How to make your own extension
+                </h3>
+                <p>Lioranboard communicates with extensions via Transmitter (written in HTML and JS) and its own websocket. Information about how to make your own extension can be found in <code>LioranBoard/extension/readme.txt</code> file. You can also go over a few examples of extensions to understand the process.</p>
+
+
+
+
+            </section>
+
+        </div>
+    </div>
+</body>
+
+</html>

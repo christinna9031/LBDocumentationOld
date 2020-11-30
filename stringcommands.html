@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="main.css" />
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="main.js"></script>
+        <title>String Commands | LioranBoard</title>
+    </head>
+    <body>
+        <header>
+            <div class="title">
+                <h1>LioranBoard Documentation</h1>
+            </div>
+            <div class="slide">
+                <nav class="sidebar" id="sidebar">
+                    <div class="scroller">
+                        <dl>
+                            <dt>
+                                <a href="main.html"> About LioranBoard</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="setup.html"> Basic Setup</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="commands.html" class="active"> Commands</a>
+                            </dt>
+
+                            <dd>
+                                <a class="sub-page" href="sourcecommands.html">OBS Source Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="recordingcommands.html">OBS Recording Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="mathcommands.html">Math Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="stringcommands.html">String Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a href="#stringwildcard">
+                                    String: Wildcard Pull
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#stringtrigger">
+                                    String: Get Trigger Type
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#stringlength">
+                                    String: Length
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#stringformat">
+                                    String: Format
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#stringdigits">
+                                    String: Digits
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#stringletters">
+                                    String: Letters
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#stringreplace">
+                                    String: Replace
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#stringlowercase">
+                                    String: Lower Case
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#stringuppercase">
+                                    String: Upper Case
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#stringposition">
+                                    String: Position
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#stringcount">
+                                    String: Count
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#stringclamp">
+                                    String: Clamp
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#stringrealtostring">
+                                    String: Real to String
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#stringsoundnamepull">
+                                    String: Sound Name Pull
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="stackcommands.html">Stack Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="comparecommands.html">Compare Commands</a>
+                            </dd>
+                            <dd>
+                                <a class="sub-page" href="filecommands.html">File Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="othercommands.html">Other Commands</a>
+                            </dd>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="faq.html"> FAQ</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="extensions.html"> Extensions</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="troubleshooting.html"> Troubleshooting</a>
+                            </dt>
+                        </dl>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <div class="wrapper">
+            <div class="main">
+                <section class="doc-content">
+                    <h2>String Commands</h2>
+
+                    <h3 id="stringwildcard">String: Wildcard Pull</h3>
+
+                    <p>
+                        You can use this command with a button trigger to pull a wildcard value.
+                        <a href="faq.html#wildcards">More about wildcards</a> <br />
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name to store the pulled wildcard value under</td>
+                        </tr>
+                        <tr>
+                            <td>Wildcard number</td>
+                            <td>Int</td>
+                            <td>
+                                This refers to which wildcard you wish to get. <br />
+                                0 = first *, 1 = second *, etc.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Turn to Real</td>
+                            <td>boolean</td>
+                            <td>Whether you expect a real value (=number) or a string.</td>
+                        </tr>
+                    </table>
+
+
+                    <button id="example" onclick="toggle_visibility('stringpullwildX')">Show example</button>
+                    <div id="stringpullwildX" style="display: none;"><img src="https://i.imgur.com/UcSLCPo.png" /><br /></div>
+
+                    <h3 id="stringtrigger">String: Get Trigger Type</h3>
+
+                    <p>
+                        Returns what kind of trigger activated the button. This button can be used to know which Math: Trigger Pull value to use.
+                    </p>
+                    <p><b>Possible returns (including capitalization):</b></p>
+                    <ul>
+                        <li>Bits</li>
+                        <li>Sub</li>
+                        <li>Redeem</li>
+                        <li>Chat message</li>
+                        <li>Host</li>
+                        <li>Raid</li>
+                        <li>Redeem with message</li>
+                        <li>Extension</li>
+                        <li>Gifted sub</li>
+                        <li>Other - returned for any trigger that is not listed (through your Stream Deck, Command Trigger or Shortcut Trigger)</li>
+                    </ul>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name to store the returned trigger under.</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="stringlength">String: Length</h3>
+
+                    <p>Returns the length of a string. <br /></p>
+
+                    <ul>
+                        <li><code>"Hello"</code> will return 5</li>
+                        <li><code>""</code> (empty string) will return <code>0</code>.</li>
+                    </ul>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name to save the length value into</td>
+                        </tr>
+                        <tr>
+                            <td>String Variable</td>
+                            <td>String</td>
+                            <td>Variable name containing the string you wish to know the length of</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="stringformat">String: Format</h3>
+
+                    <p>
+                        Divides a string into multiple lines. The new line will be compensated with \n. <br />
+                        Very useful command to use together with <a href="mathcommands.html#mathtriggerpull">Math: Trigger Pull</a> for Bits or Redeem points with a message. You can force the viewer's message to be split into multiple lines in your Text GDI+ source.
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name to save the formatted string</td>
+                        </tr>
+                        <tr>
+                            <td>String</td>
+                            <td>String</td>
+                            <td>String to format. Use /$variable$/ if your string is inside another variable.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Max Width</td>
+                            <td>String</td>
+                            <td>An arbitrary number. This is technically a pixel width, but you will have to test to see what you receive back.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Max Word Length</td>
+                            <td>String</td>
+                            <td>Amount of characters to allow before cutting the word in the middle.</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('stringformatX')">Show example</button>
+                    <div id="stringformatX" style="display: none;"><img src="https://i.imgur.com/SppzctQ.png" /><br /></div>
+
+                    <h3 id="stringdigits">String: Digits</h3>
+
+                    <p>Removes all letters and special symbols from a string. <br /></p>
+
+                    <ul>
+                        <li><code>"Hello"</code> will return <code>""</code> (empty string)</li>
+                        <li><code>"1a2b3c"</code> will return <code>"123"</code></li>
+                        <li><code>"$12.50"</code> will return <code>"12.50"</code>.</li>
+                    </ul>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name containing the string you wish to convert to digits only</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="stringletters">String: Letters</h3>
+
+                    <p>Removes every non letter from a string. This includes spaces and line breaks. <br /></p>
+
+                    <ul>
+                        <li><code>"12.50 USD"</code> will return <code>"USD"</code>.</li>
+                        <li><code>"Hello world!"</code> will return <code>"Helloworld"</code>.</li>
+                    </ul>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name containing the string you wish to convert to a letter only string</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="stringreplace">String: Replace</h3>
+                    <p>Searches a string for a specified value and returns a new string where all the occurrences of the specified value are replaced. Case sensitive.<br /></p>
+                    <ul>
+                        <li>{<code>"Hello"</code>,<code>"l"</code>,<code>"/"</code>} will return <code>"He//o"</code>.</li>
+                        <li>{<code>"Hello World"</code>,<code>" "</code>,<code>"-"</code>} will return <code>"Hello-World"</code>.</li>
+                        <li>{<code>"Mr.Black has a black car and a black cat."</code>, <code>"black"</code>, <code>"white"</code>} will return <code>"Mr.Black has a white car and a white cat."</code></li>
+                    </ul>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name containing the original string.</td>
+                        </tr>
+                        <tr>
+                            <td>Replace</td>
+                            <td>String</td>
+                            <td>Value that will be replaced by the new value.</td>
+                        </tr>
+
+                        <tr>
+                            <td>New String</td>
+                            <td>String</td>
+                            <td>The value to replace the search value with. Can be empty to completely remove it.</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="stringlowercase">String: Lower Case</h3>
+
+                    <p>
+                        Converts a string to lowercase letters.
+                    </p>
+
+                    <ul>
+                        <li><code>"HELLO World"</code> will return <code>"hello world"</code></li>
+                    </ul>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name containing a string to convert to lowercase letters</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="stringuppercase">String: Upper Case</h3>
+
+                    <p>
+                        Converts a string to uppercase letters.
+                    </p>
+
+                    <ul>
+                        <li><code>"hello world"</code> will return <code>"HELLO WORLD"</code></li>
+                    </ul>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name containing a string to convert to uppercase letters</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="stringposition">String: Position</h3>
+
+                    <p>
+                        Returns the position of the first occurrence of a specified value in a string. Case sensitive.
+                    </p>
+
+                    <ul>
+                        <li>{<code>"hello and hello world"</code>,<code>"hello"</code>} will return <code>1</code></li>
+                        <li>{<code>"Hello and hello world"</code>,<code>"hello"</code>} will return <code>11</code></li>
+                    </ul>
+                    <p>This is a very useful command to use together with <a href="#stringclamp">String: Clamp</a> command, as you can easily remove a part of a text.</p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name to save the position</td>
+                        </tr>
+                        <tr>
+                            <td>String</td>
+                            <td>String</td>
+                            <td>String to search</td>
+                        </tr>
+
+                        <tr>
+                            <td>Find String</td>
+                            <td>String</td>
+                            <td>String to search for</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('removecheerX')">Show example</button>
+                    <div id="removecheerX" style="display: none;"><img src="https://i.imgur.com/7H0YTQD.png" /><br /></div>
+
+                    <h3 id="stringcount">String: Count</h3>
+                    <p>
+                        Returns the number of occurrences of a character/string within a string. Case sensitive.
+                    </p>
+
+                    <ul>
+                        <li>Searching for <code>"Ab"</code> within a string <code>"AbAbAbAb"</code> will return <code>4</code>.</li>
+                        <li>Searching for <code>"33"</code> within a string <code>"333 and 33 and 33333"</code> will return <code>7</code>.</li>
+                        <li>Searching for <code>"black"</code> within a string <code>"Mr.Black has a black car and a black cat."</code> will return <code>2</code>.</li>
+                    </ul>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name to save the count</td>
+                        </tr>
+                        <tr>
+                            <td>String</td>
+                            <td>String</td>
+                            <td>String to search</td>
+                        </tr>
+
+                        <tr>
+                            <td>Count String</td>
+                            <td>String</td>
+                            <td>String to search for and count</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="stringclamp">String: Clamp</h3>
+
+                    <p>
+                        Extracts a part of a string and returns the extracted part. You need to specify the index of the first character and the amount of characters to extract. <br />
+                        This is a very useful command to use together with <a href="stringposition">String: Position</a> command. This way you can easily remove a part of a text.<br />
+                        Do not use String:Clamp on real values and Math:Clamp on strings, as this will result in an error and LB crashing.
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name containing the string to clamp</td>
+                        </tr>
+                        <tr>
+                            <td>Start</td>
+                            <td>Real</td>
+                            <td>Where to start the clamp</td>
+                        </tr>
+
+                        <tr>
+                            <td>Count</td>
+                            <td>Real</td>
+                            <td>Amount of characters to include in the clamp</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('extracttimestampX')">Show example</button>
+                    <div id="extracttimestampX" style="display: none;"><img src="https://i.imgur.com/Jn3Mxzv.png" /><br /></div>
+
+                    <h3 id="stringrealtostring">String: Real to String</h3>
+                    <p>Turns a real value into a string. Useful if you want to execute String commands.</p>
+                    <ul>
+                        <li><code>-1.2</code> will return <code>"-1.20"</code></li>
+                        <li><code>1.12345</code> will return <code>"1.12"</code></li>
+                    </ul>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name to save the real value</td>
+                        </tr>
+                        <tr>
+                            <td>Source</td>
+                            <td>String</td>
+                            <td>Variable name containing the real value to stringify</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="stringsoundnamepull">String: Sound Name Pull</h3>
+
+                    <p>
+                        Pulls the names of the sounds that were played by this button. <br />
+                        The name returned will be a file name excluding the path (<code>E:\Stream\sound.ogg</code> will return <code>sound.ogg</code>)
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name to store the pull in</td>
+                        </tr>
+                        <tr>
+                            <td>Array Number</td>
+                            <td>Real</td>
+                            <td>
+                                Which sound to get in order they appear in the list. <br />
+                                0 will be the one at the top of the list.
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+            </div>
+        </div>
+    </body>
+</html>

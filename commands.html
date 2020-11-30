@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="main.css" />
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="main.js"></script>
+        <title>Commands | LioranBoard</title>
+    </head>
+    <body>
+        <header>
+            <div class="title">
+                <h1>LioranBoard Documentation</h1>
+            </div>
+            <div class="slide">
+                <nav class="sidebar" id="sidebar">
+                    <div class="scroller">
+                        <dl>
+                            <dt>
+                                <a href="main.html"> About LioranBoard</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="setup.html"> Basic Setup</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="commands.html" class="active"> Commands</a>
+                            </dt>
+
+                            <dd>
+                                <a class="sub-page" href="sourcecommands.html">OBS Source Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="recordingcommands.html">OBS Recording Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="mathcommands.html">Math Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="stringcommands.html">String Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="stackcommands.html">Stack Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="comparecommands.html">Compare Commands</a>
+                            </dd>
+                            <dd>
+                                <a class="sub-page" href="filecommands.html">File Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="othercommands.html">Other Commands</a>
+                            </dd>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="faq.html"> FAQ</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="extensions.html"> Extensions</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="troubleshooting.html"> Troubleshooting</a>
+                            </dt>
+                        </dl>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <div class="wrapper">
+            <div class="main">
+                <section class="doc-content">
+                    <h2>Commands</h2>
+                    <p></p>
+                    <h3>OBS Source Commands</h3>
+                    <p>
+                        <a href="sourcecommands.html#sceneswitch">
+                            Scene Switch
+                        </a>
+                        <br />
+
+                        <a href="sourcecommands.html#changescenetransition">
+                            Change Scene Transition
+                        </a>
+                        <br />
+
+                        <a href="sourcecommands.html#removescenetransition"> Remove Scene Transition </a><br />
+
+                        <a href="sourcecommands.html#sourcemute"> Source Mute </a><br />
+                        <a href="sourcecommands.html#sourcetogglemute"> Source Toggle Mute </a><br />
+
+                        <a href="sourcecommands.html#changeaudiomonitortype"> Change Audio Monitor Type </a><br />
+
+                        <a href="sourcecommands.html#sourcechangevisibility"> Source Change Visibility </a><br />
+
+                        <a href="sourcecommands.html#sourcechangeposition">
+                            Source Change Position
+                        </a>
+                        <br />
+
+                        <a href="sourcecommands.html#sourcechangevolume"> Source Change Volume </a><br />
+
+                        <a href="sourcecommands.html#sourcechangescale"> Source Change Scale </a><br />
+
+                        <a href="sourcecommands.html#sourcechangerotation"> Source Change Rotation </a><br />
+
+                        <a href="sourcecommands.html#sourcechangesettings"> Source Change Settings </a><br />
+
+                        <a href="sourcecommands.html#textgdichangetext"> Text GDI+ Change Text </a><br />
+                        <a href="sourcecommands.html#freetypechangetext"> Freetype 2 Change Text </a><br />
+                        <a href="sourcecommands.html#filterchangevisibility"> Filter Change Visibility </a><br />
+                        <a href="sourcecommands.html#filterchangesettings"> Filter Change Settings </a><br />
+                        <a href="sourcecommands.html#sourcemotionposition"> Source Motion: Position </a><br />
+                        <a href="sourcecommands.html#sourcemotionpositioncurve"> Source Motion: Position Curve </a><br />
+                        <a href="sourcecommands.html#custompacket"> Custom Packet </a><br />
+                        <a href="sourcecommands.html#fetchobsdata"> Fetch OBS Data </a><br />
+                    </p>
+                    <h3>OBS Recording Commands</h3>
+                    <p>
+                        <a href="recordingcommands.html#togglestreaming">
+                            Toggle Streaming
+                        </a>
+                        <br />
+
+                        <a href="recordingcommands.html#startstreaming">
+                            Start Streaming
+                        </a>
+                        <br />
+
+                        <a href="recordingcommands.html#stopstreaming">
+                            Stop Streaming
+                        </a>
+                        <br />
+
+                        <a href="recordingcommands.html#togglerecording">
+                            Toggle Recording
+                        </a>
+                        <br />
+
+                        <a href="recordingcommands.html#startrecording">
+                            Start Recording
+                        </a>
+                        <br />
+
+                        <a href="recordingcommands.html#stoprecording">
+                            Stop Recording
+                        </a>
+                        <br />
+
+                        <a href="recordingcommands.html#pauserecording">
+                            Pause Recording
+                        </a>
+                        <br />
+
+                        <a href="recordingcommands.html#resumerecording">
+                            Resume Recording
+                        </a>
+                        <br />
+
+                        <a href="recordingcommands.html#togglereplaybuffer">
+                            Toggle Replay Buffer
+                        </a>
+                        <br />
+
+                        <a href="recordingcommands.html#startreplaybuffer">
+                            Start Replay Buffer
+                        </a>
+                        <br />
+
+                        <a href="recordingcommands.html#stopreplaybuffer">
+                            Stop Replay Buffer
+                        </a>
+                        <br />
+
+                        <a href="recordingcommands.html#savereplaybuffer">
+                            Save Replay Buffer
+                        </a>
+                    </p>
+
+                    <h3>Math Commands</h3>
+                    <p>
+                        <a href="mathcommands.html#mathchangevariable">
+                            Math: Change Variable
+                        </a>
+                        <br />
+                        <a href="mathcommands.html#mathvariabletovariable">
+                            Math: Variable to Variable
+                        </a>
+                        <br />
+                        <a href="mathcommands.html#mathvariabletransition">
+                            Math: Variable Transition
+                        </a>
+                        <br />
+                        <a href="mathcommands.html#mathclamp">
+                            Math: Clamp
+                        </a>
+                        <br />
+                        <a href="mathcommands.html#mathrandom">
+                            Math: Random
+                        </a>
+                        <br />
+                        <a href="mathcommands.html#mathclearvariable">
+                            Math: Clear Variable
+                        </a>
+                        <br />
+                        <a href="mathcommands.html#mathstringtoreal">
+                            Math: String to Real
+                        </a>
+                        <br />
+                        <a href="mathcommands.html#mathhextoreal">
+                            Math: Hex to Real
+                        </a>
+                        <br />
+                        <a href="mathcommands.html#mathpullsourcevalue">
+                            Math: Pull Source Value
+                        </a>
+                        <br />
+                        <a href="mathcommands.html#mathpullfiltervisibility">
+                            Math: Pull Filter Visibility
+                        </a>
+                        <br />
+                        <a href="mathcommands.html#mathtriggerpull">
+                            Math: Trigger Pull
+                        </a>
+                    </p>
+
+                    <h3>String Commands</h3>
+                    <p>
+                        <a href="stringcommands.html#stringwildcard">
+                            String: Wildcard Pull
+                        </a>
+                        <br />
+
+                        <a href="stringcommands.html#stringtrigger">
+                            String: Get Trigger Type
+                        </a>
+                        <br />
+
+                        <a href="stringcommands.html#stringlength">
+                            String: Length
+                        </a>
+                        <br />
+                        <a href="stringcommands.html#stringformat">
+                            String: Format
+                        </a>
+                        <br />
+                        <a href="stringcommands.html#stringdigits">
+                            String: Digits
+                        </a>
+                        <br />
+                        <a href="stringcommands.html#stringletters">
+                            String: Letters
+                        </a>
+                        <br />
+                        <a href="stringcommands.html#stringreplace">
+                            String: Replace
+                        </a>
+                        <br />
+                        <a href="stringcommands.html#stringlowercase">
+                            String: Lower Case
+                        </a>
+                        <br />
+                        <a href="stringcommands.html#stringuppercase">
+                            String: Upper Case
+                        </a>
+                        <br />
+                        <a href="stringcommands.html#stringposition">
+                            String: Position
+                        </a>
+                        <br />
+                        <a href="stringcommands.html#stringcount">
+                            String: Count
+                        </a>
+                        <br />
+                        <a href="stringcommands.html#stringclamp">
+                            String: Clamp
+                        </a>
+                        <br />
+                        <a href="stringcommands.html#stringrealtostring">
+                            String: Real to String
+                        </a>
+                        <br />
+                        <a href="stringcommands.html#stringsoundnamepull">
+                            String: Sound Name Pull
+                        </a>
+                    </p>
+
+                    <h3>Stack Commands</h3>
+                    <p>
+                        <a href="stackcommands.html#introduction">
+                            Introduction
+                        </a>
+                        <br />
+                        <a href="stackcommands.html#stackadd">
+                            Stack: Add
+                        </a>
+                        <br />
+                        <a href="stackcommands.html#stackreplace">
+                            Stack: Replace
+                        </a>
+                        <br />
+                        <a href="stackcommands.html#stackpull">
+                            Stack: Pull
+                        </a>
+                        <br />
+                        <a href="stackcommands.html#stackpeek">
+                            Stack: Peek
+                        </a>
+                        <br />
+                        <a href="stackcommands.html#stackfind">
+                            Stack: Find
+                        </a>
+                        <br />
+                        <a href="stackcommands.html#stackgetsize">
+                            Stack: Get Size
+                        </a>
+                        <br />
+                        <a href="stackcommands.html#stackrandom">
+                            Stack: Random
+                        </a>
+                        <br />
+                        <a href="stackcommands.html#stackshuffle">
+                            Stack: Shuffle
+                        </a>
+                        <br />
+                        <a href="stackcommands.html#stackclear">
+                            Stack: Clear
+                        </a>
+                        <br />
+                        <a href="stackcommands.html#stackstringify">
+                            Stack: Stringify
+                        </a>
+                        <br />
+                        <a href="stackcommands.html#stackparse">
+                            Stack: Parse
+                        </a>
+                    </p>
+
+                    <h3>Compare Commands</h3>
+                    <p>
+                        <a href="comparecommands.html#compareskipif">
+                            Compare: Skip if
+                        </a>
+                        <br />
+                        <a href="comparecommands.html#compareendif">
+                            Compare: End if
+                        </a>
+                        <br />
+                        <a href="comparecommands.html#compareredoif">
+                            Compare: Redo if
+                        </a>
+                        <br />
+                        <a href="comparecommands.html#compareredopreviousif">
+                            Compare: Redo Previous if
+                        </a>
+                        <br />
+                        <a href="comparecommands.html#comparevariableskipif">
+                            Compare Variable: Skip if
+                        </a>
+                        <br />
+                        <a href="comparecommands.html#comparevariableendif">
+                            Compare Variable: End if
+                        </a>
+                        <br />
+                        <a href="comparecommands.html#comparevariableredoif">
+                            Compare Variable: Redo if
+                        </a>
+                        <br />
+                        <a href="comparecommands.html#comparevariableredopreviousif">
+                            Compare Variable: Redo Previous if
+                        </a>
+                    </p>
+
+                    <h3>File Commands</h3>
+                    <p>
+                        <a href="filecommands.html#introduction">
+                            Introduction
+                        </a>
+                        <br />
+
+                        <a href="filecommands.html#savetxt">
+                            Saving to .txt files
+                        </a>
+                        <br />
+                        <a href="filecommands.html#filesavevalue">
+                            File: Save Value
+                        </a>
+                        <br />
+                        <a href="filecommands.html#fileloadvalue">
+                            File: Load Value
+                        </a>
+                        <br />
+                        <a href="filecommands.html#filesavestring">
+                            File: Save String
+                        </a>
+                        <br />
+                        <a href="filecommands.html#fileloadstring">
+                            File: Load String
+                        </a>
+                    </p>
+                    <h3>Other Commands</h3>
+                    <p>
+                        <a href="othercommands.html#repeatprevious">
+                            Repeat Previous
+                        </a>
+                        <br />
+                        <a href="othercommands.html#setclipboard">
+                            Set Clipboard
+                        </a>
+                        <br />
+                        <a href="othercommands.html#loadclipboard">
+                            Load Clipboard
+                        </a>
+                        <br />
+                        <a href="othercommands.html#twitchchatmessage">
+                            Twitch: Chat Message
+                        </a>
+                        <br />
+                        <a href="othercommands.html#triggerbutton">
+                            Trigger Button
+                        </a>
+                        <br />
+                        <a href="othercommands.html#modifybutton">
+                            Modify Button
+                        </a>
+                        <br />
+                        <a href="othercommands.html#clearbutton">
+                            Clear Button
+                        </a>
+                        <br />
+                        <a href="othercommands.html#openurl">
+                            Open URL
+                        </a>
+                        <br />
+                        <a href="othercommands.html#executeprogram">
+                            Execute Program
+                        </a>
+                        <br />
+                        <a href="othercommands.html#commandline">
+                            Command Line
+                        </a>
+                        <a href="othercommands.html#sendtoextension">
+                            Send to Extension
+                        </a>
+                        <br />
+                        <a href="othercommands.html#overtime">
+                            Overtime
+                        </a>
+                        <br />
+                        <a href="othercommands.html#comment">
+                            Comment
+                        </a>
+                    </p>
+                </section>
+            </div>
+        </div>
+    </body>
+</html>

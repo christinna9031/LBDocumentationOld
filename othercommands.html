@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="main.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="main.js"></script>
+<title>Other Commands | LioranBoard</title>
+
+</head>
+<body>
+<header>
+
+<div class=title>
+<h1>LioranBoard Documentation</h1>
+</div>    
+<div class="slide">
+<nav class="sidebar" id=sidebar>
+<div class="scroller">
+
+<dl><dt>
+<a href="main.html" >
+About LioranBoard</a></dt></dl>    
+
+<dl><dt>
+<a href="setup.html" >
+Basic Setup</a></dt></dl>     
+
+<dl>
+    <dt>
+        <a href="commands.html" class="active">
+              Commands</a>
+        </dt>
+
+        <dd>
+          <a class="sub-page" href="sourcecommands.html" >OBS Source Commands</a>
+          </dd>
+          
+      
+
+                          
+            <dd>
+              <a class="sub-page" href="recordingcommands.html"  >OBS Recording Commands</a>
+              </dd>
+          
+              <dd>
+                  <a class="sub-page" href="mathcommands.html" >Math Commands</a>
+                  </dd>
+          
+               
+            
+          
+          
+          
+                  <dd>
+                      <a class="sub-page" href="stringcommands.html" >String Commands</a>
+                      </dd>
+          
+          
+              
+          
+                      <dd>
+                          <a class="sub-page" href="stackcommands.html" >Stack Commands</a>
+                          </dd>
+          
+                          
+                  
+                          <dd>
+                              <a class="sub-page" href="comparecommands.html" >Compare Commands</a>
+                              </dd>
+                              <dd>
+                                  <a class="sub-page" href="filecommands.html" >File Commands</a>
+                                  </dd>
+          
+                                  <dd>
+                                      <a class="sub-page" href="othercommands.html" >Other Commands</a>
+                                      </dd>
+                            <dd>
+                                <a href="#repeatprevious">
+                                    Repeat Previous
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#setclipboard">
+                                    Set Clipboard
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#loadclipboard">
+                                    Load Clipboard
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#twitchchatmessage">
+                                    Twitch: Chat Message
+
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#triggerbutton">
+                                    Trigger Button
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#modifybutton">
+                                    Modify Button
+
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#clearbutton">
+                                    Clear Button
+
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#openurl">
+                                    Open URL
+
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#executeprogram">
+                                    Execute Program
+
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#commandline">
+                                    Command Line
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#sendtoextension">
+                                    Send to Extension
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#overtime">
+                                    Overtime
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#comment">
+                                    Comment
+                                </a>
+                            </dd>
+                    
+                          </dl>
+
+                          <dl><dt>
+                           <a href="faq.html" >
+                           FAQ</a></dt></dl>  
+                           
+                           <dl><dt>
+                           <a href="extensions.html" >
+                           Extensions</a></dt></dl>  
+                           
+                           <dl><dt>
+                           <a href="troubleshooting.html" >
+                           Troubleshooting</a></dt></dl>  
+                         </div>
+</nav>
+</div>
+</header>
+
+<div class ="wrapper">
+<div class="main">
+    <section class="doc-content">
+		
+
+        <h2>Other commands
+        </h2>
+
+
+     
+
+
+<h3 id='repeatprevious'>Repeat Previous</h3>
+
+<p>
+Repeats the previous commands in the list. 
+Unlike Compare: Redo command, this command will repeat everything instantly. <br>
+For example, this is useful for instantly retrieving multiple values from File: Load Value/String or from Stack: Pull command. <br>
+<i>If you include Repeat in your Compare: Redo steps, it will reset the repeat count to 0 and therefore it might create an infinite loop. Same goes for repeat, repeating other repeats. </i>
+</p>
+<table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Repeat amount</td>
+      <td>Int</td>
+      <td>How many times the steps should be repeated</td>
+    </tr>
+    <tr>
+      <td>Repeat Step</td>
+      <td>Int</td>
+      <td>Number of steps to repeat</td>
+    </tr>
+
+  </table>
+
+
+<button id="example" onclick="toggle_visibility('repeatstackinstant')">Show example</button>
+<div id="repeatstackinstant" style="display:none"> <img src="https://i.imgur.com/aUe2u4x.png"></div>
+
+<h3 id='twitchchatmessage'> Twitch: Chat Message</h3>
+
+<p>
+Sends a message to your Twitch chat from your default account that is connected to LioranBoard. <br>
+If you have linked more than one Twitch account to LioranBoard, you must specify the channel name, otherwise it will get sent to your default linked account's Twitch chat. <br>
+You can use emotes, whispers and mod commands (if your account has the privileges). See all possible chat commands <a href="https://help.twitch.tv/s/article/chat-commands?language=en_US#AllMods">here</a>.</p>
+<p><i>If your whisper chat command does not work, make sure your Twitch token url contains <code>whispers:edit</code> scope. Twitch IRC also sometimes refuses to send whispers for no reason. </i></p>
+
+
+
+<table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Message</td>
+      <td>String</td>
+      <td>The message to be sent over the chat.</td>
+    </tr>
+    <tr>
+      <td>Channel Name</td>
+      <td>String</td>
+      <td>Channel to send the message to. Leave blank unless you have multiple accounts connected to LB.</td>
+    </tr>
+ 
+  </table>
+
+
+  <button id="example" onclick="toggle_visibility('twitchatmessageX')">Show example</button>
+  <div id="twitchatmessageX" style="display:none"> <img src="https://i.imgur.com/dPzHFZq.png"></div>
+
+<h3 id='setclipboard'> Set Clipboard</h3>
+
+<p>
+Changes the content of your clipboard to whatever is in the string box <br>
+You can then use Right Click-Paste or CTRL+V to paste it anywhere else.
+</p>
+<table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>String</td>
+      <td>String</td>
+      <td>The string you wish to save in your clipboard.</td>
+    </tr>
+ 
+  </table>
+
+  <h3 id='loadclipboard'> Load Clipboard</h3>
+
+<p>
+  Loads the contents of your clipboard (after using CTRL+C) into a variable. <br>
+  You can use this command together with <a href="#executeprogram">Execute Program</a> command to copy any result from your .bat file into LioranBoard. Just insert <code>|clip</code> at the end of your code in your .bat file. 
+
+</p>
+<table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Variable</td>
+      <td>String</td>
+      <td>Variable name to save the string under.</td>
+    </tr>
+ 
+  </table>
+
+
+  <button id="example" onclick="toggle_visibility('gettimebatchX')">Show example</button>
+  <div id="gettimebatchX" style="display:none"> <img src="https://i.imgur.com/Iwk7E4V.png"></div>
+
+
+<h3 id='triggerbutton'> Trigger Button </h3>
+
+<p>
+Triggers any button of a given ID. You can right click on a button to retrieve its button ID. <Br>
+
+<i>Buttons can not have the same ID. If you copy and paste a button, it will have a new ID unless you deleted the original one.</i>
+
+<table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Button ID</td>
+      <td>Int</td>
+      <td>ID of a button you want to activate.</td>
+    </tr>
+    <tr>
+      <td>Queue-Able</td>
+      <td>boolean</td>
+      <td>If set to true and the button is already activated, it will wait for it to finish and trigger the button again. <br> Will get queued as many times as you execute the command. <br> If set to false and the button is already activated, nothing will happen. <br> </td>
+    </tr>
+    <tr>
+        <td>Hidden Delay</td>
+        <td>Int</td>
+        <td>This exists to make a button happen without greying it out in case the button is showing valuable info. <br>
+        The delay is hidden and cannot be cancelled (unless you use Reset or press Done in your Receiver).</td>
+      </tr>
+
+  </table>
+
+
+
+
+<h3 id='modifybutton'> Modify button</h3>
+
+<p>
+Changes the appearance of a button (color, text, image and border). <br>
+All changes are temporary, the button will return to its original state if you reset or close and reopen Receiver. <br>
+If you wish to reset the button back to its default appearance, set the values to {buttond_id, -1, -1, -1, notext, -1}.
+</p>
+<table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Button ID</td>
+      <td>Int</td>
+      <td>Button ID to change the appearance of</td>
+    </tr>
+    <tr>
+      <td>Red</td>
+      <td>Int</td>
+      <td>Red value, 0-255.</td>
+    </tr>
+    <tr>
+        <td>Green</td>
+        <td>Int</td>
+        <td>Green value, 0-255.</td>
+      </tr>
+
+      <tr>
+        <td>Blue</td>
+        <td>Int</td>
+        <td>Blue value, 0-255.</td>
+      </tr>
+
+      <tr>
+        <td>Text</td>
+        <td>String</td>
+        <td>New button text. Leave blank or enter notext to use default value. <br>
+        Using # symbol for a new line might be a bit buggy.</td>
+      </tr>
+
+      <tr>
+        <td>Picture</td>
+        <td>String</td>
+        <td>File name of a picture to use. Must be formatted as image.png <br>and placed in
+        <code>Lioranboard Receiver/image</code> folder. <br>Do not include path. 
+      Leave empty to use default value. </td>
+      </tr>
+
+      <tr>
+        <td>Border Size</td>
+        <td>Int</td>
+        <td>Size of the button border, between 0-8. Only applies if a picture is included. <br>
+        Use -1 for default border size and 0 for no border.</td>
+      </tr>
+  
+
+  </table>
+
+
+<button id="example" onclick="toggle_visibility('modifybuttonX')">Show example</button>
+<div id="modifybuttonX" style="display:none"> <img src="https://i.imgur.com/196mSQg.png"></div>
+
+<h3 id='clearbutton'> Clear Button</h3>
+
+<p>
+  Clears the given ID or all the buttons (in all decks). You can choose to clear queued buttons as well. <br>  
+  If you clear all buttons, you can specify whether you want to clear the button performing this command as well.
+</p>
+<table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Button ID</td>
+      <td>Int</td>
+      <td>Button ID to clear</td>
+    </tr>
+    <tr>
+      <td>Ongoing</td>
+      <td>boolean</td>
+      <td>Specify whether the ongoing buttons should be cleared.</td>
+    </tr>
+    <tr>
+      <td>Queue</td>
+      <td>boolean</td>
+      <td>Specify whether the queued buttons should be cleared.</td>
+    </tr>
+    <tr>
+      <td>Self</td>
+      <td>boolean</td>
+      <td>If you selected all in your Button ID field, you can choose whether you want to <br> clear this button as well. <br>
+      Does not work if the button ID is itself (in that case use False in Ongoing field).</td>
+    </tr>
+
+  </table>
+
+
+<h3 id='openurl'> Open URL</h3>
+
+<p>
+ Open a URL in your default browser. Must contain <code>http</code> or <code>https</code> to properly work. </p>
+ 
+
+<table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>URL</td>
+      <td>String</td>
+      <td>URL to open, must be a full link. For example https://twitch.tv.</td>
+    </tr>
+ 
+  </table>
+
+
+<h3 id='executeprogram'>Execute Program
+</h3>
+
+<p>
+Launches any program from your PC. It can also run some files. <br>
+If LioranBoard is running as admin, any program you launch through this command will also run as admin. 
+</p>
+<table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>File Path</td>
+      <td>String</td>
+      <td>Path to the .exe file you wish to run. Must be a full path. <br>
+      For example: <code>E:\lioranboard\LioranBoard Stream deck(PC)\LioranBoard Stream Deck.exe</code></td>
+    </tr>
+
+  </table>
+
+
+<h3 id='commandline'>Command Line </h3>
+<p>Can execute a command line just like you do in Command Prompt. Only one line of code. <br> 
+If you want to execute more than one line of code, I suggest converting it to .bat file and using <a href="#executeprogram">Execute program</a> command instead. <br>
+If LioranBoard is running as admin, commands you perform will also run as admin. <br> 
+You can use <code>|clip</code> at the end of your command to copy the result to your clipboard and then use <a href="#loadclipboard">Load Clipboard</a> command to load it into LioranBoard. <br></p>
+
+<p><i>This command can be a hit or miss. Some commands don't get executed or the CMD prematurely closes. If you encounter this problem, try converting it into batch file instead. </i>
+
+
+</p>
+<table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Command</td>
+      <td>String</td>
+      <td>Command you wish to execute.</td>
+    </tr>
+
+
+  </table>
+
+
+<button id="example" onclick="toggle_visibility('commandlineX')">Show example</button>
+<div id="commandlineX" style="display:none"> <img src="https://i.imgur.com/XdnvN9A.png"><br> <img src="https://i.imgur.com/5k2DVKQ.png"></div>
+<h3 id='sendtoextension'>Send to Extension </h3>
+
+<p>
+You can use this command to send data to an extension. <br>
+If you wish to create your own extension, look at <a href="extensionplaceholder">Extensions - Introduction</a>.<br>
+The values change depending on which extension you use. <br>
+If you just installed a new extension, but do not see its name in the list, you need to restart Transmitter or close/reopen LioranBoard. 
+</p>
+<table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Extension</td>
+      <td>String</td>
+      <td>Name of the extension.</td>
+    </tr>
+    <tr>
+      <td>Various values</td>
+      <td>String</td>
+      <td>These change depending on the specific extension. <br>
+        If you selected manual in the previous field, the JSON String must be in JSON format with <code>{}</code> on both sides. <br>
+        For example: <code>{"datatype":0, "value":321.2, "name":"Robert"}</code></td>
+    </tr>
+
+  </table>
+
+
+
+<h3 id='overtime'> Overtime
+</h3>
+
+<p>
+This command lets you add a <b>cooldown</b> to a button, artificially increasing the duration of the button and preventing it from triggering again. <br>
+This is a useful command if you want to make sure your notification alerts do not overlap or if you want to prevent viewers from triggering your buttons over and over again without any cooldown in between. 
+</p>
+<table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Overtime Duration (ms)</td>
+      <td>Int</td>
+      <td>The amount of time the overtime (cooldown) should last. <br>
+      The countdown starts as soon as the button is triggered.</td>
+    </tr>
+  
+
+  </table>
+
+
+
+<h3 id='comment'> Comment</h3>
+
+<p>
+This is helpful if you want to leave a comment explaining what each command/section does in your button. <br>
+This command does not do anything, however it still needs to be counted as a step when using Skip/Redo/Repeat commands.
+</p>
+<table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Comment</td>
+      <td>String</td>
+      <td>Whatever useful information you want to put in here for you or other users to read.</td>
+    </tr>
+ 
+  </table>
+
+
+</section>
+
+</div>
+</div>  
+</body>
+</html> 

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="main.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="main.js"></script>
+<title>Compare Commands | LioranBoard</title>
+
+</head>
+<body>
+<header>
+
+<div class=title>
+<h1>LioranBoard Documentation</h1>
+</div>    
+<div class="slide">
+<nav class="sidebar" id=sidebar>
+<div class="scroller">
+
+<dl><dt>
+<a href="main.html" >
+About LioranBoard</a></dt></dl>    
+
+<dl><dt>
+<a href="setup.html" >
+Basic Setup</a></dt></dl>     
+
+<dl>
+    <dt>
+        <a href="commands.html" class="active">
+              Commands</a>
+        </dt>
+
+        <dd>
+          <a class="sub-page" href="sourcecommands.html" >OBS Source Commands</a>
+          </dd>
+          
+      
+
+                          
+            <dd>
+              <a class="sub-page" href="recordingcommands.html"  >OBS Recording Commands</a>
+              </dd>
+          
+              <dd>
+                  <a class="sub-page" href="mathcommands.html" >Math Commands</a>
+                  </dd>
+          
+               
+            
+          
+          
+          
+                  <dd>
+                      <a class="sub-page" href="stringcommands.html" >String Commands</a>
+                      </dd>
+          
+          
+              
+          
+                      <dd>
+                          <a class="sub-page" href="stackcommands.html" >Stack Commands</a>
+                          </dd>
+          
+                          
+                  
+                          <dd>
+                              <a class="sub-page" href="comparecommands.html" >Compare Commands</a>
+                              </dd>
+                           
+          <dd>
+            <a href="#compareskipif">
+                Compare: Skip if 
+            </a>
+        </dd>
+        <dd>
+            <a href="#compareendif">
+                Compare: End if
+ 
+            </a>
+        </dd>
+        <dd>
+            <a href="#compareredoif">
+                Compare: Redo if  
+            </a>
+        </dd>
+        <dd>
+            <a href="#compareredopreviousif">
+                Compare: Redo Previous if
+            </a>
+        </dd>
+        <dd>
+            <a href="#comparevariableskipif">
+                Compare Variable: Skip if  
+            </a>
+        </dd>
+        <dd>
+            <a href="#comparevariableendif">
+                Compare Variable: End if  
+            </a>
+        </dd>
+        <dd>
+            <a href="#comparevariableredoif">
+                Compare Variable: Redo if
+            </a>
+        </dd>
+        <dd>
+            <a href="#comparevariableredopreviousif">
+                Compare Variable: Redo Previous if
+            </a>
+        </dd>
+   
+        <dd>
+          <a class="sub-page" href="filecommands.html" >File Commands</a>
+          </dd>
+
+          <dd>
+              <a class="sub-page" href="othercommands.html" >Other Commands</a>
+              </dd>
+
+</dl>
+
+<dl><dt>
+<a href="faq.html" >
+FAQ</a></dt></dl>  
+
+<dl><dt>
+<a href="extensions.html" >
+Extensions</a></dt></dl>  
+
+<dl><dt>
+<a href="troubleshooting.html" >
+Troubleshooting</a></dt></dl>  
+</div>
+</nav>
+</div>
+</header>
+
+<div class ="wrapper">
+<div class="main">
+    <section class="doc-content">
+		
+
+        <h2>Compare Commands
+        </h2>
+     
+
+
+<h3 id='compareskipif'> Compare: Skip if</h3>
+
+<p>
+    Prevents the following commands from happening if the math is true. <br>
+    Remember to always compare the same types of values - either strings or numbers. <br> 
+You can use nested Compare: Skip if commands to check for multiple conditions or to make the execution more effective. <br>
+    Make sure the delay for Compare: Skip if command is always equal or smaller than the delay for the following commands you want to include in your skip if steps. Otherwise the commands will get executed regardless of the math result. 
+
+    <button id="example" onclick="toggle_visibility('skipifwrongdelayx')">Show example</button>
+<div id="skipifwrongdelayx" style="display:none"> <img src="https://i.imgur.com/fwPQWnR.png"></div>
+
+
+
+
+<table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Variable</td>
+      <td>String</td>
+      <td>Variable name made from Math: Change Variable command</td>
+    </tr>
+    <tr>
+      <td>Math</td>
+      <td>Dropdown menu</td>
+      <td>Name of the string to parse. Use /$variable$/ if you used File: Load String command.</td>
+    </tr>
+    <tr>
+        <td>Value</td>
+        <td>String/Real</td>
+        <td>Name of the string to parse. Use /$variable$/ if you used File: Load String command.</td>
+      </tr>
+      <tr>
+        <td>Step</td>
+        <td>Int</td>
+        <td>Number of commands to skip if the result is true.</td>
+      </tr>
+  
+  </table>
+
+
+<button id="example" onclick="toggle_visibility('compareskipifX')">Show example</button>
+<div id="compareskipifX" style="display:none"> <img src="https://i.imgur.com/QeDMSHt.png"><br><img src="https://i.imgur.com/4CZfgXm.png"></div>
+
+<h3 id='compareendif'> Compare: End if</h3>
+
+<p>
+Prevents ALL commands from happening (and ends them prematurely) if the math is true. Does not affect other buttons. <br>
+Remember to always compare the same types of values - either strings or numbers. <br> 
+You can use this command to temporarily disable a button.  
+</p>
+
+<table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Variable</td>
+      <td>String</td>
+      <td>Variable name made from Math: Change Variable command</td>
+    </tr>
+    <tr>
+      <td>Math</td>
+      <td>Dropdown menu</td>
+      <td>Math to execute and check if it's true or false.</td>
+    </tr>
+    <tr>
+        <td>Value</td>
+        <td>String/Real</td>
+        <td>Value to compare to the variable value.</td>
+      </tr>
+  
+
+  
+  </table>
+
+
+<button id="example" onclick="toggle_visibility('disablebuttonX')">Show example</button>
+<div id="disablebuttonX" style="display:none"> <img src="https://i.imgur.com/6WI8Dqw.png"><br></div>
+
+<h3 id='compareredoif'> Compare: Redo if</h3>
+
+<p>
+Reactivates the following commands for as long as the math is true. Once it reactivates the commands, delay does not matter, as it will make the commands happen on a frame per second basis. <br>
+
+Remember to always compare the same types of values - either strings or numbers. <br> 
+This is a very useful command to: 
+<ul>
+<li>Continuously check whether a value has changed and immediately react to it. For example, you can make a button change its color based on which scene you're currently on. <Br> 
+
+<button id="example" onclick="toggle_visibility('redoifsceneX')">Show example</button>
+<div id="redoifsceneX" style="display:none">
+    <img src="https://i.imgur.com/pJqNzK0.png"> <br>
+<iframe width="420" height="315"
+src="https://www.youtube.com/embed/L55YtHyFsDQ?controls=1">
+</iframe></div>
+<li>
+Make a simple timer using Variable: Transition command. <br>
+<button id="example" onclick="toggle_visibility('simplertimerredoX')">Show example</button>
+<div id="simplertimerredoX" style="display:none">
+    <img src="https://i.imgur.com/QH5DF4z.png"> <br>
+</div>
+</li>
+<li>
+Make a smooth filter transition from value A to value B. For example, you can make a smooth crop animation.  <br>
+<button id="example" onclick="toggle_visibility('redofiltertransitionX')">Show example</button>
+<div id="redofiltertransitionX" style="display:none">
+    <img src="https://i.imgur.com/nmrFzsP.png"> <br>
+<iframe width="420" height="315"
+src="https://www.youtube.com/embed/kvgr0TCgWdw">
+</iframe></div>
+</li>
+
+</ul>
+</p>
+
+<table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Variable</td>
+      <td>String</td>
+      <td>Variable made from Math: Change Variable command</td>
+    </tr>
+    <tr>
+      <td>Math</td>
+      <td>Dropdown menu</td>
+      <td>Math to execute and check if it's true or false.</td>
+    </tr>
+    <tr>
+        <td>Value</td>
+        <td>String/Real</td>
+        <td>Value to compare to the variable value.</td>
+      </tr>
+      <tr>
+        <td>Step</td>
+        <td>Int</td>
+        <td>Number of commands to redo if the result is true.</td>
+      </tr>
+      <tr>
+        <td>Self</td>
+        <td>boolean</td>
+        <td>Whether you want to include the command itself in the loop. <br>
+        If set to false, it will repeat only once. </td>
+      </tr>
+  
+  </table>
+
+
+
+<h3 id='compareredopreviousif'>Compare: Redo Previous if </h3>
+
+<p>
+    Same as <a href="#compareredoif">Compare: Redo if</a>, but reactivates the previous commands instead. <br>Remember to always compare the same types of values - either strings or numbers. <br> 
+</p>
+
+<table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Variable</td>
+      <td>String</td>
+      <td>Variable made from Math: Change Variable command.</td>
+    </tr>
+    <tr>
+      <td>Math</td>
+      <td>Dropdown menu</td>
+      <td>Math to execute and check if it's true or false.</td>
+    </tr>
+    <tr>
+        <td>Value</td>
+        <td>String/Real</td>
+        <td>Second variable to compare to the first one.</td>
+      </tr>
+      <tr>
+        <td>Step</td>
+        <td>Int</td>
+        <td>Number of commands to redo if the result is true.</td>
+      </tr>
+      <tr>
+        <td>Self</td>
+        <td>boolean</td>
+        <td>Whether you want to include the command itself in the loop. <br>
+        If set to false, it will repeat only once. </td>
+      </tr>
+  
+  </table>
+
+
+
+
+<h3 id='comparevariableskipif'> Compare Variable: Skip if</h3>
+
+<p>
+Same as <a href="#compareskipif">Compare: Skip if</a> command, except you can compare two different variables instead of one variable and one value.<br>  Remember to always compare the same types of values - either strings or numbers. 
+</p>
+
+<table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Variable</td>
+      <td>String</td>
+      <td>Variable made from Math: Change Variable command.</td>
+    </tr>
+    <tr>
+      <td>Math</td>
+      <td>Dropdown menu</td>
+      <td>Math to execute and check if it's true or false.</td>
+    </tr>
+    <tr>
+        <td>Variable</td>
+        <td>String</td>
+        <td>Second variable to compare to the first one.</td>
+      </tr>
+      <tr>
+        <td>Step</td>
+        <td>Int</td>
+        <td>Number of commands to skip if the result is true.</td>
+      </tr>
+
+  
+  </table>
+
+
+
+
+<h3 id='comparevariableendif'> Compare Variable: End if</h3>
+
+<p>
+    Same as <a href="#compareendif">Compare: End if</a> command, except you can compare two different variables instead of one variable and one value. <br>   Remember to always compare the same types of values - either strings or numbers. 
+</p>
+
+<table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Variable</td>
+      <td>String</td>
+      <td>Variable made from Math: Change Variable command.</td>
+    </tr>
+    <tr>
+      <td>Math</td>
+      <td>Dropdown menu</td>
+      <td>Math to execute and check if it's true or false.</td>
+    </tr>
+    <tr>
+        <td>Variable</td>
+        <td>String</td>
+        <td>Second variable to compare to the first one.</td>
+      </tr>
+   
+  </table>
+
+
+
+
+<h3 id='comparevariableredoif'> Compare Variable: Redo if</h3>
+
+<p>Same as <a href="#compareredoif">Compare: Redo if</a> command, except you can compare two different variables instead of one variable and one value. <br> 
+    Remember to always compare the same types of values - either strings or numbers. 
+</p>
+
+<table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Variable</td>
+      <td>String</td>
+      <td>Variable made from Math: Change Variable command</td>
+    </tr>
+    <tr>
+      <td>Math</td>
+      <td>Dropdown menu</td>
+      <td>Math to execute and check if it's true or false.</td>
+    </tr>
+    <tr>
+        <td>Variable</td>
+        <td>String</td>
+        <td>Second variable to compare to the first one.</td>
+      </tr>
+      <tr>
+        <td>Step</td>
+        <td>Int</td>
+        <td>Number of commands to redo if the result is true.</td>
+      </tr>
+      <tr>
+        <td>Self</td>
+        <td>boolean</td>
+        <td>Whether you want to include the command itself in the loop. <br>
+        If set to false, it will repeat only once. </td>
+      </tr>
+  
+  </table>
+
+
+
+<h3 id='comparevariableredopreviousif'>Compare Variable: Redo Previous if </h3>
+
+<p>Same as <a href="#compareredopreviousif">Compare: Redo previous if</a> command, except you can compare two different variables instead of one variable and one value. <br> 
+    Remember to always compare the same types of values - either strings or numbers. 
+</p>
+
+<table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Variable</td>
+      <td>String</td>
+      <td>Variable made from Math: Change Variable command</td>
+    </tr>
+    <tr>
+      <td>Math</td>
+      <td>Dropdown menu</td>
+      <td>Math to execute and check if it's true or false.</td>
+    </tr>
+    <tr>
+        <td>Variable</td>
+        <td>String</td>
+        <td>Second variable to compare to the first one.</td>
+      </tr>
+      <tr>
+        <td>Step</td>
+        <td>Int</td>
+        <td>Number of commands to redo if the result is true.</td>
+      </tr>
+      <tr>
+        <td>Self</td>
+        <td>boolean</td>
+        <td>Whether you want to include the command itself in the loop. <br>
+        If set to false, it will repeat only once. </td>
+      </tr>
+  
+  </table>
+
+
+</section>
+
+</div>
+</div>  
+</body>
+</html> 

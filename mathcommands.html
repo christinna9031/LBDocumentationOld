@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="main.css" />
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="main.js"></script>
+        <title>Math Commands | LioranBoard</title>
+    </head>
+    <body>
+        <header>
+            <div class="title">
+                <h1>LioranBoard Documentation</h1>
+            </div>
+            <div class="slide">
+                <nav class="sidebar" id="sidebar">
+                    <div class="scroller">
+                        <dl>
+                            <dt>
+                                <a href="main.html"> About LioranBoard</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="setup.html"> Basic Setup</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="commands.html" class="active"> Commands</a>
+                            </dt>
+
+                            <dd>
+                                <a class="sub-page" href="sourcecommands.html">OBS Source Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="recordingcommands.html">OBS Recording Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="mathcommands.html">Math Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a href="#mathchangevariable">
+                                    Math: Change Variable
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#mathvariabletovariable">
+                                    Math: Variable to Variable
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#mathvariabletransition">
+                                    Math: Variable Transition
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#mathclamp">
+                                    Math: Clamp
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#mathrandom">
+                                    Math: Random
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#mathclearvariable">
+                                    Math: Clear Variable
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#mathstringtoreal">
+                                    Math: String to Real
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#mathhextoreal">
+                                    Math: Hex to Real
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#mathpullsourcevalue">
+                                    Math: Pull Source Value
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#mathpullfiltervisibility">
+                                    Math: Pull Filter Visibility
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#mathtriggerpull">
+                                    Math: Trigger Pull
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="stringcommands.html">String Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="stackcommands.html">Stack Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="comparecommands.html">Compare Commands</a>
+                            </dd>
+                            <dd>
+                                <a class="sub-page" href="filecommands.html">File Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="othercommands.html">Other Commands</a>
+                            </dd>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="faq.html"> FAQ</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="extensions.html"> Extensions</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="troubleshooting.html"> Troubleshooting</a>
+                            </dt>
+                        </dl>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <div class="wrapper">
+            <div class="main">
+                <section class="doc-content">
+                    <h2>Math Commands</h2>
+
+                    <h3 id="mathchangevariable">Math: Change Variable</h3>
+
+                    <p>Create or change a variable. If you try to execute math (such as +=) on a variable that was not created, it will be set to 0.</p>
+
+                    <p>
+                        <i>
+                            Variables are containers for storing data values (including numbers and strings), that can be reused over and over again. Variable names are case sensitive, meaning that "Variable" and "variable" are not going to
+                            have the same value.
+                        </i>
+                        <br />
+                    </p>
+
+                    <p>
+                        All variables inside Receiver are global and get deleted every time you close or reset Receiver. They are not unique to a button that created them and any button/deck can access them. <br />
+                        You can press Tab in the main screen of the Receiver to view all the existing variables, strings will be wrapped in " ".<br />
+                        Variables can be used as parameters or inside any string. In this case you need to wrap them like this: <code>/$variable$/</code>. Wrapping variables tells LioranBoard to work with the value of the variable rather
+                        than the variable itself. <button id="example" onclick="toggle_visibility('deathcounterX')">Show example</button>
+                    </p>
+
+                    <div id="deathcounterX" style="display: none;">
+                        <img src="https://i.imgur.com/I47kkva.png" /><br />
+                        <img src="https://i.imgur.com/7NjHwU4.png" /><br />
+                        <img src="https://i.imgur.com/P2dFSJa.png" />
+                    </div>
+                    <p>
+                        <i>
+                            Pay special attention to the operators. <code>=</code> is NOT the same as <code>=string</code>. For example, if you try to execute a string addition on a real value (number), it will result in an error and
+                            Receiver crashing.
+                            <button id="example" onclick="toggle_visibility('realadditionstringX')">Show example</button>
+                            <div id="realadditionstringX" style="display: none;"><img src="https://i.imgur.com/O5cTYHX.png" /><br /></div>
+                        </i>
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Name of the variable. Accepts anything including spaces and numbers.</td>
+                        </tr>
+                        <tr>
+                            <td>Math</td>
+                            <td>Dropdown menu</td>
+                            <td>Type of math to execute on the variable</td>
+                        </tr>
+                        <tr>
+                            <td>Value</td>
+                            <td>Real/String</td>
+                            <td>Number/String to process. Must be a direct value, not a variable name. In this case use Math: Variable to Variable command.</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="mathvariabletovariable">Math: Variable to Variable</h3>
+
+                    <p>Same as Math: Change Variable command, but processes two different variables rather than variable + direct value. Refer to <a href="#mathchangevariable">Math: Change Variable</a> for more info.</p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Name of the variable. Accepts anything including spaces and numbers.</td>
+                        </tr>
+                        <tr>
+                            <td>Math</td>
+                            <td>Dropdown menu</td>
+                            <td>Type of math to execute on the variables.</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Name of the variable to process. Must be already created.</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('variabletovarX')">Show example</button>
+                    <div id="variabletovarX" style="display: none;"><img src="https://i.imgur.com/ILFEpTy.png" /><br /></div>
+
+                    <h3 id="mathvariabletransition">Math: Variable Transition</h3>
+
+                    <p>
+                        Transition a variable from a starting value to a final value over a given duration. <br />
+                        This command can act as a timer to trigger other commands or buttons. <br />
+                        For example, if you set the start value to 10, final value to 0 and duration to 10000ms (=10 seconds), it will decrease the value by 1 every second and reach 0 after exactly 10 seconds.
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Name of the variable. Accepts anything including spaces and numbers.</td>
+                        </tr>
+                        <tr>
+                            <td>Start Value</td>
+                            <td>Real</td>
+                            <td>Starting point (where the counting starts from)</td>
+                        </tr>
+                        <tr>
+                            <td>Final Value</td>
+                            <td>String</td>
+                            <td>Finishing point (where the counting stops at)</td>
+                        </tr>
+                        <tr>
+                            <td>Allow Float</td>
+                            <td>boolean</td>
+                            <td>Float=values with decimal points, int=values without decimal points (rounded down)</td>
+                        </tr>
+                        <tr>
+                            <td>Dur.(MS)</td>
+                            <td>Int</td>
+                            <td>Duration of the transition</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('variabletranstimerx')">Show example</button>
+                    <div id="variabletranstimerx" style="display: none;">
+                        <img src="https://i.imgur.com/FeLsOw7.png" /><br />
+                        <img src="https://i.imgur.com/w7C65T8.png" />
+                    </div>
+
+                    <h3 id="mathclamp">Math: Clamp</h3>
+
+                    <p>Clamps a variable (number) between two values..</p>
+                    <ol>
+                        <li>If value of the variable < minimum allowed value, returns minimum allowed value.</li>
+                        <li>If value of the variable > maximum allowed value, returns maximum allowed value.</li>
+                        <li>If value of the variable is within the allowed range, returns the original value.</li>
+                    </ol>
+                    <p><i>Do not use Math:Clamp on strings and String:Clamp on real values, as this will result in an error and LB crashing.</i></p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Name of a variable to clamp</td>
+                        </tr>
+                        <tr>
+                            <td>Min</td>
+                            <td>Real</td>
+                            <td>Minimum value allowed</td>
+                        </tr>
+                        <tr>
+                            <td>Max</td>
+                            <td>Real</td>
+                            <td>Maximum value allowed</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('mathclampX')">Show example</button>
+                    <div id="mathclampX" style="display: none;"><img src="https://i.imgur.com/41RKT7o.png" /><br /></div>
+
+                    <h3 id="mathrandom">Math: Random</h3>
+
+                    <p>
+                        Returns a variable with a random value (int) between minimum and maximum possible value. <br />
+                        This is a basic command you can use for showing random images, playing random videos/sounds, picking a random viewer from chat etc.
+                        <br />
+                        If you wish to have more power over randomizing values (like adding weights), it is best to use  <a href="stackcommands.html">Stacks</a> instead. 
+                    </p>  <p>
+                        <i>
+                            For example, if you have 10 different images in a folder with the same name formatting (<code>image1.png</code>,  <code>image2.png</code>,  <code>image3.png</code>) and you wish to pick a random image and trigger it in OBS, you can use Math:Random and  <a href="sourcecommands.html#sourcechangesettings"> Source Change Settings </a> command.
+                        </i>
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Name of a variable to save the random value</td>
+                        </tr>
+                        <tr>
+                            <td>Min</td>
+                            <td>Real</td>
+                            <td>Minimum value possible</td>
+                        </tr>
+                        <tr>
+                            <td>Max</td>
+                            <td>Real</td>
+                            <td>Maximum value possible</td>
+                        </tr>
+
+                        <tr>
+                            <td>Float</td>
+                            <td>boolean</td>
+                            <td>
+                                If Float (number with decimal points) is set to True, it will return a random value between maximum and minimum possible value, but never the maximum or minimum value itself. <br />
+                                If Float is set to False, it will return a random value, including the maximum and minimum possible value.
+                                <br />
+                                Any float value in minimum or maximum value will be omitted if set to False.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('mathrandomimageX')">Show example</button>
+                    <div id="mathrandomimageX" style="display: none;">
+                        <img src="https://i.imgur.com/rtUymRu.png" /><br />
+                        <img src="https://i.imgur.com/OHNp81Z.png" />
+                    </div>
+
+                    <h3 id="mathclearvariable">Math: Clear Variable</h3>
+
+                    <p>
+                        Deletes a variable. It will also remove it from the list of variables (when you press Tab in the main Receiver menu). <br />
+                        Useful command to keep your list clean and uncluttered.
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Name of a variable to delete</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="mathstringtoreal">Math: String to Real</h3>
+
+                    <p>Turns a string into a real value (=number).</p>
+                    <ul>
+                        <li>
+                            Turning a string <code>"-1.20"</code> into a real value returns <code>-1.20</code>.
+                        </li>
+                        <li>Turning a string <code>"Hello World"</code> into a real value returns <code>0</code>.</li>
+                        <li>Turning a string <code>"123 Hello World"</code> into a real value returns <code>123</code>.</li>
+                        <li>Turning a string <code>"Hello World 123"</code> into a real value returns <code>0</code>.</li>
+                        <li>Turning a string <code>"123 Hello World 456"</code> into a real value returns <code>123</code>.</li>
+                    </ul>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Name of a variable to save the string as a real value</td>
+                        </tr>
+                        <tr>
+                            <td>String Variable</td>
+                            <td>String</td>
+                            <td>Name of a variable containing the string you wish to become real</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="mathhextoreal">Math: Hex to Real</h3>
+
+                    <p>Converts a hexadecimal string into a real (decimal) number.</p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Name of a variable to save the hex as a real value</td>
+                        </tr>
+                        <tr>
+                            <td>String Variable</td>
+                            <td>String</td>
+                            <td>Name of a variable containing the hex you wish to become real</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="mathpullsourcevalue">Math: Pull Source Value</h3>
+
+                    <p>
+                        Pulls the last known value of a source. Will return 0 if the source doesn't exist. <br />
+                        This may not be accurate if the source is inside a group. In this case try putting the <code>group name</code> instead of the <code>scene name</code> or using a nested scene instead of a group.<br /> </p>
+                      <p> <i> Very useful command to use together with Source:Motion commands. For example, you can pull the current X and Y position of a source and then use <a href="sourcecommands.html#sourcemotionposition"> Source Motion: Position </a> to smoothly move it across the screen. </i></p>
+                   
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Scene</td>
+                            <td>String</td>
+                            <td>Scene name containing the source</td>
+                        </tr>
+                        <tr>
+                            <td>Source</td>
+                            <td>String</td>
+                            <td>Source name to pull the value</td>
+                        </tr>
+
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name to save the pulled value into</td>
+                        </tr>
+
+                        <tr>
+                            <td>Pull</td>
+                            <td>Dropdown menu</td>
+                            <td>
+                                <ul>
+                                    <li>X/Y position - returns position of the source</li>
+                                    <li>X/Y scale - returns scale of the source, 1=100%</li>
+                                    <li>Rotation - returns the degree of rotation of the source (0-360)</li>
+                                    <li>Volume - returns the volume percentage of the source (0-100)</li>
+                                    <li>Muted - returns 1 or 0 whether the source is muted or not</li>
+                                    <li>Visible - returns 1 or 0 whether the source is visible or not</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('mathpullsourcevX')">Show example</button>
+                    <div id="mathpullsourcevX" style="display: none;"><img src="https://i.imgur.com/fC0E4Ns.png" /><br /></div>
+
+                    <h3 id="mathpullfiltervisibility">Math: Pull Filter Visibility</h3>
+
+                    <p>Pulls the last known visibility of a specified filter<br /></p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Source</td>
+                            <td>String</td>
+                            <td>Source name containing the filter</td>
+                        </tr>
+                        <tr>
+                            <td>Filter</td>
+                            <td>String</td>
+                            <td>Name of a filter to pull visibility from</td>
+                        </tr>
+
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name to save the pulled value into</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="mathtriggerpull">Math: Trigger Pull</h3>
+
+                    <p>
+                        This command is used in combination with any triggers you set up for the button. <br />
+                        For example, if you set up a button with a Twitch Subs trigger, you can then pull the subscriber's name once it gets activated.
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name to save the pulled value into</td>
+                        </tr>
+                        <tr>
+                            <td>Pull value</td>
+                            <td>Real</td>
+                            <td>Value you wish to pull from the trigger</td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="3">
+                                <table class="smalltable">
+                                    <tr>
+                                        <td colspan="2"><b>Bits trigger</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Value</td>
+                                        <td>Description</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0</td>
+                                        <td>Name of the viewer who donated the bits (display name not available)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Amount of bits donated</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Amount TOTAL of bits donated ever by the viewer</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Message from the viewer</td>
+                                    </tr>
+                                </table>
+
+                                <table class="smalltable">
+                                    <tr>
+                                        <td colspan="2"><b>Subscriber Trigger</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Value</td>
+                                        <td>Description</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0</td>
+                                        <td>Name of the viewer who subbed or gifted the sub.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Tier of the sub. Returns "Tier 1", "Tier 2", "Tier 3", or "Prime".</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Type of the sub. Returns "sub", "resub", "subgift", or "anonsubgift".</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Recipient (if the sub was gifted)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Message from the subscriber</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Total number of months subbed (will return 0 if not found)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Display name of the subscriber</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Display name of the recipient</td>
+                                    </tr>
+                                </table>
+
+                                <table class="smalltable">
+                                    <tr>
+                                        <td colspan="2"><b>Chat message trigger</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Value</td>
+                                        <td>Description</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0</td>
+                                        <td>Display name of the viewer who sent the message</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>The whole message</td>
+                                    </tr>
+                                    
+                                </table>
+                                <table class="smalltable">
+                                    <tr>
+                                        <td colspan="2"><b>Raid and Host trigger</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Value</td>
+                                        <td>Description</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0</td>
+                                        <td>Name of the hoster/raider (display name delivered only during a host)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Amount of viewers</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Display name of the hoster/raider</td>
+                                    </tr>
+                                </table>
+
+                                <table class="smalltable">
+                                    <tr>
+                                        <td colspan="2"><b>Channel point redeem trigger</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Value</td>
+                                        <td>Description</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0</td>
+                                        <td>Name of the viewer who redeemed it (display name not available)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Name of the redeem</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Viewer Message (if entering a message is required)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Reward ID of the specified channel point</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Redeem ID of the redemption itself (so you can cancel or fulfill it)</td>
+                                    </tr>
+                                </table>
+
+                                <table class="smalltable">
+                                    <tr>
+                                        <td colspan="2"><b>Channel point redeem trigger with message</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Value</td>
+                                        <td>Description</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0</td>
+                                        <td>Name of the viewer who redeemed it (display name not available)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Name of the redeem</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Full viewer Message</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Reward ID of the specified channel point</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Redeem ID of the redemption itself (so you can cancel or fulfill it)</td>
+                                    </tr>
+                               
+                                </table>
+
+                                <table class="smalltable">
+                                    <tr>
+                                        <td colspan="2"><b>Gift Sub Amount</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Value</td>
+                                        <td>Description</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0</td>
+                                        <td>Name of the gifter ("anonymousgifter" if anon gift subs)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Display Name of the gifter ("AnAnonymousGifter" if anon gift subs)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Amount of subs gifted</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Type of tiers: "Tier 1","Tier 2" or "Tier 3"</td>
+                                    </tr>
+                                </table>
+
+                                <table class="smalltable">
+                                    <tr>
+                                        <td colspan="2"><b>Extension Trigger</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Value</td>
+                                        <td>Description</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0</td>
+                                        <td>Extension trigger name</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Value1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Value2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Value3</td>
+                                    </tr>
+                                                                    </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Turn to real</td>
+                            <td>boolean</td>
+                            <td>Whether you want to turn the pulled value to real (number)</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('mathtriggerpullbitsX')">Show example</button>
+                    <div id="mathtriggerpullbitsX" style="display: none;"><img src="https://i.imgur.com/FJCngAb.png" /><br /></div>
+                </section>
+            </div>
+        </div>
+    </body>
+</html>

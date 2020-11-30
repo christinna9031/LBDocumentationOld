@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en”>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="main.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="main.js"></script>
+<title>Setup | LioranBoard</title>
+
+</head>
+<body>
+<header>
+
+<div class=title>
+<h1>LioranBoard Documentation</h1>
+</div>
+<div class="slide">
+<nav class="sidebar" id=sidebar>
+
+
+  <dl><dt>
+    <a href="main.html" >
+    About LioranBoard</a></dt></dl>    
+      
+<dl>
+<dt>
+<a href="setup.html" class="active">
+  Basic Setup</a>
+</dt>
+
+<dd>
+<a href="#prerequisites">
+ Prerequisites
+</a>
+</dd>
+
+<dd>
+<a href="#installation" >
+Installation
+</a>
+</dd>
+
+<dd>
+    <a href="#addingtransmitter" >
+    Adding Transmitter to OBS
+    </a>
+    </dd>
+
+
+<dd>
+<a href="#websocket" >
+OBS websocket connection
+</a>
+</dd> 
+<dd>
+<a href="#twitchlink" >
+    Linking your Twitch account
+</a>
+</dd>    
+
+<dd>
+  <a href="#renewingtoken" >
+     Renewing Twitch token
+  </a>
+  </dd>  
+
+<dd>
+    <a href="#connectdeckpc" >
+        Stream Deck on PC
+    </a>
+    </dd>
+
+    <dd>
+        <a href="#androiddeckconnect" >
+            Stream Deck on Android devices 
+        </a>
+        </dd>
+
+        <dd>
+          <a href="#deckandbuttons" >
+             Deck and buttons 
+          </a>
+          </dd>
+          <dd>
+            <a href="#notificationsystem" >
+              Notification system
+            </a>
+            </dd>
+            <dd>
+              <a href="#backingupdata" >
+                Data backup
+              </a>
+              </dd>
+              <dd>
+                <a href="#alternatetwitchaccount" >
+                  Alternate Twitch account
+                </a>
+                </dd>
+
+
+</dl>    
+    
+<dl><dt>
+  <a href="commands.html" >
+  Commands</a></dt></dl>  
+  
+  <dl><dt>
+  <a href="faq.html" >
+  FAQ</a></dt></dl>  
+  
+  <dl><dt>
+  <a href="extensions.html" >
+  Extensions</a></dt></dl>  
+  
+  <dl><dt>
+  <a href="troubleshooting.html" >
+  Troubleshooting</a></dt></dl>  
+
+
+   
+
+</nav>
+</div>
+</header>
+<div class ="wrapper">
+<div class="main">
+    <section class="doc-content">
+			<h2 id="setup">Basic Setup</h2>
+			
+			
+
+<h3 id="prerequisites">Prerequisites</h3>
+
+
+<ul>
+  <li>OBS Studio 	<a href="https://obsproject.com/">Download link</a>
+   <br>LioranBoard is to be used in combination with OBS Studio. It does not work with Streamlabs OBS. </li>
+  <li>OBS Websocket	<a href="https://github.com/Palakis/obs-websocket">Download link</a>
+    <br>This is how LioranBoard communicates with OBS. We recommend installing the latest version to avoid any issues. 
+</li>
+</ul>
+
+
+<h3 id="installation">Installation</h3>
+
+<p>Complete installation instructions: </p>
+
+<iframe width="420" height="315"
+src="https://www.youtube.com/embed/wLqz5um0hjQ?controls=1">
+</iframe>
+<br><br>
+<p>After downloading and extracting the .zip file, you will see a few different folders: </p>
+
+    <ul>
+    <li>   LioranBoard Receiver <br>
+        This folder contains the main editor called LioranBoard Receiver.exe, where you set up all the important connections, create buttons and commands. </li>
+ 
+    <li>  LioranBoard Stream Deck (PC) <br>
+        This is your PC Stream Deck which connects to the Receiver. From here you can trigger your buttons that you created in the Receiver. </li>
+
+    <li>  
+     LioranBoard Stream deck (Android) <br>
+       This is your Android Stream Deck which can be used to connect to Receiver on any Android device. </li>
+     
+    </ul>
+   <p>For now you can ignore the other folders. </p> 
+
+
+
+
+<h3 id="addingtransmitter">Adding Transmitter to OBS</h3>
+
+<p>Transmitter (tsl_transmitter.html) is a way for LioranBoard to communicate with Twitch and all the extensions. It needs to be running at ALL times and always only ONE instance. </p>
+<p><b>There are three different ways to use Transmitter: 
+</b>
+
+<ol type="1">
+<li>
+
+    As a dock in OBS <br> This is the simplest and most effective way. You can create a dock by clicking on View-Docks-Custom Browser Docks and fill in the path to the file. Click on apply and place the dock wherever it suits you in OBS. You will need to keep it open at all times. </li>
+
+<button id="example" onclick="toggle_visibility('obsdock')">Show example</button>
+
+    <div id="obsdock"  style="display:none">  <img src="https://i.imgur.com/uUpvr4N.png "></div>
+    
+<li>As a browser source in OBS. <br> This is highly discouraged as it is easy to lose track of it and accidentally get two transmitters running at the same time (which you then have to locate and disable/remove, else LB will not work). 
+</li><li>
+    Running it in your browser outside of OBS. <br> This is needed in some cases, for example if you want to use Text to Speech extension. 
+</li>
+</ol>
+<p>
+If you did everything right, there should be a text saying “Connected to LioranBoard” inside your Transmitter. <br>You should also see a yellow notification message in your Receiver saying “TSL Transmittor is connected”. <br>
+
+    If you see an error message that second transmitter tried to connect, you need to locate and close it for LB to work properly. 
+    
+    <br>The transmitter contains a few buttons and boxes that you can use to test various Twitch alerts (once you set them up in your editor).
+   
+    <br>
+    <button id="example" onclick="toggle_visibility('transmitterbutton')">Show example</button>
+
+    <div id="transmitterbutton"  style="display:none">  <img src="https://i.imgur.com/kOUoBha.png"></div> 
+
+
+    <h3 id="websocket">Connecting to OBS websocket</h3>
+    <p>
+        If you installed all the necessary dependencies, go to your OBS-Tools-Websockets Server Settings and make sure Enable Websockets server is checked. 
+        You can also enable authentication and set up a password if desired. 
+  
+    <button id="example" onclick="toggle_visibility('websocketobssettings')">Show example</button>
+
+    <div id="websocketobssettings"  style="display:none">  <img src="https://i.imgur.com/UBYECH0.png"></div> 
+    <p>Launch your LioranBoard Receiver and click on Connect to OBS. If you set up a password in the earlier step, you also need to click on Options and fill out OBSwebsocket Password field. 
+    <button id="example" onclick="toggle_visibility('obslboptions')">Show example</button>
+
+    <div id="obslboptions"  style="display:none">  <img src="https://i.imgur.com/slg8evY.png "></div>
+
+    <p>If connected successfully, the Connect to OBS button will turn gray and you will see a yellow notification message at the bottom of your Receiver, shortly followed by another yellow message "OBS data have been fetched".
+
+    <button id="example" onclick="toggle_visibility('obslbsuccess')">Show example</button>
+
+    <div id="obslbsuccess"  style="display:none">  <img src="https://i.imgur.com/njcf0z7.png"></div>
+
+<h3 id="twitchlink">Linking your Twitch account </h3>
+
+<p>
+    Open LioranBoard Receiver and click on Link your Twitch. You can select which Authorization scopes (permissions) you want LB to be able to use. Default values are recommended, unless you're installing a new extension that requires some additional ones.
+    Next step you need to do is click on Open URL. 
+    <button id="example" onclick="toggle_visibility('linkurl')">Show example</button>
+
+    <div id="linkurl"  style="display:none">  <img src="https://i.imgur.com/LM7Zjfg.png"></div>
+<p>Click on Authorize and LB should do the rest.
+<button id="example" onclick="toggle_visibility('authorize')">Show example</button>
+
+<div id="authorize"  style="display:none">  <img src=" https://i.imgur.com/t5XT330.png "></div>
+<p>You can then click on Connect to Twitch in your Receiver to test your connection (Transmitter must be running). <br>
+    You should see these following yellow notification messages and it is important to check that ALL of these messages actually come up: 
+</p>
+<ul>
+    <li>Twitch is connected</li>
+        <li>   Listening for Channel points</li>
+            <li>  Listening for Bits donations</li>
+                <li>   Listening for Channel subscriptions</li>
+                    <li>  Listening for Chat Moderation</li>
+                        <li> Connected to Twitch chat. 
+        </li>
+</ul>
+
+<p>Congratulations, your Twitch account is now connected. </p>
+
+
+<h3 id="Renewing">Renewing your Twitch token</h3>
+
+<p>
+    You might get a pop message saying that your Twitch token is expired.
+    <button id="example" onclick="toggle_visibility('tokenexpiredX')">Show example</button>
+    <div id="tokenexpiredX"  style="display:none">  <img src="https://i.imgur.com/YCHls2v.png"></div>
+
+  <p> This is a safety feature implemented by Twitch - your token expires every 2 months. <br>
+      In this case you want to click on Link your Twitch, press the Unlink button and follow the same procedure for <a href="#twitchlink">linking your Twitch account</a>. 
+
+   
+
+
+<h3 id="connectdeckpc">Connecting to Stream Deck on PC</h3>
+<p>This is as simple as going into your LioranBoard Stream Deck(PC) folder and clicking on Connect. You should not need to change any of the default settings. </p>
+
+<h3 id="androiddeckconnect">Connecting to Stream Deck on Android devices </h3>
+<p>LioranBoard Stream Deck only works with Android devices and is not available in Google Store. You need to manually transfer the .apk file found in your LioranBoard Stream deck(Android) folder to your Android device and install it (you might need to change permissions to install external files).<br>
+On your computer, go to <code>LioranBoar</code> folder and run <code>whats my local ip.bat</code> file. Write down the IPv4 Address (it should start with 192.168.).
+<button id="example" onclick="toggle_visibility('ipaddress')">Show example</button>
+
+<div id="ipaddress"  style="display:none">  <img src=" https://i.imgur.com/zkrYaXM.png"></div>
+<p>
+ Use it as an IP address for your Android Stream Deck connection. Port should stay 9423, unless you changed it in your Receiver. 
+ <button id="example" onclick="toggle_visibility('ipstreamdeck')">Show example</button>
+
+ <div id="ipstreamdeck"  style="display:none">  <img src="https://i.imgur.com/4UKQJKn.png"></div>
+<h3 id="deckandbuttons">Deck and buttons </h3>
+<p>
+ 
+  You can either use one of the premade decks or create a new one by clicking on Add New Deck. Remember that decks are just there to make your buttons more organized. As long as the Receiver is running, every single deck and its buttons are active.
+  After creating a new deck, you can change its name, background color and grid size. </p> <p>
+<b>Adding a new button</b><br>
+Right click anywhere on the grid and select Create Blank Button or choose one of the popular commands. Name your button and click Create. You can freely resize it, change its color, picture and text as well. <br>
+There are a few options that pop up by right clicking on the newly created button: 
+<ul>
+  <li><b>
+Change color/text/image
+  </b><br>
+Pretty self explanatory. One thing to note that all images you add are immediately copied over to Receiver/image folder and resized. Png format only. </li>
+<li>
+<b>Add keyboard macro</b> <br>
+This adds a keyboard macro to your button that will be executed when the button is pressed. 
+ Only keyboard keys are supported, including f13 to f24 keys. This is useful for triggering actions in your other programs (both Receiver and the other program needs to be running in admin mode for it to work). Keyboard macros have nothing to do with your button commands. 
+
+
+</li>
+<li><b>Add sound effects, sound mods, stop all sounds</b><br>Receiver only supports .ogg files. You can use Audacity to convert your sound files to .ogg files. LioranBoard's sound system is quite limited and it's often more practical to trigger sound files through OBS (<a href="sourcecommands.html#sourcechangesettings">Source Change Settings </a> command) rather than LioranBoard itself.</li>
+
+<li>
+  <b>Add/Edit Commands </b><br>
+  This is where the magic happens. This is your empty canvas where you create your own code which gets executed when you press the button. You can use parameters, conditions, delays, pull data from OBS websocket and Twitch, do some pretty complex math operations etc.
+</li><li>
+  <b>Add Switch Deck</b><br>
+  This allows you to easily switch between decks in your Stream Deck.</li>
+<li>
+  <b>Add Twitch Triggers</b><br>
+  You can specify conditions that trigger your button. For example, you can make a button that will trigger with a Twitch chat message <code>!command</code> or whenever someone raids you. Wildcards can be added as well. 
+</li>
+<li>
+  <b>Add Drag press</b><br>
+  None: Activate when pressed <br>
+   Drag: Activate when pressed or moved over<br> Multiple Drag: Same as Drag, but it will activate every time it's moved over again without lifting the finger.
+</li>
+<li>
+<b>Copy/Delete button</b><br>
+All buttons have unique IDs. If you copy a button, it will get a new ID different from the original one. 
+</li>
+<li>
+  <b>Export/Import JSON</b><br>
+ You can use this feature to share your buttons with other people. <br>
+ Click on Export JSON, which will be saved to your clipboard. You can then directly send it to someone or use <a href="pastebin.com">Pastebin.com.</a><br>Once you have the JSON string ready in your clipboard, you can then use Import JSON and the button will be copied over. 
+  </li>
+</ul>
+
+
+
+<h3 id="notificationsystem">Notification system</h3>
+<p>LioranBoard comes with a fully functional notification animation system for Twitch, ready to use for OBS. See here what it looks like: </p>
+  <iframe width="420" height="315"
+src="https://www.youtube.com/embed/ilDE_vbM7vs?controls=1">
+</iframe> <br> <p>
+  To use it, just click on Install extension in Lioranboard, Go to <code>Lioranboard/LB notification system</code> folder and select <code>LioranBoard Notification System.lbe</code>, then select the Transmitter you are using and follow all the steps (there is an html guide included in the folder as well). <br>
+ The notification system covers Subs, Followers, Bits, Raid and Host. There is a Text to Speech option as well, which requires running Transmitter outside of OBS in your browser.</p>
+
+<h3 id="backingupdata">Backing up data </h3>
+<p><b>Update to a new version without losing any data</b> <br>
+  Replace LioranBoard Receiver.exe and data.win with the new files. 
+  It is also recommended to switch to the new Transmitter (you will need to install all extensions again). 
+  To update the Stream Deck, you can just replace the files. </p>
+  
+  <p><b>How to back up data</b><br>
+  There is a small text at the bottom in LioranBoard Receiver which says either local or Appdata. 
+  <ul><li> Local - go to <code>Lioranboard Receiver</code> folder and copy all the configs.ini and connect.ini files. You can also back up images and sounds folder. </li>
+  <li> Appdata - go to <code>C:/user/%username/appdata/local/lioranboard</code> and copy all the files.</li>
+</ul>
+<h3 id="alternatetwitchaccount">Linking alternate Twitch account </h3>
+<p>
+  <ol>
+  <li>In your Receiver, click on Link your Twitch - Unlink and close the menu. </li>
+  <li>Make sure you are logged in with your alternate/bot Twitch account in your browser at <a href="https://twitch.tv">https://twitch.tv</a>. Link your Twitch bot/alternate account first by following the same steps in <a href="#twitchlink">Linking your Twitch account</a> section. </li>
+  <li>Once your bot account is linked successfully, go back to your browser, sign out and log in with your main Twitch account.</li>
+  <li>In LB Receiver click on Link your Twitch again, but this time do NOT open the URL directly. Instead Copy it and close the window (ignore the warning and press Yes).</li>
+  <li>Go back to your browser (make sure you're logged in with your main Twitch account) and paste the URL you copied earlier. Once you accept the permissions, you will be redirected to an empty page with an URL that looks like this: <code>http://localhost:29521/tokenhtml#access_token=<mark id="accept">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</mark>&scope=bits...</code> Inside the URL is your <mark id="accept">access token</mark> (excluding the & sign). Copy it.</li>
+  <li>Open <code>connect.ini</code> file in your <code>Lioranbord Receiver</code> or <code>Appdata/Local/Lioranboard</code> folder. 
+  You want to add this line to your file: <br>
+  
+    <img src="https://i.imgur.com/EigAz2y.png"></li>
+
+  <li>Save the file and restart LioranBoard Receiver. If you did everything right, you should see four yellow messages that say: Listening for alternate account... after LB connects to your Transmitter. </li>
+</ol>
+  <p>When using the command Twitch: Chat Message, you will now need to specify the channel name, else it will be sent in your alternate account's chat, not yours.
+  You will need to renew your tokens every 2 months. Keep in mind that LB doesn't offer a way to tell where the Twitch triggers come from, whether it's your bot or main account.</p>
+
+	</section>
+    
+</div>
+</div>
+   
+</body>
+</html> 

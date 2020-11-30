@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="main.css" />
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="main.js"></script>
+        <title>Stack Commands | LioranBoard</title>
+    </head>
+    <body>
+        <header>
+            <div class="title">
+                <h1>LioranBoard Documentation</h1>
+            </div>
+            <div class="slide">
+                <nav class="sidebar" id="sidebar">
+                    <div class="scroller">
+                        <dl>
+                            <dt>
+                                <a href="main.html"> About LioranBoard</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="setup.html"> Basic Setup</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="commands.html" class="active"> Commands</a>
+                            </dt>
+
+                            <dd>
+                                <a class="sub-page" href="sourcecommands.html">OBS Source Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="recordingcommands.html">OBS Recording Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="mathcommands.html">Math Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="stringcommands.html">String Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="stackcommands.html">Stack Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a href="#introduction">
+                                    Introduction
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#stackadd">
+                                    Stack: Add
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#stackreplace">
+                                    Stack: Replace
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#stackpull">
+                                    Stack: Pull
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#stackpeek">
+                                    Stack: Peek
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#stackfind">
+                                    Stack: Find
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#stackgetsize">
+                                    Stack: Get Size
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#stackrandom">
+                                    Stack: Random
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#stackshuffle">
+                                    Stack: Shuffle
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#stackclear">
+                                    Stack: Clear
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#stackstringify">
+                                    Stack: Stringify
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#stackparse">
+                                    Stack: Parse
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="comparecommands.html">Compare Commands</a>
+                            </dd>
+                            <dd>
+                                <a class="sub-page" href="filecommands.html">File Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="othercommands.html">Other Commands</a>
+                            </dd>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="faq.html"> FAQ</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="extensions.html"> Extensions</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="troubleshooting.html"> Troubleshooting</a>
+                            </dt>
+                        </dl>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <div class="wrapper">
+            <div class="main">
+                <section class="doc-content">
+                    <h2>Stack Commands</h2>
+
+                    <h3 id="stringformat">Introduction</h3>
+
+                    <p>
+                        Stack is a special variable which can hold more than one value at a time. It works a bit like an array. <br />
+                        If you have a list of items (for example viewer names), storing them in single variables would look like this:<br />
+                    </p>
+
+                    <ul>
+                        <li><code>var name1 = "Lioran"</code></li>
+                        <li><code>var name2 = "Neverwho"</code></li>
+                        <li><code>var name3 = "Daryl"</code></li>
+                    </ul>
+                    <p>
+                        Which seems quite inefficient if you happen to have a lot of names to store. The answer is to store them all in a stack, which can hold many values under a single name and you can access them by referring to an index
+                        number: <br />
+                    </p>
+                    <ul>
+                        <li><code>stack names = ["Lioran", "Neverwho", "Daryl"]</code></li>
+                    </ul>
+                    <p>
+                        Stack values can be viewed by pressing Tab in the main Receiver menu and typing the full name of the stack.<br />
+                        One thing to note is that a stack is cleared every time you close or reset Receiver. If you wish to save it, you can use <a href="#stackstringify">Stack: Stringify</a> and    <a href="filecommands.html#filesavestring">
+                            File: Save String
+                        </a> commands.
+                    </p>
+
+                    <h3 id="stackadd">Stack: Add</h3>
+
+                    <p>Adds a value to a given stack. Will create one if it doesn't exist yet. <br /></p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Stack Name</td>
+                            <td>String</td>
+                            <td>A stack name. Can be anything.</td>
+                        </tr>
+                        <tr>
+                            <td>Position</td>
+                            <td>Real</td>
+                            <td>
+                                Position to add the value to. Can be top for the top of the stack or 0 (bottom of the stack).<br />
+                                Any number higher than the stack size will be regarded as the top.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Value</td>
+                            <td>Real/String</td>
+                            <td>Value to save in the stack. Can be either a number or a string.</td>
+                        </tr>
+                        <tr>
+                            <td>Real</td>
+                            <td>boolean</td>
+                            <td>Specify if you want to save a real value (number) or a string. True=real or False=string.</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('stackaddX')">Show example</button>
+                    <div id="stackaddX" style="display: none;"><img src="https://i.imgur.com/QfozUi9.png" /><br /></div>
+
+                    <h3 id="stackreplace">Stack: Replace</h3>
+
+                    <p>
+                        Replaces a value inside a stack, deleting the previous one and replacing it by the new one.
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Stack Name</td>
+                            <td>String</td>
+                            <td>A stack name you want to work with.</td>
+                        </tr>
+                        <tr>
+                            <td>Position</td>
+                            <td>number</td>
+                            <td>Position of the value to be replaced. Either a number (first position=0) or top=top of the stack and bottom=bottom of the stack.</td>
+                        </tr>
+                        <tr>
+                            <td>Value</td>
+                            <td>String/Real</td>
+                            <td>The new value to save.</td>
+                        </tr>
+                        <tr>
+                            <td>Real</td>
+                            <td>String</td>
+                            <td>Specify if you want to save a real value (number) or a string. True=real or False=string.</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('stackreplaceX')">Show example</button>
+                    <div id="stackreplaceX" style="display: none;"><img src="https://i.imgur.com/UI0hPwV.png" /><br /></div>
+
+                    <h3 id="stackpull">Stack: Pull</h3>
+
+                    <p>
+                        Pulls a value from a stack by deleting it from the stack and saving it inside the selected variable.
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Stack Name</td>
+                            <td>String</td>
+                            <td>A stack name you want to pull the value from.</td>
+                        </tr>
+                        <tr>
+                            <td>Position</td>
+                            <td>number</td>
+                            <td>Position to pull from. Either a number (first position=0) or top=top of the stack and bottom=bottom of the stack.</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name to save the pulled value under.</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('stackpullX')">Show example</button>
+                    <div id="stackpullX" style="display: none;"><img src="https://i.imgur.com/jiP2p5Z.png" /><br /></div>
+
+                    <h3 id="stackpeek">Stack: Peek</h3>
+
+                    <p>Reads a value from the stack and saves it inside the selected variable. Unlike <a href="#stackpull">Stack: Pull</a> command, Stack: Peek does not delete the value from the stack.</p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Stack Name</td>
+                            <td>String</td>
+                            <td>Stack name you want to pull the value from.</td>
+                        </tr>
+                        <tr>
+                            <td>Position</td>
+                            <td>Int</td>
+                            <td>Position to pull from. Either a number (first position=0) or top=top of the stack and bottom=bottom of the stack.</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name to save the value under.</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('stackpeekX')">Show example</button>
+                    <div id="stackpeekX" style="display: none;"><img src="https://i.imgur.com/Mt6iobw.png" /><br /></div>
+
+                    <h3 id="stackfind">Stack: Find</h3>
+
+                    <p>Finds the first instance of a given value inside a stack. Needs to be the exact value. Case sensitive. Will return <code>-1</code> if not found.</p>
+                    <ul>
+                        <li>Find <code>"blue"</code> in <code>["yellow","red","blue","orange","blue"]</code> will return <code>2</code></li>
+                        <li>Find <code>"blue"</code> in <code>["yellow","red","blue cat","orange"]</code> will return <code>-1 (not found)</code></li>
+                        <li>Find <code>"blue"</code> in <code>["yellow","Blue","blue cat","blue"]</code> will return <code>3</code></li>
+                    </ul>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Stack Name</td>
+                            <td>String</td>
+                            <td>Stack name you want to pull the value from.</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name to save the position of the found value under.</td>
+                        </tr>
+                        <tr>
+                            <td>Find</td>
+                            <td>String/Real</td>
+                            <td>The value to find in the stack.</td>
+                        </tr>
+                        <tr>
+                            <td>Real</td>
+                            <td>boolean</td>
+                            <td>Specify if the found value is real (number) or a string. True=real or False=string.</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="stackgetsize">Stack: Get Size</h3>
+
+                    <p>
+                        Returns the size of a stack (= how many values it holds) and saves it under the given variable.
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Stack Name</td>
+                            <td>String</td>
+                            <td>Stack name you want to know the size of.</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name to save the size of the stack.</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="stackrandom">Stack: Random</h3>
+
+                    <p>
+                        Returns a random value inside the stack. Very useful for displaying a random image or playing a random sound. <br />
+                        You can create a second stack with the same name + <code>_weight</code> added to it and add values that will act as weights (chances to happen) to add to the randomization.
+                        <button id="example" onclick="toggle_visibility('stackrandomweightsX')">Show example</button>
+                    </p>
+
+                    <div id="stackrandomweightsX" style="display: none;"><img src="https://i.imgur.com/GOqtUVZ.png" /><br /></div>
+                    <p>If no _weight stack is found or _weight stack is not the same size, the randomization will happen with an equal chance for each value.</p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Stack Name</td>
+                            <td>String</td>
+                            <td>A stack name you want to get the random value from.</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name to save the random value under.</td>
+                        </tr>
+                        <tr>
+                            <td>Variable (position)</td>
+                            <td>String (optional)</td>
+                            <td>You can enter another Variable name if you wish to get the position of the random value. Can leave blank.</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('stringformatX')">Show example</button>
+                    <div id="stringformatX" style="display: none;"><img src="https://i.imgur.com/GOqtUVZ.png" /> <img src="https://i.imgur.com/qLOOjgG.png" /><br /></div>
+
+                    <h3 id="stackshuffle">Stack: Shuffle</h3>
+
+                    <p>
+                        Shuffles a stack, randomizing the order of every value in it.
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Stack Name</td>
+                            <td>String</td>
+                            <td>A stack name you want to shuffle.</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="stackclear">Stack: Clear</h3>
+
+                    <p>
+                        Deletes an entire stack.
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Stack Name</td>
+                            <td>String</td>
+                            <td>A stack name you want to delete.</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="stackstringify">Stack: Stringify</h3>
+
+                    <p>
+                        Returns a <a href="https://www.w3schools.com/js/js_json_syntax.asp">JSON string</a> of the whole stack. First value will be listed as <code>"0"</code>, second one as <code>"1"</code>, etc. <code>"name" </code> and
+                        <code>"size"</code> values will be also included. <br />
+                        Default JSON string format is <code>{"size":3, "0":"white cat", "1":"blue car", "2":8}</code>. <br />
+                        You can use this command together with <a href="filecommands.html#filesavestring">
+                            File: Save String
+                        </a> command to save the stack values into .ini file. Follow this process:
+                    </p>
+
+                    <ol>
+                        <li>Have a stack you want to save.</li>
+                        <li>Use Stack: Stringify command on the stack.</li>
+                        <li>
+                            *(optional) Use String: Replace command on the variable containing the stringified stack. Replace all the double quotes <code>"</code> with another character (I recommend using an obscure character, such as
+                            <code>Ø</code>)
+                        </li>
+                        <li>
+                            Use File: Save String to save it into .ini file. This file will be located either in your <code>Lioranboard/LioranBoard Receiver</code> folder or in
+                            <code>C:\Users\USERNAME\AppData\Local\LioranBoard</code> folder.
+                        </li>
+                    </ol>
+                    <p>
+                        <i>*Step 3 used to be mandatory in order to be able to parse the stack, but I haven't encountered any issues when I decided to completely skip it, not replacing the double quotes. Test it for yourself to see if you need
+                        to do this step or not.</i>
+                    </p>
+
+                    <p>If you want to load a stack from the file using File: Load String command, you will need to reverse the process. See <a href="#stackparse">Stack: Parse</a>.</p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Stack Name</td>
+                            <td>String</td>
+                            <td>A stack name you want to stringify. Will return an empty string if the stack is empty or does not exist.</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name to save the string under.</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('stackstringifyX')">Show example</button>
+                    <div id="stackstringifyX" style="display: none;"><img src="https://i.imgur.com/aOvEh6w.png" /><br /></div>
+
+                    <h3 id="stackparse">Stack: Parse</h3>
+
+                    <p>
+                        Turns a <a href="https://www.w3schools.com/js/js_json_syntax.asp">JSON string</a> into a stack. <br />
+                        The JSON string must contain <code>"size"</code> value and the corresponding amount of values for the command to get properly executed. <br />
+                        Default JSON string format is <code>{"size":3, "0":"white cat", "1":"blue car", "2":8}.</code><br />
+                        If you previously used   <a href="stackcommands.html#stackstringify">
+                            Stack: Stringify
+                        </a> and      <a href="filecommands.html#filesavestring">
+                            File: Save String
+                        </a> commands to save your stack values and wish to load it back up, follow this process:
+                    </p>
+
+                    <ol>
+                        <li>
+                            Have a file containing your stringified stack.
+                        </li>
+                        <li>
+                            Use File: Load String command on the file.
+                        </li>
+                        <li>
+                            *(optional) Use String: Replace command on the variable with your stringified value you just loaded from the file. Replace all <code>Ø</code> (or whatever character you originally chose to replace the double
+                            quotes with) with double quotes <code>"</code>.
+                        </li>
+                        <li>Use Stack: Parse command on the string.</li>
+                    </ol>
+                    <p>
+                        <i>Step 3 used to be mandatory in order to be able to parse the stack, but I haven't encountered any issues when I decided to completely skip it, not replacing the double quotes. Test it for yourself to see if you need
+                        to do this step or not.</i>
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Stack Name</td>
+                            <td>String</td>
+                            <td>A stack name you want to save your parsed string under.</td>
+                        </tr>
+                        <tr>
+                            <td>String</td>
+                            <td>String</td>
+                            <td>Name of the string to parse. Use /$variable$/ if you used File: Load String command.</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('stackparseX')">Show example</button>
+                    <div id="stackparseX" style="display: none;"><img src="https://i.imgur.com/kn5J4K9.png" /><br /></div>
+
+                    <h3 id=""></h3>
+
+                    <p></p>
+                </section>
+            </div>
+        </div>
+    </body>
+</html>

@@ -537,7 +537,8 @@ body {
   h3 {
     font-size: 0.9em;
     line-height:0.9em;
-    font-weight: 400; }
+    font-weight: 400;
+    padding-top:20px; }
 
 #accept{
   background-color: rgb(99, 197, 99);

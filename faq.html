@@ -21,7 +21,7 @@
 
                 <dl>
                     <dt>
-                        <a href="main.html" >
+                        <a href="index.html" >
                             About LioranBoard</a>
                     </dt>
                 </dl>
@@ -159,7 +159,10 @@
 
                 <h3 id="mathoperators"> Math Operators
                 </h3>
+                <p>One thing that is often overlooked is the difference between <code>=</code> (which works only with real values) and <code>=string</code> (which works only with strings). Pay special attention to these two operators, you cannot use them interchangeably as it will break your commands or crash LioranBoard.  </p>
                 <table>
+
+                    <p><b>Basic operators</b> </p>
 
                     <tr>
                         <td>Operator</td>
@@ -244,10 +247,59 @@
                     </tr>
 
 
+                </table> 
+
+               <p><b>Compare operators</b> </p>
+
+               <table>
+
+                <tr>
+                    <td>Operator</td>
+                    <td>Explanation</td>
+                    <td>Example</td>
+                </tr>
+                <tr>
+                    <td>=</td>
+                    <td>Equal. Checks whether the variables/values are equal. <br> Real values only. </td>
+                    <td><code>1 = 3 //false</code><br><code>4 = 4 //true</code></td>
+                </tr>
+                <tr>
+                    <td>!=</td>
+                    <td>Not Equal. Checks whether the variables/values are not equal. <br> Real values only.</td>
+                    <td><code>1 !=3 //true</code><br><code>4 != 4 //false</code></td>
+                </tr>
+                <tr>
+                    <td>></td>
+                    <td>Greater than. Checks whether the variable is greater than the second variable/value.<br> Real values only.</td>
+                    <td><code>1 > 3 //false</code><br><code>3 > 2 //true</code></td>
+                </tr>
+                <tr>
+                    <td><</td>
+                    <td>Less than. Checks whether the variable is less than the second variable/value. <br>Real values only.</td>
+                    <td><code>1 < 3 //true</code><br><code>3 < 2 //false</code></td>
+                </tr>
+                <tr>
+                    <td>>=</td>
+                    <td>Greater than or equal. Checks whether the variable is greater than or equal to the second variable/value.<br> Real values only.</td>
+                    <td><code>1 >= 3 //false</code><br><code>3 >= 3 //true</code></td>
+                </tr>
+                <tr>
+                    <td><=</td>
+                    <td>Less than or equal. Checks whether the variable is less than or equal to the second variable/value. <br>Real values only.</td>
+                    <td><code>1 <= 3 //true</code><br><code>3 <= 3 //true</code></td>
+                </tr>
+                <tr>
+                    <td>= String</td>
+                    <td>Equal String. Checks whether the variable is equal to the second variable/string.<br> Strings only. </td>
+                    <td><code>"Hello" =String "Hi there" //false</code><br><code>"Hello" =String "Hello" //true</code></td>
+                </tr>
+                <tr>
+                    <td>!= String</td>
+                    <td>Not equal String. Checks whether the variable is not equal to the second variable/string.<br> Strings only. </td>
+                    <td><code>"Hello" !=String "Hi there" //true</code><br><code>"Hello" !=String "Hello" //false</code></td>
+                </tr>
+
                 </table>
-
-
-
 
 
                 <h3 id="commanddelays"> How command delays work
@@ -304,11 +356,19 @@
                 <p>
                     A wild card <code>*</code> refers to a character that can be substituted for zero or more characters in a string. They are used to search for partial matches instead of exact ones. <br>
 
-                    Wild cards can be used for Twitch Chat triggers and Redeem points with message triggers. They need to match exactly. You can pull their value by using the String: Wildcard pull command. <br>
+                    Wild cards can be used for Twitch Chat triggers and Redeem points with message triggers. They need to match exactly. You can pull their value by using the <a href="stringcommands.html#stringwildcard">
+                        String: Wildcard Pull
+                    </a> command. 
 
-                    You can use as many wild cards as you want as long as the formatting is matched. </p>
-                <p>
-                    Wild card trigger examples:
+                    <button id="example" onclick="toggle_visibility('wildcardpullX')">Show example</button>
+<div id="wildcardpullX" style="display:none" class="videowrap"> 
+  <div class="video"> <iframe 
+  src="https://www.youtube.com/embed/QcSQBo4LV3U?controls=1" allowfullscreen >
+  </iframe>  </div><br><img src="https://i.imgur.com/GmeesEF.png"><br></div>
+
+                          <p>   You can use as many wild cards as you want as long as the formatting is matched. 
+                
+                    Wild card trigger examples: </p>
 
                 <table>
                     <tr>
@@ -404,14 +464,16 @@
                     </a> command to fetch whatever is covered by a wild card. <br>
                     For example, with a trigger <code>!set * to *</code> and a chat message <code>!set timer to 5</code> , you can pull wild card 1 value (<code>timer</code>) and wild card 2 value (<code>5</code>). </p>
                 <p>
-                    Now, what if you have a command <code>!lights *</code> where the wildcard is a color to set your Philips Hue lights to, but your viewers sometimes include extra text after they specify the color? For example, they send a chat message: <code>!lights red Hello there!</code> and you're only interested in pulling the color name instead of the whole <code>red Hello there!</code> value. In this case, you need to use these two chat triggers: <code>lights * *</code> , <code>lights *</code> (order and spaces matter). Now it will always only pull the color, no matter if there is any additional text.</p>
-                <p>
-                    <i>You can't have 2 wild cards back to back without a space, as it will be turned into just one wildcard. <br>Twitch automatically removes double space, so you don't have to worry about that.</i> <br>
+                    Now, what if you have a command <code>!lights *</code> where the wildcard is a color to set your Philips Hue lights to, but your viewers sometimes include extra text after they specify the color? For example, they send a chat message: <code>!lights red Hello there!</code> and you're only interested in pulling the color name instead of the whole <code>red Hello there!</code> value. In this case, you need to use these two chat triggers: <code>lights * *</code> , <code>lights *</code> (order and spaces matter). Now it will always only pull the color, no matter if there is any additional text.
+               
+                    <button id="example" onclick="toggle_visibility('wildcardlightsX')">Show example</button>
+                    <div id="wildcardlightsX" style="display:none"> <br><img src="https://i.imgur.com/3pegH0K.png"> </div> 
+                    <p><i>You can't have 2 wild cards back to back without a space, as it will be turned into just one wildcard. <br>Twitch automatically removes double space, so you don't have to worry about that.</i> <br>
 
+         
                 </p>
 
-                <button id="example" onclick="toggle_visibility('variabletovarX')">Show example</button>
-                <div id="variabletovarX" style="display:none"> <img src="https://i.imgur.com/ILFEpTy.png"><br></div>
+               
 
                 <h3 id="obstreamlabs"> LioranBoard and OBS Streamlabs
                 </h3>

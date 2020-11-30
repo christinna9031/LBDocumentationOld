@@ -19,7 +19,7 @@
 
 
   <dl><dt>
-    <a href="main.html" >
+    <a href="index.html" >
     About LioranBoard</a></dt></dl>    
       
 <dl>
@@ -146,14 +146,14 @@ OBS websocket connection
 <p>Complete installation instructions: </p>
 
 <iframe width="420" height="315"
-src="https://www.youtube.com/embed/wLqz5um0hjQ?controls=1">
+src="https://www.youtube.com/embed/wLqz5um0hjQ?controls=1" allowfullscreen>
 </iframe>
 <br><br>
 <p>After downloading and extracting the .zip file, you will see a few different folders: </p>
 
     <ul>
     <li>   LioranBoard Receiver <br>
-        This folder contains the main editor called LioranBoard Receiver.exe, where you set up all the important connections, create buttons and commands. </li>
+        This folder contains the main editor called LioranBoard Receiver.exe, where you set up all the important connections, create buttons and commands. This needs to be running at all times for LioranBoard to work. </li>
  
     <li>  LioranBoard Stream Deck (PC) <br>
         This is your PC Stream Deck which connects to the Receiver. From here you can trigger your buttons that you created in the Receiver. </li>
@@ -163,9 +163,9 @@ src="https://www.youtube.com/embed/wLqz5um0hjQ?controls=1">
        This is your Android Stream Deck which can be used to connect to Receiver on any Android device. </li>
      
     </ul>
-   <p>For now you can ignore the other folders. </p> 
+   <p>For now you can ignore the other folders. <br>
 
-
+<i>It is recommended to not install LioranBoard in <code>Program Files</code> folder as it sometimes tends to block LioranBoard from writing in its own folder.</i> </p> 
 
 
 <h3 id="addingtransmitter">Adding Transmitter to OBS</h3>
@@ -266,23 +266,25 @@ If you did everything right, there should be a text saying “Connected to Liora
 
 <h3 id="androiddeckconnect">Connecting to Stream Deck on Android devices </h3>
 <p>LioranBoard Stream Deck only works with Android devices and is not available in Google Store. You need to manually transfer the .apk file found in your LioranBoard Stream deck(Android) folder to your Android device and install it (you might need to change permissions to install external files).<br>
-On your computer, go to <code>LioranBoar</code> folder and run <code>whats my local ip.bat</code> file. Write down the IPv4 Address (it should start with 192.168.).
-<button id="example" onclick="toggle_visibility('ipaddress')">Show example</button>
+On your computer, go to <code>LioranBoard</code> folder and run <code>whats my local ip.bat</code> file. Write down the IPv4 Address (it should start with 192.168.) <br>
 
-<div id="ipaddress"  style="display:none">  <img src=" https://i.imgur.com/zkrYaXM.png"></div>
-<p>
+
  Use it as an IP address for your Android Stream Deck connection. Port should stay 9423, unless you changed it in your Receiver. 
  <button id="example" onclick="toggle_visibility('ipstreamdeck')">Show example</button>
 
- <div id="ipstreamdeck"  style="display:none">  <img src="https://i.imgur.com/4UKQJKn.png"></div>
+ <div id="ipstreamdeck"  style="display:none"> <img src=" https://i.imgur.com/zkrYaXM.png"> <br><img src="https://i.imgur.com/4UKQJKn.png"></div>
 <h3 id="deckandbuttons">Deck and buttons </h3>
 <p>
  
   You can either use one of the premade decks or create a new one by clicking on Add New Deck. Remember that decks are just there to make your buttons more organized. As long as the Receiver is running, every single deck and its buttons are active.
   After creating a new deck, you can change its name, background color and grid size. </p> <p>
 <b>Adding a new button</b><br>
-Right click anywhere on the grid and select Create Blank Button or choose one of the popular commands. Name your button and click Create. You can freely resize it, change its color, picture and text as well. <br>
-There are a few options that pop up by right clicking on the newly created button: 
+Right click anywhere on the grid and select Create Blank Button or choose one of the popular commands. Name your button and click Create. You can freely resize it, change its color, picture and text as well.        <button id="example" onclick="toggle_visibility('buttoncreateX')">Show example</button>
+<div id="buttoncreateX" style="display:none" class="videowrap"> 
+  <div class="video"> <iframe 
+  src="https://www.youtube.com/embed/-wPbdfN6Bk0?controls=1" allowfullscreen >
+  </iframe> </div><br></div>
+<p>There are a few options that pop up by right clicking on the newly created button: 
 <ul>
   <li><b>
 Change color/text/image
@@ -299,13 +301,13 @@ This adds a keyboard macro to your button that will be executed when the button 
 
 <li>
   <b>Add/Edit Commands </b><br>
-  This is where the magic happens. This is your empty canvas where you create your own code which gets executed when you press the button. You can use parameters, conditions, delays, pull data from OBS websocket and Twitch, do some pretty complex math operations etc.
+  This is where the magic happens. This is your empty canvas where you create your own code which gets executed when you press the button. You can use parameters, conditions, delays, pull data from OBS websocket and Twitch, do some pretty complex math operations etc. In order to save your new commands, make sure to always click <code>Done</code> twice (once in your button editor and once in your deck editor screen). 
 </li><li>
   <b>Add Switch Deck</b><br>
   This allows you to easily switch between decks in your Stream Deck.</li>
 <li>
   <b>Add Twitch Triggers</b><br>
-  You can specify conditions that trigger your button. For example, you can make a button that will trigger with a Twitch chat message <code>!command</code> or whenever someone raids you. Wildcards can be added as well. 
+  You can specify conditions that trigger your button. For example, you can make a button that will trigger with a Twitch chat message <code>!command</code> or whenever someone raids you. <a href="faq.html#wildcards">Wildcards</a> can be added as well. 
 </li>
 <li>
   <b>Add Drag press</b><br>
@@ -320,6 +322,12 @@ All buttons have unique IDs. If you copy a button, it will get a new ID differen
   <b>Export/Import JSON</b><br>
  You can use this feature to share your buttons with other people. <br>
  Click on Export JSON, which will be saved to your clipboard. You can then directly send it to someone or use <a href="pastebin.com">Pastebin.com.</a><br>Once you have the JSON string ready in your clipboard, you can then use Import JSON and the button will be copied over. 
+ <button id="example" onclick="toggle_visibility('importX')">Show example</button>
+ <div id="importX" style="display:none" class="videowrap"> 
+   <div class="video"> <iframe 
+   src="https://www.youtube.com/embed/ombi0CqOlOk?controls=1" allowfullscreen >
+   </iframe> </div><br></div>
+
   </li>
 </ul>
 
@@ -327,8 +335,9 @@ All buttons have unique IDs. If you copy a button, it will get a new ID differen
 
 <h3 id="notificationsystem">Notification system</h3>
 <p>LioranBoard comes with a fully functional notification animation system for Twitch, ready to use for OBS. See here what it looks like: </p>
-  <iframe width="420" height="315"
-src="https://www.youtube.com/embed/ilDE_vbM7vs?controls=1">
+  
+<iframe width="420" height="315"
+src="https://www.youtube.com/embed/ilDE_vbM7vs?controls=1" allowfullscreen>
 </iframe> <br> <p>
   To use it, just click on Install extension in Lioranboard, Go to <code>Lioranboard/LB notification system</code> folder and select <code>LioranBoard Notification System.lbe</code>, then select the Transmitter you are using and follow all the steps (there is an html guide included in the folder as well). <br>
  The notification system covers Subs, Followers, Bits, Raid and Host. There is a Text to Speech option as well, which requires running Transmitter outside of OBS in your browser.</p>

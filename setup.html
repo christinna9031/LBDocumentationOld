@@ -353,7 +353,10 @@ src="https://www.youtube.com/embed/ilDE_vbM7vs?controls=1">
   <li>In LB Receiver click on Link your Twitch again, but this time do NOT open the URL directly. Instead Copy it and close the window (ignore the warning and press Yes).</li>
   <li>Go back to your browser (make sure you're logged in with your main Twitch account) and paste the URL you copied earlier. Once you accept the permissions, you will be redirected to an empty page with an URL that looks like this: <code>http://localhost:29521/tokenhtml#access_token=<mark id="accept">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</mark>&scope=bits...</code> Inside the URL is your <mark id="accept">access token</mark> (excluding the & sign). Copy it.</li>
   <li>Open <code>connect.ini</code> file in your <code>Lioranbord Receiver</code> or <code>Appdata/Local/Lioranboard</code> folder. 
-  You want to add this line to your file: <br>
+  You want to add these lines to your file: <br>
+<code>[account]
+0="account_name" 
+0_oauth="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"</code> <br>
   
     <img src="https://i.imgur.com/EigAz2y.png"></li>
 

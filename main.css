@@ -540,6 +540,26 @@ body {
     font-weight: 400;
     padding-top:20px; }
 
+    .videowrap {
+    width:75%;
+    height: auto;
+
+    }
+    .video {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+  }
+  .video iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+  }
+
+  
+
 #accept{
   background-color: rgb(99, 197, 99);
   padding:2px 4px;

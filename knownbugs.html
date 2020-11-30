@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="main.css" />
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="main.js"></script>
+        <title>Troubleshooting | LioranBoard</title>
+    </head>
+    <body>
+        <header>
+            <div class="title">
+                <h1>LioranBoard Documentation</h1>
+            </div>
+            <div class="slide">
+                <nav class="sidebar" id="sidebar">
+                    <div class="scroller">
+                        <dl>
+                            <dt>
+                                <a href="main.html"> About LioranBoard</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="setup.html"> Basic Setup</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="commands.html"> Commands</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="faq.html"> FAQ</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="extensions.html"  > Extensions</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="troubleshooting.html" class="active"> Troubleshooting</a>
+                            </dt>
+
+                            <dd>
+                                <a href="generalproblems.html" class="sub-page">
+                                General
+                                </a>
+                                </dd>
+                          
+                                <dd>
+                                <a href="buttonscommands.html" class="sub-page">
+                                Buttons and commands
+                                </a>
+                                </dd>
+                                <dd>
+                                <a href="knownbugs.html"  class="active" >
+                                Known Bugs
+                                </a>
+                                </dd>
+
+
+
+                        </dl>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <div class="wrapper">
+            <div class="main">
+                <section class="doc-content">
+                    <h2>Known Bugs</h2>
+                    <p>   <b>When I try to link my Twitch account, it says this site can't be reached. </b>  <br>
+                        This has been fixed. Please download the newest version.          
+</p>
+<p>
+    <b>When I click on -Help- in LB commands, the page doesn't work!</b><br>
+Commands.html is saved locally in your LioranBoard folder, you can access it from there instead. The most recent IE/Chrome update causes this link to be malformed.
+</p>     
+<p><b>When I use the command Open URL, it doesn't work.</b><br>This has been fixed. Please download the newest version. </p>
+<p><b>Every time I close OBS, it crashes.</b><br>This has nothing to do with LB. It is a known bug that happens with some plugins (like obs-websocket) installed in OBS.</p>
+<p><b>I get a grey window with an error message when I try to install X extension.</b><br>That sometimes happens due to extra spaces in the file. Press ignore and the extension should install just fine. </p>
+<p><b>Wild cards don't work for Point Redeem name.</b><br>This has been fixed. Please download the newest version. </p>
+<p><b>Multiple accounts do not work when refreshing Transmitter</b><br>When using multiple accounts, the main account does not reconnect when Transmitter is refreshed, and will not listen to any alerts. Restart LB Receiver to reconnect to all your accounts. </p>
+<p><b>Some special symbols and foreign language letters don't show up in the input fields</b><br>This is just a visual bug, the symbols are saved just fine (you can open the deck .ini file and check).</p>
+<p><b>Cannot set up a macro key to “9”.  It says unknown. </b><br>This is just a visual text bug. The macro still works and presses the key.</p>
+<p><b></b><br></p>
+<p><b></b><br></p>
+          
+                </section>
+            </div>
+        </div>
+    </body>
+</html>

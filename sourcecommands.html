@@ -1026,8 +1026,12 @@
                     <p>
                         Allows you to request data from OBS websocket and save it in a variable.<br />
                         All the possible requests are documented in <a href="https://github.com/Palakis/obs-websocket/blob/4.7.0/docs/generated/protocol.md">OBS websocket protocol reference</a>. <br />
-                        Keep in mind that this is over a TCP connection, which means the value will not be saved immediately (give it 100ms delay).
-                        <br />
+                        Keep in mind that this is over a TCP connection, which means the value will not be saved immediately (give it 100ms delay). 
+                    </p><p>
+                        If the requested value is inside another object already, you can access it with a simple dot-notation: <code>.</code>. 
+                        <br> For example, if you want to retrieve Brightness value from Color Correction Filter, you will notice that it is inside an object called settings. <code>{"settings": {"brightness": 0.78}, "status": "ok", "type": "color_filter"}</code>. In this case, the Fetch Value will be <code>settings.brightness</code>.
+
+
                     </p>
 
                     <table>

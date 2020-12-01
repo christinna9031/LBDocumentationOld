@@ -70,6 +70,12 @@
                                         Twitch Connection 
                                         </a>
                                         </dd>
+
+                                        <dd>
+                                            <a href="#transmitterconnection" class="active" >
+                                            Transmitter Connection 
+                                            </a>
+                                            </dd>
                                       <dd>
                                     <a href="#deckcreation" class="active" >
                                         Deck Creation Issues
@@ -178,9 +184,25 @@ First try triggering a test alert from your Transmitter. <button id="example" on
                     If you do not see it, try <a href="setup.html#renewingtoken" target="_blank">relinking your Twitch account</a>.
 
                 </p>
+
+                <h3 id="transmitterconnection" > Transmitter Connection</h3>
+                <p> <b>Error message "A second Transmitter attempted to connect. Please close it."</b> <br>
+                   You might encounter this error message in your LB Receiver. 
+                    <button id="example" onclick="toggle_visibility('secondtransmitter')">Show example</button> <br>It means that you have two or more Transmitters open at the same time, which is a big no-no in LioranBoard world. <br> You need to locate the duplicate Transmitter and close it in order for LioranBoard to work correctly. The most likely culprit is another Transmitter added as an OBS source and forgotten about.
+
+                    <div id="secondtransmitter" style="display: none;"><img src="https://i.imgur.com/3hkwpPC.png" /></div><p> 
+                    
+
+                    </p>
+
+
+
+                </p>
+
+
                        <h3 id="deckcreation" > Deck Creation Issues</h3>
                  <p>
-                    <b>LB crashes when I try to create a new deck</b><br>
+                    <b>LB crashes when I try to create a new deck.</b><br>
                     Probably an antivirus issue. Try deleting <code>gmfile.dll</code> in your <code>LioranBoard Receiver(PC)</code> folder. Could be also a folder permissions problem. More info below. 
 
                  </p>
@@ -202,7 +224,7 @@ First try triggering a test alert from your Transmitter. <button id="example" on
                  </p>
                        <h3 id="androidstreamdeck"> Android Stream Deck Troubleshooting</h3>
                  <p>
-                       <b>Android Stream Deck will not connect</b><br>
+                       <b>Android Stream Deck will not connect.</b><br>
                        If your Stream Deck crashes or you can only see a green screen without any buttons when you try to connect to it, try these steps: 
                        <ol>
                     <li>Make sure your Android device is connected to the same network as your computer that is running LB Receiver. You cannot natively make a connection outside your network, unless you decide to go through a lot of technical steps involving opening your ports and exposing your local network.  </li>  
@@ -220,7 +242,7 @@ First try triggering a test alert from your Transmitter. <button id="example" on
                  </p>
                             <h3 id="extensions"> Installing Extensions</h3>
                  <p>
-                    <b>I installed an extension, but do not see it anywhere</b><br>
+                    <b>I installed an extension, but do not see it anywhere.</b><br>
                     After installing any extension, you need to refresh your Transmitter or close and reopen LB Receiver. <br>
                     You can also check write permissions for the <code>transmitter.html</code> file. 
                  </p>

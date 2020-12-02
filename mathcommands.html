@@ -640,6 +640,32 @@
                                         <td>1</td>
                                         <td>The whole message</td>
                                     </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Viewer's username</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Emotes list.<br>
+                                            Basic format: <code>FirstEmoteID:FirstIndex-LastIndex/SecondEmoteID:FirstIndex-LastIndex</code> <br>Message containing multiple emotes will be formatted such as: <code>FirstEmoteID:FirstIndex(1)-LastIndex(1),FirstIndex(2)-LastIndex(2),FirstIndex(3)-LastIndex(3)</code> <br>
+                                            <button id="example" onclick="toggle_visibility('chatemotesX')">Show example</button>
+<div id="chatemotesX" style="display:none"> <img src="https://i.imgur.com/GJQQgik.png"></div>
+                                           <br>
+                                            Get emotes image by ID at this URL <code>https://static-cdn.jtvnw.net/emoticons/v1/EMOTEID/1.0</code>You can change the last part to 1.0, 2.0 or 3.0 to get different sizes. <a href="https://static-cdn.jtvnw.net/emoticons/v1/25/2.0"  target=”_blank”>Example</a>. 
+                                      
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Badges. <br>
+                                            Basic format: <code>FirstBadgeName/version,SecondBadgeName/version</code><br>
+                                            For example: <code>broadcaster/1, subscriber/0</code><br>                                   
+                                            
+                                            Global Badges List: <a href="https://badges.twitch.tv/v1/badges/global/display" target="_blank">https://badges.twitch.tv/v1/badges/global/display</a><br>
+                                            Channel Badges List:<code>https://badges.twitch.tv/v1/badges/channels/CHANNEL_ID/display</code> <br>
+                                            To find the badge ID in the JSON, look for <code>BadgeList.badge_sets[BADGENAME].versions[VERSION].image_url_1x</code>. The last part <code>1x</code> can be changed to 2x, 3x or 4x for bigger size.
+                                            <a href="https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/2" target="_blank"> Example.</a></td>
+                                    </tr>
                                     
                                 </table>
                                 <table class="smalltable">

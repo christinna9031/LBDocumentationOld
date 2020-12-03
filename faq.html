@@ -53,17 +53,24 @@
                     </dd>
 
                     <dd>
-                        <a href="#mathoperators">
-                            Math Operators
+                        <a href="#changeresizeX">
+                            Can I modify/resize X?
                         </a>
                     </dd>
 
                     <dd>
-                        <a href="#commanddelays">
-                            Command Delays
+                        <a href="#mathoperators">
+                            Math operators
                         </a>
                     </dd>
 
+                    <dd>
+                        <a href="#turntoreal">
+                            Turn to real explained
+                        </a>
+                    </dd>
+
+                 
                     <dd>
                         <a href="#howtoseevariables">
                             How to see variables
@@ -76,17 +83,29 @@
                         </a>
                     </dd>
 
-
+                    
                     <dd>
-                        <a href="#turntoreal">
-                            What it means Turn to Real
+                        <a href="#premadevariables">
+                            Premade variables
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="#commanddelays">
+                            Command delays
                         </a>
                     </dd>
 
+                    <dd>
+                        <a href="#cooldowns">
+                            Button cooldowns
+                        </a>
+                    </dd>
+
+              
 
                     <dd>
                         <a href="#buttonshortcuts">
-                            How to trigger buttons with shortcuts
+                            Trigger buttons with shortcuts
                         </a>
                     </dd>
 
@@ -94,9 +113,12 @@
 
                     <dd>
                         <a href="#wildcards">
-                            Wild Cards
+                            Wild cards
                         </a>
                     </dd>
+
+                 
+
 
 
                     <dd>
@@ -156,6 +178,20 @@
                     Making your own buttons in LioranBoard is a little bit like programming. It definitely takes some time to learn how everything works. Don't expect to be able to create complex buttons right away, but rather learn what each command does and try making something as simple as switching scenes. You can then slowly transition to more advanced buttons. <br>
                     We welcome new members on our <a href="https://discord.gg/dXez8Zh">Discord server</a> to ask questions if they encounter a problem with their buttons or commands, but discourage asking for a whole button to be created just for their needs. If you're not interested in learning LB whatsoever and only want the finished product, you can request a commission instead.
                 </p>
+
+                <h3 id="changeresizeX"> Can I modify/resize X?</h3>
+                <p><b>What you can modify:</b></p>
+                <ul>
+                <li>StreamDeck  - window size</li>
+                <li>Deck (in Receiver) - background color (no transparent values), grid size</li>
+                <li>Buttons - background color (no transparent values), border thickness, size </li>
+                </ul>
+
+                <p><b>What you cannot modify:</b></p>
+                <ul>
+                <li>LB Receiver - window size                </li>
+                <li>Buttons - shape and rounded corners</li>
+                </ul>
 
                 <h3 id="mathoperators"> Math Operators
                 </h3>
@@ -301,34 +337,6 @@
 
                 </table>
 
-
-                <h3 id="commanddelays"> How command delays work
-                </h3>
-
-                <p>Command delays are absolute, they’re NOT related to each other. If you set up the first command to trigger at 1000ms and the second command to trigger at 1000ms, both commands will trigger at 1000ms, one after another (in this case order matters), exactly 1000ms from when the button was pressed. <br>
-                    The command delay is superior to the command order, which means that a second command in the list with 0ms delay will trigger before the first command in the list with 1000ms delay. <br>
-
-                    <button id="example" onclick="toggle_visibility('delayexamplex')">Show example</button>
-                <div id="delayexamplex" style="display:none"> <br><img src="https://i.imgur.com/bzbYOrv.png"> </div>
-                </p>
-
-
-                <h3 id="howtoseevariables"> How to see variables and their values
-                </h3>
-                <p>
-                    Press tab in the main LioranBoard Receiver menu. You can then type in the variable name. You can see the stack values if you type the whole name of the stack.
-                </p>
-
-                <h3 id="variablesasparameters"> What if I want to use a variable in a string or as a parameter?
-                </h3>
-                <p>
-                    Wrap the variable in <code>/$$/</code>. For example, variable <code>name</code> will become <code>/$name$/</code>. Remember that this is done only if the field name is NOT "variable". In this case you want to use the name of the variable without any wrappers. <br>
-                    For example, field "value" can contain either a real value (number) or a string (text). By wrapping the ariable in <code>/$$/</code>, you're telling it to work with the value of the variable rather than the variable itself.
-                    <button id="example" onclick="toggle_visibility('simpledeathcounterX')">Show example</button>
-                <div id="simpledeathcounterX" style="display:none"> <br><img src="https://i.imgur.com/7DF5M5R.png"> <img src="https://i.imgur.com/MvXuqGt.png"><br></div>
-                </p>
-
-
                 <h3 id="turntoreal"> What it means "Turn to Real"</h3>
                 <p>
                     Turn to real means you want a real value (=number). String = text, real = number. While a string can contain numbers, a real value cannot contain letters. <br>
@@ -341,6 +349,61 @@
 
                 </ul>
                 </p>
+
+                
+                <h3 id="howtoseevariables"> How to see variables and their values
+                </h3>
+                <p>
+                    Press tab in the main LioranBoard Receiver menu. You can then type in the variable name. You can see the stack values if you type the whole name of the stack.
+                </p>
+
+                <h3 id="variablesasparameters"> What if I want to use a variable in a string or as a parameter?
+                </h3>
+                <p>
+                    Wrap the variable in <code>/$$/</code>. For example, variable <code>name</code> will become <code>/$name$/</code>. Remember that this is done only if the field name is NOT "variable". In this case you want to use the name of the variable without any wrappers. <br>
+                    For example, field "value" can contain either a real value (number) or a string (text). By wrapping the ariable in <code>/$$/</code>, you're telling it to work with the value of the variable rather than the variable itself.
+                    <i>Some input fields require you to right click to be able to type inside of them, as left clicking brings up the dropdown menu.</i>
+                    <button id="example" onclick="toggle_visibility('simpledeathcounterX')">Show example</button>
+                <div id="simpledeathcounterX" style="display:none"> <br><img src="https://i.imgur.com/7DF5M5R.png"> <img src="https://i.imgur.com/MvXuqGt.png"><br></div>
+                </p>
+
+                <h3 id="premadevariables"> Premade variables</h3>
+                <p>There are a few premade variables in your LB Receiver: 
+                    <ul>
+                    <li><code>current_scene</code> - always shows your current OBS scene</li>
+                    <li><code>previous_scene</code> - always shows your previous OBS scene </li>
+                    <li><code>elapsed_time</code> - time elapsed since LB was launched</li>
+                    <li><code>channel_id</code>(hidden) - Twitch Channel ID. Does not show in the list of variables, but can be passed as a parameter in extension fields.</li>
+                    <li><code>oauth_token</code>(hidden) - Twitch Channel ID. Does not show in the list of variables, but can be passed as a parameter in extension fields.</li>    
+                                       </ul>
+
+                </p>
+
+                <h3 id="commanddelays"> How command delays work
+                </h3>
+
+                <p>Command delays are absolute, they’re NOT related to each other. If you set up the first command to trigger at 1000ms and the second command to trigger at 1000ms, both commands will trigger at 1000ms, one after another (in this case order matters), exactly 1000ms from when the button was pressed. <br>
+                    The command delay is superior to the command order, which means that a second command in the list with 0ms delay will trigger before the first command in the list with 1000ms delay. <br>
+
+                    <button id="example" onclick="toggle_visibility('delayexamplex')">Show example</button>
+                <div id="delayexamplex" style="display:none"> <br><img src="https://i.imgur.com/bzbYOrv.png"> </div>
+                </p>
+
+                <h3 id="cooldowns"> How to set up button cooldowns
+                </h3>
+                <p>
+                If you want to add a cooldown to any button, you can use the <a href="othercommands.html#overtime" target="_blank">Overtime</a> command, which artifically increases the duration of the button and prevents it from triggering again. <br>
+                You can also use <a href="mathcommands.html#mathvariabletransition" target="_blank">Math: Variable Transition</a> + <a href="comparecommands.html#compareskipif" target="_blank">Compare: Skip if</a> command. This will allow you to notify the viewers that the button is on cooldown. 
+                
+                <button id="example" onclick="toggle_visibility('buttoncdtransition')">Show example</button>
+                <div id="buttoncdtransition" style="display:none"> <br><img src="https://i.imgur.com/mZ1emUL.png"> </div>
+                </p>
+                
+
+
+        
+
+                
 
 
 

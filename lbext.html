@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="main.css" />
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="main.js"></script>
+        <title>Extensions | LioranBoard</title>
+    </head>
+    <body>
+        <header>
+            <div class="title">
+                <h1>LioranBoard Documentation</h1>
+            </div>
+            <div class="slide">
+                <nav class="sidebar" id="sidebar">
+                    <div class="scroller">
+                        <dl>
+                            <dt>
+                                <a href="index.html"> About LioranBoard</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="setup.html"> Basic Setup</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="commands.html"> Commands</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="faq.html"> FAQ</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="extensions.html"  class="active"> Extensions</a>
+                            </dt>
+                            <dd>
+                                <a class="sub-page" href="lbext.html" class="active">LioranBoard</a>
+                            </dd>
+                            <dd>
+                                <a href="lbext.html#complexmath">
+                                    Complex Math
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="lbext.html#midikeyboard">
+                                    Midi Keyboard
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="lbext.html#getcurrenttime">
+                                    Get Current Time
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="lbext.html#ordervalues">
+                                    Order Values
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="lbext.html#timers">
+                                    Timers
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="lbext.html#autocreatebuttons">
+                                    Auto Create Buttons
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="lbext.html#censorbadwords">
+                                    Censor Bad Words
+                                </a>
+                            </dd>
+
+
+
+                            <dd>
+                                <a class="sub-page" href="twitchext.html">Twitch</a>
+                            </dd>
+                            <dd>
+                                <a class="sub-page" href="externalext.html">External Apps</a>
+                            </dd>
+
+
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="troubleshooting.html"> Troubleshooting</a>
+                            </dt>
+                        </dl>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <div class="wrapper">
+            <div class="main">
+                <section class="doc-content">
+                    <h2>LioranBoard Extensions</h2>
+                   
+                        <h3 id="complexmath">Complex Math</h3>
+                        <p><b>Creator: </b>Lioran<br>
+                        <b>Download: <a href="https://discord.com/channels/699319482442711072/712274509389889618/712276497351573584">Discord Link</a></b><br>
+                        <b>Description: </b>
+                         This extension lets you execute complex math operations. Make sure you give it some delay before working with the result. </p>
+                        <button id="example" onclick="toggle_visibility('complexmathX')">Show example</button>
+                        <div id="complexmathX" style="display: none;"><img src="https://i.imgur.com/BHWOqLX.png" /><br /></div>
+
+                        <h3 id="midikeyboard">Midi Keyboard</h3>
+                        <p><b>Creator: </b>Lioran<br>
+                        <b>Download: <a href="https://discord.com/channels/699319482442711072/712274509389889618/739026907345059900">Discord Link</a></b><br>
+                        <b>Description: </b>
+                          Sends an extension trigger with every midi keyboard keypress. Transmitter needs to be running outside of OBS in Google Chrome. </p>
+                           <p>Extension Triggers to expect: <br>
+                            <ul>
+                                <li><code>midi keypress 0-127</code> - Any notes you press. Number will be the number of the notes. Math: Trigger Pull value 1=velocity.</li>
+                                <li><code>midi keyrelease 0-127</code> - Any notes you release. Math: Trigger Pull value 1=velocity.</li>
+                                <li><code>midi volume</code> - Math: Trigger Pull value 1= volume between 0-127</li>
+                                <li><code>midi pitch</code>-  Math: Trigger Pull value 1= pitch bend 0-127</li> 
+                            </ul>
+                     </p>
+                        
+                        <h3 id="getcurrenttime">Get Current Time</h3>
+                        <p><b>Creator: </b>Christinna<br>
+                        <b>Download: <a href="https://discord.com/channels/699319482442711072/712274509389889618/753950379347279973">Discord Link</a></b><br>
+                        <b>Description: </b>
+
+                        Retrieves current time and date. <br></p>
+                        <p>Date format field values: 
+                        <ul>
+                        <li><code>date</code> - returns current date</li>
+                        <li><code>time</code> - returns current time</li>
+                        <li><code>(empty)</code> - returns both</li>
+                        </ul>
+                        <button id="example" onclick="toggle_visibility('gettimeX')">Show example</button>
+                        <div id="gettimeX" style="display: none;"><img src="https://i.imgur.com/wrbNHWm.png" /><br /></div>
+
+                        <h3 id="ordervalues">Order Values</h3>
+                        <p><b>Creator: </b>Sacrementus<br>
+                        <b>Download: <a href="https://discord.com/channels/699319482442711072/712274509389889618/778696519154663424">Discord Link</a></b><br>
+                        <b>Description: </b>
+                        This will allow you to sort values either ascending or descending. These can be numbers or words. They have to be separated by <code>,</code>.</p>
+                            <p>
+                        <code>order_stack</code> - the stack it is stored in when returned<br>
+                        <code>order_real</code> - true = numbers, false = letters (cannot be blank)<br>
+                        <code>order_items</code> - 1,2,3,4,5 or bat,cat,dog etc<br>
+                        <code>order_sort</code> - asc for ascending or desc for descending<br>
+                        </p>
+                        <button id="example" onclick="toggle_visibility('ordervaluesX')">Show example</button>
+                        <div id="ordervaluesX" style="display: none;"><img src="https://i.imgur.com/AlO28UV.png" /><br /></div>
+
+                        <h3 id="timers">Timers</h3>
+                        <p><b>Creator: </b>Christinna <br>
+                        <b>Download: <a href="https://discord.com/channels/699319482442711072/712274509389889618/778698269584785469">Discord Link</a></b><br>
+                        <b>Description: </b>You can use this extension to add as many timers as you want. Useful for sending chat messages every X minutes. It is not precise to the second since it still needs to go through the websocket, so it is rather useful for longer timers.  </p>
+                        <p>
+                                              </p>
+                        <p>You can create as many timers as you want. The timers will clear only if you use Timer Stop extension, refresh Transmitter or close/reopen LB receiver.<br>
+                        You can keep editing your decks and buttons and even reset values, this has no effect on the timers. </p>
+                            
+                            <p>Extension Timer field values:
+                            <ul>
+                            <li><code>name</code> - name of the extension trigger that will fire once timer hits 0</li>
+                            <li><code>value</code> - time in milliseconds</li>
+                            </ul>
+
+                      
+                        
+                       
+                        <button id="example" onclick="toggle_visibility('timerX')">Show example</button>
+                        <div id="timerX" style="display: none;"><img src="https://i.imgur.com/xe3IjHZ.png" /><br /></div>
+
+                        <h3 id="autocreatebuttons">Auto Create Buttons</h3>
+                        <p><b>Creator: </b>Christinna<br>
+                        <b>Download: <a href="https://discord.com/channels/699319482442711072/712274509389889618/769643225102286868">Discord Link</a></b><br>
+                        <b>Description: </b> This extension automatically creates a new deck and populates it with buttons that have predefined values so you don't have to manually create them one by one. The result can be something like <a  href="#" onclick="toggle_visibility('massbuttonX');return false;">this</a>
+                        <div id="massbuttonX" style="display: none;"><img src="https://i.imgur.com/k1yuXVf.png" /><br /></div>
+                        </p>
+                        <p>
+                            List of all values you can configure: <br>
+<ul>
+<li> <b>deck file name</b> - be careful to NOT OVERRIDE an already existing deck. Check your local folder and choose a deck file name that does not exist yet (each deck is formatted like this: <code>configs/NUMBER/.ini</code>). Do not skip any numbers or LB will not load it up. For example, if your last deck file is <code>configs6.ini</code>, LB expects the next one to be <code>configs7.ini</code>. </li>
+<li><b>deck background color</b> - use <a href="https://chrisanselmo.com/gmcolor" target="_blank">this</a> color picker (GML Raw value).</li>
+<li><b>grid height and weight</b> - how many buttons you want each row and column to contain</li>
+<li><b>default button color</b> - use <a href="https://chrisanselmo.com/gmcolor" target="_blank">this</a> color picker (GML Raw value). Applies to all the buttons.</li>
+<li><b>default button text</b> - applies to all the buttons</li>
+<li><b>default button image</b> - your image file name (do not include path). Needs to be located in <code>Lioranboard/Receiver/image</code> folder. Accepts .png files only. Applies to all the buttons. </li>
+<li><b>button ID to start with</b> - choose non existing button ID.</li>
+</ul>
+<p>
+After you fill out all the fields, press the button and let it do all the magic. It might take some time if you are creating a lot of buttons. Once it is done, you can restart LioranBoard and the new deck should appear in your deck menu. <br>
+ If you do not see your new deck, you probably did not select the right name for your <code>configs/NUMBER/.ini</code> deck file. Go back to your local folder, look up the highest <code>configs/NUMBER/.ini</code> file (for example configs15.ini) and rename your newly created deck file in the same fashion (for example configs16.ini). Reopen LB and it should be there. </p>
+<p>
+<i>This extension is just one premade button with commands, it does not matter which Transmitter you choose to install it in.</i>
+
+                        </p>
+
+
+                                    <h3 id="censorbadwords">Censor Bad Words</h3>
+                        <p><b>Creator: </b>Melonax & Christinna<br>
+                        <b>Download: <a href="https://discord.com/channels/699319482442711072/712274509389889618/782353621550497813">Discord Link</a></b><br>
+                        <b>Description: </b>This extension allows you to create a list of bad words you wish to get censored. It can be imported from .ini file by using    <a href="filecommands.html#fileloadstring" target="_blank">
+                            File: Load String
+                        </a> and  <a href="stackcommands.html#stackparse" target="_blank">
+                            Stack: Parse
+                        </a>
+                        <p><b>INIT button</b></p>
+                        <ol>
+                            <li>Create a stack of bad words (case insensitive) you wish to be censored. </li>
+                            <li>Use    <a href="othercommands.html#sendtoextension" target="_blank"> Send to Extension </a> command - Censor Bad Words:
+                            <ul>
+                            <li><code>type</code> - INIT</li>   
+                            <li><code>stackname</code> - name of your stack you just created</li> 
+                            <li><code>rest of the fields</code> - leave empty</li>
+                            </ul>    
+                            <li>Add <code>!transmitteralways</code> trigger to your button. This means it will be executed every time you refresh your Transmitter.</li>
+                        </ol>
+                        <p><i>Your stack with the bad words gets cleared every time you use the INIT button to avoid any duplicate values.</i>
+                       <p> <b>How to censor a string</b></p>
+                       <p>Once you create your Init button, you can use  <a href="othercommands.html#sendtoextension" target="_blank"> Send to Extension </a> command - Censor Bad Words: <br>
+                       <ul>
+                        <li><code>type</code> - Censor</li>
+                        <li><code>stackname</code> - leave empty</li>
+                        <li><code>string</code> - string you wish to check for bad words </li>
+                        <li><code>ReplaceBy</code> - what to replace the bad word with </li>
+                        <li><code>variable</code> - name of the variable to save the new censored string </li>
+                       </ul>
+                    
+                        </p>
+                        <button id="example" onclick="toggle_visibility('censorX')">Show example</button>
+                        <div id="censorX" style="display: none;"><img src="https://i.imgur.com/VmjNGgx.png" /><br /></div>
+
+                                         
+                                             
+             
+
+                </section>
+            </div>
+        </div>
+    </body>
+</html>

@@ -521,10 +521,11 @@
                         Most common sourceSettings values are:
                     </p>
                     <ul>
-                        <li><code>{"url":"http://twitch.tv"}</code> - Changes URL of a browser source</li>
-                        <li><code>{"local_file":"E:/Stream/hello.html"}</code> - Changes local file path of a browser source</li>
-                        <li><code>{"file":"E:/Stream/image.png"}</code> - Changes local file path of an image source</li>
-                        <li><code>{"playlist": [{"value": "E:/videos/video1.mp4"},{"value": "E:/videos/video2.mkv"}]}</code> - Changes local file paths for your VLC source. Each <code>{"value":"X"}</code> represents one file.</li>
+                        <li>Change URL of a browser source: <code>{"url":"http://twitch.tv"}</code></li>
+                        <li>Change local file path of a browser source: <code>{"local_file":"E:/Stream/hello.html"}</code></li>
+                        <li>Change local file path of an image source: <code>{"file":"E:/Stream/image.png"}</code></li>
+                        <li>Change local file paths for your VLC source. Each <code>{"value":"X"}</code> represents one file. <br><code>{"playlist": [{"value": "E:/videos/video1.mp4"},{"value": "E:/videos/video2.mkv"}]}</code></li>
+                        <li>Change font settings of your GDI+ text source. Needs to include all values.<code>{"font": {"face": "Arial","flags": 8,"size": 48,"style": "Regular"}}</code></li>
                     </ul>
                     <p><i>Pay special attention to the forward slashes, as it will not work if you use back slashes instead. </i></p>
 

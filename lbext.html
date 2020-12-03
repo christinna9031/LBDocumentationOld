@@ -44,40 +44,50 @@
                                 <a href="extensions.html"  class="active"> Extensions</a>
                             </dt>
                             <dd>
-                                <a class="sub-page" href="lbext.html" class="active">LioranBoard</a>
+                                <a  href="lbext.html" class="sub-page" >LioranBoard</a>
                             </dd>
                             <dd>
-                                <a href="lbext.html#complexmath">
+                                <a href="#followeralert">
+                                    Follower Alert
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#notifications">
+                                    Notification System
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#complexmath">
                                     Complex Math
                                 </a>
                             </dd>
                             <dd>
-                                <a href="lbext.html#midikeyboard">
+                                <a href="#midikeyboard">
                                     Midi Keyboard
                                 </a>
                             </dd>
                             <dd>
-                                <a href="lbext.html#getcurrenttime">
+                                <a href="#getcurrenttime">
                                     Get Current Time
                                 </a>
                             </dd>
                             <dd>
-                                <a href="lbext.html#ordervalues">
+                                <a href="#ordervalues">
                                     Order Values
                                 </a>
                             </dd>
                             <dd>
-                                <a href="lbext.html#timers">
+                                <a href="#timers">
                                     Timers
                                 </a>
                             </dd>
                             <dd>
-                                <a href="lbext.html#autocreatebuttons">
+                                <a href="#autocreatebuttons">
                                     Auto Create Buttons
                                 </a>
                             </dd>
                             <dd>
-                                <a href="lbext.html#censorbadwords">
+                                <a href="#censorbadwords">
                                     Censor Bad Words
                                 </a>
                             </dd>
@@ -107,7 +117,59 @@
         <div class="wrapper">
             <div class="main">
                 <section class="doc-content">
+                    
                     <h2>LioranBoard Extensions</h2>
+
+                    <h3 id="followeralert">Follower Alert</h3>
+                    <p><b>Creator: </b>Lioran<br>
+                    <b>Download:</b> Preinstalled. Located in <code>lioranboard/Extensions</code> folder</a><br>
+                    <b>Description: </b>This extension is ready to be used as soon as you download LioranBoard, as it is preinstalled in your Transmitter. Twitch does not natively send follower alerts, so this is why there needs to be a separate extension to handle them. </p>
+                    <p><i>(Skip these steps below if you installed Notification System as it is already included in it)</i></p>
+                    <b><p>How to initiate the extension: </b><br>
+                    <ol>
+                    <li>Create a new button called <code>Init Follower Alert</code></li>
+                    <li>Add a new command  <a href="othercommands.html#sendtoextension" target="_blank"> Send to Extension</a> - Follower Alert: 
+                    <ul>
+                        <li>Do not modify<code>channel_id</code>value, unless you're using alternate accounts in LB. In that case you need to change it to your broadcaster's channel ID (which can be easily found by using <a href="https://chrome.google.com/webstore/detail/twitch-username-and-user/laonpoebfalkjijglbjbnkfndibbcoon" target="_blank">this</a> Chrome extension)</li>
+
+                    </ul>
+                                      
+                    </li> 
+                     <li>Click on Done. Right click on the newly created button and select <code>Add Twitch Triggers</code>. Click on the <code>+</code> - Extension Trigger. Set it to <code>!transmitteralways</code>. <br>This button will now get executed every time you refresh or close/reopen Transmitter, and will start listening for new followers. </li>
+                    </ol></p>
+
+                   <p> <b>How to set up a Follower trigger:</b><br>
+                    <ol>
+                    <li>Create a new button called <code>Follower Alert</code>. </li>
+                     <li>Add a new command <a href="mathcommands.html#mathtriggerpull"> Math: Trigger Pull </a>. Set <code>Variable</code> to follower_name and <code>Pull value</code> to 1.</li>
+                    <li>Right click on the button and select <code>Add Twitch Triggers</code>. Click on the <code>+</code> - Extension Trigger. Set it to <code>Follower Alert</code>. The button will now get triggered every time the extension detects a new follower. <br>
+                        We also recommend to check <code>Add to Request Queue</code>, which acts as a button queue. If there is another Follower Alert trigger event while the button is still active (for example if you get two followers at the same time), it will place it in the request queue and reactivate the button as soon as it's ready again. </li>
+                    </ol>
+
+                    <p>And you're done! Every time you get a new follower, their name will be stored in the <code>follower_name</code> variable. You are free to add other commands to you Follower Alert button. For example, you can use the <a href="othercommands.html#twitchchatmessage">
+                        Twitch: Chat Message
+                    </a> command to thank your new followers for joining your stream. </p>
+
+                     
+                    <button id="example" onclick="toggle_visibility('followeralertX')">Show example</button>
+                    <div id="followeralertX" style="display: none;"><img src="https://i.imgur.com/ba6QZSu.png" /><br /></div>
+
+
+                              
+                    <h3 id="notifications">Notification System</h3>
+                    <p><b>Creator: </b>Lioran<br>
+                    <b>Download:</b> Located in <code>lioranboard/LB Notification system</code> folder</a><br>
+                    <b>Description: </b>LioranBoard comes with a fully functional notification animation system for Twitch, ready to use for OBS. 
+                    The notification system covers Subs, Followers, Bits, Raid and Host. There is a Text to Speech option as well, which requires running Transmitter outside of OBS in your browser.</p>
+
+                    <iframe width="420" height="315"
+src="https://www.youtube.com/embed/ilDE_vbM7vs?controls=1" allowfullscreen>
+</iframe> <br> <p>
+
+                    <p>To use it, just click on Install extension in Lioranboard, select LioranBoard Notification System.lbe in <code>lioranboard/LB Notification system</code>, then select the Transmitter you are using and follow all the steps. There is an html guide included in the folder as well. <br>
+                        The extension comes with a premade deck and buttons. They are rather complex and we don't recommend editing them (especially not the Master Animator button that processes all the alerts and handles the animations), unless you're already an experienced user. 
+                     
+
                    
                         <h3 id="complexmath">Complex Math</h3>
                         <p><b>Creator: </b>Lioran<br>

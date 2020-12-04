@@ -665,9 +665,7 @@
 
                     If you want to allow a single word for your trigger, no matter where it is placed in the sentence, you will need 4 different triggers: <code>word</code>,<code>word *</code>, <code>* word</code> and <code>* word *</code>. <br>
 
-                    You can use  <a href="mathcommands.html#mathtriggerpull">
-                        Math: Trigger Pull
-                    </a> command to fetch whatever is covered by a wild card. <br>
+                    
                     For example, with a trigger <code>!set * to *</code> and a chat message <code>!set timer to 5</code> , you can pull wild card 1 value (<code>timer</code>) and wild card 2 value (<code>5</code>). </p>
                 <p>
                     Now, what if you have a command <code>!lights *</code> where the wildcard is a color to set your Philips Hue lights to, but your viewers sometimes include extra text after they specify the color? For example, they send a chat message: <code>!lights red Hello there!</code> and you're only interested in pulling the color name instead of the whole <code>red Hello there!</code> value. In this case, you need to use these two chat triggers: <code>lights * *</code> , <code>lights *</code> (order and spaces matter). Now it will always only pull the color, no matter if there is any additional text.

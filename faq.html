@@ -89,6 +89,12 @@
                             Premade variables
                         </a>
                     </dd>
+
+                    <dd>
+                        <a href="#buttontriggers">
+                            Button Triggers
+                        </a>
+                    </dd>
                     <dd>
                         <a href="#commanddelays">
                             Command delays
@@ -377,6 +383,142 @@
                     <li><code>channel_id</code>(hidden) - Twitch Channel ID. Does not show in the list of variables, but can be passed as a parameter in extension fields.</li>
                     <li><code>oauth_token</code>(hidden) - Twitch Channel ID. Does not show in the list of variables, but can be passed as a parameter in extension fields.</li>    
                                        </ul>
+
+                </p>
+
+                <h3 id="buttontriggers"> Button Triggers (in progress)
+                </h3>
+                <p>
+                LioranBoard has a way of triggering your buttons with different kinds of events. <br>
+                For example, a button can be set up to trigger every time you get a new subscriber. Or, another button can be set up to trigger after a viewer sends a specific message in your Twitch chat. <br>
+                Setting up a trigger is as easy as right clicking on a button and selecting <code>Add Twitch Triggers.</code> Do not get confused by the name, as you can set up triggers for non Twitch events (extensions) as well. <br>
+                We recommend checking <code>Add to Request Queue</code>, which acts as a button queue. If there is another trigger event while the button is still active (for example if you get two subscribers at the same time), it will place it in the request queue and reactivate the button as soon as it's ready again. <br>
+                You can test your Twitch triggers by clicking on the test buttons in your Transmitter. 
+            </p>
+
+                <p><b>Types of triggers: </b>
+                    <ul>
+
+                        <li><b>Chat message</b> - listens to all the chat messages and triggers when specific conditions are met.  <br>
+                            For example, if your message field is <code>!info</code>, it will trigger every time a viewer sends <code>!info</code> command in chat. Can also contain <a href="#wildcards">Wild Cards</a>.<br>
+                            Once the trigger activates the button, you can use <a href="mathcommands.html#mathtriggerpull" target="_blank">Math: Trigger Pull</a> to retrieve all the basic information (viewer's name, full message, emotes and badge list) and/or use <a href="stringcommands.html#stringwildcard" target="_blank">String: Wilcard Pull</a> to retrieve your wildcard values.<br>
+                            
+                    <button id="example" onclick="toggle_visibility('currenttimeX')">Basic example</button> <button id="example" onclick="toggle_visibility('chatwildcardx')">Wildcard example</button>
+                    <div id="currenttimeX" style="display:none"> <br><img src="https://i.imgur.com/VN33hES.png"> </div>
+                    <div id="chatwildcardx" style="display:none"> <br><img src="https://i.imgur.com/TnzSI5e.png"> </div>
+        
+                    <li><b>Bits</b> - triggers every time a viewer cheers with bits on your stream. <br>You can set up a minimum and maximum amount of bits allowed for the trigger to get activated. This way you can have different animations/sounds played depending on how many bits the viewer sent. <br>
+                    Once the trigger activates the button, you can use <a href="mathcommands.html#mathtriggerpull" target="_blank">Math: Trigger Pull</a> to retrieve all the information (bits amount, viewer's name, viewer's message)<br>
+
+                    <button id="example" onclick="toggle_visibility('bitsX')">Show example</button>
+                <div id="bitsX" style="display:none"> <br><img src="https://i.imgur.com/WaYVMpz.png"> </div>
+                </li>
+
+                <li><b>Subs</b> - triggers every time you get a new subscriber.  <br>
+                    T1/T2/T3 - regular subscribers (tier1 to tier3)<br>
+                    Prime - Twitch Prime subscriber <br>
+                    SubGift - A gifted subscriber <br>
+                    AnonSubGift - Anonymously gifted subscriber <br>
+                    Once the trigger activates the button, you can use <a href="mathcommands.html#mathtriggerpull" target="_blank">Math: Trigger Pull</a> to retrieve all the information (sub name, sub type, recipient for gifted subs, sub message, total number of months subbed etc. )<br>
+
+                    <button id="example" onclick="toggle_visibility('subX')">Regular Sub example</button> 
+                <div id="subX" style="display:none"> <br><img src="https://i.imgur.com/JikZ6nN.png"> </div>
+                
+              
+                </li>
+
+                <li><b>Gift Sub Amount</b> - triggers every time a viewer gifts a subscriber to another viewer.<br>
+                    Once the trigger activates the button, you can use <a href="mathcommands.html#mathtriggerpull" target="_blank">Math: Trigger Pull</a> to retrieve name of the gifter, amount of subs gifted and types of tiers. <br>
+                    If you want to retrieve all the names of the gifted subs, you need to also use <b>Subs</b> trigger (check SubGift and AnonSubGift fields).<br>
+                    <button id="example" onclick="toggle_visibility('gsubX')">Gifted Sub example</button>
+                    <div id="gsubX" style="display:none"> <br><b>Button 1</b><br><img src="https://i.imgur.com/S9xhsEF.png"><br><b>Button 2</b><br><img src="https://i.imgur.com/y7sLZcR.png"> </div>
+
+                </li>
+
+                <li><b>Host/Raid</b> - triggers every time your stream gets hosted/raided. <br>
+                    Once the trigger activates the button, you can use <a href="mathcommands.html#mathtriggerpull" target="_blank">Math: Trigger Pull</a> to retrieve all the information (viewer's name, amount of viewers)<br>
+
+        
+                </li>
+
+                <li><b>Point Redeem</b> - triggers every time a viewer redeems a channel point reward. Only works for custom rewards (text or no text) <br>
+                    Once the trigger activates the button, you can use <a href="mathcommands.html#mathtriggerpull" target="_blank">Math: Trigger Pull</a> to retrieve all the information (viewer's name, reward's name, message, reward ID)<br>
+                    If you put <code>*</code> in the Redeem Name field, it will get triggered with any reward. This <code>*</code> does not act as a wildcard (do not use String: Wilcard Pull). <br>
+
+
+                </li>
+
+                <li><b>Point Redeem with message</b> - triggers every time a viewer redeems a channel point reward. Only works for custom rewards which require viewers to enter text.  <br>The message field can contain wildcards.<br>
+                    Once the trigger activates the button, you can use <a href="mathcommands.html#mathtriggerpull" target="_blank">Math: Trigger Pull</a> to retrieve all the information (viewer's name, reward's name, message, reward ID) and/or use <a href="stringcommands.html#stringwildcard" target="_blank">String: Wilcard Pull</a> to retrieve your wildcard values.<br>
+                                      If you put a single <code>*</code> in the message field, it will get triggered with any message. This <code>*</code> does not act as a wildcard (do not use String: Wilcard Pull). <br>
+
+         
+                </li>
+                <li><b>Extension trigger</b> - controlled by LioranBoard extensions. Can contain wildcards depending on the extension. <br>
+                    Once the trigger activates the button, you can use <a href="mathcommands.html#mathtriggerpull" target="_blank">Math: Trigger Pull</a> to retrieve all the information (value1, value2, value3) and/or use <a href="stringcommands.html#stringwildcard" target="_blank">String: Wilcard Pull</a> to retrieve your wildcard values.<br>
+                    If an extension uses a trigger, it will be documented in the extension manual.<br>
+                   
+
+          
+                </li>
+                <li><b>LioranBoard premade triggers</b> - these are all extension triggers covering different LioranBoard and Twitch chat events.
+                <ul>
+                    <li>
+                        <code>!initlioranboard</code> - Every time Lioranboard starts up
+                    </li>
+                    <li>
+                        <code>!reinitializing</code> - When decks are reloaded.
+                    </li>
+                    <li>
+                        <code>!resetlioranboard</code> - When you use the reset button 
+                    </li>
+                    <li>
+                        <code>!obsconnected</code> - Lioranboard's first connection to OBS
+                    </li>
+                    <li>
+                        <code>!twitchconnected </code> - Twitch chat first connection
+                    </li>
+                    <li>
+                        <code>!transmitterconnected</code> - Transmitter's first connection
+                    </li>
+                    <li>
+                        <code>!obsalways</code> - Every time LioranBoard connects to OBS
+                    </li>
+                    <li>
+                        <code>!twitchalways</code> - Every time Lioranboard connects to Twitch
+                    </li>
+                    <li>
+                        <code>!transmitteralways</code> - Every time Transmitter connects to Lioranboard
+                    </li>
+                    <li>
+                        <code>!leavescene Scene Name</code> - Everytime you switch scene, Math: Trigger Pull 1= transition type,  2= transition duration
+                    </li>
+                    <li>
+                        <code>!enterscene Scene Name</code> - Everytime you switch scene, Math: Trigger Pull 1= transition type, 2= transition duration
+                    </li>
+                    <li>
+                        <code>!ban</code> - When someone gets banned, Math: Trigger Pull 1=name of the mod, 2=name of the person who got banned
+                    </li>
+                    <li>
+                        <code>!unban</code> - When someone gets unbanned, Math: Trigger Pull 1=name of the mod, 2=name of the person who got unbanned
+                    </li>
+                    <li>
+                        <code>!timeout</code> - When someone gets timed out, Math: Trigger Pull 1=name of the mod, 2=name of the person who got timed out, 3=duration of the timeout in seconds
+                    </li>
+                    <li>
+                        <code>!untimedout</code> - When someone gets unbanned, Math: Trigger Pull 1=name of the mod, 2=name of the person who got untimed out
+                    </li>
+                    <li>
+                        <code>!clearchat</code> - When a mod clears the chat,  Math: Trigger Pull 1=name of the mod.
+                    </li>
+      
+                </li>
+
+                </ul>
+
+
+                    </ul>
+
 
                 </p>
 

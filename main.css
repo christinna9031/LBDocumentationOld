@@ -518,6 +518,24 @@ body {
 
   }
 
+  #examplemini {
+    content:'screenshot';
+    background-color: #415577; /* Green */
+  border: none;
+  color: white;
+  padding: 6px 6px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size:12px;
+  margin:0px 0px 0px 0px; 
+  border-radius:10px;
+
+
+  }
+
+
+
 
 
   h1 {

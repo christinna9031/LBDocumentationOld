@@ -1032,7 +1032,7 @@
                     </p><p>
                         If the requested value is inside another object already, you can access it with a simple dot-notation: <code>.</code>. 
                         <br> For example, if you want to retrieve Brightness value from Color Correction Filter, you will notice that it is inside an object called settings. <code>{"settings": {"brightness": 0.78}, "status": "ok", "type": "color_filter"}</code>. In this case, the Fetch Value will be <code>settings.brightness</code>.</p>
-                        <p><i>Note: If the name of the fetched value contains dots, you need wrap in a parentheses like this: <code>(Filter.Transform.Rotation.X)</code>. Otherwise LioranBoard will think you're trying to access a value inside an object. </i></p>
+                        <p><i>Note: If the name of the fetched value contains dots, you need to wrap in a parentheses like this: <code>(Filter.Transform.Rotation.X)</code>. Otherwise LioranBoard will think you're trying to access a value inside an object. </i></p>
 
 
                     </p>

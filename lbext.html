@@ -200,14 +200,10 @@ src="https://www.youtube.com/embed/ilDE_vbM7vs?controls=1" allowfullscreen>
                         <b>Description: </b>
 
                         Retrieves current time and date. <br></p>
-                        <p>Date format field values: 
-                        <ul>
-                        <li><code>date</code> - returns current date</li>
-                        <li><code>time</code> - returns current time</li>
-                        <li><code>(empty)</code> - returns both</li>
-                        </ul>
+                        <p>Possible formats: 12h clock, 24h clock, military, date, timestamp (date+time), Unix.</p>
+                     
                         <button id="example" onclick="toggle_visibility('gettimeX')">Show example</button>
-                        <div id="gettimeX" style="display: none;"><img src="https://i.imgur.com/wrbNHWm.png" /><br /></div>
+                        <div id="gettimeX" style="display: none;"><img src="https://i.imgur.com/M7OHTaN.png" /><br /></div>
 
                         <h3 id="ordervalues">Order Values</h3>
                         <p><b>Creator: </b>Sacrementus<br>
@@ -226,23 +222,39 @@ src="https://www.youtube.com/embed/ilDE_vbM7vs?controls=1" allowfullscreen>
                         <h3 id="timers">Timers</h3>
                         <p><b>Creator: </b>Christinna <br>
                         <b>Download: <a href="https://discord.com/channels/699319482442711072/712274509389889618/778698269584785469">Discord Link</a></b><br>
-                        <b>Description: </b>You can use this extension to add as many timers as you want. Useful for sending chat messages every X minutes. It is not precise to the second since it still needs to go through the websocket, so it is rather useful for longer timers.  </p>
+                        <b>Description: </b>You can use this extension to add as many timers as you want. Useful for triggering buttons (like sending chat messages) every X minutes. It is not precise to the second since it still needs to go through the websocket, so account for a variance of 5-10 seconds.   </p>
                         <p>
                                               </p>
                         <p>You can create as many timers as you want. The timers will clear only if you use Timer Stop extension, refresh Transmitter or close/reopen LB receiver.<br>
-                        You can keep editing your decks and buttons and even reset values, this has no effect on the timers. </p>
-                            
-                            <p>Extension Timer field values:
-                            <ul>
-                            <li><code>name</code> - name of the extension trigger that will fire once timer hits 0</li>
-                            <li><code>value</code> - time in milliseconds</li>
-                            </ul>
+                        You can keep editing your decks and buttons and even reset values, as this has no effect on the timers whatsoever. </p>
+                        <p>    
+                        <b>How to set up a timer</b>: 
+                        
+                        <ol>
+                        <li>Create a new button and add a command Send to extension - Timer. </li>    
+                        <li>Enter the name of your timer. This will be the extension trigger that will fire each time your timer hits 0.</li>
+                        <li>Enter the delay in milliseconds. If you want to trigger a button every 5 minutes, it will be 60000 * 5 = 300000.</li>
+                        <li>Create another button or use an existing one you wish to trigger once the timer hits 0. Add a new extension trigger to the button which will be the name of your timer you set up in your previous step. </li>
+                        <li>Click done twice and initiate your timer by pressing the first button you created (press it only once, otherwise it will create duplicate timers). </li>
+                        </ol>
+                        <p>
+                        <i>Note: You can see all your currently running timers in your Transmitter by clicking on the "View Active Timers" button. <button id="example" onclick="toggle_visibility('activetimersX')">Show example</button>
+                            <div id="activetimersX" style="display: none;"><img src="https://i.imgur.com/DHjQhyM.png" /><br /></div> </i></p>
 
-                      
+                       <p><b> How to delete a timer: </b>
+
+                        <ol>
+                        <li>Create a new button and add a new command Send to extension - Timer Delete.</li>
+                        <li>The name will be the name of your timer you set up earlier (needs to match). StopAll can be either set to false (to only delete the specified timer) or true (to delete all currently running timers). </li>
+                        </ol>
+
+                        <p><i>Note: This will delete your timer and start the countdown all over once you initiate the timer button again.</i></p>
+
+                     
                         
                        
                         <button id="example" onclick="toggle_visibility('timerX')">Show example</button>
-                        <div id="timerX" style="display: none;"><img src="https://i.imgur.com/xe3IjHZ.png" /><br /></div>
+                        <div id="timerX" style="display: none;"><img src="https://i.imgur.com/cy0PO5W.png" /><br /></div>
 
                         <h3 id="autocreatebuttons">Auto Create Buttons</h3>
                         <p><b>Creator: </b>Christinna<br>

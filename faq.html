@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="main.css">
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
 <script src="main.js"></script>
 <title>FAQ | LioranBoard</title>
 
@@ -123,9 +123,13 @@
                         </a>
                     </dd>
 
-                 
+                                  
 
-
+                    <dd>
+                        <a href="#secondpc">
+                            Control OBS from another PC
+                        </a>
+                    </dd>
 
                     <dd>
                         <a href="#obstreamlabs">
@@ -141,8 +145,7 @@
 
                     <dd>
                         <a href="#anyapp">
-                            Connect LioranBoard to any app
-                        </a>
+                            Connecting LB to other apps
                     </dd>
 
                     <dd>
@@ -677,7 +680,34 @@
          
                 </p>
 
+                
+                <h3 id="secondpc"> Controlling OBS from another PC with LB
+                </h3>
+                <p>LioranBoard can connect to your OBS from another PC, as long as they are both sharing the same network. <br> Follow these steps: <br>
+                <ul>
+                    <li>
+                    <b>Streaming PC:</b>
+                    <ol>
+                    <li>Run your OBS as normal.</li> 
+                    <li>Open CMD and type <code>ipconfig</code>. Write down your IPv4 address. It should start with 192.168.</li> 
+                    </ol>
+                    </li>
+                    <li>
+                    <b>Gaming PC:</b>
+                    <ol>
+                    <li>Go to your Lioranboard/Receiver folder and open connect.ini. Under <code>[connection]</code>  section, add a new entry: <code>websocket_ip="YOUR STREAMING PC IPv4"</code>.</li>
+                    <li>
+                    Save the file, open Lioranboard and try connecting to the OBS websocket on your streaming PC. It should work as long as nothing (antivirus, firewall) is blocking connection to your streaming PC. 
+                    </li>
+                    </ol>
+                    </li>
+
+                </ul>
+                
+              
                
+                <button id="example" onclick="toggle_visibility('secondpcX')">Show example</button>
+                    <div id="secondpcX" style="display:none"> <br><img src="https://i.imgur.com/xRkzU3I.png"> </div> 
 
                 <h3 id="obstreamlabs"> LioranBoard and OBS Streamlabs
                 </h3>

@@ -143,7 +143,12 @@ Sound drivers can be also causing this issue, you can try reinstalling them.
 
                     <ol>
                     <li><b>Redownload OBSwebsocket</b><br>
-                        If in doubt, try completely reinstalling the plugin (make sure you have the latest version). </li>
+                        If in doubt, try completely reinstalling the plugin. Make sure you have the latest version. You can check whether your OBS websocket is correctly installed by going to OBS-Tools-Websockets Server Settings </li>
+                        <li><b>Check OBS websocket password</b><br>
+                        Make sure your passwords in OBS-Tools-Websockets Server Settings and LioranBoard Receiver-Options match. If you do not use a password, uncheck Enable authentication.  
+                        <button id="example" onclick="toggle_visibility('OBSpassX')">Show example</button>
+                    <div id="OBSpassX" style="display:none"> <br><img src="https://i.imgur.com/5avoL2h.png">>
+                    </li>
                         <li><b>Change Ports</b><br>Change the ports of OBSwebsocket to a new one, try a random number like 19838.<br>
                             Make sure you also change the port for OBSwebsocket in LioranBoard to the SAME number, the box labeled OBSWebsocket Port inside Options. </li>
                         <li><b>Lower or increase timeout</b><br>Open connect.ini (either in Lioranboard Receiver or in APPDATA/local/lioranboard folder). <br>

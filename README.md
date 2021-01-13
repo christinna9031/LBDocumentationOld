@@ -1,2 +1,2 @@
 # LBDocumentation
-LioranBoard Unofficial Documentation. 
+LioranBoard Unofficial Documentation. https://christinna9031.github.io/LBDocumentation/

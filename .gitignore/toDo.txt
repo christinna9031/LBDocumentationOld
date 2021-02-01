@@ -1,0 +1,16 @@
+- FAQ - how to copy a deck
+      - how to uninstall extensio   
+      - twich chat tunnelbear 
+      - twich trigger faq add follower 
+      - streamlabs extension guide
+      - real vs string 
+refresh transmitter ctrl + r in dock
+
+
+string escape
+
+      filtering wizardry to make it so ONLY highlighted messages show up in twitch chat
+wmi temperature
+https://discord.com/channels/699319482442711072/699319483097022631/804439439991767051   
+
+youtube api get latest video

@@ -52,6 +52,11 @@
                             <dd>
                                 <a class="sub-page" href="externalext.html"  class="active">External Apps</a>
                             </dd>
+                            <dd>
+                                <a href="#twitter">
+                                    Twitter
+                                </a>
+                            </dd>
 
 
                         </dl>
@@ -70,8 +75,103 @@
             <div class="main">
                 <section class="doc-content">
                     <h2>External Apps Extensions</h2>
+
+                    <h3 id="complexmath">Twitter</h3>
+                        <p><b>Creator: </b>Christinna<br>
+                        <b>Download: <a href="ttt" target=_blank>Discord Link</a></b><br>
+                        <b>Description: </b>
+                         This extension lets you post and read Tweets. </p>
+                         <p>
+
+                        <h4><b>Creating Twitter Developer Account</b></h4>
+                        <p>
+First you will need to create a Twitter developer account and request API access. This process is usually fast, I tested it on several  Twitter accounts and got always approved within 24h. 
+
+<ol>
+<li>Go to <a href="https://developer.twitter.com/en/apply/user.html" target=_blank>https://developer.twitter.com/en/apply/user.html</a> to apply. </li>
+ <li>Primary reason should be Hobbyist - building tools for Twitter users.  Press Next.  <button id="examplemini" onclick="toggle_visibility('primaryreason')">Screenshot</button> <div id="primaryreason" style="display: none;"><img src="https://i.imgur.com/dpuS9OD.png" /></div></li>
+ <li>Confirm and fill out all the necessary information. Press Next. <button id="examplemini" onclick="toggle_visibility('GFVo66U')">Screenshot</button> <div id="GFVo66U" style="display: none;"><img src="https://i.imgur.com/GFVo66U.png" /> </li>
+ <li>You will need to fill out bunch of stuff on this screen: 
+  
+  <ul><li>How will you use Twitter API? - describe in your own words that you're using it for a Twitch plugin to post your stream updates and/or to read recent Tweets of your followers</li>
+ <li>Are you planning to analyze Twitter data - no </li>
+ <li> Will your app use Tweet, Retweet, like, follow or Direct Message functionality? - yes</li>
+ <li> Describe in your own words that you will be using it to post your Twitch stream updates. </li>
+ <li> Do you plan to display Tweets or aggregate data about Twitter content outside of Twitter? - yes or no (depends on whether you are going to use the Recent Tweet feature as well)</li>
+ <li> Will your product, service or analysis make Twitter content or derived information available to a government entity? - no</li>
+ <li>Press Next.
+
+    <button id="examplemini" onclick="toggle_visibility('gD01alD')">Screenshot</button> <div id="gD01alD" style="display: none;"><img src=" https://i.imgur.com/gD01alD.png"><br><img src=" https://i.imgur.com/yiPNPKg.png"></div>
+ </li> 
+</ul>
+</li>
+<li>Is everything correct? Press Looks Good. <button id="examplemini" onclick="toggle_visibility('qOFG0BO')">Screenshot</button> <div id="qOFG0BO" style="display: none;"><img src="https://i.imgur.com/qOFG0BO.png"><br><img src="https://i.imgur.com/Qx1GlfK.png"> </div>   </li>
+<li>Review and accept Developer Agreement and Submit Application. <button id="examplemini" onclick="toggle_visibility('UEphaFc')">Screenshot</button> <div id="UEphaFc" style="display: none;"><img src="https://i.imgur.com/UEphaFc.png" /> </li>
+<li>You should get a purple screen You did it! asking you to confirm your email address. <button id="examplemini" onclick="toggle_visibility('faAxVUV')">Screenshot</button> <div id="faAxVUV" style="display: none;"><img src="https://i.imgur.com/faAxVUV.png" /> </li>
+<li>After confirming your email address, you should get another purple screen saying Application Under Review. The approval process usually takes less than 24h.  <button id="examplemini" onclick="toggle_visibility('52g0VYI')">Screenshot</button> <div id="52g0VYI" style="display: none;"><img src="https://i.imgur.com/52g0VYI.png" />  </li>
+<li>Once you get approved, go to <a href="https://developer.twitter.com/en/portal/projects-and-apps target=_blank">https://developer.twitter.com/en/portal/projects-and-apps</a>. Click on + Create App. <button id="examplemini" onclick="toggle_visibility('1FChWB5')">Screenshot</button> <div id="1FChWB5" style="display: none;"><img src="https://i.imgur.com/1FChWB5.png" />
+    </li>
+    <li>Name it whatever you like and press Complete. <button id="examplemini" onclick="toggle_visibility('0WV3ipq')">Screenshot</button> <div id="0WV3ipq" style="display: none;"><img src="https://i.imgur.com/0WV3ipq.png" /> </li>
+    <li> Copy your API key and API secret key and save it somewhere. Click on the blue button App Settings. <button id="examplemini" onclick="toggle_visibility('5k4OOlY')">Screenshot</button> <div id="5k4OOlY" style="display: none;"><img src="https://i.imgur.com/5k4OOlY.png" /> </li>
+    <li>You should see a page with your App Details and App permissions settings (you can also navigate there by going to Projects & Apps - Overview - Your App name). <button id="examplemini" onclick="toggle_visibility('zR2wkEP')">Screenshot</button> <div id="zR2wkEP" style="display: none;"><img src="https://i.imgur.com/wxlcWbV.png" /> </div>
+        <ol>
+        <li> Click on the blue button Edit in App Permissions Settings and change it to Read and Write. Press Save. <button id="examplemini" onclick="toggle_visibility('sadszRH')">Screenshot</button> <div id="sadszRH" style="display: none;"><img src="https://i.imgur.com/sadszRH.png" /></li>
+        <li>Click on Keys and tokens (right under the page title): <ol><li>Click on Generate your Access token & secret. 	<button id="examplemini" onclick="toggle_visibility('ME30mIj')">Screenshot</button> <div id="ME30mIj" style="display: none;"><img src="https://i.imgur.com/ME30mIj.png" /></li> 	<li>You will get a pop up window containing your access token and secret. Copy them both and save them somewhere. <button id="examplemini" onclick="toggle_visibility('3ffYExZ')">Screenshot</button> <div id="3ffYExZ" style="display: none;"><img src="https://i.imgur.com/3ffYExZ.png" /> </li> <li> Click on Yes, I saved them. If you manage to lose them, you can always click on Regenerate. </li></ol> </li>
+        </ol>
+    </li>
+
+</ol>
+
+<h4><b>Initializing the extension</b></h4>
+<p> At this point you are ready to initialize the extension. Install it and go to the premade deck. 
+
+<ol> <li>Click on the Tweet Init button - Edit Commands.</li>
+    <li>    Fill out all the fields in the Send to Extension command. Hopefully you saved them all earlier, so you can just copy paste them one by one. Press done. The button will now trigger every time you restart Transmitter.</li>
+</ol>
+
+<h4><b>How to Tweet</b></h4>    
+<p>
+Right click on the Tweet button - Edit Commands. 
+
+<ul>
+<li>
+<code>type</code> = Post a Tweet</li>
+<li><code>text_username</code> = your Tweet content. Can contain links as well.</li>
+<li>you can leave everything else empty.</li>
+</ul>
+
+<p>
+Press done Twice and test your Tweet button. If you set up everything right, you should get a small yellow message saying "Tweet has been posted!". <button id="examplemini" onclick="toggle_visibility('RJ8wcYV')">Screenshot</button> <div id="RJ8wcYV" style="display: none;"><img src="https://i.imgur.com/RJ8wcYV.png" /> </div> 
+<p>If you get a message "Error posting Tweet" or "Something went wrong posting the Tweet.", make sure you
+ copied all your tokens and secrets right and followed the instructions (especially the one where you allow the app to read and write). <br></p>
+<p><b>IMPORTANT</b><br>
+    Make sure to not spam it. Twitter is pretty strict and actually blocked my account while I was testing the extension and accidentally sent out 10+ Tweets with the same content.  If this happens, you will get a small yellow message saying "Too many similar Tweets. Change the text and/or format and try again later.". </p>
+
+<p>
+
+<h4><b>How to retrieve recent Tweet(s)</b></h4>
+<p>
+Right click on the recent tweet button - Edit Commands.
+
+<ul>
+    <li><code>type</code> = recent tweet</li>
+    <li><code>variable</code> = variable name or stack name you want the tweet(s) to be saved under</li>
+    <li><code>incl_retweets</code> = whether you want to include retweets</li>
+    <li><code>incl_replies</code> = whether you want to include replies</li>
+    <li><code>count</code> = how many recent tweets you want to retrieve</li>
+    <li><code>text_username</code> = Twitter name of the person you want to retrieve tweets from </li>
+    
+    </ul>
+
+<p>If <code>count</code> < 1, the most recent tweet will be saved in a variable. If <code>count</code> > 1, the most recent tweets will be saved in a stack. <br>
+If you select false in the <code>incl_retweets</code> or <code>incl_replies</code> field, remember that they will still count towards the total amount of tweets retrieved (if count=10, incl_retweets = false and the Twitter account has 2 recent tweets + 8 recent retweets, you will receive only 2 tweets back) </p>
+
+<p>
+<i>Some tweets contain special characters that LB doesn't like. I created a filter to eliminate them, but it's quite difficult to test them all, so it might still ocassionally give you an error "Corrupted pubsub packet". If that happens, send the Tweet which broke it my way. </p>
+
+            <br><br>          
                    
-                <p>Coming soon.</p>    <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> 
+                <p>Rest is coming soon.</p>    <br> 
    
                 
                   

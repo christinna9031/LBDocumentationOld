@@ -48,6 +48,12 @@ jQuery(function() {
 
 });
 
+
+
+  $(document.links).filter(function() {
+	return this.hostname != window.location.hostname;
+  }).attr('target', '_blank');
+
 function getClosestHeader() {
 	var $links = $('.sidebar a.active').closest('dl').find('dd a:not(.sub-page)'),
 	top = window.scrollY,

@@ -46,11 +46,17 @@
                             <dd>
                                 <a class="sub-page" href="lbext.html">LioranBoard</a>
                             </dd>
+                            
                             <dd>
                                 <a class="sub-page" href="twitchext.html" >Twitch</a>
                             </dd>
                             <dd>
-                                <a class="sub-page" href="externalext.html"  class="active">External Apps</a>
+                                <a class="sub-page" href="externalext.html"  class="active">External</a>
+                            </dd>
+                            <dd>
+                                <a href="#pollyTTS">
+                                   Text to Speech Polly
+                                </a>
                             </dd>
 
 
@@ -74,14 +80,138 @@
         <div class="wrapper">
             <div class="main">
                 <section class="doc-content">
-                    <h2>External Apps Extensions</h2>
+                    <h2>External Extensions</h2>
+
                    
-                <p>Coming soon.</p>    <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> 
+                <p>Extensions that connect to external apps and services.</p>  
+                
+                             
+                <h3 id="pollyTTS">Text to Speech Polly</h3>
+                <p><b>Creator: </b>Christinna<br>
+                <b>Download: <a href="https://christinna9031.itch.io/lioranboard-polly-text-to-speech">Itch.io</a></b><br>
+            
+
+
+                <b>Description: </b>
+
+                Text to Speech extension using Amazon Polly service to turn any text into speech. <b>It works in OBS dock, browser source and external browsers.</b>   <br>
+                <b>Preview:</b><br><iframe width="420" height="315"
+                src="https://www.youtube.com/embed/wazxdYa8XN8?controls=1" allowfullscreen>
+                </iframe><br>
+                <b>Features:</b>    <br>
+         
+Text you wish to turn into speech can be sent directly from LioranBoard or your Transmitter (by entering the text or uploading a .txt file). <br>
+
+You can set up your default voice, choosing either neural (more naturally sounding) or standard voice engine. All supported voices can be found <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html" target="_blank">here.</a>  <br> 
+You can change pitch, speed and add some effects - you can make it whisper instead of speaking, or use DRC (dynamic range compression).<br>
+
+You can configure a button that will automatically show currently played text. <br>
+
+Playback controls: 
+Play and Pause, Skip to Next/Play previous recording, Fast Forward/Backwards, Change Volume, Mute/Unmute.<br><br>
+<b>Setup: </b>
+<ol>
+<li>You need AWS credentials to use this extension. If you do not have an Amazon account, you will need to <a href="https://aws.amazon.com/" target="_blank"> sign up</a> for one. Amazon will ask you to verify your identity by providing your phone number and payment method (credit or debit card, some prepaid cards work too). This is needed because AWS provides many other paid services, although we will be using Polly TTS as a part of their free tier. <br>
+ Once you have your account, make sure you <a href="https://aws.amazon.com/activate/"> activated the services</a> and follow the steps <a href="https://aws.amazon.com/blogs/security/wheres-my-secret-access-key/" target="_blank">here</a> to get your credentials. As a safety precaution, you might want to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html" target="_blank">create an IAM user</a> and use their credentials instead. <button id="example" onclick="toggle_visibility('awskey')">Show example</button>
+ <div id="awskey" style="display: none;"><img src="https://i.imgur.com/UC4cCaR.png" /><br /></div>
+ </li>
+ <li>Once you have your credentials, install the extension following these <a href="faq.html#installextensions" target="_blank">steps</a>. In your zip folder you should also see img and lib folders: 
+    <ul>
+    <li>
+    Copy and paste the whole lib folder to the same folder where your Transmitter file resides (most likely in lioranboard folder). 
+    <button id="example" onclick="toggle_visibility('lblibfolderx')">Show example</button>
+    <div id="lblibfolderx" style="display: none;"><img src="https://i.imgur.com/6iMbTd9.png" /><br /></div></li>
+    <li>Open the img folder, select all the images and copy them all to <code>lioranboard/LioranBoard Receiver(PC)/image</code> folder. </li>
+</ul> 
+</li>
+<li>
+In your Receiver, open the premade deck and click on the cogwheel button - edit commands:
+<ul>
+<li>aws_key = your Access Key ID (from step 1)</li>
+<li>aws_secret = your Secret Access Key (from step 1)</li>
+<li>voice = choose your default voice. N means it supports both standard and neural engine, NN means it only supports neural engine.</li>
+<li>neural = switch between neural and standard engine</li>
+<li>region = choose one closest to your location</li>
+<li>button_id = button ID you wish to display currently played text (already pre-configured, do not need to change it)</li>
+<li>length = max amount of characters per line, will format the displayed text in your button</li>
+</ul>
+<li>Refresh your Transmitter and click on Play Short examples button to test your credentials. A yellow notification message will pop up in your Receiver if something isn't set up right (follow its instructions). If your credentials are not accepted, go over the previous steps and refresh the Transmitter again. If you get a yellow message saying "Initialize the extension first", press the cogwheel button.</li>
+<li>
+If you are using the default LB notification system, you can follow the instructions in the Alternate Master Animator button to connect it to your new TTS extension. (will be released in the next LB version)
+<button id="example" onclick="toggle_visibility('lbttsnotif')">Show example</button>
+<div id="lbttsnotif" style="display: none;"><img src="https://i.imgur.com/Ib5jHeV.png" /><br /></div></li>
+<li>Else you can set up your own TTS button triggers (the included example works for <code>!tts *</code> chat trigger).</li>
+ <li>Sending a TTS command: </li>
+    <ul>
+        <li>type = Speak</li>
+        <li>voice = default or select a specific one</li>
+        <li>neural = switch between neural and standard engine</li>
+        <li>pitch = change pitch (only works with standard engine)</li>
+        <li>speed = how fast it should speak</li>
+        <li>effect: whispered = whispers the text instead of speaking it (supported only by standard engine) <br>
+                    drc = dynamic range compression. Makes it easier to hear in noisy environments. <br>
+                    soft = makes the voice sound a bit softer (supported only by standard engine)</li>
+        <li>value = text you want it to speak</li>
+
+        </li>
+    </ul>
+
+
+ </ol>
+<p>
+ <b>Playback Controls</b><br>
+ 
+
+ <ul><li> Play/Resume - play current recording or resume a currently paused one</li>
+    <li>Pause - pause currently played recording</li>
+<li>Play Previous - play previous recording</li>
+<li>Skip to Next - skip to next recording. If there's a new TTS request in the queue, it will skip to that one instead.</li>
+<li>Fast Forward/Backwards - you can choose the amount of seconds</li>
+<li>Volume Up/Down - you can choose the increments, default is 10% per button press (only affects the TTS itself)</li>
+<li>Mute/Unmute - Mutes/Unmutes your TTS (only affects the TTS itself)</li>
+<li>Currently playing button - this button will automatically display a currently played TTS </li>
+<button id="example" onclick="toggle_visibility('playbackx')">Show example</button>
+<div id="playbackx" style="display: none;"><img src="https://i.imgur.com/TKPq0Mt.png" /><br /></div>
+</ul>
+
+
+
+<p>
+<b>Additional Information</b><br>
+All TTS requests are saved in your local storage, so you can safely come back and replay them later even after rebooting your computer. <br> 
+
+Any new TTS request will start automatically playing after the last one finishes - there is an integrated queue system. If you're in the middle of replaying your old TTS recordings and a new request comes in, you can press the Skip to Next button to immediately start playing the new TTS request or wait for your current recording to finish first. 
+
+You can press Clear Playlist button to delete all saved and current recordings in the queue. This will also automatically refresh your Transmitter.
+
+You can send TTS requests from your Transmitter as well, either as text or by uploading a .txt file. This will use your default TTS settings. 
+
+ 
+
+<p>
+ <b>Important Notes</b><Br>
+ Amazon Polly TTS has a <b>monthly limit</b> of 1 million neural and 5 million standard free characters for the first year of use. After that you can either switch to a new account to refresh the free tier or use a different TTS service. Make sure you keep track of what month you're on. More information can be found <a href="https://aws.amazon.com/polly/pricing/" target="_blank">here</a>. <br>
+
+ To not go over the monthly limit (which is extremely generous unless you want it to read books for you), you can set up a <a href="https://console.developers.google.com/apis/api/sheets" target="_blank">budget</a> to track and notify you of any extra costs.  <br>
+ 
+ Do not share your AWS credentials or show them on your stream, as you might get billed if you or someone else accidentally uses any of the paid services. Amazon is quite lenient about this though, so you should be able to get a refund in the event something like this happens. 
+
+            </p>
+                
+             
+
+                
+                
    
                 
                   
                 </section>
             </div>
         </div>
+        <script>
+$(document.links).filter(function() {
+	return this.hostname != window.location.hostname;
+  }).attr('target', '_blank');
+        </script>
     </body>
 </html>

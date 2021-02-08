@@ -65,8 +65,14 @@
                     </dd>
 
                     <dd>
+                        <a href="#copydeck">
+                            How to copy a whole deck
+                        </a>
+                    </dd>
+
+                    <dd>
                         <a href="#installextensions">
-                            How to install extensions
+                            How to install/uninstall extensions
                         </a>
                     </dd>
 
@@ -229,23 +235,51 @@
     src="https://www.youtube.com/embed/ombi0CqOlOk?controls=1" allowfullscreen>
 </iframe>
 
+<h3 id="copydeck"> How to copy a whole deck</h3>
+<p>Each configs.ini file represents a single deck.</p>
+<p><ol><li>In the main Receiver menu, note the deck number you would like to copy.</li>
+    <li> Look at the bottom of your Receiver, there is a small grey text that says either 'Local' or 'Appdata' </li>
+    <ul>
+        <li>Local - go to <code>Lioranboard Receiver</code> folder and copy the configs.ini file with the same number you noted in step 1. </li>
+        <li>Appdata - go to <code>C:/user/%username/appdata/local/lioranboard</code> and copy the configs.ini file with the same number you noted in step 1.</li>
+    </ul>
+    <li>To make sure you're copying the right deck file, you can open the file and scroll all the way to the bottom to the <code>[configs]</code> section. The name value should be the name of your deck.</li>
+    
 
-<h3 id="installextensions"> How to install extensions</h3>
-                <p><b>Follow these steps:</b></p>
+</ol>     </p>
+
+
+<h3 id="installextensions"> How to install or uninstall extensions</h3>
+                <p><b>Install an extension:</b></p>
                 <ol>
                     <li>Download the .lbe extension file</li>
                     <li>Click on Install Extension in your LioranBoard Receiver</li>
                     <li>Select the extension file you downloaded </li>
                     <li>Select your default Transmitter you are using. Make 100% sure it is the correct one. </li>
-                    <li>Refresh your Transmitter or close and reopen Lioranboard Receiver.</li>
+                    <li>Your Transmitter will automatically refresh, adding a new tab for the extension you just installed. You should also see it added in at the bottom list of all extensions (with checkboxes).</li>
                     <li>Most extensions include a premade deck with buttons. If you do not see one, create a new button, add "Send to Extensions" command and select the extension you just installed. </li>
                   </ol>
 
                   <p><b>Extension is installed properly if:</b>
                   <ul>
                   <li>You can see all its fields in your Send to extension command. If you can only see the extension name, the extension was not installed properly or your Transmitter is not running. The amount of input fields depends on the extension, but it should always contain at least one. <button id="example" onclick="toggle_visibility('extensionfields')">Show example</button><div id="extensionfields"  style="display:none">  <img src="https://i.imgur.com/LY1nmz0.png"></div></li> 
-                  <li>Your transmitter says the extension is installed. <button id="example" onclick="toggle_visibility('extensiontsl')">Show example</button><div id="extensiontsl"  style="display:none">  <img src="https://i.imgur.com/hHr3lVF.png"></div></li>
-                  </ul></p>
+                  <li>Your transmitter displays that it's correctly installed (you should see a new tab added). <button id="example" onclick="toggle_visibility('extensiontsl')">Show example</button><div id="extensiontsl"  style="display:none">  <img src="https://i.imgur.com/hHr3lVF.png"></div></li>
+                  </ul>
+                <p>
+                  <b>Uninstall an extension:</b>
+                  <ol>
+                    <li>
+                    Open the original extension .lbe file you wish to uninstall and copy the name in the [extension_name] section. This needs to be an exact match.    
+                    </li>
+                    <li>
+                    Download this file: <a href="https://github.com/christinna9031/LioranBoard-Files/releases/download/1.0/uninstall_extension.lbe" target="_blank">https://github.com/christinna9031/LioranBoard-Files/releases/download/1.0/uninstall_extension.lbe</a>    
+                    </li>
+                    <li>Open the file you just downloaded and replace the <code>YOUR EXTENSION NAME YOU WISH TO UNINSTALL</code> with your extension name from step 1.</li>
+                    <li>Follow the same steps for installing an extension.</li>
+
+                  </ol>
+                
+                </p>
                 
 
 
@@ -451,14 +485,17 @@
                 <p><b>Types of triggers: </b>
                     <ul>
 
-                        <li><b>Chat message</b> - listens to all the chat messages and triggers when specific conditions are met.  <br>
+                        <li><b>Chat / Whisper messages</b> - listens to all chat messages and triggers when specific conditions are met. Will also listen to whisper messages if you use <a href="twitchcommands.html#twitchopenwhispers">Twitch: Open Whispers</a> command. <br>
                             For example, if your message field is <code>!info</code>, it will trigger every time a viewer sends <code>!info</code> command in chat. Can also contain <a href="#wildcards">Wild Cards</a>.<br>
                             Once the trigger activates the button, you can use <a href="mathcommands.html#mathtriggerpull" target="_blank">Math: Trigger Pull</a> to retrieve all the basic information (viewer's name, full message, emotes and badge list) and/or use <a href="stringcommands.html#stringwildcard" target="_blank">String: Wilcard Pull</a> to retrieve your wildcard values.<br>
                             
                     <button id="example" onclick="toggle_visibility('currenttimeX')">Basic example</button> <button id="example" onclick="toggle_visibility('chatwildcardx')">Wildcard example</button>
                     <div id="currenttimeX" style="display:none"> <br><img src="https://i.imgur.com/VN33hES.png"> </div>
                     <div id="chatwildcardx" style="display:none"> <br><img src="https://i.imgur.com/TnzSI5e.png"> </div>
-        
+                    <li><b>Followers</b> - this requires a standalone extension, as Twitch Pubsub does not send follower alerts. You need to either initiate <a href="lbext.html#followeralert">Follower Alert</a> extension (which is already pre-installed for you) or download <a href="https://github.com/christinna9031/LB-Streamlabs-Alerts">Streamlabs Alerts</a> extension, which contains Follower Alerts. The latter sends instantaneous alerts, however you need to have a Streamlabs account connected to your Twitch for it to work.<br>
+                        Once the trigger activates the button, you can use <a href="mathcommands.html#mathtriggerpull" target="_blank">Math: Trigger Pull</a> to retrieve the follower's name.<br>
+                        
+
                     <li><b>Bits</b> - triggers every time a viewer cheers with bits on your stream. <br>You can set up a minimum and maximum amount of bits allowed for the trigger to get activated. This way you can have different animations/sounds played depending on how many bits the viewer sent. <br>
                     Once the trigger activates the button, you can use <a href="mathcommands.html#mathtriggerpull" target="_blank">Math: Trigger Pull</a> to retrieve all the information (bits amount, viewer's name, viewer's message)<br>
 
@@ -577,8 +614,10 @@
                 <h3 id="commanddelays"> How command delays work
                 </h3>
 
-                <p>Command delays are absolute, they’re NOT related to each other. If you set up the first command to trigger at 1000ms and the second command to trigger at 1000ms, both commands will trigger at 1000ms, one after another (in this case order matters), exactly 1000ms from when the button was pressed. <br>
-                    The command delay is superior to the command order, which means that a second command in the list with 0ms delay will trigger before the first command in the list with 1000ms delay. <br>
+                <p>Command delays are absolute, they’re NOT related to each other. You can think of them as a timeline, where they don't affect each other in any way. <br>
+                    <b>Example 1:</b> If you set up the first command to trigger at 1000ms and the second command to trigger at 1000ms, both commands will trigger at 1000ms, one after another (in this case order matters), exactly 1000ms from when the button was pressed. <br>
+                    <b>Example 2:</b> If you set up your first command to trigger at 5000ms and your second command to trigger at 2000ms, the second command will be triggered exactly 2000ms from when you pressed the button and then first command will be triggered exactly 3000ms after it (5000ms from when you pressed the button). <br>
+                    The command delay is superior to the command order, which means that a second command with a shorter delay will be always triggered before the first command with a longer delay. <br>
 
                     <button id="example" onclick="toggle_visibility('delayexamplex')">Show example</button>
                 <div id="delayexamplex" style="display:none"> <br><img src="https://i.imgur.com/bzbYOrv.png"> </div>
@@ -784,6 +823,7 @@
 
         </div>
     </div>
-</body>
 
+</body>
+<script>$(document.links).filter(function() {return this.hostname != window.location.hostname;}).attr('target', '_blank');</script>
 </html>

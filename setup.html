@@ -274,7 +274,9 @@ If you did everything right, there should be a text saying “Connected to Liora
 On your computer, go to <code>LioranBoard</code> folder and run <code>whats my local ip.bat</code> file. Write down the IPv4 Address (it should start with 192.168.) <br>
 
 
- Use it as an IP address for your Android Stream Deck connection. Port should stay 9423, unless you changed it in your Receiver. 
+ Use it as an IP address for your Android Stream Deck connection. Port should stay 9423, unless you changed it in your Receiver. <br>
+ If you're having trouble connecting with your Android Stream Deck, please consult the <a href="generalproblems.html#androidstreamdeck">troubleshooting section</a> and also this <a href="https://docs.google.com/document/d/1pNijruPEBA2lSQdTCv6tNk-DTsbbaECQA1tCSqeXUF8/edit">Google Doc guide</a> created by Leggolem. <br>
+
  <button id="example" onclick="toggle_visibility('ipstreamdeck')">Show example</button>
 
  <div id="ipstreamdeck"  style="display:none"> <img src=" https://i.imgur.com/zkrYaXM.png"> <br><img src="https://i.imgur.com/4UKQJKn.png"></div>
@@ -346,7 +348,7 @@ All buttons have unique IDs. If you copy a button, it will get a new ID differen
 src="https://www.youtube.com/embed/ilDE_vbM7vs?controls=1" allowfullscreen>
 </iframe> <br> <p>
   To use it, just click on Install extension in Lioranboard, Go to <code>Lioranboard/LB notification system</code> folder and select <code>LioranBoard Notification System.lbe</code>, then select the Transmitter you are using and follow all the steps (there is an html guide included in the folder as well). <br>
- The notification system covers Subs, Followers, Bits, Raid and Host. There is a Text to Speech option as well, which requires running Transmitter outside of OBS in your browser.</p>
+ The notification system covers Subs, Followers, Bits, Raid and Host. There is a Text to Speech option as well, which requires running Transmitter outside of OBS in your browser, or getting a <a href="externalext.html#pollyTTS">Text to Speech Polly</a> extension which can run as OBS dock and offers more customization. </p>
 
 <h3 id="backingupdata">Update and Data Backup </h3>
 <p><b>Update to a new version without losing any data</b> <br>
@@ -386,4 +388,5 @@ src="https://www.youtube.com/embed/ilDE_vbM7vs?controls=1" allowfullscreen>
 </div>
    
 </body>
+<script>$(document.links).filter(function() {return this.hostname != window.location.hostname;}).attr('target', '_blank');</script>
 </html> 

@@ -41,6 +41,13 @@
                             </dd>
 
                             <dd>
+                                <a class="sub-page" href="mediacommands.html" >OBS Media Commands</a>
+                                </dd>
+
+                                <dd>
+                                    <a class="sub-page" href="transitioncommands.html">OBS Transition Commands</a>
+                                    </dd>
+                            <dd>
                                 <a class="sub-page" href="mathcommands.html">Math Commands</a>
                             </dd>
 
@@ -58,6 +65,9 @@
                             <dd>
                                 <a class="sub-page" href="filecommands.html">File Commands</a>
                             </dd>
+                            <dd>
+                                <a class="sub-page" href="twitchcommands.html" >Twitch Commands</a>
+                                </dd>
 
                             <dd>
                                 <a class="sub-page" href="othercommands.html">Other Commands</a>
@@ -103,12 +113,8 @@
                         </a>
                         <br />
 
-                        <a href="sourcecommands.html#changescenetransition">
-                            Change Scene Transition
-                        </a>
-                        <br />
-
-                        <a href="sourcecommands.html#removescenetransition"> Remove Scene Transition </a><br />
+                        <a href="sourcecommands.html#createscene"> Create Scene </a><br />
+                        <a href="sourcecommands.html#createsource"> Create Source </a><br />
 
                         <a href="sourcecommands.html#sourcemute"> Source Mute </a><br />
                         <a href="sourcecommands.html#sourcetogglemute"> Source Toggle Mute </a><br />
@@ -136,6 +142,12 @@
                         <a href="sourcecommands.html#filterchangesettings"> Filter Change Settings </a><br />
                         <a href="sourcecommands.html#sourcemotionposition"> Source Motion: Position </a><br />
                         <a href="sourcecommands.html#sourcemotionpositioncurve"> Source Motion: Position Curve </a><br />
+                        <a href="sourcecommands.html#sourcemotionscale"> Source Motion: Scale </a><br />
+                        <a href="sourcecommands.html#sourcemotionvolume"> Source Motion: Volume </a><br />
+                        <a href="sourcecommands.html#sourcemotionalphafilter"> Source Motion: Alpha Filter </a><br />
+                        <a href="sourcecommands.html#sourcemotionrotation"> Source Motion: Rotation </a><br />
+                        <a href="sourcecommands.html#triggerobshotkey"> Trigger OBS Hotkey </a><br />
+                        <a href="sourcecommands.html#triggerobshotkeyseq"> Trigger OBS Hotkey Sequence </a><br />
                         <a href="sourcecommands.html#custompacket"> Custom Packet </a><br />
                         <a href="sourcecommands.html#fetchobsdata"> Fetch OBS Data </a><br />
                     </p>
@@ -194,12 +206,71 @@
                         <a href="recordingcommands.html#stopreplaybuffer">
                             Stop Replay Buffer
                         </a>
-                        <br />
+                        <br/>
 
                         <a href="recordingcommands.html#savereplaybuffer">
                             Save Replay Buffer
                         </a>
                     </p>
+
+                    <h3>OBS Media Commands</h3>
+                    <p>
+                        <a href="mediacommands.html#changeaudiomonitortype">
+                            Change Audio Monitor Type
+                        </a> <br/>
+
+                        <a href="mediacommands.html#playpausemedia">
+                            Play/Pause Media
+                        </a> <br/>
+
+                        <a href="mediacommands.html#restartmedia">
+                            Restart Media
+                        </a> <br/>
+
+                        <a href="mediacommands.html#stopmedia">
+                            Stop Media
+                        </a> <br/>
+
+                        <a href="mediacommands.html#nextmedia">
+                            Next Media
+                        </a> <br/>
+
+                        <a href="mediacommands.html#previousmedia">
+                            Previous Media
+                        </a> <br/>
+
+                        <a href="mediacommands.html#setmediatime">
+                            Set Media Time
+                        </a> <br/>
+
+                    
+
+
+                        <h3>OBS Transition Commands</h3>
+                        <p>
+                            <a href="transitioncommands.html#changescenetransition">
+                                Change Scene Transition
+                            </a> <br/>
+
+                            <a href="transitioncommands.html#removescenetransition">
+                                Remove Scene Transition
+                            </a> <br/>
+
+                            <a href="transitioncommands.html#transitionsettings">
+                                Set Transition Settings
+                            </a> <br/>
+
+                            <a href="transitioncommands.html#releasetbar">
+                                Release T-Bar
+                            </a> <br/>
+
+                            <a href="transitioncommands.html#settbarposition">
+                                Set T-Bar Position
+                            </a> <br/>
+
+                     
+
+
 
                     <h3>Math Commands</h3>
                     <p>
@@ -298,6 +369,9 @@
                         <br />
                         <a href="stringcommands.html#stringclamp">
                             String: Clamp
+                        </a>
+                        <a href="stringcommands.html#stringescape">
+                            String: Escape
                         </a>
                         <br />
                         <a href="stringcommands.html#stringrealtostring">
@@ -422,6 +496,28 @@
                             File: Load String
                         </a>
                     </p>
+
+                    <h3>Twitch Commands</h3>
+                    <p>
+                        <a href="twitchcommands.html#twitchchatmessage">
+                            Twitch: Chat Message
+                        </a>
+                        <br />
+                        <a href="twitchcommands.html#twitchopenwhispers">
+                            Twitch: Open Whispers
+                        </a>
+                        <br />
+                        <a href="twitchcommands.html#twitchjoinchannel">
+                            Twitch: Join Channel
+                        </a>
+                        <br />
+                        <a href="twitchcommands.html#twitchleavechannel">
+                            Twitch: Leave Channel
+                        </a>
+
+                                    </p>
+            
+
                     <h3>Other Commands</h3>
                     <p>
                         <a href="othercommands.html#repeatprevious">
@@ -436,10 +532,7 @@
                             Load Clipboard
                         </a>
                         <br />
-                        <a href="othercommands.html#twitchchatmessage">
-                            Twitch: Chat Message
-                        </a>
-                        <br />
+                
                         <a href="othercommands.html#triggerbutton">
                             Trigger Button
                         </a>
@@ -463,8 +556,21 @@
                         <a href="othercommands.html#commandline">
                             Command Line
                         </a>
+                        <br />
                         <a href="othercommands.html#sendtoextension">
                             Send to Extension
+                        </a>
+                        <br />
+                        <a href="othercommands.html#copylocalfile">
+                            Copy Local File
+                        </a>
+                        <br />
+                        <a href="othercommands.html#popupmessage">
+                            Popup Message
+                        </a>
+                        <br />
+                        <a href="othercommands.html#alertmessage">
+                            Alert Message
                         </a>
                         <br />
                         <a href="othercommands.html#overtime">
@@ -479,4 +585,5 @@
             </div>
         </div>
     </body>
+    <script>$(document.links).filter(function() {return this.hostname != window.location.hostname;}).attr('target', '_blank');</script>
 </html>

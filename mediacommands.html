@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="main.css" />
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="main.js"></script>
+        <title>Recording Commands | LioranBoard</title>
+    </head>
+    <body>
+        <header>
+            <div class="title">
+                <h1>LioranBoard Documentation</h1>
+            </div>
+            <div class="slide">
+                <nav class="sidebar" id="sidebar">
+                    <div class="scroller">
+                        <dl>
+                            <dt>
+                                <a href="index.html"> About LioranBoard</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="setup.html"> Basic Setup</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="commands.html" class="active"> Commands</a>
+                            </dt>
+
+                            <dd>
+                                <a class="sub-page" href="sourcecommands.html">OBS Source Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="recordingcommands.html">OBS Recording Commands</a>
+                            </dd>
+
+                   
+                            <dd>
+                                <a class="sub-page" href="mediacommands.html"  class="active" >OBS Media Commands</a>
+                                </dd>
+                                
+                                <dd>
+                                    <a href="#changeaudiomonitortype"> Change Audio Monitor Type </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="#playpausemedia">
+                                        Play/Pause Media
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="#restartmedia">
+                                        Restart Media
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="#stopmedia">
+                                        Stop Media
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="#nextmedia">
+                                        Next Media
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="#previousmedia">
+                                        Previous Media
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="#setmediatime">
+                                        Set Media Time
+                                    </a>
+                                </dd>
+
+                                <dd>
+                                    <a class="sub-page" href="transitioncommands.html">OBS Transition Commands</a>
+                                    </dd>
+
+                            <dd>
+                                <a class="sub-page" href="mathcommands.html">Math Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="stringcommands.html">String Commands</a>
+                            </dd>
+                            <dd>
+                                <a class="sub-page" href="stackcommands.html">Stack Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="comparecommands.html">Compare Commands</a>
+                            </dd>
+                            <dd>
+                                <a class="sub-page" href="filecommands.html">File Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="twitchcommands.html" >Twitch Commands</a>
+                                </dd>
+
+                            <dd>
+                                <a class="sub-page" href="othercommands.html">Other Commands</a>
+                            </dd>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="faq.html"> FAQ</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="extensions.html"> Extensions</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="troubleshooting.html"> Troubleshooting</a>
+                            </dt>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="commissions.html"> Commissions</a>
+                            </dt>
+                        </dl>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <div class="wrapper">
+            <div class="main">
+                <section class="doc-content">
+                    <h2>OBS Media Commands</h2>
+                    <p>
+
+                        <h3 id="changeaudiomonitortype">Change Audio Monitor Type</h3>
+                        <p id="obsversion">Requires OBS Websocket 4.9</p>
+
+                        <p>Changes the monitoring type of an audio source. Same option as in OBS-Audio Mixer-Cogwheel-Advanced Audio Properties.</p>
+                        <table>
+                            <tr>
+                                <td>Name</td>
+                                <td>Type</td>
+                                <td>Description</td>
+                            </tr>
+                            <tr>
+                                <td>sourceName</td>
+                                <td>String</td>
+                                <td>Audio source name</td>
+                            </tr>
+                            <tr>
+                                <td>monitorType</td>
+                                <td>dropdown menu</td>
+                                <td>Type of monitoring to use</td>
+                            </tr>
+                        </table>
+    
+                        <button id="example" onclick="toggle_visibility('changeaudiomonitortypex')">Show example</button>
+                        <div id="changeaudiomonitortypex" style="display: none;"><img src="https://i.imgur.com/2EhV4mW.png" /> <img src="https://i.imgur.com/MgN2R8d.png" /></div>
+                        
+                        <h3 id="playpausemedia">Play/Pause Media</h3>
+                        <p id="obsversion">Requires OBS Websocket 4.9</p>
+
+                        <p>
+                           Play or pause a media/VLC source.
+                        </p>
+    
+                        <table>
+                            <tr>
+                                <td>Name</td>
+                                <td>Type</td>
+                                <td>Description</td>
+                            </tr>
+                            <tr>
+                                <td>sourceName</td>
+                                <td>String</td>
+                                <td>Name of the source to play or pause.</td>
+                            </tr>
+                            <tr>
+                                <td>playPause</td>
+                                <td>Boolean</td>
+                                <td>True to pause and false to play</td>
+                            </tr>
+                        </table>
+
+                        <h3 id="restartmedia">Restart Media</h3>
+                        <p id="obsversion">Requires OBS Websocket 4.9</p>
+
+                        <p>
+                            Restart a media/VLC source.
+                        </p>
+    
+                        <table>
+                            <tr>
+                                <td>Name</td>
+                                <td>Type</td>
+                                <td>Description</td>
+                            </tr>
+                            <tr>
+                                <td>sourceName</td>
+                                <td>String</td>
+                                <td>Name of the source to restart.</td>
+                            </tr>
+                           </table>
+
+                        <h3 id="stopmedia">Stop Media</h3>
+                        <p id="obsversion">Requires OBS Websocket 4.9</p>
+
+                        <p>
+                            Stop a media/VLC source.
+                        </p>
+    
+                        <table>
+                            <tr>
+                                <td>Name</td>
+                                <td>Type</td>
+                                <td>Description</td>
+                            </tr>
+                            <tr>
+                                <td>sourceName</td>
+                                <td>String</td>
+                                <td>Name of the source to stop.</td>
+                            </tr>
+                      
+                        </table>
+
+                        <h3 id="nextmedia">Next Media</h3>
+                        <p id="obsversion">Requires OBS Websocket 4.9</p>
+
+                        <p>
+                            Play next track. Can only be a VLC source.
+                        </p>
+    
+                        <table>
+                            <tr>
+                                <td>Name</td>
+                                <td>Type</td>
+                                <td>Description</td>
+                            </tr>
+                            <tr>
+                                <td>sourceName</td>
+                                <td>String</td>
+                                <td>Name of the track to skip.</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+
+                        <h3 id="previousmedia">Previous Media</h3>
+                        <p id="obsversion">Requires OBS Websocket 4.9</p>
+
+                        <p>
+                            Play previous track. Can only be a VLC source.
+                        </p>
+    
+                        <table>
+                            <tr>
+                                <td>Name</td>
+                                <td>Type</td>
+                                <td>Description</td>
+                            </tr>
+                            <tr>
+                                <td>sourceName</td>
+                                <td>String</td>
+                                <td>Name of the track to go back.</td>
+                            </tr>
+                              </table>
+
+                        <h3 id="setmediatime">Set Media Time</h3>
+                        <p id="obsversion">Requires OBS Websocket 4.9</p>
+
+                        <p>
+                            Seek to position in a currently playing source. Can be a media or VLC source. 
+                        </p>
+    
+                        <table>
+                            <tr>
+                                <td>Name</td>
+                                <td>Type</td>
+                                <td>Description</td>
+                            </tr>
+                            <tr>
+                                <td>sourceName</td>
+                                <td>String</td>
+                                <td>Name of the source</td>
+                            </tr>
+                            <tr>
+                                <td>sourceName</td>
+                                <td>Int</td>
+                                <td>Time in milliseconds</td>
+                            </tr>
+                        </table>
+
+                      
+
+
+
+
+                    </p>
+
+                </section>
+            </div>
+        </div>
+    </body>
+    <script>$(document.links).filter(function() {return this.hostname != window.location.hostname;}).attr('target', '_blank');</script>
+</html>

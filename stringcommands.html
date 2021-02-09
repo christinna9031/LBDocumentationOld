@@ -41,6 +41,14 @@
                             </dd>
 
                             <dd>
+                                <a class="sub-page" href="mediacommands.html" >OBS Media Commands</a>
+                                </dd>
+
+                                <dd>
+                                    <a class="sub-page" href="transitioncommands.html">OBS Transition Commands</a>
+                                    </dd>
+
+                            <dd>
                                 <a class="sub-page" href="mathcommands.html">Math Commands</a>
                             </dd>
 
@@ -111,6 +119,11 @@
                                 </a>
                             </dd>
                             <dd>
+                                <a href="#stringescape">
+                                    String: Escape
+                                </a>
+                            </dd>
+                            <dd>
                                 <a href="#stringrealtostring">
                                     String: Real to String
                                 </a>
@@ -131,6 +144,10 @@
                             <dd>
                                 <a class="sub-page" href="filecommands.html">File Commands</a>
                             </dd>
+
+                            <dd>
+                                <a class="sub-page" href="twitchcommands.html" >Twitch Commands</a>
+                                </dd>
 
                             <dd>
                                 <a class="sub-page" href="othercommands.html">Other Commands</a>
@@ -548,6 +565,25 @@
                     <button id="example" onclick="toggle_visibility('extracttimestampX')">Show example</button>
                     <div id="extracttimestampX" style="display: none;"><img src="https://i.imgur.com/Jn3Mxzv.png" /><br /></div>
 
+                    <h3 id="stringescape">String: Escape</h3>
+                    <p> Encodes a string, ready to be used in JSON format.<br>
+                       It's a good practice to escape any viewer entered strings to prevent any possible exploits if you're sending them to extensions or OBS websocket (like changing GDI+ Text).</p>
+                  
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name containing the string you wish to escape.</td>
+                        </tr>
+                  
+                    </table>
+
                     <h3 id="stringrealtostring">String: Real to String</h3>
                     <p>Turns a real value into a string. Useful if you want to execute String commands.</p>
                     <ul>
@@ -604,4 +640,5 @@
             </div>
         </div>
     </body>
+    <script>$(document.links).filter(function() {return this.hostname != window.location.hostname;}).attr('target', '_blank');</script>
 </html>

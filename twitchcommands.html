@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="main.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="main.js"></script>
+<title>Other Commands | LioranBoard</title>
+
+</head>
+<body>
+<header>
+
+<div class=title>
+<h1>LioranBoard Documentation</h1>
+</div>    
+<div class="slide">
+<nav class="sidebar" id=sidebar>
+<div class="scroller">
+
+<dl><dt>
+<a href="index.html" >
+About LioranBoard</a></dt></dl>    
+
+<dl><dt>
+<a href="setup.html" >
+Basic Setup</a></dt></dl>     
+
+<dl>
+    <dt>
+        <a href="commands.html" class="active">
+              Commands</a>
+        </dt>
+
+        <dd>
+          <a class="sub-page" href="sourcecommands.html" >OBS Source Commands</a>
+          </dd>
+          
+      
+
+                          
+            <dd>
+              <a class="sub-page" href="recordingcommands.html"  >OBS Recording Commands</a>
+              </dd>
+
+
+              <dd>
+                <a class="sub-page" href="mediacommands.html" >OBS Media Commands</a>
+                </dd>
+        
+                <dd>
+                  <a class="sub-page" href="transitioncommands.html">OBS Transition Commands</a>
+                  </dd>
+
+
+              <dd>
+                  <a class="sub-page" href="mathcommands.html" >Math Commands</a>
+                  </dd>
+          
+               
+            
+          
+          
+          
+                  <dd>
+                      <a class="sub-page" href="stringcommands.html" >String Commands</a>
+                      </dd>
+          
+          
+              
+          
+                      <dd>
+                          <a class="sub-page" href="stackcommands.html" >Stack Commands</a>
+                          </dd>
+          
+                          
+                  
+                          <dd>
+                              <a class="sub-page" href="comparecommands.html" >Compare Commands</a>
+                              </dd>
+                              <dd>
+                                  <a class="sub-page" href="filecommands.html" >File Commands</a>
+                                  </dd>
+                                  <dd>
+                                    <a class="sub-page" href="twitchcommands.html" >Twitch Commands</a>
+                                    </dd>
+                                       
+                            <dd>
+                                <a href="#twitchchatmessage">
+                                    Twitch: Chat Message
+
+                                </a>
+                            </dd>
+                            <dd>
+                              <a href="#twitchopenwhispers">
+                                Twitch: Open Whispers
+
+                              </a>
+                          </dd>
+                          <dd>
+                            <a href="#twitchjoinchannel">
+                              Twitch: Join Channel
+
+                            </a>
+                        </dd>
+                          <dd>
+                            <a href="#twitchleavechannel">
+                              Twitch: Leave Channel
+
+                            </a>
+                        </dd>
+          
+                                  <dd>
+                                      <a class="sub-page" href="othercommands.html" >Other Commands</a>
+                                      </dd>
+                       
+                          
+           
+                   
+                    
+                          </dl>
+
+                          <dl><dt>
+                           <a href="faq.html" >
+                           FAQ</a></dt></dl>  
+                           
+                           <dl><dt>
+                           <a href="extensions.html" >
+                           Extensions</a></dt></dl>  
+                           
+                           <dl><dt>
+                           <a href="troubleshooting.html" >
+                           Troubleshooting</a></dt></dl>  
+                           <dl>
+                            <dt>
+                                <a href="commissions.html"> Commissions</a>
+                            </dt>
+                        </dl>
+                         </div>
+</nav>
+</div>
+</header>
+
+<div class ="wrapper">
+<div class="main">
+    <section class="doc-content">
+		
+
+        <h2>Twitch commands
+        </h2>
+
+
+
+<h3 id='twitchchatmessage'> Twitch: Chat Message</h3>
+
+<p>
+Sends a message to your Twitch chat from your default account that is connected to LioranBoard. <br>
+If you have linked more than one Twitch account to LioranBoard, you must specify the channel name, otherwise it will get sent to your default linked account's Twitch chat. <br>
+You can use emotes, whispers and mod commands (if your account has the privileges). See all possible chat commands <a href="https://help.twitch.tv/s/article/chat-commands?language=en_US#AllMods">here</a>.</p>
+<p><i>If your whisper chat command does not work, make sure your Twitch token url contains <code>whispers:edit</code> scope. Twitch IRC also sometimes refuses to send whispers for no reason. </i></p>
+
+
+
+<table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Message</td>
+      <td>String</td>
+      <td>The message to be sent over the chat.</td>
+    </tr>
+    <tr>
+      <td>Channel Name</td>
+      <td>String</td>
+      <td>Channel to send the message to. Leave blank unless you have multiple accounts connected to LB.</td>
+    </tr>
+ 
+  </table>
+
+
+  <button id="example" onclick="toggle_visibility('twitchatmessageX')">Show example</button>
+  <div id="twitchatmessageX" style="display:none"> <img src="https://i.imgur.com/dPzHFZq.png"></div>
+
+  <h3 id='twitchopenwhispers'> Twitch: Open Whispers</h3>
+
+  <p>
+  This command will turn on Twitch whisper alerts. They will be received as normal chat message triggers. <br>
+  Math: Trigger Pull value 5 will return 'w' for channel name. 
+  </p>
+  <table>
+  
+      <tr>
+        <td>Name</td>
+        <td>Type</td>
+        <td>Description</td>
+      </tr>
+      <tr>
+        <td>Allow Whispers</td>
+        <td>Boolean</td>
+        <td>True/False. Disabling whispers is currently not supported by Twitch, so this value can be ignored now.</td>
+      </tr>
+   
+    </table>
+
+    
+  <h3 id='twitchjoinchannel'> Twitch: Join Channel</h3>
+
+  <p>
+  This command lets you join any Twitch chat channel. <br>
+  You do not need to use this command to join your own channel as long as it's linked to your LioranBoard, as it will join the chat automatically as soon as you launch Transmitter. 
+  </p>
+  <table>
+  
+      <tr>
+        <td>Name</td>
+        <td>Type</td>
+        <td>Description</td>
+      </tr>
+      <tr>
+        <td>Channel Name</td>
+        <td>String</td>
+        <td>Twitch channel name. Must be the login name, not display name.</td>
+      </tr>
+   
+    </table>
+
+    <h3 id='twitchleavechannel'> Twitch: Leave Channel</h3>
+
+    <p>
+    This command lets you leave a Twitch chat channel you previously joined. Can be your own channel as well. 
+    </p>
+    <table>
+    
+        <tr>
+          <td>Name</td>
+          <td>Type</td>
+          <td>Description</td>
+        </tr>
+        <tr>
+          <td>Channel Name</td>
+          <td>String</td>
+          <td>Twitch channel name. Must be the login name, not display name.</td>
+        </tr>
+     
+      </table>
+
+
+
+
+
+
+</section>
+
+</div>
+</div>  
+</body>
+<script>$(document.links).filter(function() {return this.hostname != window.location.hostname;}).attr('target', '_blank');</script>
+</html> 

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="main.css" />
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="main.js"></script>
+        <title>Recording Commands | LioranBoard</title>
+    </head>
+    <body>
+        <header>
+            <div class="title">
+                <h1>LioranBoard Documentation</h1>
+            </div>
+            <div class="slide">
+                <nav class="sidebar" id="sidebar">
+                    <div class="scroller">
+                        <dl>
+                            <dt>
+                                <a href="index.html"> About LioranBoard</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="setup.html"> Basic Setup</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="commands.html" class="active"> Commands</a>
+                            </dt>
+
+                            <dd>
+                                <a class="sub-page" href="sourcecommands.html">OBS Source Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="recordingcommands.html">OBS Recording Commands</a>
+                            </dd>
+
+                   
+                            <dd>
+                                <a class="sub-page" href="mediacommands.html" >OBS Media Commands</a>
+                                </dd>
+
+                                <dd>
+                                    <a class="sub-page" href="transitioncommands.html"  class="active" >OBS Transition Commands</a>
+                                    </dd>
+                                
+                                <dd>
+                                    <a href="#changescenetransition"> Change Scene Transition </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="#removescenetransition">
+                                        Remove Scene Transition
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="#transitionsettings">
+                                        Set Transition Settings
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="#releasetbar">
+                                        Release Transition Bar Position
+                                    </a>
+                                </dd>
+                      
+                                <dd>
+                                    <a href="#settbarposition">
+                                        Set Transition Bar Position
+                                    </a>
+                                </dd>
+                           
+                            <dd>
+                                <a class="sub-page" href="mathcommands.html">Math Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="stringcommands.html">String Commands</a>
+                            </dd>
+                            <dd>
+                                <a class="sub-page" href="stackcommands.html">Stack Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="comparecommands.html">Compare Commands</a>
+                            </dd>
+                            <dd>
+                                <a class="sub-page" href="filecommands.html">File Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="twitchcommands.html" >Twitch Commands</a>
+                                </dd>
+
+                            <dd>
+                                <a class="sub-page" href="othercommands.html">Other Commands</a>
+                            </dd>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="faq.html"> FAQ</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="extensions.html"> Extensions</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="troubleshooting.html"> Troubleshooting</a>
+                            </dt>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="commissions.html"> Commissions</a>
+                            </dt>
+                        </dl>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <div class="wrapper">
+            <div class="main">
+                <section class="doc-content">
+                    <h2>OBS Transition Commands</h2>
+                    <p>
+
+                        <h3 id="changescenetransition">Change Scene Transition</h3>
+                        <p>Temporarily changes the transition of a scene. Lasts until you use Remove Scene Transition command.</p>
+                        <table>
+                            <tr>
+                                <td>Name</td>
+                                <td>Type</td>
+                                <td>Description</td>
+                            </tr>
+                            <tr>
+                                <td>sceneName</td>
+                                <td>String</td>
+                                <td>Scene name you are going to switch to</td>
+                            </tr>
+                            <tr>
+                                <td>transitionName</td>
+                                <td>String</td>
+                                <td>Transition name to use</td>
+                            </tr>
+                            <tr>
+                                <td>transitionDuration</td>
+                                <td>Int</td>
+                                <td>Duration of the transition in milliseconds</td>
+                            </tr>
+                        </table>
+    
+                        <button id="example" onclick="toggle_visibility('changetransition')">Show example</button>
+                        <div id="changetransition" style="display: none;"><img src="https://i.imgur.com/LZ0AkwA.png" /></div>
+    
+                        <h3 id="removescenetransition">Remove Scene Transition</h3>
+                        <p>
+                            Removes a temporarily added transition.
+                        </p>
+                        <table>
+                            <tr>
+                                <td>Name</td>
+                                <td>Type</td>
+                                <td>Description</td>
+                            </tr>
+                            <tr>
+                                <td>sceneName</td>
+                                <td>String</td>
+                                <td>Scene name that has a temporary transition added to it</td>
+                            </tr>
+                        </table>
+                        
+                        <h3 id="transitionsettings"> Set Transition Settings</h3>
+                        <p id="obsversion">Requires OBS Websocket 4.9</p>
+
+                        <p>
+                            Change the current settings of a transition.
+                        </p>
+    
+                        <table>
+                            <tr>
+                                <td>Name</td>
+                                <td>Type</td>
+                                <td>Description</td>
+                            </tr>
+                            <tr>
+                                <td>TransitionName</td>
+                                <td>String</td>
+                                <td>Name of the transition to modify</td>
+                            </tr>
+                            <tr>
+                                <td>transitionSettings</td>
+                                <td>JSON</td>
+                                <td>An object containing a value to set</td>
+                            </tr>
+                        </table>
+
+                        <h3 id="releasetbar">Release T-Bar</h3>
+                        <p id="obsversion">Requires OBS Websocket 4.9</p>
+
+                        <p>
+                            Releases the transition bar, finishing the transition. Same as user releasing their mouse button after moving it.
+                        </p>
+    
+                                       <h3 id="settbarposition">Set T-Bar Position</h3>
+                                       <p id="obsversion">Requires OBS Websocket 4.9</p>
+
+                        <p>
+                            Set the Transition Bar position.
+                            If you need to perform multiple successive T-Bar moves (e.g. : in an animation, or in response to a user moving a T-Bar control in your User Interface), set release to false and execute Release Transition Bar command later once the animation/interaction is over.
+                        </p>
+    
+                        <table>
+                            <tr>
+                                <td>Name</td>
+                                <td>Type</td>
+                                <td>Description</td>
+                            </tr>
+                            <tr>
+                                <td>Position</td>
+                                <td>Float</td>
+                                <td>Value must be between 0.0 and 1.0.</td>
+                            </tr>
+                            <tr>
+                                <td>Release</td>
+                                <td>Boolean</td>
+                                <td>True or False</td>
+                            </tr>
+                        </table>
+
+                
+
+                       
+
+
+
+
+                    </p>
+
+                </section>
+            </div>
+        </div>
+    </body>
+    <script>$(document.links).filter(function() {return this.hostname != window.location.hostname;}).attr('target', '_blank');</script>
+</html>

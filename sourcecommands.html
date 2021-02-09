@@ -42,14 +42,13 @@
                                 </a>
                             </dd>
 
+                                                
                             <dd>
-                                <a href="#changescenetransition">
-                                    Change Scene Transition
-                                </a>
+                                <a href="#createscene"> Create Scene </a>
                             </dd>
 
                             <dd>
-                                <a href="#removescenetransition"> Remove Scene Transition </a>
+                                <a href="#createsource"> Create Source </a>
                             </dd>
 
                             <dd>
@@ -59,9 +58,7 @@
                                 <a href="#sourcetogglemute"> Source Toggle Mute </a>
                             </dd>
 
-                            <dd>
-                                <a href="#changeaudiomonitortype"> Change Audio Monitor Type </a>
-                            </dd>
+                          
 
                             <dd>
                                 <a href="#sourcechangevisibility"> Source Change Visibility </a>
@@ -120,6 +117,17 @@
                             <dd>
                                 <a href="#sourcemotionrotation"> Source Motion: Rotation </a>
                             </dd>
+                             <dd>
+                      <a href="#triggerobshotkey">
+                        Trigger OBS Hotkey
+                      </a>
+                  </dd>
+
+                          <dd>
+                            <a href="#triggerobshotkeyseq">
+                              Trigger OBS Hotkey Sequence
+                            </a>
+                        </dd>
                             <dd>
                                 <a href="#custompacket"> Custom Packet </a>
                             </dd>
@@ -131,6 +139,13 @@
                                 <a class="sub-page" href="recordingcommands.html">OBS Recording Commands</a>
                             </dd>
 
+                            <dd>
+                                <a class="sub-page" href="mediacommands.html" >OBS Media Commands</a>
+                                </dd>
+                        
+                                <dd>
+                                  <a class="sub-page" href="transitioncommands.html">OBS Transition Commands</a>
+                                  </dd>
                             <dd>
                                 <a class="sub-page" href="mathcommands.html">Math Commands</a>
                             </dd>
@@ -149,6 +164,10 @@
                             <dd>
                                 <a class="sub-page" href="filecommands.html">File Commands</a>
                             </dd>
+
+                            <dd>
+                                <a class="sub-page" href="twitchcommands.html" >Twitch Commands</a>
+                                </dd>
 
                             <dd>
                                 <a class="sub-page" href="othercommands.html">Other Commands</a>
@@ -208,37 +227,10 @@
                     <button id="example" onclick="toggle_visibility('switchtoprevscene')">Show example</button>
                     <div id="switchtoprevscene" style="display: none;"><img src="https://i.imgur.com/dhfVm3k.png" /></div>
 
-                    <h3 id="changescenetransition">Change Scene Transition</h3>
-                    <p>Temporarily changes the transition of a scene. Lasts until you use Remove Scene Transition command.</p>
-                    <table>
-                        <tr>
-                            <td>Name</td>
-                            <td>Type</td>
-                            <td>Description</td>
-                        </tr>
-                        <tr>
-                            <td>sceneName</td>
-                            <td>String</td>
-                            <td>Scene name you are going to switch to</td>
-                        </tr>
-                        <tr>
-                            <td>transitionName</td>
-                            <td>String</td>
-                            <td>Transition name to use</td>
-                        </tr>
-                        <tr>
-                            <td>transitionDuration</td>
-                            <td>Int</td>
-                            <td>Duration of the transition in milliseconds</td>
-                        </tr>
-                    </table>
-
-                    <button id="example" onclick="toggle_visibility('changetransition')">Show example</button>
-                    <div id="changetransition" style="display: none;"><img src="https://i.imgur.com/LZ0AkwA.png" /></div>
-
-                    <h3 id="removescenetransition">Remove Scene Transition</h3>
+                    <h3 id="createscene"> Create Scene</h3>
+                    <p id="obsversion">Requires OBS Websocket 4.9</p>
                     <p>
-                        Removes a temporarily added transition.
+                       Create a new scene in OBS.
                     </p>
                     <table>
                         <tr>
@@ -247,9 +239,72 @@
                             <td>Description</td>
                         </tr>
                         <tr>
+                            <td>SceneName</td>
+                            <td>String</td>
+                            <td>Unique name of the scene to create</td>
+                        </tr>
+                            </table>
+
+                    <h3 id="createsource">Create Source</h3>
+                    <p id="obsversion">Requires OBS Websocket 4.9</p>
+                    <p>
+                        Create a source and add it as a scene item to a scene.
+                    </p>
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>sourceName</td>
+                            <td>String</td>
+                            <td>placeholder</td>
+                        </tr>
+                        <tr>
+                            <td>sourceKind</td>
+                            <td>List</td>
+                            <td>Possible values: <br>
+                                
+                                   <code>ffmpeg_source</code> Media Source<br>  
+                                   <code>vlc_source </code>VLC media source<br>       
+                                   <code>image_source </code>Image Source<br>   
+                                   <code>slideshow </code>Image slide show<br>   
+                                   <code>text_ft2_source </code>Free Type 2 text source<br>   
+                                   <code>text_gdiplus </code>Text GDI+ source<br>               
+                                   <code>browser_source </code>Browser source<br>   
+                                   <code>wasapi_input_capture </code>Audio Input capture<br>   
+                                   <code>wasapi_output_capture </code>Audio Output Capture<br>   
+                                   <code>color_source </code>Color source<br>   
+                                   <code>monitor_capture </code>Display Capture<br>   
+                                   <code>window_capture </code>Window capture<br>   
+                                   <code>game_capture </code>Game Capture<br>   
+                                   <code>dshow_input </code>Capture device(webcam)<br>  
+                                   <code>dshow_input_replay  </code>Video Capture Device with replay buffer<br>    <br>
+
+                                  For plugin sources you need to look at the OBS JSON file to figure out the correct value.
+
+                                                        
+                               
+
+        
+
+                            </td>
+                        </tr>
+                        <tr>
                             <td>sceneName</td>
                             <td>String</td>
-                            <td>Scene name that has a temporary transition added to it</td>
+                            <td>Name of the scene to add the source to. The source will be added at the top of the list.</td>
+                        </tr>
+                        <tr>
+                            <td>sourceSettings</td>
+                            <td>JSON</td>
+                            <td>Source settings. Same format which is used in Source Change Settings command.</td>
+                        </tr>
+                        <tr>
+                            <td>setVisible</td>
+                            <td>boolean</td>
+                            <td>Whether the source should be visible.</td>
                         </tr>
                     </table>
 
@@ -291,29 +346,7 @@
                         </tr>
                     </table>
 
-                    <h3 id="changeaudiomonitortype">Change Audio Monitor Type</h3>
-
-                    <p>Changes the monitoring type of an audio source. Same option as in OBS-Audio Mixer-Cogwheel-Advanced Audio Properties.</p>
-                    <table>
-                        <tr>
-                            <td>Name</td>
-                            <td>Type</td>
-                            <td>Description</td>
-                        </tr>
-                        <tr>
-                            <td>sourceName</td>
-                            <td>String</td>
-                            <td>Audio source name</td>
-                        </tr>
-                        <tr>
-                            <td>monitorType</td>
-                            <td>dropdown menu</td>
-                            <td>Type of monitoring to use</td>
-                        </tr>
-                    </table>
-
-                    <button id="example" onclick="toggle_visibility('changeaudiomonitortypex')">Show example</button>
-                    <div id="changeaudiomonitortypex" style="display: none;"><img src="https://i.imgur.com/2EhV4mW.png" /> <img src="https://i.imgur.com/MgN2R8d.png" /></div>
+                   
 
                     <h3 id="sourcechangevisibility">Source Change Visibility</h3>
 
@@ -483,6 +516,8 @@
                             <td>Rotation angle to change the source to. 0=normal, 180=turned around, 360=normal.</td>
                         </tr>
                     </table>
+
+
 
                     <h3 id="sourcechangesettings">Source Change Settings</h3>
 
@@ -989,8 +1024,74 @@
                         </tr>
                     </table>
 
-                    <button id="example" onclick="toggle_visibility('sourcerotsmoothX')">Show example</button>
+                     <button id="example" onclick="toggle_visibility('sourcerotsmoothX')">Show example</button>
                     <div id="sourcerotsmoothX" style="display: none;"><img src="https://i.imgur.com/h0AU0v5.png" /><br /></div>
+
+                    <h3 id='triggerobshotkey'> Trigger OBS Hotkey
+                        <p id="obsversion">Requires OBS Websocket 4.9</p>
+                    </h3>
+                    
+                    <p>
+                    This command lets you activate any OBS hotkey without having to actually press it. 
+                    </p>
+                    <table>
+                    
+                        <tr>
+                          <td>Name</td>
+                          <td>Type</td>
+                          <td>Description</td>
+                        </tr>
+                        <tr>
+                          <td>hotkeyName</td>
+                          <td>String</td>
+                          <td>Unique name of the hotkey, as defined when registering the hotkey (e.g. <code>ReplayBuffer.Save</code>) 
+                       </td>
+                        </tr>
+                      
+                    
+                      </table>
+                  
+                       
+                  
+                        <h3 id='triggerobshotkeyseq'> Trigger OBS Hotkey Sequence
+                            <p id="obsversion">Requires OBS Websocket 4.9</p>
+                        </h3>
+                        
+                        <p>
+                          Executes hotkey routine. This will not actually perform the key presses, it simply activate any hotkey action you've set.
+                          Keep in mind that if your hotkey is ctrl+A, setting ctrl+shift+alt+OBS_KEY_A will trigger it.
+                        </p>
+                        <table>
+                        
+                            <tr>
+                              <td>Name</td>
+                              <td>Type</td>
+                              <td>Description</td>
+                            </tr>
+                            <tr>
+                              <td>keyId</td>
+                              <td>List</td>
+                              <td>Main key ID, such as A or F1. It has to be the OBS name for it, such as <code>OBS_KEY_A</code>. <br>
+                                  All OBS hotkeys can be found <a href="https://github.com/obsproject/obs-studio/blob/master/libobs/obs-hotkeys.h" target="_blank">here.</a>
+                           </td>
+                            </tr>
+                                <tr>
+                              <td>Shift</td>
+                              <td>Boolean</td>
+                              <td>Whether to include Shift key</td>
+                            </tr>
+                                <tr>
+                              <td>Alt</td>
+                              <td>Boolean</td>
+                              <td>Whether to include Alt key</td>
+                            </tr>    <tr>
+                              <td>Control</td>
+                              <td>Boolean</td>
+                              <td>Whether to include CTRL key</td>
+                            </tr>
+                          
+                        
+                          </table>
 
                     <h3 id="custompacket">Custom Packet</h3>
 
@@ -1117,4 +1218,5 @@
             </div>
         </div>
     </body>
+    <script>$(document.links).filter(function() {return this.hostname != window.location.hostname;}).attr('target', '_blank');</script>
 </html>

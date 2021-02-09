@@ -451,14 +451,15 @@
 
                 <h3 id="variablesasparameters"> What if I want to use a variable in a string or as a parameter?
                 </h3>
-                <p>
-                    Wrap the variable in <code>/$$/</code>. For example, variable <code>name</code> will become <code>/$name$/</code>. Remember that this is done only if the field name is NOT "variable". In this case you want to use the name of the variable without any wrappers. <br>
-                    For example, field "value" can contain either a real value (number) or a string (text). By wrapping the variable in <code>/$$/</code>, you're telling it to work with the value of the variable rather than the variable itself. </p>
+                <p> You have a button that triggers with a new follower, which (after using Math:Trigger pull command) saves their name into a variable called <code>follower_name</code>. You would like to now display their name in your Twitch chat or in your GDI+source in OBS. However, if you just type the variable name in the input field, LB will not know what to do with it and will display it as "follower_name" instead of displaying the actual value of the variable. 
+     
+                 <p>  The solution is to wrap the variable in <code>/$$/</code>. For example, variable <code>name</code> will become <code>/$name$/</code>. Remember that this is done only if the field name is NOT "variable". In this case you want to use the name of the variable without any wrappers. <br>
+
                     <p><i>Some input fields require you to right click to be able to type inside of them, as left clicking brings up the dropdown menu.</i> <br>
-                    <button id="example" onclick="toggle_visibility('simpledeathcounterX')">Show example</button>
-                    <div id="simpledeathcounterX" style="display:none"> <br><img src="https://i.imgur.com/7DF5M5R.png"> <img src="https://i.imgur.com/MvXuqGt.png"><br></div>
+                               <button id="example" onclick="toggle_visibility('simpledeathcounterX')">Show example</button>
+                    <div id="simpledeathcounterX" style="display:none"> <br><img src="https://i.imgur.com/PARUsiK.png"> <img src="https://i.imgur.com/MvXuqGt.png"><br><img src="https://i.imgur.com/7DF5M5R.png"></div>
                 
-                </p>
+                </p>   
 
                 <h3 id="premadevariables"> Premade variables</h3>
                 <p>There are a few premade variables in your LB Receiver: 

@@ -176,14 +176,18 @@ Sound drivers can be also causing this issue, you can try reinstalling them.
 Your auth token probably expired. Follow <a href="setup.html#renewingtoken" target="_blank" >this procedure</a> to renew your token.
                  </p>
 <p><b>Twitch Alerts don't get triggered at all</b><br>
-First try triggering a test alert from your Transmitter. <button id="example" onclick="toggle_visibility('twitchalertstest')">Show example</button>  <br>If this is already unsuccessful, your button commands might be set up wrong or you're not connected to OBS in the first place. </p>
-    <div id="twitchalertstest"  style="display:none"><img src="https://i.imgur.com/kOUoBha.png"></div>
-<p>If the test alerts trigger just fine, you're not connected to Twitch. Try <a href="setup.html#renewingtoken" target="_blank" >relinking your Twitch account</a> and restarting transmitter. You should see these following yellow messages at the bottom of your Receiver: <br>
+First, make sure your Transmitter is connected to LioranBoard. If so, try triggering a test alert from your Transmitter. <button id="example" onclick="toggle_visibility('twitchalertstest')">Show example</button>    <div id="twitchalertstest"  style="display:none"><img src="https://i.imgur.com/kOUoBha.png"></div><p>A small yellow notification message should pop up at the bottom of your Receiver: 
+<ul>
+<li>If you do not see the message at all, your Transmitter is not connected to the Receiver. You might be running a wrong version or duplicate instances of your Transmitter (only a single instance can be running at the same time). </li>
+<li>If you see the message, but your buttons do not visually trigger at all, your button triggers are set up wrong. Please follow <a href="faq.html#buttontriggers">this guide</a>. </li>
+<li>If you see the message and your buttons visually trigger, but your commands do not trigger anything in OBS or do not send a Twitch message, you're not connected to OBS/Twitch. Read <a href="generalproblems.html#obsconnection">OBS connection troubleshooting</a> or <a href="generalproblems.html#twitchconnection">Twitch connection troubleshooting</a> section. </li>
+<li>If you see the message, your buttons visually trigger and your commands are executed right, you're not connected to Twitch.
+Try <a href="setup.html#renewingtoken" target="_blank" >relinking your Twitch account</a> and restarting Transmitter. You should see these following yellow messages at the bottom of your Receiver: <br>
     <ul><li>Twitch is connected</li>
     <li>   Listening for Channel points</li>
         <li>  Listening for Bits donations</li>
             <li>   Listening for Channel subscriptions</li>
-                <li>  Listening for Chat Moderation</li> </ul></p>
+                <li>  Listening for Chat Moderation</li> </ul> </li> </ul></p>
 
 
                 <p>
@@ -242,18 +246,20 @@ First try triggering a test alert from your Transmitter. <button id="example" on
                     Auto correct on Android devices can also be the culprit.</li> 
                     <li>Try completely disabling your Antivirus/Firewall and pinging your IPv4 address from your Android device to see if you get any response back. You can use a PingTools app for that.</li>
                     <li>If none of this helps, you can try changing ports and going to your router settings to see if anything could be blocking the connection.</li>
-                       </ol>  
+                       </ol> 
+                       <p>You can also consult this <a href="https://docs.google.com/document/d/1pNijruPEBA2lSQdTCv6tNk-DTsbbaECQA1tCSqeXUF8/edit">Google Doc guide</a> created by Leggolem. </p>
                  </p>
                             <h3 id="keyboardmacros"> Keyboard Macros</h3>
                  <p>
                   <b> Keyboard macros are not working. OBS (or any other app) completely ignores them. </b> <br>
                   Try running both your Receiver and the other app as Administrator. Run your Stream Deck as non administrator. <br>
-                  If you are still having problems, try going to a keyboard tester website, like <a href="https://www.keyboardtester.com/" target=target="_blank">this one</a>. In your Receiver create a new keyboard shortcut button with 2000ms delay. As soon as you trigger the button, switch to the Keyboard tester page to see if it actually pushes the button. If it does, the other app might be ignoring the input for some reason.  
+                  If you are still having problems, try going to a keyboard tester website, like <a href="https://www.keyboardtester.com/" target=target="_blank">this one</a>. In your Receiver create a new keyboard shortcut button with 2000ms delay. As soon as you trigger the button, switch to the Keyboard tester page to see if it actually pushes the button. If it does, the other app might be ignoring the input for some reason. <br>
+                  <button id="example" onclick="toggle_visibility('macrotextX')">Show example</button>    <div id="macrotextX"  style="display:none"><img src="https://i.imgur.com/eOpkK4v.png"></div>
                  </p>
                             <h3 id="extensions"> Installing Extensions</h3>
                  <p>
                     <b>I installed an extension, but do not see it anywhere.</b><br>
-                    After installing any extension, you need to refresh your Transmitter or close and reopen LB Receiver. <br>
+                    After installing any extension, your Transmitter should automatically reload (if you have the newest LB version) and you should see the installed extension there. Please follow <a href="faq.html#installextensions">How to install or uninstall extensions</a> guide. <br>
                     You can also check write permissions for the <code>transmitter.html</code> file. 
                  </p>
                                  <h3 id="otherapps"> Other Apps</h3>

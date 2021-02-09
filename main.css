@@ -674,7 +674,11 @@ body {
 
   }
 
-
+#embeddiscord{
+  width: 80%;
+  height:400px;
+position:center;
+}
  
 
 

@@ -232,7 +232,8 @@
                     <h3 id="createscene"> Create Scene</h3>
                     <p id="obsversion">Requires OBS Websocket 4.9</p>
                     <p>
-                       Create a new scene in OBS.
+                       Creates a new scene in OBS. <br>
+                    <i>Note: There is currently a bug in OBSWS where this command fails if a scene with the requested name has ever existed during the current run of OBS (for example if you deleted a scene with the same name or switched to a different scene collection with the previous one containing the scene name). The only workaround is to completely restart OBS. </i>
                     </p>
                     <table>
                         <tr>
@@ -250,7 +251,7 @@
                     <h3 id="createsource">Create Source</h3>
                     <p id="obsversion">Requires OBS Websocket 4.9</p>
                     <p>
-                        Create a source and add it as a scene item to a scene.
+                        Creates a source and add it as a scene item to a scene.
                     </p>
                     <table>
                         <tr>

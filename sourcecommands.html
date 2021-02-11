@@ -251,7 +251,10 @@
                     <h3 id="createsource">Create Source</h3>
                     <p id="obsversion">Requires OBS Websocket 4.9</p>
                     <p>
-                        Creates a source and add it as a scene item to a scene.
+                        Creates a source and adds it as a scene item to a scene. </p>
+                       <p> The source will be added at the top of the list. If you need to reorder it, you can use a <a href="sourcecommands.html#custompacket">Custom Packet</a> command to send a JSON containing the new order of all sources in your scene (the 'items' value is an array of objects, each containing one source name): <code>{"request-type":"ReorderSceneItems","scene":"YOURSCENENAME","items":[{"name":"YOURSOURCENAME1"},{"name":"YOURSOURCENAME2"},{"name":"YOURSOURCENAME3"},{"name":"YOURSOURCENAME4"}</code>(etc.)<code>],"message-id":"6666"}</code>.    <button id="example" onclick="toggle_visibility('reoderitemsx')">Show example</button>
+                        <div id="reoderitemsx" style="display:none"> <img src="https://i.imgur.com/aub3Kzm.png"></div>
+               
                     </p>
                     <table>
                         <tr>
@@ -297,7 +300,7 @@
                         <tr>
                             <td>sceneName</td>
                             <td>String</td>
-                            <td>Name of the scene to add the source to. The source will be added at the top of the list.</td>
+                            <td>Name of the scene to add the source to.</td>
                         </tr>
                         <tr>
                             <td>sourceSettings</td>
@@ -554,7 +557,9 @@
                         <code>{"request-type":"GetSourceSettings","sourceName":"YOURSOURCENAME","message-id":"6666"}</code> <br />
 
                         Once you execute this particular command, you will get a grey message containing all source's settings. This will be automatically saved to your clipboard, so you can paste in a document for a later review. You can
-                        then find the exact <code>sourceSettings</code> value to use.
+                        then find the exact <code>sourceSettings</code> value to use.</p>
+
+                        <p>You can easily validate your JSON string <a href="https://jsonlint.com/">here</a>.</p>
 
                         <button id="example" onclick="toggle_visibility('getsourcesettingsX')">Show example</button>
                     </p>
@@ -592,7 +597,7 @@
                         <li>Change local file paths for your VLC source. Each <code>{"value":"X"}</code> represents one file. <br><code>{"playlist": [{"value": "E:/videos/video1.mp4"},{"value": "E:/videos/video2.mkv"}]}</code></li>
                         <li>Change font settings of your GDI+ text source. Needs to include all values.<code>{"font": {"face": "Arial","flags": 8,"size": 48,"style": "Regular"}}</code></li>
                     </ul>
-                    <p><i>Pay special attention to the forward slashes, as it will not work if you use back slashes instead. </i></p>
+                    <p><i>Pay special attention to the forward slashes in the path, as it will not work if you use back slashes instead. </i></p>
 
                     <button id="example" onclick="toggle_visibility('changebrowsersourceX')">Show example</button>
                     <div id="changebrowsersourceX" style="display: none;"><img src="https://i.imgur.com/ZdskjuX.png" /></div>
@@ -1124,7 +1129,9 @@
                         Sends a custom packet to the OBS websocket plugin in JSON format.<br />
                         All the possible requests are documented in <a href="https://github.com/Palakis/obs-websocket/blob/4.7.0/docs/generated/protocol.md">OBS websocket protocol reference</a>. <br />
                         Message-id 6666 means you will get a pop up message on your screen every time you send the packet (useful for troubleshooting). If you do not wish to see this, use message-id 1.
-                        <br />
+
+                        <p>You can easily validate your JSON string <a href="https://jsonlint.com/">here</a>.</p>
+                  
                     </p>
 
                     <table>
@@ -1163,7 +1170,9 @@
                     </p><p>
                         If the requested value is inside another object already, you can access it with a simple dot-notation: <code>.</code>. 
                         <br> For example, if you want to retrieve Brightness value from Color Correction Filter, you will notice that it is inside an object called settings. <code>{"settings": {"brightness": 0.78}, "status": "ok", "type": "color_filter"}</code>. In this case, the Fetch Value will be <code>settings.brightness</code>.</p>
-                        <p><i>Note: If the name of the fetched value contains dots, you need to wrap in a parentheses like this: <code>(Filter.Transform.Rotation.X)</code>. Otherwise LioranBoard will think you're trying to access a value inside an object. </i></p>
+                        <p>You can easily validate your JSON string <a href="https://jsonlint.com/">here</a>.</p>
+                        <p><i>Note: If the name of the fetched value contains dots, you need to wrap in a parentheses like this: <code>(Filter.Transform.Rotation.X)</code>. Otherwise LioranBoard will think you're trying to access a value inside an object. </i><br>
+                  
 
 
                     </p>

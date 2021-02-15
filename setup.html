@@ -362,8 +362,11 @@ src="https://www.youtube.com/embed/ilDE_vbM7vs?controls=1" allowfullscreen>
   <ul><li> Local - go to <code>Lioranboard Receiver</code> folder and copy all the configs.ini and connect.ini files. You can also back up images and sounds folder. </li>
   <li> Appdata - go to <code>C:/user/%username/appdata/local/lioranboard</code> and copy all the files.</li>
 </ul>
-<h3 id="alternatetwitchaccount">Linking alternate Twitch account </h3>
-<p>
+<h3 id="alternatetwitchaccount">Linking alternate Twitch account (alerts only)</h3>
+  <p id="important"> There has been a change in the new LioranBoard version. You will NOT automatically connect to Twitch Chat anymore with your alternate accounts. Instead, you need to use the new command <a href="twitchcommands.html#twitchjoinchannel">Twitch: Join Channel</a>. We recommend putting <code>!transmitteralways</code> trigger on the button with this command and adding 10000 ms delay  to give the Transmitter time to connect to chat. This will automatically trigger it every time you launch Transmitter and connect your alternate accounts to chat. Everything else works the same.  <button id="example" onclick="toggle_visibility('changebrowsersourceX')">Show example</button>
+    <div id="changebrowsersourceX" style="display: none;"><img src="https://i.imgur.com/elHKZi4.png" /></div></p>
+  <p>
+
   <ol>
   <li>In your Receiver, click on Link your Twitch - Unlink and close the menu. </li>
   <li>Make sure you are logged in with your alternate/bot Twitch account in your browser at <a href="https://twitch.tv">https://twitch.tv</a>. Link your Twitch bot/alternate account first by following the same steps in <a href="#twitchlink">Linking your Twitch account</a> section. </li>

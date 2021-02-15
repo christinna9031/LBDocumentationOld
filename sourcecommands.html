@@ -557,17 +557,17 @@
                         <code>{"request-type":"GetSourceSettings","sourceName":"YOURSOURCENAME","message-id":"6666"}</code> <br />
 
                         Once you execute this particular command, you will get a grey message containing all source's settings. This will be automatically saved to your clipboard, so you can paste in a document for a later review. You can
-                        then find the exact <code>sourceSettings</code> value to use.</p>
-
-                        <p>You can easily validate your JSON string <a href="https://jsonlint.com/">here</a>.</p>
-
-                        <button id="example" onclick="toggle_visibility('getsourcesettingsX')">Show example</button>
+                        then find the exact <code>sourceSettings</code> value to use. <button id="example" onclick="toggle_visibility('getsourcesettingsX')">Show example</button>
                     </p>
 
                     <div id="getsourcesettingsX" style="display: none;">
                         <img src="https://i.imgur.com/Un8zMYB.png" /><br />
                         <img src="https://i.imgur.com/SQR9wJL.png" />
                     </div>
+
+                        <p>You can easily validate your JSON string <a href="https://jsonlint.com/">here</a>.</p>
+
+              
 
                     <table>
                         <tr>
@@ -597,7 +597,7 @@
                         <li>Change local file paths for your VLC source. Each <code>{"value":"X"}</code> represents one file. <br><code>{"playlist": [{"value": "E:/videos/video1.mp4"},{"value": "E:/videos/video2.mkv"}]}</code></li>
                         <li>Change font settings of your GDI+ text source. Needs to include all values.<code>{"font": {"face": "Arial","flags": 8,"size": 48,"style": "Regular"}}</code></li>
                     </ul>
-                    <p><i>Pay special attention to the forward slashes in the path, as it will not work if you use back slashes instead. </i></p>
+                    <p id="important"><i>Pay special attention to the forward slashes in the path, as it will not work if you use back slashes instead. </i></p>
 
                     <button id="example" onclick="toggle_visibility('changebrowsersourceX')">Show example</button>
                     <div id="changebrowsersourceX" style="display: none;"><img src="https://i.imgur.com/ZdskjuX.png" /></div>

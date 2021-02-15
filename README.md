@@ -1,7 +1,7 @@
 # LBDocumentation
 LioranBoard Unofficial Documentation. https://christinna9031.github.io/LBDocumentation/    
 
-This website summarizes all current information about LioranBoard. It can be used both as a (technical) guide for beginners and as a resource for more advanced users. The latest version of LioranBoard is 1.42y, so be aware that some details may differ if you’re still running an older version (see bottom right corner of the receiver). We advise updating whenever possible.         
+This website summarizes all current information about LioranBoard. It can be used both as a (technical) guide for beginners and as a resource for more advanced users. The latest version of LioranBoard is 1.43, so be aware that some details may differ if you’re still running an older version (see bottom right corner of the receiver). We advise updating whenever possible.         
 Lioran is the sole creator of LioranBoard, this unofficial documentation serves as sort of an expansion of LioranBoard's original help files.       
 
 

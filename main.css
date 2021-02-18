@@ -684,6 +684,8 @@ body {
   height:500px;
 position:center;
 }
+
+
  
 
 
@@ -698,6 +700,18 @@ position:center;
   
   }
   
+  #smallimg {
+    vertical-align:middle;
+    width:5%;
+    border:0px
+  }
+
+  #middleimg {
+    vertical-align:middle;
+    width:15%;
+    border:0px
+
+  }
   
   table {
     border: 1px solid #dbd7df;

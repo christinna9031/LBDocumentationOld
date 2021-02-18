@@ -58,6 +58,11 @@
                                    Text to Speech Polly
                                 </a>
                             </dd>
+                            <dd>
+                                <a href="#Spotify">
+                                   Spotify
+                                </a>
+                            </dd>
 
 
                         </dl>
@@ -197,6 +202,120 @@ You can send TTS requests from your Transmitter as well, either as text or by up
  Do not share your AWS credentials or show them on your stream, as you might get billed if you or someone else accidentally uses any of the paid services. Amazon is quite lenient about this though, so you should be able to get a refund in the event something like this happens. 
 
             </p>
+
+            <h3 id="Spotify">Spotify</h3>
+            <p><b>Creator: </b>Christinna<br>
+            <b>Download: <a href="https://christinna9031.itch.io/lioranboard-spotify">Itch.io</a></b><br>
+        
+
+
+            <b>Description: </b>
+
+            Spotify extension for LioranBoard which allows you to display and control your Spotify playback directly from your Stream Deck.</b>   <br>
+            <b>Preview:</b><br><iframe width="420" height="315"
+            src="https://www.youtube.com/embed/4Sd9ar34WdU?controls=1" allowfullscreen>
+            </iframe><br>
+            <b>Features:</b>    <br>
+     
+Displays your current track in your OBS overlay, StreamDeck and Transmitter.  <br>
+
+Basic playback controls: Play/Pause, Next/Previous Track, Fast Forward/Backwards, Mute/Unmute, Volume Sliders, Like/Unlike track, Toggle Shuffle.  <br>
+
+Song Request Queue: Adds a new song to the queue (either by its URL or a keyword) and displays the current song request queue in your OBS overlay. Everything updates automatically. There is a command to clear the queue as well.  <br>
+
+Retrieve My Playlists: Retrieves all your (public) playlists and lets you play and cycle through them.  <br>
+
+Search for Playlists by a tag : Retrieves playlists by tag/genre (for example romance, chill, jazz etc.).  <br>
+
+Search for a song by keyword: Can search for a song by its name only or by its name and artist. You can cycle through all the results. <br></p>
+
+
+<p><b>Prerequisitess:</b><br> OBS Websocket 4.9, LioranBoard 1.42 or newer <br></p>
+<p><b>Setup:</b><br>
+<p>After downloading the .zip file, place the whole Spotify folder in your <code>lioranboard\LioranBoard Receiver(PC)\Ext</code> folder. Go to your Receiver and install the extension. It shoud automatically copy all the files, add a new deck and create a new Spotify OBS scene. If, for some reason, the image files do not get copied automatically, you can manually move them from the Spotify/img folder to your Receiver/image folder. <b>Unless the extension was not installed properly in the first place, you do not need to press 'Install Extension' button anymore.</b> <br>
+As soon as you install the extension, a new browser window should open where you need to <a href="https://christinna9031.github.io/LioranBoard-Files/Spotify_auth.html">authenticate your Spotify account</a>. Follow all the instructions. <br>
+Once your Spotify account is successfully linked, it should automatically show currently playing track in 3 separate locations: your Streamdeck, your Spotify scene in OBS and your Spotify tab in Transmitter. The Spotify tab in Transmitter contains some extra information about the current track. <br></p>
+<p> <img id="smallimg" src="https://i.imgur.com/02LT9qQ.png" ><b>INIT button</b> <br>
+This button should be automatically initiated every time you restart your Transmitter. You can use it 'wake up' your Spotify extension, as it sometimes goes into sleep mode after some period of inactivity (you can also simply tap play in your Spotify player). <br>
+Do not modify any commands here. 
+Send to extension input fields: <br>
+<ul>
+<li><code>credentials</code> - credentials you obtained when you <a href="https://christinna9031.github.io/LioranBoard-Files/Spotify_auth.html">authenticated your Spotify account </a></li>
+<li><code>refresh_token</code> - refresh token your obtained when you <a href="https://christinna9031.github.io/LioranBoard-Files/Spotify_auth.html">authenticated your Spotify account</a></li>
+<li><code>last_track</code> - do not change</li>
+<li><code>device_type </code> (optional) - device type you want to control your Spotify playback on. If set to default, it will pick the first one it can find.</li>
+<li><code>device_id</code> (optional) - device ID you want to control your Spotify playback on. It should be displayed in your Spotify tab in your Transmitter. Can leavy empty if you do not have multiple devices of the same type.  </li></ul>
+
+<p><b>Basic Playback Controls</b> <br><img id="middleimg" src="https://i.imgur.com/c8VXkkU.png"><p>
+    These should be pretty self-explanatory. <br>
+    <b>Play:</b> 
+    If <code>value</code> is empty, it will simply resume playing your current track. If <code>value</code> is a track/playlist/album URI, it will switch to playing that instead. <br>
+    
+    <b>Fast forward/backward</b>: <code>value</code> can be adjusted to how many seconds you want to fast forward/backward. </p>
+    <p>
+
+  
+    <img style="width:8%;border:0px;vertical-align:middle;" src="https://i.imgur.com/traJ855.png">  <b>Add/Remove a track</b><br>
+    Adds/Removes a currently playing track from your library. </p>
+
+   <p> <img style="width:5%;border:0px;vertical-align:middle;" src="https://i.imgur.com/iVxGRST.png"> <b>Song Request </B><br>
+     Default Twitch Chat trigger is <code>!sr *</code>. The wildcard accepts these formats: <br>
+     <ul>
+    <li>Spotify URI: <code>!sr spotify:track:4boaU9XaS1g6U1nV4lEsMl </code></li>
+    <li>Spotify Link: <code>!sr https://open.spotify.com/track/4boaU9XaS1g6U1nV4lEsMl?si=mK4Bf7JiS0iMyX4kt57Gkg</code></li>
+    <li>Keyword (song name only) <code>!sr Kiss from a rose</code></li>
+    <li>Keyword (song name + artist name) <code>!sr Kiss from a rose # Seal</code>- artist name must follow the song name and '#' sign</li> 
+         </ul>
+    <p>Once you initiate the button, the extension will queue up the track in your Spotify player and add its name to a stack called <code>spotify_queue</code> (if the requested track cannot be found, the entry will be set to "error"). The SR button will then trigger another button which will display your current SR queue in your Streamdeck and your OBS overlay. Once Spotify starts playing the requested song, it will be automatically removed from the queue. <br>
+        <img style="width:18%;border:0px;vertical-align:middle;" src="https://i.imgur.com/XbJEtvB.png">
+    </p>
+
+    <p><img style="width:5%;border:0px;vertical-align:middle;" src="https://i.imgur.com/5OvHX1H.png">  <b>Get My Playlists </b><br>
+        This button will retrieve all your playlists (must be made public) and allow you to cycle through them using Previous/Next playlist button. The playlist URIs are by default saved in a spotify_playlists_uri stack. 
+
+
+        </p>
+
+        <p><img style="width:5%;border:0px;vertical-align:middle;" src="https://i.imgur.com/IWG0wNd.png">  <b>Playlists By Tags </b><br>
+        You can search for playlists by tags. Press GET ALL TAGS button to retrieve all possible tags as it needs to be an exact match. You can then use Previous/Next playlist button to cycle through them. The playlist URIs are by default saved in a spotify_playlists_uri stack.  <br> 
+        Default chat trigger is <code>!spotify tag *</code>, for example <code>!spotify tag instrumental</code>. 
+
+
+        </p>
+
+        <p><img style="width:5%;border:0px;vertical-align:middle;" src="https://i.imgur.com/MFcEvP1.png">  <b>Search by Keyword </b><br>
+        Allows you to search for a song by its keyword. Default chat trigger is <code>!spotify search *</code> where the wildcard can be these two formats: 
+        <ul>
+            <li>Keyword (song name only) <code>!sr Kiss from a rose</code></li>
+            <li>Keyword (song name + artist name) <code>!sr Kiss from a rose # Seal</code>- artist name must follow the song name and '#' sign</li>   
+        </ul>
+        <p>This will retrieve a stack called spotify_tracks_uri with all the matching tracks. The first matching track will be automatically queued up. You can use Next Search Result button to cycle through them. 
+
+        </p>
+
+        <p><img style="width:5%;border:0px;vertical-align:middle;" src="https://i.imgur.com/a0HIao5.png">  <b>Clear Queue </b><br>
+        Experimental button. Should be able to clear your Spotify queue. If used while you have song requests in your queue, it will clear those as well. 
+        This will temporatily mute your Spotify while the queue is being cleared and unmute it as soon as it's finished. <br>
+        Note: Spotify does not natively offer this feature, so it might not always work 100%. 
+
+
+        </p>
+
+        <p><img style="width:12%;border:0px;vertical-align:middle;" src="https://i.imgur.com/mH8m5o9.png">  <b>Previous/Next X tracks </b><br>
+            You can adjust this button to be able to go to your previous/next X amount of tracks. Just modify the repeat amount in the button. 
+
+        </p>
+
+     
+
+
+
+
+
+
+</ul>
+
+
                 
              
 

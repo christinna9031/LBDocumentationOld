@@ -79,9 +79,14 @@ body {
         margin: 0 10px;
         height: 35px; }
     header form {
-      padding: 7px;
-      background: #d3c8e9; }
-
+      padding: px;
+        background: #d3c8e9; }
+form {
+ margin:0px;
+ padding:0px;
+ display:inline;
+ 
+}
  
   
   

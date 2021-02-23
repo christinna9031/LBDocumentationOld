@@ -63,6 +63,11 @@
                                    Spotify
                                 </a>
                             </dd>
+                                  <dd>
+                                <a href="#Lifx">
+                                   LIFX
+                                </a>
+                            </dd>
 
 
                         </dl>
@@ -306,22 +311,495 @@ Send to extension input fields: <br>
 
         </p>
 
-     
-
-
-
-
-
-
 </ul>
 
+<h3 id="Lifx">LIFX</h3>
+            <p><b>Creator: </b>Christinna<br>
+            <b>Download: <a href="y">Coming soon</a></b><br>
+            <b>Description: </b>
 
+            LIFX extension for LioranBoard which allows you and your viewers to fully control your LIFX lights straight from your deck.</b>   <br>
+            <b>Preview:</b><br><iframe width="420" height="315"
+            src="" allowfullscreen>
+            </iframe><br>                     
                 
-             
+<style>
+  
+    table.lifx td {
+    padding:2px 10px;
+    margin:0px 0px;
+    
+    }
+    .lifx code {
+        padding:2px 4px;
+       size:15px;
+        margin: 2px; 
+        white-space: pre-wrap;       
+        word-wrap: break-word;       
+    }
 
-                
-                
+    table.lifx td:first-child{
+    width:130px;
+    }
+
+    table.lifx td:last-child {
+    width:130px;
+    }
+
+
+  
+    </style>
+
+<b>Setup:</b><br>
+<p>You will find a premade INIT button in your deck. Right click on it - Edit commands. 
+<img src="https://i.imgur.com/MWdMXB7.png"> <br>
+The <code>name</code> value will be your LIFX token which you can retrieve <a href="https://cloud.lifx.com/settings" target="_blank">here</a>. The <code>power_off</code> can be set to true to receive a yellow notification messages each time your request is successful, or set to false to only receive error notifications.  </p>
+<p>
+
+  INIT, Get Light, Toggle Power, Effects Off, Activate Scene, Clean Mode and Validate Color can be all found under a single extension name <b>LIFX Basics</b>. If the particular input box is not mentioned in the documentation below, it means the command will ignore its value.  </b>
+</p>
+   <p>
+<b>Selectors</b><br>
+Selectors are identifiers for addressing one or many lights belonging to the authenticated account. <Br>
+
+Selectors which generally specify multiple lights, <code>all</code>, <code>group</code>, <code>group_id</code>, <code>location</code>, <code>location_id</code>, and <code>scene_id</code>, accept an optional suffix <code>:random</code> which specifies a single random light from that set of lights. e.g. <code>all:random</code>, <code>group:[value]:random</code>, <code>location_id:[value]:random</code>. <br>
+
+    You can combine up to 25 selectors together additively by separating them with <code>,</code>, so if you want to address both a light labelled "Bedroom" and a light labelled "Office", you can use <code>label:Bedroom,label:Office</code> as the selector.
+
+<table>
+<tr>
+<td><b>Selector</b></td>
+<td><b>Description</b></td>
+</tr>
+<tr>
+    <td>label:[value]</td>
+    <td>Lights that match the label.</td>
+    </tr>
+    <tr>
+        <td>id:[value]</td>
+        <td>The light with the given id/serial number. Returns a list of one light.</td>
+        </tr>
+        <tr>
+            <td>group_id:[value]</td>
+            <td>The lights belonging to the group with the given ID</td>
+            </tr>
+            <tr>
+                <td>group:[value]</td>
+                <td>The lights belonging to the groups matching the given label</td>
+                </tr>
+                <tr>
+                    <td>location_id:[value]</td>
+                    <td>The lights belonging to the location matching the given ID</td>
+                    </tr>
+                    <tr>
+                        <td>location:[value]</td>
+                        <td>The lights belonging to the locations matching the given label</td>
+                        </tr>
+                        <tr>
+                            <td>scene_id:[value]</td>
+                            <td>The lights that are referenced in the scene with the given ID</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                </tr>
+
+
+    
+</table>
+
+
+    <p> </p>
+    <table class="lifx">
+    <tr>
+    <td><b>Command</b></td>
+    <td><b>Input</b></td>
+    <td><b>Description</b></td>
+    <td><b>Example</b></td>
+    </tr>
+    <tr>
+    <td><b>INIT</b></td>
+    <td>Name</td>
+    <td>Your LIFX token (can be retrieved <a href="https://cloud.lifx.com/settings" target="_blank">here</a>)</td>
+    <td>657sdf657j6w64yt</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Power_off</td>
+        <td>Set to true if you wish to receive a notification after a successful request. If set to false, only error notifications will be received.</td>
+        <td>True</td>
+        </tr>
+  
+    <tr>
+        <td><b>Get Light</b></td>
+    <td>Name</td>
+    <td>Label or id of your light. Has to include the selector: <code>label:</code> for label or <code>id:</code> for id.</td>
+    <td>label:My Light</td>
+    </tr>
+    <tr>
+        <td><b></b></td>
+    <td></td>
+    <td>This command will create a stack <code>lifx</code> containing information about a single light device.</td>
+    <td></td>
+    </tr>
+
+
+    <tr>
+    <td><b>Toggle Power</b></td>
+    <td>Name</td>
+    <td>Selector to limit which lights are toggled. Must include the selector itself. </td>
+    <td>location:kitchen</td>
+    </tr>
+    <tr>
+    <td></td>
+    <td>Duration</td>
+    <td>The time in seconds to spend performing the power toggle.</td>
+    <td>10</td>
+    </tr>
+    <tr>
+    <td><b>Effects Off</b></td>
+    <td>Name</td>
+    <td>Selector to limit which lights this applies to. </td>
+    <td>group:My Lights</td>
+    </tr>
+    <tr>
+    <td></td>
+    <td>Power_off</td>
+    <td>If true, the devices will also be turned off.</td>
+    <td>true</td>
+    </tr>
+    <tr>
+    <td><b>Activate Scene</b></td>
+    <td>Name</td>
+    <td>Name of the scene.</td>
+    <td>My Scene</td>
+    </tr>
+    <tr>
+    <td></td>
+    <td>Duration</td>
+    <td>Time in seconds to transition from the current light state to the scene state.</td>
+    <td>10</td>
+    </tr>
+    <tr>
+    <td></td>
+    <td>Ignore</td>
+    <td>Any of power, infrared, duration, intensity, hue, saturation, brightness or kelvin, specifying that these properties should not be changed on devices when applying the scene.</td>
+    <td>power,duration</td>
+    </tr>
+        <tr>
+    <td></td>
+    <td>Fast</td>
+    <td>Execute the query fast, without initial state checks and wait for no results.</td>
+    <td>False</td>
+    </tr>
    
+    <tr>
+        <td><b>Clean Mode</b></td>
+        <td>Selector</td>
+        <td>Selector to limit which lights are switched to clean mode. </td>
+        <td>id:d3b2f2d97452</td>
+        </tr>
+        <tr>
+        <td></td>
+        <td>Power_off</td>
+        <td>Whether you want to turn off the device.</td>
+        <td>false</td>
+        </tr>
+        <tr>
+        <td></td>
+        <td>Duration</td>
+        <td>Duration in seconds (0 sets the default duration for the device).</td>
+        <td>10</td>
+        </tr>
+               <tr>
+            <td><b>Validate Color</b></td>
+            <td>Name</td>
+            <td>Color you wish to validate. See all possible colors <a href="https://api.developer.lifx.com/docs/colors">here</a>. A yellow success notification in your Receiver means the color format is correct. </td>
+            <td>#03fcec</td>
+            </tr>
+
+            <tr>
+                <td><b>Set State</b></td>
+                <td>Selector</td>
+                <td>Selector to limit which lights are toggled. Must include the selector itself. </td>
+                <td>label:Fish Tank</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Power_on</td>
+                    <td>If true, turn the bulb on if it is not already on.</td>
+                    <td>true</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Color</td>
+                        <td>The <a href="https://api.developer.lifx.com/docs/colors">color</a> to set the light to.</td>
+                        <td>blue</td>
+                        </tr>
+                <tr>
+                <td></td>
+                <td>Brightness</td>
+                <td>The brightness level from 0.0 to 1.0. Overrides any brightness set in color (if any).</td>
+                <td>0.5</td>
+                </tr>
+                <tr>
+                <td></td>
+                <td>Duration</td>
+                <td>How long in seconds you want the power action to take. Range: 0.0 – 3155760000.0 (100 years)</td>
+                <td>60</td>
+                </tr>
+                <tr>
+                <td></td>
+                <td>Infrared</td>
+                <td>The maximum brightness of the infrared channel from 0.0 to 1.0.</td>
+                <td>0.5</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Fast</td>
+                    <td>Execute the query fast, without initial state checks and wait for no results.</td>
+                    <td>False</td>
+                    </tr>
+
+           
+            <tr>
+                <td><b>Breathe Effect</b></td>
+                <td>Selector</td>
+                <td>Selector to limit which lights will run the effect. Must include the selector itself. </td>
+                <td>label:Aquarium</td>
+                </tr>
+                <tr>
+                <td></td>
+                <td>Power_on</td>
+                <td>If true, turn the bulb on if it is not already on.</td>
+                <td>True</td>
+                </tr>
+                <tr>
+                <td></td>
+                <td>Color</td>
+                <td>The <a href="https://api.developer.lifx.com/docs/colors">color</a> to use for the breathe effect.</td>
+                <td>Red</td>
+                </tr>
+                <tr>
+                <td></td>
+                <td>Color_from</td>
+                <td>The <a href="https://api.developer.lifx.com/docs/colors">color</a> to start the effect from. If this parameter is omitted, the color the bulb is currently set to is used instead.</td>
+                <td>rgb:0,255,255</td>
+                </tr>
+                <tr>
+                <td></td>
+                <td>Persist</td>
+                <td>If false, set the light back to its previous value when effect ends. If true, leave the last effect color.</td>
+                <td>True</td>
+                </tr>
+                <tr>
+                <td></td>
+                <td>Peak</td>
+                <td>Defines where in a period the target color is at its maximum. Minimum 0.0, maximum 1.0.</td>
+                <td>0.5</td>
+                </tr>
+                    <tr>
+                <td></td>
+                <td>Period_cycles</td>
+                <td>Period - the time in seconds for one cycle of the effect. Cycles - the number of times to repeat the effect. <br>Two values separated by a comma. </td>
+                <td>5,10</td>
+                </tr>
+
+                <tr>
+                    <td><b>Flame Effect</b></td>
+                    <td>Selector</td>
+                    <td>Selector to limit which devices will run the effect. Must include the selector itself. </td>
+                    <td>label:Desk</td>
+                    </tr>
+                    <tr>
+                <td></td>
+                <td>Power_on</td>
+                <td>Switch any selected device that is off to on before performing the effect.</td>
+                <td>True</td>
+                </tr>
+                    <tr>
+                    <td></td>
+                    <td>Period</td>
+                    <td>This controls how quickly the flame runs. It is measured in seconds. A lower number means the animation is faster.</td>
+                    <td>5</td>
+                    </tr>
+                    <tr>
+                    <td></td>
+                    <td>Duration</td>
+                    <td>How long the animation lasts for in seconds. Not specifying a duration makes the animation never stop. Specifying 0 makes the animation stop.</td>
+                    <td>30</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Fast</td>
+                        <td>Execute the query fast, without initial state checks and wait for no results.</td>
+                        <td>False</td>
+                        </tr>
+          <tr>
+                    <td><b>Morph Effect</b></td>
+                    <td>Selector</td>
+                    <td>Selector to limit which lights are toggled. Must include the selector itself. </td>
+                    <td>Location:Bedroom</td>
+                    </tr>
+                      <tr>
+                <td></td>
+                <td>Power_on</td>
+                <td>Switch any selected device that is off to on before performing the effect.</td>
+                <td>true</td>
+                </tr>
+                    <tr>
+                    <td></td>
+                    <td>Period</td>
+                    <td>This controls how quickly the morph runs. It is measured in seconds. A lower number means the animation is faster</td>
+                    <td>5</td>
+                    </tr>
+                    <tr>
+                    <td></td>
+                    <td>Duration</td>
+                    <td>How long the animation lasts for in seconds. Not specifying a duration makes the animation never stop. Specifying 0 makes the animation stop. </td>
+                    <td>10</td>
+                    </tr>
+                    <tr>
+                    <td></td>
+                    <td>Palette</td>
+                    <td>You can control the colors in the animation by specifying a list of color specifiers separated by commas.</td>
+                    <td>red, blue, #ff0000 </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Fast</td>
+                        <td>Execute the query fast, without initial state checks and wait for no results.</td>
+                        <td>False</td>
+                        </tr>
+
+                        <td><b>Move Effect</b></td>
+                        <td>Selector</td>
+                        <td>Selector to limit which lights are toggled. Must include the selector itself. </td>
+                        <td>Label:Desk Lamp</td>
+                        </tr>
+                               <tr>
+                <td></td>
+                <td>Power_on</td>
+                <td>Switch any selected device that is off to on before performing the effect.</td>
+                <td>True</td>
+                </tr>
+                        <tr>
+                        <td></td>
+                        <td>Direction</td>
+                        <td>Move direction, can be forward or backward.</td>
+                        <td>Forward</td>
+                        </tr>
+                        <tr>
+                        <td></td>
+                        <td>Period</td>
+                        <td>The time in seconds for one cycle of the effect.</td>
+                        <td>10</td>
+                        </tr>
+                        <tr>
+                        <td></td>
+                        <td>Cycles</td>
+                        <td>The number of times to move the pattern across the device. Special cases are 0 to switch the effect off, and unspecified to continue indefinitely.</td>
+                        <td>10</td>
+                        </tr>
+                         <tr>
+                        <td></td>
+                        <td>Fast</td>
+                        <td>Execute the query fast, without initial state checks and wait for no results.</td>
+                        <td>False</td>
+                        </tr>
+                            <td><b>Pulse Effect</b></td>
+                            <td>Selector</td>
+                            <td>Selector to limit which lights are toggled. Must include the selector itself. </td>
+                            <td>group:my tank</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Power_on</td>
+                                <td>Switch any selected device that is off to on before performing the effect.</td>
+                                <td>True</td>
+                                </tr>
+                            <tr>
+                            <td></td>
+                            <td>Color</td>
+                            <td>The <a href="https://api.developer.lifx.com/docs/colors">color</a> to use for the pulse effect.</td>
+                            <td>blue</td>
+                            </tr>
+                            <tr>
+                            <td></td>
+                            <td>From_color</td>
+                            <td>The <a href="https://api.developer.lifx.com/docs/colors">color</a> to start the effect from. If this parameter is omitted, the color the bulb is currently set to is used instead.</td>
+                            <td>#ff0000</td>
+                            </tr>
+                            <tr>
+                            <td></td>
+                            <td>Period</td>
+                            <td>The time in seconds for one cyles of the effect.</td>
+                            <td>2</td>
+                            </tr>
+                            <tr>
+                            <td></td>
+                            <td>Cycles</td>
+                            <td>The number of times to repeat the effect.</td>
+                            <td>10</td>
+                            </tr>
+                                <tr>
+                            <td></td>
+                            <td>Persist</td>
+                            <td>If false, set the light back to its previous value when effect ends. If true, leave the last effect color.</td>
+                            <td>False</td>
+                            </tr>
+                          
+
+                                <tr>
+                                    <td><b>State Delta</b></td>
+                                    <td>Selector</td>
+                                    <td>Selector to limit which lights are toggled. Must include the selector itself. </td>
+                                    <td>group:Desk lights</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Power_on</td>
+                                        <td>Switch any selected device that is off to on before performing the effect.</td>
+                                        <td>true</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>Fast</td>
+                                            <td>Execute the query fast, without initial state checks and wait for no results.</td>
+                                            <td>False</td>
+                                            </tr>
+                                    <tr>
+                                    <td></td>
+                                    <td>Duration</td>
+                                    <td>How long in seconds you want the power action to take. Range: 0.0 – 3155760000.0 (100 years).</td>
+                                    <td>60</td>
+                                    </tr>
+                                    <tr>
+                                    <td></td>
+                                    <td>Infrared</td>
+                                    <td>The maximum brightness of the infrared channel from 0.0 to 1.0.</td>
+                                    <td>0.5</td>
+                                    </tr>
+                                    <tr>
+                                    <td></td>
+                                    <td>Kelvin</td>
+                                    <td>Change the kelvin by this amount. The resulting kelvin is clipped to [2500, 9000].</td>
+                                    <td>7000</td>
+                                    </tr>
+                                        <tr>
+                                    <td></td>
+                                    <td>Hue_sat_brightness</td>
+                                    <td>Hue: Rotate the hue by this angle in degrees. Range: -360.0 – 360.0 degrees<br>
+                                        Saturation: Change the saturation. Between 0.0 and 1.0. <br>
+                                        Brightness: Change the brightness. Between 0.0 and 1.0. <br>
+                                        All 3 values need to be separated by comma: <code>hue, saturation, brightness</code>. <br> Leave a blank space if you do not wish to change one of the values.
+                                    </td>
+                                    <td>50,0.5,1.0 <br> <code>50, , </code> </td>
+                                    </tr>
+    
+    </table>
+ 
+
                 
                   
                 </section>

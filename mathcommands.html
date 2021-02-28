@@ -553,7 +553,7 @@
                         For example, if you set up a button with a Twitch Subs trigger, you can then pull the subscriber's name once it gets activated.<br></p>
                         <p><i><b>Important: </b></i>Math:Trigger Pull command must be in the same button as your trigger.</i></p>
                         
-                    
+                  
 
                     <table>
                         <tr>
@@ -567,15 +567,26 @@
                             <td>Variable name to save the pulled value into</td>
                         </tr>
                         <tr>
-                            <td>Pull value</td>
-                            <td>Real</td>
+                            <td>Pull Value</td>
+                            <td>Dropdown List</td>
                             <td>Value you wish to pull from the trigger</td>
                         </tr>
 
-                        <tr>
-                            <td colspan="3">
+                <tr>
+                    <td>Turn to real</td>
+                    <td>boolean</td>
+                    <td>Whether you want to turn the pulled value to real (number)</td>
+                </tr>
+            </table>
+                    </table>
+                     
+                              
+                        <p> <b>Pull Types (numeric value required for 1.42 version and older):</b> </p>
 
+                        <table>
+                            <tr><td>
                                 <table class="smalltable">
+                                    
                                     <tr>
                                         <td colspan="2"><b>Chat message trigger</b></td>
                                     </tr>
@@ -617,6 +628,14 @@
                                             To find the badge ID in the JSON, look for <code>BadgeList.badge_sets[BADGENAME].versions[VERSION].image_url_1x</code>. The last part <code>1x</code> can be changed to 2x, 3x or 4x for bigger size.
                                             <a href="https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/2" target="_blank"> Example.</a></td>
                                     </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Channel Name where the message originated from. Will return <code>w</code> if it's a whisper.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Chat name color in hexadecimal format. </td>
+                                    </tr>
                                     
                                 </table>
                                 <table class="smalltable">
@@ -655,7 +674,7 @@
                                     </tr>
                                     <tr>
                                         <td>0</td>
-                                        <td>Name of the viewer who subbed or gifted the sub.</td>
+                                        <td>Viewer username who subbed or gifted the sub.</td>
                                     </tr>
                                     <tr>
                                         <td>1</td>
@@ -685,6 +704,10 @@
                                         <td>7</td>
                                         <td>Display name of the recipient</td>
                                     </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>Community sub check. Can be 0 or 1. (version 1.43 and newer)</td>
+                                    </tr>
                                 </table>
 
                                 <table class="smalltable">
@@ -709,7 +732,7 @@
                                     </tr>
                                     <tr>
                                         <td>3</td>
-                                        <td>Type of tiers: "Tier 1","Tier 2" or "Tier 3"</td>
+                                        <td>Tier Type: "Tier 1","Tier 2" or "Tier 3"</td>
                                     </tr>
                                 </table>
 
@@ -762,7 +785,7 @@
                                     </tr>
                                     <tr>
                                         <td>4</td>
-                                        <td>Redeem ID of the redemption itself (so you can cancel or fulfill it)</td>
+                                        <td>Redeem ID of the redemption itself (used for cancelling/fulfilling it via Channel Points extension)</td>
                                     </tr>
                                 </table>
 
@@ -792,7 +815,7 @@
                                     </tr>
                                     <tr>
                                         <td>4</td>
-                                        <td>Redeem ID of the redemption itself (so you can cancel or fulfill it)</td>
+                                        <td>Redeem ID of the redemption itself (used for cancelling/fulfilling it via Channel Points extension)</td>
                                     </tr>
                                
                                 </table>
@@ -820,19 +843,11 @@
                                         <td>Value2</td>
                                     </tr>
                                     <tr>
-                                        <td>3</td>
-                                        <td>Value3</td>
+                                        <td>3 etc.</td>
+                                        <td>Value3 etc.</td>
                                     </tr>
-                                                                    </table>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Turn to real</td>
-                            <td>boolean</td>
-                            <td>Whether you want to turn the pulled value to real (number)</td>
-                        </tr>
-                    </table>
+                                                                    </table> </td></tr></table>
+    
 
                     <button id="example" onclick="toggle_visibility('mathtriggerpullbitsX')">Show example</button>
                     <div id="mathtriggerpullbitsX" style="display: none;"><img src="https://i.imgur.com/FJCngAb.png" /><br /></div>

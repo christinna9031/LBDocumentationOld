@@ -42,7 +42,7 @@ Installation
 
 <dd>
     <a href="#addingtransmitter" >
-    Adding Transmitter to OBS
+    Transmitter
     </a>
     </dd>
 
@@ -175,11 +175,20 @@ OBS websocket connection
 <i>It is recommended to not install LioranBoard in <code>Program Files</code> folder as it sometimes tends to block LioranBoard from writing in its own folder.</i> </p> 
 
 
-<h3 id="addingtransmitter">Adding Transmitter to OBS</h3>
+<h3 id="addingtransmitter">Transmitter</h3>
 
-<p>Transmitter (tsl_transmitter.html) is a way for LioranBoard to communicate with Twitch and all the extensions. It needs to be running at ALL times and always only ONE instance. </p>
-<p><b>There are three different ways to use Transmitter: 
-</b>
+<p>Transmitter (tsl_transmitter.html) is a simple .html file which allows LioranBoard to communicate with external sources, including Twitch and all the extensions. It needs to be running at ALL times and always only ONE instance, as LioranBoard does not allow more than one connection. </p>  
+<p>The Transmitter is divided into tabs, each representing one extension. You can freely organize them and also completely hide them (by ticking/unticking the checkboxes). There are different themes you can choose from as well. 
+The main tab Pubsub Alerts contains buttons and input boxes that you can use to test various Twitch alerts (once you set them up in your Receiver), coming from either Twitch Pubsub or Twitch Chat. Please not that Follower Alerts need to be tested in a separate extension. </p>
+
+<button id="example" onclick="toggle_visibility('transmitterbutton')">Show example</button>
+
+<div id="transmitterbutton"  style="display:none">  <img src="https://i.imgur.com/fH8g2Ff.png"></div> 
+
+
+<h4><b>Adding Transmitter to OBS</b></h4>
+<p>There are three different ways to use Transmitter: 
+
 
 <ol type="1">
 <li>
@@ -196,16 +205,11 @@ OBS websocket connection
 </li>
 </ol>
 <p>
-If you did everything right, there should be a text saying “Connected to LioranBoard” inside your Transmitter. <br>You should also see a yellow notification message in your Receiver saying “TSL Transmittor is connected”. <br>
+If you did everything right, there should be a green text saying “Connected to LioranBoard” inside your Transmitter. <br>You should also see a yellow notification message in your Receiver saying “TSL Transmittor is connected”. <br>
 
-    If you see an error message that second transmitter tried to connect, you need to locate and close it for LB to work properly. 
-    
-    <br>The transmitter contains a few buttons and boxes that you can use to test various Twitch alerts (once you set them up in your editor).
-   
-    <br>
-    <button id="example" onclick="toggle_visibility('transmitterbutton')">Show example</button>
-
-    <div id="transmitterbutton"  style="display:none">  <img src="https://i.imgur.com/kOUoBha.png"></div> 
+    If you see an error message that second Transmitter tried to connect, you need to locate and close it for LB to work properly. 
+    If your Receiver crashes when you try to connect to the Transmitter, make sure you are on the latest version. Some improperly coded extensions can also crash your Receiver. 
+ 
 
 
     <h3 id="websocket">Connecting to OBS websocket</h3>
@@ -338,7 +342,7 @@ All buttons have unique IDs. If you copy a button, it will get a new ID differen
    </iframe> </div><br></div>
   </li>
   <li><b>Button ID</b><br>
-  This is a unique identifier for each button. If you copy and paste a button, it will always have a different ID (unless you deleted the previous one). Button ID is required if you want to set up Trigger Shortcut for the button or use some specific commands, like <a href="othercommands.html#triggerbutton">Trigger Button</a>, <a href="othercommands.html#modifybutton">Modify Button</a> or <a href="othercommands.html#clearbutton">Clear Button</a> </li>
+  This is a unique identifier for each button. If you copy and paste a button, it will always have a different ID (unless you deleted the previous one). Button ID is required if you want to set up Trigger Shortcut for the button or use some specific commands, like <a href="othercommands.html#triggerbutton">Trigger Button</a>, <a href="othercommands.html#modifybutton">Modify Button</a> or <a href="othercommands.html#clearbutton">Clear Button</a>. You can change the ID of a button by clicking on it. It accepts a maximum of 10 characters and can contain numbers, letters and special characters. </li>
 </ul>
 
 
@@ -349,13 +353,35 @@ All buttons have unique IDs. If you copy a button, it will get a new ID differen
 <iframe width="420" height="315"
 src="https://www.youtube.com/embed/ilDE_vbM7vs?controls=1" allowfullscreen>
 </iframe> <br> <p>
-  To use it, just click on Install extension in Lioranboard, Go to <code>Lioranboard/LB notification system</code> folder and select <code>LioranBoard Notification System.lbe</code>, then select the Transmitter you are using and follow all the steps (there is an html guide included in the folder as well). <br>
- The notification system covers Subs, Followers, Bits, Raid and Host. There is a Text to Speech option as well, which requires running Transmitter outside of OBS in your browser, or getting a <a href="externalext.html#pollyTTS">Text to Speech Polly</a> extension which can run as OBS dock and offers more customization. </p>
+
+  <b>Setup Instructions</b>
+  <ol>
+  <li> Copy the whole LB Notification System folder to <code>LioranBoard Receiver(PC)\Ext</code>folder.</li>
+  <li> LioranBoard must be connected to OBS with 4.9 OBS Websocket installed. </li>
+  <li> Install the "LioranBoard Notification System.lbe" extension found in this directoy to your Transmitter. </li>
+  <li> There should be a new deck in your Receiver and a new scene in your OBS (which you can add as a source to your existing scenes). The notification system is not ready to be used. You can use the test buttons in your Receiver for various Twitch alerts.</li>
+</ol>
+
+<p>The notification system comes with a TTS system. The default TTS will only work if the Transmitter is running in Chrome. </p>
+  
+  <p><b>How to switch to Polly TTS</b> (and be able to use it in your OBS dock): 
+  <ol>
+      <li>Install the <a href="externalext.html#pollyTTS">Polly TTS extension</a>.</li>
+    <li>Go in the command list for "Master Animator" and "TTS voices" buttons and delete every command in there.</li>
+    <li>Go in the "Alternate Master Animator" button, click the check box at the top left to select every command and click "Copy selected commands"
+      and paste them in the normal Master Animator button.</li>
+    <li>Repeat step 4 for Alternate TTS voices.</li>
+    <li>The Polly TTS should now be fully integrated with your Notification system. </li>
+  </ol>
+  <p>
+  Note: If you have the <a href="https://github.com/christinna9031/LB-Streamlabs-Alerts">StreamLabs Alerts</a> extension installed, the notification system will pick up the donations by default. </p>
+
 
 <h3 id="backingupdata">Update and Data Backup </h3>
 <p><b>Update to a new version without losing any data</b> <br>
   Replace LioranBoard Receiver.exe and data.win with the new files. <br>
-    To update the Stream Deck, you can just replace the files. </p>
+    To update the Stream Deck, you can just replace the files. <br>
+ In some cases you will also need to replace your Transmitter file (if there is an update) and reinstall all your extensions. Replacing your Transmitter will not modify any of your decks or buttons.  </p> 
   
   <p><b>How to back up data</b><br>
   There is a small text at the bottom in LioranBoard Receiver which says either local or Appdata. 

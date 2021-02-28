@@ -315,13 +315,14 @@ Send to extension input fields: <br>
 
 <h3 id="Lifx">LIFX</h3>
             <p><b>Creator: </b>Christinna<br>
-            <b>Download: <a href="y">Coming soon</a></b><br>
+            <b>Download: <a href="https://christinna9031.itch.io/lioranboard-lifx">Itch.io</a></b><br>
             <b>Description: </b>
 
-            LIFX extension for LioranBoard which allows you and your viewers to fully control your LIFX lights straight from your deck.</b>   <br>
+            LIFX extension for LioranBoard which allows you and your viewers to fully control your LIFX lights straight from your StreamDeck.</b>   <br>
             <b>Preview:</b><br><iframe width="420" height="315"
-            src="" allowfullscreen>
-            </iframe><br>                     
+            src="https://www.youtube.com/embed/xcxHjQpSxEw?controls=1" allowfullscreen>
+            </iframe><br>
+                        
                 
 <style>
   
@@ -353,7 +354,7 @@ Send to extension input fields: <br>
 <b>Setup:</b><br>
 <p>You will find a premade INIT button in your deck. Right click on it - Edit commands. 
 <img src="https://i.imgur.com/MWdMXB7.png"> <br>
-The <code>name</code> value will be your LIFX token which you can retrieve <a href="https://cloud.lifx.com/settings" target="_blank">here</a>. The <code>power_off</code> can be set to true to receive a yellow notification messages each time your request is successful, or set to false to only receive error notifications.  </p>
+The <code>name</code> value will be your LIFX token which you can retrieve <a href="https://cloud.lifx.com/settings" target="_blank">here</a>. The <code>power_off</code> can be set to true to receive a yellow notification message each time your request is successful, or set to false to only receive error notifications.  </p>
 <p>
 
   INIT, Get Light, Toggle Power, Effects Off, Activate Scene, Clean Mode and Validate Color can be all found under a single extension name <b>LIFX Basics</b>. If the particular input box is not mentioned in the documentation below, it means the command will ignore its value.  </b>
@@ -601,8 +602,9 @@ Selectors which generally specify multiple lights, <code>all</code>, <code>group
                     <tr>
                 <td></td>
                 <td>Period_cycles</td>
-                <td>Period - the time in seconds for one cycle of the effect. Cycles - the number of times to repeat the effect. <br>Two values separated by a comma. </td>
-                <td>5,10</td>
+                <td>Period - the time in seconds for one cycle of the effect. Cycles - the number of times to repeat the effect. <br>Two values separated by a comma. Put in a letter (like X) if you do not wish to change one of the values.  </td>
+                <td>5,10 <br> 
+                X,10</td>
                 </tr>
 
                 <tr>
@@ -792,9 +794,9 @@ Selectors which generally specify multiple lights, <code>all</code>, <code>group
                                     <td>Hue: Rotate the hue by this angle in degrees. Range: -360.0 – 360.0 degrees<br>
                                         Saturation: Change the saturation. Between 0.0 and 1.0. <br>
                                         Brightness: Change the brightness. Between 0.0 and 1.0. <br>
-                                        All 3 values need to be separated by comma: <code>hue, saturation, brightness</code>. <br> Leave a blank space if you do not wish to change one of the values.
+                                        All 3 values need to be separated by comma: <code>hue, saturation, brightness</code>. <br> Put in a letter (like X) if you do not wish to change one of the values.
                                     </td>
-                                    <td>50,0.5,1.0 <br> <code>50, , </code> </td>
+                                    <td>50,0.5,1.0 <br> 50,X,0.2  </td>
                                     </tr>
     
     </table>

@@ -165,23 +165,41 @@
                     <h3 id="notifications">Notification System</h3>
                     <p><b>Creator: </b>Lioran<br>
                     <b>Download:</b> Located in <code>lioranboard/LB Notification system</code> folder</a><br>
-                    <b>Description: </b>LioranBoard comes with a fully functional notification animation system for Twitch, ready to use for OBS. 
-                    The notification system covers Subs, Followers, Bits, Raid and Host. There is a Text to Speech option as well, which requires running Transmitter outside of OBS in your browser.</p>
-
+                    <b>Description: </b>LioranBoard comes with a fully functional notification animation system for Twitch, ready to use for OBS. <br>
+                    <b>Preview:</b><br>
+                      
                     <iframe width="420" height="315"
-src="https://www.youtube.com/embed/ilDE_vbM7vs?controls=1" allowfullscreen>
-</iframe> <br> <p>
-
-                    <p>To use it, just click on Install extension in Lioranboard, select <code>LioranBoard Notification System.lbe</code> in <code>lioranboard/LB Notification system</code>, then select the Transmitter you are using and follow all the steps. There is an html guide included in the folder as well. <br>
-                        The extension comes with a premade deck and buttons. They are rather complex and we don't recommend editing them (especially not the Master Animator button that processes all the alerts and handles the animations), unless you're already an experienced user. 
-                     
+                    src="https://www.youtube.com/embed/ilDE_vbM7vs?controls=1" allowfullscreen>
+                    </iframe> <br> <p>
+                    
+                      <b>Setup Instructions</b>
+                      <ol>
+                      <li> Copy the whole LB Notification System folder to <code>LioranBoard Receiver(PC)\Ext</code>folder.</li>
+                      <li> LioranBoard must be connected to OBS with 4.9 OBS Websocket installed. </li>
+                      <li> Install the "LioranBoard Notification System.lbe" extension found in this directoy to your Transmitter. </li>
+                      <li> There should be a new deck in your Receiver and a new scene in your OBS (which you can add as a source to your existing scenes). The notification system is not ready to be used. You can use the test buttons in your Receiver for various Twitch alerts.</li>
+                    </ol>
+                    
+                    <p>The notification system comes with a TTS system. The default TTS will only work if the Transmitter is running in Chrome. </p>
+                      
+                      <p><b>How to switch to Polly TTS</b> (and be able to use it in your OBS dock): 
+                      <ol>
+                          <li>Install the <a href="externalext.html#pollyTTS">Polly TTS extension</a>.</li>
+                        <li>Go in the command list for "Master Animator" and "TTS voices" buttons and delete every command in there.</li>
+                        <li>Go in the "Alternate Master Animator" button, click the check box at the top left to select every command and click "Copy selected commands"
+                          and paste them in the normal Master Animator button.</li>
+                        <li>Repeat step 4 for Alternate TTS voices.</li>
+                        <li>The Polly TTS should now be fully integrated with your Notification system. </li>
+                      </ol>
+                      <p>
+                      Note: If you have the <a href="https://github.com/christinna9031/LB-Streamlabs-Alerts">StreamLabs Alerts</a> extension installed, the notification system will pick up the donations by default. </p>
 
                    
                         <h3 id="complexmath">Complex Math</h3>
                         <p><b>Creator: </b>Lioran<br>
                         <b>Download: <a href="https://discord.com/channels/699319482442711072/712274509389889618/712276497351573584">Discord Link</a></b><br>
                         <b>Description: </b>
-                         This extension lets you execute complex math operations. Make sure you give it some delay before working with the result. </p>
+                         This extension lets you execute complex math operations. This extension is not needed in version 1.43 and newer as LioranBoard natively supports complex math operations now. </p>
                         <button id="example" onclick="toggle_visibility('complexmathX')">Show example</button>
                         <div id="complexmathX" style="display: none;"><img src="https://i.imgur.com/BHWOqLX.png" /><br /></div>
 
@@ -199,13 +217,13 @@ src="https://www.youtube.com/embed/ilDE_vbM7vs?controls=1" allowfullscreen>
                             </ul>
                      </p>
                         
-                        <h3 id="getcurrenttime">Get Current Time</h3>
+                        <h3 id="getcurrenttime">Get Current Time and Date</h3>
                         <p><b>Creator: </b>Christinna<br>
-                        <b>Download: <a href="https://discord.com/channels/699319482442711072/712274509389889618/753950379347279973">Discord Link</a></b><br>
+                        <b>Download: <a href="https://github.com/christinna9031/LB-Current-Time-and-Date">GitHub Link</a></b><br>
                         <b>Description: </b>
 
                         Retrieves current time and date. <br></p>
-                        <p>Possible formats: 12h clock, 24h clock, military, date, timestamp (date+time), Unix.</p>
+                        <p>Possible formats: 12h clock, 24h clock, date, month, week of year, military, timestamp (date+time), Unix.</p>
                      
                         <button id="example" onclick="toggle_visibility('gettimeX')">Show example</button>
                         <div id="gettimeX" style="display: none;"><img src="https://i.imgur.com/M7OHTaN.png" /><br /></div>

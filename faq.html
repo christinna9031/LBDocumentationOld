@@ -52,13 +52,7 @@
                         </a>
                     </dd>
 
-                    <dd>
-                        <a href="#changeresizeX">
-                            Can I modify/resize X?
-                        </a>
-                    </dd>
-
-                    <dd>
+                                 <dd>
                         <a href="#exportimport">
                             How to export/import buttons
                         </a>
@@ -75,13 +69,17 @@
                             How to install/uninstall extensions
                         </a>
                     </dd>
-
-
-                 
+                
 
                     <dd>
                         <a href="#mathoperators">
-                            Math operators
+                            Math Operators
+                        </a>
+                    </dd>
+
+                    <dd>
+                        <a href="#complexmath">
+                            Complex Math
                         </a>
                     </dd>
 
@@ -214,21 +212,7 @@
                     We welcome new members on our <a href="https://discord.gg/dXez8Zh">Discord server</a> to ask questions if they encounter a problem with their buttons or commands, but discourage asking for a whole button to be created just for their needs. If you're not interested in learning LB whatsoever and only want the finished product, you can request a commission instead.
                 </p>
 
-                <h3 id="changeresizeX"> Can I modify/resize X?</h3>
-                <p><b>What you can modify:</b></p>
-                <ul>
-                <li>StreamDeck  - window size</li>
-                <li>Deck (in Receiver) - background color (no transparent values), grid size</li>
-                <li>Buttons - background color (no transparent values), border thickness, size </li>
-                </ul>
-
-                <p><b>What you cannot modify:</b></p>
-                <ul>
-                <li>LB Receiver - window size                </li>
-                <li>Buttons - shape and rounded corners</li>
-                </ul>
-
-
+            
                 <h3 id="exportimport"> How to export/import your buttons</h3>
                 <p><b>Follow this video:</b></p>
                 <iframe width="420" height="315"
@@ -257,25 +241,30 @@
                     <li>Select the extension file you downloaded </li>
                     <li>Select your default Transmitter you are using. Make 100% sure it is the correct one. </li>
                     <li>Your Transmitter will automatically refresh, adding a new tab for the extension you just installed. You should also see it added in at the bottom list of all extensions (with checkboxes).</li>
-                    <li>Most extensions include a premade deck with buttons. If you do not see one, create a new button, add "Send to Extensions" command and select the extension you just installed. </li>
+                    <li>Most extensions include a premade deck with buttons. If you do not see one, create a new button, add "Send to Extensions" command and select the extension you just installed. If  </li>
                   </ol>
+
+                  <p><i>Note: Some extensions have built in requirements, such as placing them in the <code>Receiver/Ext</code> folder or running a compatible version of LB/OBS. If you do not meet the requirements, you will receive a popup message and the extension will not be installed to prevent incorrect use. </i></p>
 
                   <p><b>Extension is installed properly if:</b>
                   <ul>
-                  <li>You can see all its fields in your Send to extension command. If you can only see the extension name, the extension was not installed properly or your Transmitter is not running. The amount of input fields depends on the extension, but it should always contain at least one. <button id="example" onclick="toggle_visibility('extensionfields')">Show example</button><div id="extensionfields"  style="display:none">  <img src="https://i.imgur.com/LY1nmz0.png"></div></li> 
-                  <li>Your transmitter displays that it's correctly installed (you should see a new tab added). <button id="example" onclick="toggle_visibility('extensiontsl')">Show example</button><div id="extensiontsl"  style="display:none">  <img src="https://i.imgur.com/hHr3lVF.png"></div></li>
+                  <li>You can see all its fields in your Send to extension command. If you can only see the extension name, the extension was not installed properly or your Transmitter is not running. The amount of input fields depends on the extension, but it should in most cases contain at least one. <button id="example" onclick="toggle_visibility('extensionfields')">Show example</button><div id="extensionfields"  style="display:none">  <img src="https://i.imgur.com/LY1nmz0.png"></div></li> 
+                  <li>Your Transmitter displays that it's correctly installed (you should see a new tab and a checkbox at the bottom with the extension name added). </li>
                   </ul>
                 <p>
-                  <b>Uninstall an extension:</b>
+                  <b>Uninstall an extension (version 1.43 and later):</b>
                   <ol>
                     <li>
-                    Open the original extension .lbe file you wish to uninstall and copy the name in the [extension_name] section. This needs to be an exact match.    
+                    Click on the 'Uninstall Extens.' button in your Receiver.
                     </li>
-                    <li>
-                    Download this file: <a href="https://github.com/christinna9031/LioranBoard-Files/releases/download/1.0/uninstall_extension.lbe" target="_blank">https://github.com/christinna9031/LioranBoard-Files/releases/download/1.0/uninstall_extension.lbe</a>    
+                    <li>Select the correct Transmitter where your extension is installed and press yes when prompted whether you want to replace it.</li>
+                    <li>You will get a dropdown menu in your Receiver. Click on the extension you wish to uninstall and press Yes. 
+                        <button id="example" onclick="toggle_visibility('extensionuninstall')">Show example</button><div id="extensionuninstall"  style="display:none">  <img src="https://i.imgur.com/vnJ0l0x.png"></div>
                     </li>
-                    <li>Open the file you just downloaded and replace the <code>YOUR EXTENSION NAME YOU WISH TO UNINSTALL</code> with your extension name from step 1.</li>
-                    <li>Follow the same steps for installing an extension.</li>
+                    <li>Your extension is now uninstalled and you can no longer use it.</li>
+
+
+
 
                   </ol>
                 
@@ -283,12 +272,12 @@
                 
 
 
-                <h3 id="mathoperators"> Math Operators
+                <h3 id="mathoperators"> Math Operators (version 1.43 and newer)
                 </h3>
-                <p>One thing that is often overlooked is the difference between <code>=</code> (which works only with real values) and <code>=string</code> (which works only with strings). Pay special attention to these two operators, you cannot use them interchangeably as it will break your commands or crash LioranBoard.  </p>
+                <p>Strings need to be wrapped in "". </p>
                 <table>
 
-                    <p><b>Basic operators</b> </p>
+                    <p><b>Math:Change Variable operators</b> </p>
 
                     <tr>
                         <td>Operator</td>
@@ -297,136 +286,211 @@
                     </tr>
                     <tr>
                         <td>=</td>
-                        <td>Equal. <code>x = y</code></td>
-                        <td><code>x = 7</code></td>
+                        <td>Equal. Real values or strings. Strings need to be wrapped in "". <code>x = y</code></td>
+                        <td><code>x = 7</code>
+                            <code>x = "Hello World"</code>
+                        </td>
                     </tr>
                     <tr>
                         <td>+=</td>
-                        <td>Addition. Same as <code>x = x + y</code></td>
-                        <td><code>7 += 2 // 9</code></td>
+                        <td>Addition. Real values or strings. Strings need to be wrapped in "". Same as <code>x = x + y</code></td>
+                        <td><code>7 += 2</code> = 9<br><code>"Hello" += "World"</code> = "Hello World"
+                        </td>
                     </tr>
                     <tr>
                         <td>-= </td>
-                        <td>Subtraction. Same as <code>x = x - y</code></td>
-                        <td><code>7 -= 2 // 5</code></td>
+                        <td>Subtraction. Real values only. Same as <code>x = x - y</code></td>
+                        <td><code>7 -= 2</code> = 5</td>
                     </tr>
                     <tr>
                         <td>Multiply</td>
-                        <td>Multiplication *=. Same as <code>x = x * y</code></td>
-                        <td><code>7 *= 2 // 14</code></td>
+                        <td>Multiplication *=. Real values only. Same as <code>x = x * y</code></td>
+                        <td><code>7 *= 2</code> = 14</td>
                     </tr>
                     <tr>
                         <td>Divide</td>
-                        <td>Division /=. Same as <code>x = x / y</code></td>
-                        <td><code>7 /= 2 // 3.5</code></td>
+                        <td>Division /=. Real values only. Same as <code>x = x / y</code></td>
+                        <td><code>7 /= 2</code> = 3.5</td>
                     </tr>
                     <tr>
                         <td>DIV</td>
-                        <td>Integer division. Same as division, but the remainder is discarded. </td>
-                        <td><code>7 DIV 2 // 3</code></td>
+                        <td>Integer division. Real values only. Same as division, but the remainder is discarded. </td>
+                        <td><code>7 DIV 2</code> = 3</td>
                     </tr>
                     <tr>
                         <td>MOD</td>
-                        <td>Modulus. Returns the remainder of division.</td>
-                        <td><code>7 MOD 2 // 1</code></td>
+                        <td>Modulus. Real values only. Returns the remainder of division.</td>
+                        <td><code>7 MOD 2</code> = 1</td>
                     </tr>
                     <tr>
                         <td>&=</td>
-                        <td>Bitwise AND. Same as <code>x = x & y</code></td>
-                        <td><code>7 = 000111</code><br><code>2 = 000010</code><br><code>7 &= 2 // 2</code><br>
+                        <td>Bitwise AND. Real values only. Same as <code>x = x & y</code></td>
+                        <td><code>7 = 000111</code><br><code>2 = 000010</code><br><code>7 &= 2</code> = 2<br>
                         </td>
                     </tr>
                     <tr>
                         <td>^=</td>
-                        <td>Bitwise XOR. Same as <code> x = x ^ y</code></td>
-                        <td><code>7 = 000111</code><br><code>2 = 000010</code><br><code>7 ^= 2 // 5</code></td>
+                        <td>Bitwise XOR. Real values only. Same as <code> x = x ^ y</code></td>
+                        <td><code>7 = 000111</code><br><code>2 = 000010</code><br><code>7 ^= 2</code> = 5</td>
                     </tr>
                     <tr>
                         <td>| =</td>
-                        <td>Bitwise OR. Same as <code>x = x | y</code></td>
-                        <td><code>7 = 000111</code><br><code>2 = 000010</code><br><code>7 |= 2 // 7</code></td>
+                        <td>Bitwise OR. Real values only. Same as <code>x = x | y</code></td>
+                        <td><code>7 = 000111</code><br><code>2 = 000010</code><br><code>7 |= 2</code> = 7</td>
                     </tr>
-                    <tr>
-                        <td>= String</td>
-                        <td>String equal.<code> x = y</code></td>
-                        <td><code>x =string “hi”</code></td>
-                    </tr>
-                    <tr>
-                        <td>+= String</td>
-                        <td>String addition. Same as <code>x = x + y</code></td>
-                        <td><code>hi +=string there // ”hi there"</code></td>
-                    </tr>
-                    <tr>
+                                      <tr>
                         <td>Cos</td>
                         <td>Returns a numeric value between -1 and 1, which represents the cosine of the angle given in radians. </td>
-                        <td><code>Cos 90 // -0.45</code></td>
+                        <td><code>Cos 90</code> = -0.45</td>
                     </tr>
                     <tr>
                         <td>Sin</td>
                         <td>Returns a numeric value between -1 and 1, which represents the sine of the angle given in radians</td>
-                        <td><code>Sin 90 // 0.89</code></td>
+                        <td><code>Sin 90</code> = 0.89</td>
                     </tr>
                     <tr>
                         <td>Tan</td>
                         <td>Returns a numeric value that represents the tangent of the angle. Tan = Sin/Cos.</td>
-                        <td><code>Tan 90 = 1/0 // -2.00</code></td>
+                        <td><code>Tan 90</code> = 1/0 = -2.00</td>
                     </tr>
 
 
                 </table> 
 
-               <p><b>Compare operators</b> </p>
+                <p><b>Statement operators (version 1.43 and newer)</b> </p>
 
-               <table>
+                <table>
+ 
+                 <tr>
+                     <td>Operator</td>
+                     <td>Explanation</td>
+                     <td>Example</td>
+                 </tr>
+                 <tr>
+                     <td>==</td>
+                     <td>Equal. Checks whether the variables are equal. <br> Real values or strings. Strings need to be wrapped in " ". </td>
+                     <td><code>1 == 3</code> = false<br><code>"Hello" == "Hello"</code> = true</td>
+                 </tr>
+                 <tr>
+                     <td>!=</td>
+                     <td>Not Equal. Checks whether the variables are not equal. <br> Real values or strings. Strings need to be wrapped in " ".</td>
+                     <td><code>1 != 3</code> = true<br><code>"Hello" != "Hello"</code> = false</td>
+                 </tr>
+                 <tr>
+                     <td>></td>
+                     <td>Greater than. Checks whether the variable is greater than the second variable/value.<br> Real values only.</td>
+                     <td><code>1 > 3</code> = false<br><code>3 > 2</code> = true</td>
+                 </tr>
+                 <tr>
+                     <td><</td>
+                     <td>Less than. Checks whether the variable is less than the second variable/value. <br>Real values only.</td>
+                     <td><code>1 < 3</code> = true<br><code>3 < 2</code> = false</td>
+                 </tr>
+                 <tr>
+                     <td>>=</td>
+                     <td>Greater than or equal. Checks whether the variable is greater than or equal to the second variable/value.<br> Real values only.</td>
+                     <td><code>1 >= 3</code> = false<br><code>3 >= 3</code> = true</td>
+                 </tr>
+                 <tr>
+                     <td><=</td>
+                     <td>Less than or equal. Checks whether the variable is less than or equal to the second variable/value. <br>Real values only.</td>
+                     <td><code>1 <= 3</code> = true<br><code>3 <= 3</code> = true</td>
+                 </tr> 
+                 </table>
 
-                <tr>
-                    <td>Operator</td>
-                    <td>Explanation</td>
-                    <td>Example</td>
-                </tr>
-                <tr>
-                    <td>=</td>
-                    <td>Equal. Checks whether the variables/values are equal. <br> Real values only. </td>
-                    <td><code>1 = 3 //false</code><br><code>4 = 4 //true</code></td>
-                </tr>
-                <tr>
-                    <td>!=</td>
-                    <td>Not Equal. Checks whether the variables/values are not equal. <br> Real values only.</td>
-                    <td><code>1 !=3 //true</code><br><code>4 != 4 //false</code></td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td>Greater than. Checks whether the variable is greater than the second variable/value.<br> Real values only.</td>
-                    <td><code>1 > 3 //false</code><br><code>3 > 2 //true</code></td>
-                </tr>
-                <tr>
-                    <td><</td>
-                    <td>Less than. Checks whether the variable is less than the second variable/value. <br>Real values only.</td>
-                    <td><code>1 < 3 //true</code><br><code>3 < 2 //false</code></td>
-                </tr>
-                <tr>
-                    <td>>=</td>
-                    <td>Greater than or equal. Checks whether the variable is greater than or equal to the second variable/value.<br> Real values only.</td>
-                    <td><code>1 >= 3 //false</code><br><code>3 >= 3 //true</code></td>
-                </tr>
-                <tr>
-                    <td><=</td>
-                    <td>Less than or equal. Checks whether the variable is less than or equal to the second variable/value. <br>Real values only.</td>
-                    <td><code>1 <= 3 //true</code><br><code>3 <= 3 //true</code></td>
-                </tr>
-                <tr>
-                    <td>= String</td>
-                    <td>Equal String. Checks whether the variable is equal to the second variable/string.<br> Strings only. </td>
-                    <td><code>"Hello" =String "Hi there" //false</code><br><code>"Hello" =String "Hello" //true</code></td>
-                </tr>
-                <tr>
-                    <td>!= String</td>
-                    <td>Not equal String. Checks whether the variable is not equal to the second variable/string.<br> Strings only. </td>
-                    <td><code>"Hello" !=String "Hi there" //true</code><br><code>"Hello" !=String "Hello" //false</code></td>
-                </tr>
 
+                <h3 id="complexmath">  Complex Math (version 1.43 and newer)</h3>
+              <p>  You can execute complex math operations in every parameter box, using a mix of variables and real values. <br></p>
+                <ul>
+                <li>
+                Each time you want LB to execute any kind of math, you need to wrap the whole sequence in parentheses, for example <code>(variable+3*5+round(variable2))</code> or <code>(variable+10)</code>. <br> 
+                If you just want to insert a stack or variable name, it still needs to be wrapped in <code>()</code>, for example <code>(variable)</code>. <br>
+                For stacks you can use <code>([x]stackname)</code> with x being the position of the stack value. <br>                
+                There is a maximum of 256 characters per input box. The more complex math, the longer it will take to execute the command.</li>
+                <li>Possible math operators:
+                <table>
+                <tr>
+                <td>
+                Operator    
+                </td>
+                <td>
+                Name</td>
+                <td>
+                    Example (without parentheses)</td>
+                </tr>
+                <tr>
+                <td>+</td>
+                <td>Add</td>   
+                <td><code>3+2</code></td> 
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>Subtract</td>   
+                    <td><Code>3-2</Code></td> 
+                    </tr>
+                    <tr>
+                        <td>/</td>
+                        <td>Divide (including decimals)</td>  
+                        <td><code>3/2</code>= 1.5</td>   
+                        </tr>
+                        <tr>
+                            <td>*</td>
+                            <td>Multiply</td>   
+                            <td><code>3*2</code>= 6</td>  
+                            </tr>
+                            <tr>
+                                <td>^</td>
+                                <td>XOR</td>   
+                                <td><code>3^2</code>= 1</td> 
+                                </tr>
+                                <tr>
+                                    <td>|</td>
+                                    <td>OR</td>   
+                                    <td><code>3|2</code>= 3</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>&</td>
+                                        <td>AND</td> 
+                                        <td><code>3&2</code>= 2</td>   
+                                        </tr>
+                                        <tr>
+                                            <td>$</td>
+                                            <td>Hexadecimal</td>   
+                                            <td><code>$FFF</code>= 4095</td>
+                                            </tr>
+                                            <tr>
+                                                <td>round()</td>
+                                                <td>Round to nearest integer</td>   
+                                                <td><code>round(3.4)</code>= 3</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>ceil()</td>
+                                                    <td>Ceil (Round up)</td>   
+                                                    <td><code>ceil(3.4)</code>= 4</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>floor()</td>
+                                                        <td>Floor (Round down)</td>   
+                                                        <td><code>floor(3.8)</code>= 3</td>  
+                                                        </tr>
+                                                        <tr>
+                                                            <td>mod</td>
+                                                            <td>Modulus (division remainder). Space required before and after mod. </td>   
+                                                            <td><code>7 mod 3</code>= 1 or <code>(7+3) mod (2+4)</code>= 4 </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>div</td>
+                                                                <td>Divide (no decimals). Space required before and after div.</td>
+                                                                <td><code>7 div 3</code>= 2 or <code>(7+3) div (2+4)</code>= 1 </td>   
+                                                                </tr>
+                                             
                 </table>
 
+
+                </li>
+                </ul> 
+
+                
                 <h3 id="realvsstring"> Real vs. string</h3>
                 <p>
                     Real value is a number, while string is text. While a string can contain numbers, a real value cannot contain letters. <br>
@@ -441,10 +505,9 @@
                 </ul>
                 <p>You cannot execute real operations on strings and string operations on real values.</p>
                 </p>
-
+        
                 
-                <h3 id="howtoseevariables"> How to see variables and their values
-                </h3>
+                <h3 id="howtoseevariables"> How to see variables and their values</h3>
                 <p>
                     Press tab in the main LioranBoard Receiver menu. You can then type in the variable name. You can see the stack values if you type the whole name of the stack.
                 </p>

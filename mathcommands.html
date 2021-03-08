@@ -59,12 +59,6 @@
                             </dd>
 
                             <dd>
-                                <a href="#mathvariabletovariable">
-                                    Math: Variable to Variable
-                                </a>
-                            </dd>
-
-                            <dd>
                                 <a href="#mathvariabletransition">
                                     Math: Variable Transition
                                 </a>
@@ -127,7 +121,7 @@
                             </dd>
 
                             <dd>
-                                <a class="sub-page" href="comparecommands.html">Compare Commands</a>
+                                <a class="sub-page" href="statementcommands.html">Statement Commands</a>
                             </dd>
                             <dd>
                                 <a class="sub-page" href="filecommands.html">File Commands</a>
@@ -139,6 +133,9 @@
                             <dd>
                                 <a class="sub-page" href="othercommands.html">Other Commands</a>
                             </dd>
+                            <dd>
+                                <a class="sub-page" href="deprecatedcommands.html" >Deprecated Commands</a>
+                                </dd>
                         </dl>
 
                         <dl>
@@ -171,38 +168,49 @@
         <div class="wrapper">
             <div class="main">
                 <section class="doc-content">
+                    
+
                     <h2>Math Commands</h2>
 
                     <h3 id="mathchangevariable">Math: Change Variable</h3>
 
-                    <p>Create or change a variable. If you try to execute math (such as +=) on a variable that was not created, it will be set to 0.</p>
+                    <p>Create or change a variable. If you try to execute math (such as +=) on a variable that has not been created yet, it will be set to 0.</p>
 
                     <p>
-                        <i>
+                       
                             Variables are containers for storing data values (including numbers and strings), that can be reused over and over again. Variable names are case sensitive, meaning that "Variable" and "variable" are not going to
-                            have the same value.
-                        </i>
-                        <br />
+                            have the same value. Variable names can contain numbers, letters and _, but cannot start with a number itself. For example, <code>2cool</code> will not work as a variable name. 
+                      
+                    </p>
+
+                    <p><b>Value of a variable can be: </b>
+                    <ul>
+                        <li>Another variable</li>
+                        <li>Real value (number)</li>
+                        <li>String - needs to be wrapped in " ".</li>
+                        <li>Stack value - [position]stackname </li>
+                        <li>Math expression including variables and <a href="faq.html#complexmath">Complex Math operators</a>. Must be wrapped in (). </li>
+                    </ul>
+                    <button id="example" onclick="toggle_visibility('typesofvar')">Show example</button>
+                            <div id="typesofvar" style="display: none;"><img src="https://i.imgur.com/sKKRfto.png" /><br /></div>
                     </p>
 
                     <p>
                         All variables inside Receiver are global and get deleted every time you close or reset Receiver. They are not unique to a button that created them and any button/deck can access them. <br />
                         You can press Tab in the main screen of the Receiver to view all the existing variables, strings will be wrapped in " ".<br />
-                        Variables can be used as parameters or inside any string. In this case you need to wrap them like this: <code>/$variable$/</code>. Wrapping variables tells LioranBoard to work with the value of the variable rather
-                        than the variable itself. <button id="example" onclick="toggle_visibility('deathcounterX')">Show example</button>
+                        Variables can be used as parameters or inside any string. If the input box name contains *, you can just type the variable name as it is. If the input box does not contain *, you need to wrap any variable like this: <code>/$variable$/</code>. Wrapping variables tells LioranBoard to work with the value of the variable rather
+                        than the variable itself. <button id="example" onclick="toggle_visibility('mathvariable')">Show example</button>
                     </p>
 
-                    <div id="deathcounterX" style="display: none;">
-                        <img src="https://i.imgur.com/I47kkva.png" /><br />
-                        <img src="https://i.imgur.com/7NjHwU4.png" />
+                    <div id="mathvariable" style="display: none;">
+                        <img src="https://i.imgur.com/VR4nZGT.png" /><br />
                         
                     </div>
                     <p>
                         <i>
-                            Pay special attention to the operators. <code>=</code> is NOT the same as <code>=string</code>. For example, if you try to execute a string addition on a real value (number), it will result in an error and
-                            Receiver crashing.
+                            You cannot mix strings and real values in math expressions. It will make the Receiver crash. 
                             <button id="example" onclick="toggle_visibility('realadditionstringX')">Show example</button>
-                            <div id="realadditionstringX" style="display: none;"><img src="https://i.imgur.com/O5cTYHX.png" /><br /></div>
+                            <div id="realadditionstringX" style="display: none;"><img src="https://i.imgur.com/DnOTP3F.png" /><br /></div>
                         </i>
                     </p>
 
@@ -215,49 +223,21 @@
                         <tr>
                             <td>Variable</td>
                             <td>String</td>
-                            <td>Name of the variable. Accepts anything including spaces and numbers.</td>
+                            <td>Name of the variable</td>
                         </tr>
                         <tr>
-                            <td>Math</td>
+                            <td>Operator</td>
                             <td>Dropdown menu</td>
-                            <td>Type of math to execute on the variable</td>
+                            <td><a href="faq.html#mathoperators">Operator</a> you wish to use on the value.</td>
                         </tr>
                         <tr>
-                            <td>Value</td>
-                            <td>Real/String</td>
-                            <td>Number/String to process. Must be a direct value, not a variable name. In this case use Math: Variable to Variable command.</td>
-                        </tr>
+                            <td>Var./Real/"String" *</a></td>
+                            <td>Variable, real or string</td>
+                            <td>Whatever you want to set the variable value to.</td>
+                            </tr>
                     </table>
 
-                    <h3 id="mathvariabletovariable">Math: Variable to Variable</h3>
-
-                    <p>Same as Math: Change Variable command, but processes two different variables rather than variable + direct value. Refer to <a href="#mathchangevariable">Math: Change Variable</a> for more info.</p>
-
-                    <table>
-                        <tr>
-                            <td>Name</td>
-                            <td>Type</td>
-                            <td>Description</td>
-                        </tr>
-                        <tr>
-                            <td>Variable</td>
-                            <td>String</td>
-                            <td>Name of the variable. Accepts anything including spaces and numbers.</td>
-                        </tr>
-                        <tr>
-                            <td>Math</td>
-                            <td>Dropdown menu</td>
-                            <td>Type of math to execute on the variables.</td>
-                        </tr>
-                        <tr>
-                            <td>Variable</td>
-                            <td>String</td>
-                            <td>Name of the variable to process. Must be already created.</td>
-                        </tr>
-                    </table>
-
-                    <button id="example" onclick="toggle_visibility('variabletovarX')">Show example</button>
-                    <div id="variabletovarX" style="display: none;"><img src="https://i.imgur.com/ILFEpTy.png" /><br /></div>
+                   
 
                     <h3 id="mathvariabletransition">Math: Variable Transition</h3>
 
@@ -279,13 +259,13 @@
                             <td>Name of the variable. Accepts anything including spaces and numbers.</td>
                         </tr>
                         <tr>
-                            <td>Start Value</td>
-                            <td>Real</td>
+                            <td>Start Value *</a></td>
+                            <td>Real (number)</td>
                             <td>Starting point (where the counting starts from)</td>
                         </tr>
                         <tr>
-                            <td>Final Value</td>
-                            <td>String</td>
+                            <td>Final Value *</td>
+                            <td>Real (number)</td>
                             <td>Finishing point (where the counting stops at)</td>
                         </tr>
                         <tr>
@@ -308,7 +288,7 @@
 
                     <h3 id="mathclamp">Math: Clamp</h3>
 
-                    <p>Clamps a variable (number) between two values..</p>
+                    <p>Clamps a variable (number) between two values.</p>
                     <ol>
                         <li>If value of the variable < minimum allowed value, returns minimum allowed value.</li>
                         <li>If value of the variable > maximum allowed value, returns maximum allowed value.</li>
@@ -328,13 +308,13 @@
                             <td>Name of a variable to clamp</td>
                         </tr>
                         <tr>
-                            <td>Min</td>
-                            <td>Real</td>
+                            <td>Min *</td>
+                            <td>Real (number)</td>
                             <td>Minimum value allowed</td>
                         </tr>
                         <tr>
-                            <td>Max</td>
-                            <td>Real</td>
+                            <td>Max *</td>
+                            <td>Real (number)</td>
                             <td>Maximum value allowed</td>
                         </tr>
                     </table>
@@ -367,13 +347,13 @@
                             <td>Name of a variable to save the random value</td>
                         </tr>
                         <tr>
-                            <td>Min</td>
-                            <td>Real</td>
+                            <td>Min *</td>
+                            <td>Real (number)</td>
                             <td>Minimum value possible</td>
                         </tr>
                         <tr>
-                            <td>Max</td>
-                            <td>Real</td>
+                            <td>Max *</td>
+                            <td>Real (number)</td>
                             <td>Maximum value possible</td>
                         </tr>
 

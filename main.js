@@ -112,3 +112,13 @@ function toggle_visibility(id)
     else
         e.style.display = 'block';
 }
+
+$( document ).ready(function (){
+var tables = document.getElementsByTagName("table");
+for (let i=0;i<tables.length;i++){
+console.log(tables[i].title)
+if (tables[i].title!='basic'){
+tables[i].innerHTML=tables[i].innerHTML.replace(/ \*/g,"<a href='faq.html#paramsinputboxes' style='font-size:150%;'>*</a>")}
+}})
+
+

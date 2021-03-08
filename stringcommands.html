@@ -139,7 +139,7 @@
                             </dd>
 
                             <dd>
-                                <a class="sub-page" href="comparecommands.html">Compare Commands</a>
+                                <a class="sub-page" href="statementcommands.html">Statement Commands</a>
                             </dd>
                             <dd>
                                 <a class="sub-page" href="filecommands.html">File Commands</a>
@@ -152,6 +152,9 @@
                             <dd>
                                 <a class="sub-page" href="othercommands.html">Other Commands</a>
                             </dd>
+                            <dd>
+                                <a class="sub-page" href="deprecatedcommands.html" >Deprecated Commands</a>
+                                </dd>
                         </dl>
 
                         <dl>
@@ -209,7 +212,7 @@
                             <td>Int</td>
                             <td>
                                 This refers to which wildcard you wish to get. <br />
-                                0 = first *, 1 = second *, etc.
+                                0 = first wildcard, 1 = second wildcard, etc.
                             </td>
                         </tr>
                         <tr>
@@ -318,13 +321,13 @@
                         </tr>
 
                         <tr>
-                            <td>Max Width</td>
+                            <td>Max Width *</td>
                             <td>String</td>
                             <td>An arbitrary number. This is technically a pixel width, but you will have to test to see what you receive back.</td>
                         </tr>
 
                         <tr>
-                            <td>Max Word Length</td>
+                            <td>Max Word Length *</td>
                             <td>String</td>
                             <td>Amount of characters to allow before cutting the word in the middle.</td>
                         </tr>
@@ -459,7 +462,8 @@
                     <h3 id="stringposition">String: Position</h3>
 
                     <p>
-                        Returns the position of the first occurrence of a specified value in a string. Case sensitive.
+                        Returns the position of the first occurrence of a specified value in a string. Case sensitive. <br> 
+                        Will return 0 if it doesn't find any match.
                     </p>
 
                     <ul>

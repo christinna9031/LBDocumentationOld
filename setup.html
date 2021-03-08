@@ -82,6 +82,17 @@ OBS websocket connection
           </a>
           </dd>
           <dd>
+            <a href="#menuoptions" >
+               Menu Options
+            </a>
+            </dd>
+
+            <dd>
+              <a href="#extensions" >
+                 Extensions
+              </a>
+              </dd>
+          <dd>
             <a href="#notificationsystem" >
               Notification system
             </a>
@@ -346,6 +357,64 @@ All buttons have unique IDs. If you copy a button, it will get a new ID differen
 </ul>
 
 
+<h3 id="menuoptions">Menu Options</h3>
+<p>
+The Options menu in the main LioranBoard Receiver screen can be mostly left at default values. 
+
+<ul>
+<li><b>Listen Port</b> - a port Receiver listens to for incoming traffic from StreamDeck and Transmitter. Do not change unless you need to use multiple instances of the Receiver. </li>
+<li><b>OBSWebsocket Port</b> - a port for OBS Websocket connection. Do not change, unless you also changed it in your BS-Tools-OBS Websocket Server Settings.</li>
+<li><b>OBSWebsocket Password</b> - a password for OBS Websocket. Leave blank, unless you set one up in your OBS-Tools-OBS Websocket Server Settings. </li>
+<li><b>Auto connect to OBSws</b> - whether you want the Receiver to automatically connect to your OBS websocket as soon as you start it up. </li>
+<li><b>Auto connect to Twitch</b> - whether you want the Receiver to automatically connect to Twitch as soon as you launch Transmitter.</li>
+<li><b>Non blocking connection</b> - change only if you're trying to troubleshoot your OBSWS connection. It should be disabled on default.</li>
+<li><b>Frame Per Second</b> - Framerate at which your Receiver runs. This greatly affects all the animations it performs, including the ones in OBS. Maximum is 60 FPS.</li>
+<li><b>Reset Values and running buttons</b> - completely resets all your variables and clears all the currently running buttons</li>
+</ul>
+
+</p>
+
+<h3 id="extensions">Extensions</h3>
+<p> Extensions are meant to extend or simplify what LioranBoard is able to do. They're mostly written in JS and installed in your Transmitter. You can find a list of extensions <a href="extensions.html">here</a>, although our <a href="https://discord.gg/dXez8Zh" target="_blank">Discord</a> server is the best source for all up-to-date extensions.   
+
+ 
+                <p><b>Install an extension:</b></p>
+                <ol>
+                    <li>Download the .lbe extension file</li>
+                    <li>Click on Install Extension in your LioranBoard Receiver</li>
+                    <li>Select the extension file you downloaded </li>
+                    <li>Select your default Transmitter you are using. Make 100% sure it is the correct one. </li>
+                    <li>Your Transmitter will automatically refresh, adding a new tab for the extension you just installed. You should also see it added in at the bottom list of all extensions (with checkboxes).</li>
+                    <li>Most extensions include a premade deck with buttons. If you do not see one, create a new button, add "Send to Extensions" command and select the extension you just installed.  </li>
+                  </ol>
+
+                  <p><i>Note: Some extensions have built in requirements, such as placing them in the <code>Receiver/Ext</code> folder or running a compatible version of LB/OBS. If you do not meet the requirements, you will receive a popup message and the extension will not be installed to prevent incorrect use. </i></p>
+
+                  <p><b>Extension is installed properly if:</b>
+                  <ul>
+                  <li>You can see all its fields in your Send to extension command. If you can only see the extension name, the extension was not installed properly or your Transmitter is not running. The amount of input fields depends on the extension, but it should in most cases contain at least one. <button id="example" onclick="toggle_visibility('extensionfields')">Show example</button><div id="extensionfields"  style="display:none">  <img src="https://i.imgur.com/LY1nmz0.png"></div></li> 
+                  <li>Your Transmitter displays that it's correctly installed (you should see a new tab and a checkbox at the bottom with the extension name added). </li>
+                  </ul>
+                <p>
+                  <b>Uninstall an extension (version 1.43 and later):</b>
+                  <ol>
+                    <li>
+                    Click on the 'Uninstall Extens.' button in your Receiver.
+                    </li>
+                    <li>Select the correct Transmitter where your extension is installed and press yes when prompted whether you want to replace it.</li>
+                    <li>You will get a dropdown menu in your Receiver. Click on the extension you wish to uninstall and press Yes. 
+                        <button id="example" onclick="toggle_visibility('extensionuninstall')">Show example</button><div id="extensionuninstall"  style="display:none">  <img src="https://i.imgur.com/vnJ0l0x.png"></div>
+                    </li>
+                    <li>Your extension is now uninstalled and you can no longer use it.</li>
+
+
+
+
+                  </ol>
+                
+                </p>
+</p>
+
 
 <h3 id="notificationsystem">Notification system</h3>
 <p>LioranBoard comes with a fully functional notification animation system for Twitch, ready to use for OBS. See here what it looks like: </p>
@@ -388,10 +457,11 @@ src="https://www.youtube.com/embed/ilDE_vbM7vs?controls=1" allowfullscreen>
   <ul><li> Local - go to <code>Lioranboard Receiver</code> folder and copy all the configs.ini and connect.ini files. You can also back up images and sounds folder. </li>
   <li> Appdata - go to <code>C:/user/%username/appdata/local/lioranboard</code> and copy all the files.</li>
 </ul>
-<h3 id="alternatetwitchaccount">Linking alternate Twitch account (alerts only)</h3>
-  <p id="important"> There has been a change in the new LioranBoard version. You will NOT automatically connect to Twitch Chat anymore with your alternate accounts. Instead, you need to use the new command <a href="twitchcommands.html#twitchjoinchannel">Twitch: Join Channel</a>. We recommend putting <code>!transmitteralways</code> trigger on the button with this command and adding 10000 ms delay  to give the Transmitter time to connect to chat. This will automatically trigger it every time you launch Transmitter and connect your alternate accounts to chat. Everything else works the same.  <button id="example" onclick="toggle_visibility('changebrowsersourceX')">Show example</button>
+<h3 id="alternatetwitchaccount">Alternate Twitch account</h3>
+  <p id="important"> There has been a change in the new LioranBoard version. You will NOT automatically connect to Twitch Chat anymore with your secondary LB accounts (your 'main account' is the name of your board). Instead, you need to use the new command <a href="twitchcommands.html#twitchjoinchannel">Twitch: Join Channel</a>. We recommend putting <code>!transmitteralways</code> trigger on the button with this command and adding 10000 ms delay  to give the Transmitter time to connect to chat. This will automatically trigger it every time you launch Transmitter and connect your alternate accounts to chat. Everything else works the same.  <button id="example" onclick="toggle_visibility('changebrowsersourceX')">Show example</button>
     <div id="changebrowsersourceX" style="display: none;"><img src="https://i.imgur.com/elHKZi4.png" /></div></p>
   <p>
+You can link an alternate Twitch account to your Receiver (and effectively make it the main LB account instead) if you don't want LioranBoard to be using your stream account to send Twitch chat messages. It makes it easier for your viewers to tell the difference between you personally interacting with them and any automated messages you have set up in LB.  
 
   <ol>
   <li>In your Receiver, click on Link your Twitch - Unlink and close the menu. </li>
@@ -410,7 +480,7 @@ src="https://www.youtube.com/embed/ilDE_vbM7vs?controls=1" allowfullscreen>
   <li>Save the file and restart LioranBoard Receiver. If you did everything right, you should see four yellow messages that say: Listening for alternate account... after LB connects to your Transmitter. </li>
 </ol>
   <p>When using the command  <a href="othercommands.html#twitchchatmessage">
-    Twitch: Chat Message</a>, you will now need to specify the channel name, else it will be sent in your default account's chat channel (the first one you linked).
+    Twitch: Chat Message</a>, you will now need to specify the channel name, else it will be sent to your main LB account's (which is the first one you linked and the name of your board now) channel.
   You will need to renew your tokens every 2 months. Keep in mind that LB doesn't offer a way to tell where the Twitch triggers come from, whether it's your bot or main account.</p>
 
 	</section>

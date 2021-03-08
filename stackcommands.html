@@ -121,13 +121,13 @@
                                 </a>
                             </dd>
                             <dd>
-                                <a href="#stackorder">
-                                    Stack: Alphabetical Order
+                                <a href="#stacksort">
+                                    Stack: Sort
                                 </a>
                             </dd>
 
                             <dd>
-                                <a class="sub-page" href="comparecommands.html">Compare Commands</a>
+                                <a class="sub-page" href="statementcommands.html">Statement Commands</a>
                             </dd>
                             <dd>
                                 <a class="sub-page" href="filecommands.html">File Commands</a>
@@ -140,6 +140,9 @@
                             <dd>
                                 <a class="sub-page" href="othercommands.html">Other Commands</a>
                             </dd>
+                            <dd>
+                                <a class="sub-page" href="deprecatedcommands.html" >Deprecated Commands</a>
+                                </dd>
                         </dl>
 
                         <dl>
@@ -191,9 +194,12 @@
                         number: <br />
                     </p>
                     <ul>
-                        <li><code>stack names = ["Lioran", "Neverwho", "Daryl"]</code></li>
+                        <li>stack <code>names = ["Lioran", "Neverwho", "Daryl"]</code></li>
                     </ul>
                     <p>
+                        If you want to retrieve a specific value from a stack, you can use this formatting: <code>[position]stackname</code> Going by the example above, <code>[2]names</code> would retrieve 'Neverwho'. [position] can also contain other variables or complex math.
+                        
+                        <br>
                         Stack values can be viewed by pressing Tab in the main Receiver menu and typing the full name of the stack.<br />
                         One thing to note is that a stack is cleared every time you close or reset Receiver. If you wish to save it, you can use <a href="#stackstringify">Stack: Stringify</a> and    <a href="filecommands.html#filesavestring">
                             File: Save String
@@ -225,24 +231,20 @@
                         </tr>
 
                         <tr>
-                            <td>Value</td>
-                            <td>Real/String</td>
-                            <td>Value to save in the stack. Can be either a number or a string.</td>
-                        </tr>
-                        <tr>
-                            <td>Real</td>
-                            <td>boolean</td>
-                            <td>Specify if you want to save a real value (number) or a string. True=real or False=string.</td>
-                        </tr>
+                            <td>Var./real/"string" *</td>
+                            <td>Variable, real or string</td>
+                              <td>Whatever value you want to add to the stack.</td>
+                            </tr>
+                       
                     </table>
-
+                    <p><b>Example:</b> Adding different types of values to a stack. <br>
                     <button id="example" onclick="toggle_visibility('stackaddX')">Show example</button>
-                    <div id="stackaddX" style="display: none;"><img src="https://i.imgur.com/QfozUi9.png" /><br /></div>
+                    <div id="stackaddX" style="display: none;"><img src="https://i.imgur.com/Wov6pQi.png" /><br /></div>
 
                     <h3 id="stackreplace">Stack: Replace</h3>
 
                     <p>
-                        Replaces a value inside a stack, deleting the previous one and replacing it by the new one.
+                        Replaces a value inside a stack, overriding the previous one. Position remains the same.
                     </p>
 
                     <table>
@@ -262,19 +264,15 @@
                             <td>Position of the value to be replaced. Either a number (first position=0) or top=top of the stack and bottom=bottom of the stack.</td>
                         </tr>
                         <tr>
-                            <td>Value</td>
-                            <td>String/Real</td>
-                            <td>The new value to save.</td>
-                        </tr>
-                        <tr>
-                            <td>Real</td>
-                            <td>String</td>
-                            <td>Specify if you want to save a real value (number) or a string. True=real or False=string.</td>
-                        </tr>
+                            <td>Var./real/"string" *</td>
+                            <td>Variable, real or string</td>
+                              <td>Whatever value you want to replace the current one with.</td>
+                            </tr>
+                   
                     </table>
 
                     <button id="example" onclick="toggle_visibility('stackreplaceX')">Show example</button>
-                    <div id="stackreplaceX" style="display: none;"><img src="https://i.imgur.com/UI0hPwV.png" /><br /></div>
+                    <div id="stackreplaceX" style="display: none;"><img src="https://i.imgur.com/Pa7Kcqv.png" /><br /></div>
 
                     <h3 id="stackpull">Stack: Pull</h3>
 
@@ -294,8 +292,8 @@
                             <td>A stack name you want to pull the value from.</td>
                         </tr>
                         <tr>
-                            <td>Position</td>
-                            <td>number</td>
+                            <td>Position *</td>
+                            <td>Int (number)</td>
                             <td>Position to pull from. Either a number (first position=0) or top=top of the stack and bottom=bottom of the stack.</td>
                         </tr>
                         <tr>
@@ -324,8 +322,8 @@
                             <td>Stack name you want to pull the value from.</td>
                         </tr>
                         <tr>
-                            <td>Position</td>
-                            <td>Int</td>
+                            <td>Position *</td>
+                            <td>Int (number)</td>
                             <td>Position to pull from. Either a number (first position=0) or top=top of the stack and bottom=bottom of the stack.</td>
                         </tr>
                         <tr>
@@ -364,16 +362,11 @@
                             <td>Variable name to save the position of the found value under.</td>
                         </tr>
                         <tr>
-                            <td>Find</td>
+                            <td>Find *</td>
                             <td>String/Real</td>
                             <td>The value to find in the stack.</td>
                         </tr>
-                        <tr>
-                            <td>Real</td>
-                            <td>boolean</td>
-                            <td>Specify if the found value is real (number) or a string. True=real or False=string.</td>
-                        </tr>
-                    </table>
+                          </table>
 
                     <h3 id="stackgetsize">Stack: Get Size</h3>
 
@@ -577,8 +570,8 @@
                     <button id="example" onclick="toggle_visibility('stackparseX')">Show example</button>
                     <div id="stackparseX" style="display: none;"><img src="https://i.imgur.com/kn5J4K9.png" /><br /></div>
 
-                    <h3 id="stackorder">Stack: Alphabetical Order</h3>
-                    <p>Sorts a stack alphabetically.</p>
+                    <h3 id="stacksort">Stack: Sort</h3>
+                    <p>Sorts a stack alphabetically or numerically, depending on its values. <br> If you have a mix of real and string values in your stack, it will sort it based on the first stack value. If the first stack value is a string, you need to execute the command twice for the real values (numbers) to be sorted as well.  </p>
 
                     <table>
                         <tr>
@@ -593,6 +586,9 @@
                         </tr>
               
                     </table>
+
+                    <button id="example" onclick="toggle_visibility('stacksortex')">Show example</button>
+                    <div id="stacksortex" style="display: none;"><img src="https://i.imgur.com/8EdE8d8.png" /><br /></div>
 
 
               

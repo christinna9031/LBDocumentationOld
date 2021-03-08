@@ -64,12 +64,7 @@
                         </a>
                     </dd>
 
-                    <dd>
-                        <a href="#installextensions">
-                            How to install/uninstall extensions
-                        </a>
-                    </dd>
-                
+                          
 
                     <dd>
                         <a href="#mathoperators">
@@ -97,12 +92,12 @@
                     </dd>
 
                     <dd>
-                        <a href="#variablesasparameters">
-                            Using variables as parameters
+                        <a href="#paramsinputboxes">
+                            Parameters in input boxes
                         </a>
                     </dd>
 
-                    
+                                     
                     <dd>
                         <a href="#premadevariables">
                             Premade variables
@@ -208,7 +203,7 @@
                 <h3 id="howdoidox"> How do I do X?</h3>
 
                 <p>
-                    Making your own buttons in LioranBoard is a little bit like programming. It definitely takes some time to learn how everything works. Don't expect to be able to create cofmplex buttons right away, but rather learn what each command does and try making something as simple as switching scenes. You can then slowly transition to more advanced buttons. <br>
+                    Making your own buttons in LioranBoard is a little bit like programming. It definitely takes some time to learn how everything works. Don't expect to be able to create complex buttons right away, but rather learn what each command does and try making something as simple as switching scenes. You can then slowly transition to more advanced buttons. <br>
                     We welcome new members on our <a href="https://discord.gg/dXez8Zh">Discord server</a> to ask questions if they encounter a problem with their buttons or commands, but discourage asking for a whole button to be created just for their needs. If you're not interested in learning LB whatsoever and only want the finished product, you can request a commission instead.
                 </p>
 
@@ -224,7 +219,7 @@
 <p><ol><li>In the main Receiver menu, note the deck number you would like to copy.</li>
     <li> Look at the bottom of your Receiver, there is a small grey text that says either 'Local' or 'Appdata' </li>
     <ul>
-        <li>Local - go to <code>Lioranboard Receiver</code> folder and copy the configs.ini file with the same number you noted in step 1. </li>
+        <li>Local - go to <code>LioranBoard Receiver</code> folder and copy the configs.ini file with the same number you noted in step 1. </li>
         <li>Appdata - go to <code>C:/user/%username/appdata/local/lioranboard</code> and copy the configs.ini file with the same number you noted in step 1.</li>
     </ul>
     <li>To make sure you're copying the right deck file, you can open the file and scroll all the way to the bottom to the <code>[configs]</code> section. The name value should be the name of your deck.</li>
@@ -275,7 +270,7 @@
                 <h3 id="mathoperators"> Math Operators (version 1.43 and newer)
                 </h3>
                 <p>Strings need to be wrapped in "". </p>
-                <table>
+                <table title='basic'>
 
                     <p><b>Math:Change Variable operators</b> </p>
 
@@ -357,9 +352,9 @@
 
                 </table> 
 
-                <p><b>Statement operators (version 1.43 and newer)</b> </p>
+                <p id="statementoperators"><b>Statement operators (version 1.43 and newer)</b> </p>
 
-                <table>
+                <table title='basic'>
  
                  <tr>
                      <td>Operator</td>
@@ -512,15 +507,24 @@
                     Press tab in the main LioranBoard Receiver menu. You can then type in the variable name. You can see the stack values if you type the whole name of the stack.
                 </p>
 
-                <h3 id="variablesasparameters"> What if I want to use a variable in a string or as a parameter?
+                <h3 id="paramsinputboxes"> Using parameters in input boxes 
                 </h3>
-                <p> You have a button that triggers with a new follower, which (after using Math:Trigger pull command) saves their name into a variable called <code>follower_name</code>. You would like to now display their name in your Twitch chat or in your GDI+source in OBS. However, if you just type the variable name in the input field, LB will not know what to do with it and will display it as "follower_name" instead of displaying the actual value of the variable. 
-     
-                 <p>  The solution is to wrap the variable in <code>/$$/</code>. For example, variable <code>name</code> will become <code>/$name$/</code>. Remember that this is done only if the field name is NOT "variable". In this case you want to use the name of the variable without any wrappers. <br>
+                <p> Any input box that is marked with a * recognizes the following parameter types: <br>
+                    <ul>
+                        <li>Another variable</li>
+                        <li>Real value (number)</li>
+                        <li>String - needs to be wrapped in " ".</li>
+                        <li>Stack value - [position]stackname </li>
+                        <li>Math expression including variables and <a href="faq.html#complexmath">Complex Math operators</a>. Must be wrapped in (). </li>
+                        <button id="example" onclick="toggle_visibility('typesofvar')">Show example</button>
+                        <div id="typesofvar" style="display: none;"><img src="https://i.imgur.com/sKKRfto.png" /><br /></div>
+                    </ul>
+        
+                    </p>
+                   <p> Any input box that is NOT called 'variable' and is NOT marked with a * accepts only direct values (and math expressions) and needs anything stored in a variable or a stack wrapped in /$$/. <br>
 
-                    <p><i>Some input fields require you to right click to be able to type inside of them, as left clicking brings up the dropdown menu.</i> <br>
-                               <button id="example" onclick="toggle_visibility('simpledeathcounterX')">Show example</button>
-                    <div id="simpledeathcounterX" style="display:none"> <br><img src="https://i.imgur.com/PARUsiK.png"> <img src="https://i.imgur.com/MvXuqGt.png"><br><img src="https://i.imgur.com/7DF5M5R.png"></div>
+                    <button id="example" onclick="toggle_visibility('typesofvar2')">Show example</button>
+                    <div id="typesofvar2" style="display: none;"><img src="https://i.imgur.com/B7t0YG2.png" /><br /></div>
                 
                 </p>   
 
@@ -530,6 +534,9 @@
                     <li><code>current_scene</code> - always shows your current OBS scene</li>
                     <li><code>previous_scene</code> - always shows your previous OBS scene </li>
                     <li><code>elapsed_time</code> - time elapsed since LB was launched</li>
+                    <li><code>lioranboard_version</code> - your LioranBoard Receiver version</li>
+                    <li><code>obs_studio_version</code> - your OBS version </li>
+                    <li><code>obs_websocket_version</code> - your OBS websocket version </li>
                     <li><code>channel_id</code>(hidden) - Twitch Channel ID. Does not show in the list of variables, but can be passed as a parameter in extension fields.</li>
                     <li><code>oauth_token</code>(hidden) - Twitch Channel ID. Does not show in the list of variables, but can be passed as a parameter in extension fields.</li>    
                                        </ul>
@@ -690,7 +697,7 @@
                 <h3 id="cooldowns"> How to set up button cooldowns
                 </h3>
                 <p>
-                If you want to add a cooldown to any button, you can use the <a href="othercommands.html#overtime" target="_blank">Overtime</a> command, which artifically increases the duration of the button and prevents it from triggering again. <br>
+                If you want to add a cooldown to any button, you can use the <a href="othercommands.html#overtime" target="_blank">Overtime</a> command, which artificially increases the duration of the button and prevents it from triggering again. <br>
                 You can also use <a href="mathcommands.html#mathvariabletransition" target="_blank">Math: Variable Transition</a> + <a href="comparecommands.html#compareskipif" target="_blank">Compare: Skip if</a> command. This will allow you to notify the viewers that the button is on cooldown. 
                 
                 <button id="example" onclick="toggle_visibility('buttoncdtransition')">Show example</button>
@@ -821,7 +828,7 @@
                     If you want to allow a single word for your trigger, no matter where it is placed in the sentence, you will need 4 different triggers: <code>word</code>,<code>word *</code>, <code>* word</code> and <code>* word *</code>. <br>
 
                     
-                    For example, with a trigger <code>!set * to *</code> and a chat message <code>!set timer to 5</code> , you can pull wild card 1 value (<code>timer</code>) and wild card 2 value (<code>5</code>). </p>
+                    For example, with a trigger <code>!set * to *</code> and a chat message <code>!set timer to 5</code> , you can pull wild card 0 value (<code>timer</code>) and wild card 1 value (<code>5</code>). </p>
                 <p>
                     Now, what if you have a command <code>!lights *</code> where the wildcard is a color to set your Philips Hue lights to, but your viewers sometimes include extra text after they specify the color? For example, they send a chat message: <code>!lights red Hello there!</code> and you're only interested in pulling the color name instead of the whole <code>red Hello there!</code> value. In this case, you need to use these two chat triggers: <code>lights * *</code> , <code>lights *</code> (order and spaces matter). Now it will always only pull the color, no matter if there is any additional text.
                
@@ -833,7 +840,7 @@
                 </p>
 
                 
-                <h3 id="secondpc"> Controlling OBS from another PC with LB
+                <h3 id="secondpc"> Controlling OBS from another PC with LioranBoard
                 </h3>
                 <p>LioranBoard can connect to your OBS from another PC, as long as they are both sharing the same network. <br> Follow these steps: <br>
                 <ul>
@@ -847,7 +854,7 @@
                     <li>
                     <b>Gaming PC:</b>
                     <ol>
-                    <li>Go to your Lioranboard/Receiver folder and open connect.ini. Under <code>[connection]</code>  section, add a new entry: <code>websocket_ip="YOUR STREAMING PC IPv4"</code>.</li>
+                    <li>Go to your LioranBoard/Receiver folder and open connect.ini. Under <code>[connection]</code>  section, add a new entry: <code>websocket_ip="YOUR STREAMING PC IPv4"</code>.</li>
                     <li>
                     Save the file, open Lioranboard and try connecting to the OBS websocket on your streaming PC. It should work as long as nothing (antivirus, firewall) is blocking connection to your streaming PC. 
                     </li>

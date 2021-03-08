@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="main.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="main.js"></script>
+<title>statement Commands | LioranBoard</title>
+
+</head>
+<body>
+<header>
+
+<div class=title>
+<h1>LioranBoard Documentation</h1>
+</div>    
+<div class="slide">
+<nav class="sidebar" id=sidebar>
+<div class="scroller">
+
+<dl><dt>
+<a href="index.html" >
+About LioranBoard</a></dt></dl>    
+
+<dl><dt>
+<a href="setup.html" >
+Basic Setup</a></dt></dl>     
+
+<dl>
+    <dt>
+        <a href="commands.html" class="active">
+              Commands</a>
+        </dt>
+
+        <dd>
+          <a class="sub-page" href="sourcecommands.html" >OBS Source Commands</a>
+          </dd>
+          
+      
+
+                          
+            <dd>
+              <a class="sub-page" href="recordingcommands.html"  >OBS Recording Commands</a>
+              </dd>
+
+              <dd>
+                <a class="sub-page" href="mediacommands.html" >OBS Media Commands</a>
+                </dd>
+
+                <dd>
+                  <a class="sub-page" href="transitioncommands.html">OBS Transition Commands</a>
+                  </dd>
+          
+              <dd>
+                  <a class="sub-page" href="mathcommands.html" >Math Commands</a>
+                  </dd>
+          
+                         
+                  <dd>
+                      <a class="sub-page" href="stringcommands.html" >String Commands</a>
+                      </dd>
+          
+          
+              
+          
+                      <dd>
+                          <a class="sub-page" href="stackcommands.html" >Stack Commands</a>
+                          </dd>
+          
+                          
+                  
+                          <dd>
+                              <a class="sub-page" href="statementcommands.html" >Statement Commands</a>
+                              </dd>
+                           
+          <dd>
+            <a href="#statementif">
+             Statement: If
+            </a>
+        </dd>
+
+        <dd>
+          <a href="#statementand">
+            Statement: And
+          </a>
+      </dd>
+
+      <dd>
+        <a href="#statementor">
+          Statement: Or
+        </a>
+    </dd>
+
+    <dd>
+      <a href="#statementreenable">
+        Statement: Re-enable if
+      </a>
+  </dd>
+
+  <dd>
+    <a href="#repeat">
+      Repeat
+    </a>
+</dd>
+
+<dd>
+  <a href="#statementexitif">
+    Statement: Exit if
+  </a>
+</dd>
+
+<dd>
+  <a href="#statementbreakif">
+    Statement: Break if
+  </a>
+</dd>
+
+        <dd>
+          <a class="sub-page" href="filecommands.html" >File Commands</a>
+          </dd>
+
+          <dd>
+            <a class="sub-page" href="twitchcommands.html" >Twitch Commands</a>
+            </dd>
+
+          <dd>
+              <a class="sub-page" href="othercommands.html" >Other Commands</a>
+              </dd>
+              <dd>
+                <a class="sub-page" href="deprecatedcommands.html" >Deprecated Commands</a>
+                </dd>
+
+</dl>
+
+<dl><dt>
+<a href="faq.html" >
+FAQ</a></dt></dl>  
+
+<dl><dt>
+<a href="extensions.html" >
+Extensions</a></dt></dl>  
+
+<dl><dt>
+<a href="troubleshooting.html" >
+Troubleshooting</a></dt></dl>  
+<dl>
+  <dt>
+      <a href="commissions.html"> Commissions</a>
+  </dt>
+</dl>
+</div>
+</nav>
+</div>
+</header>
+
+<div class ="wrapper">
+<div class="main">
+    <section class="doc-content">
+		
+
+        <h2>Statement Commands</h2>
+
+           
+  <p>
+    <i>All previous Compare Commands have been deprecated and replaced with Statement Commands. You can tick the Auto Replace 'Compare' to 'Statement' checkbox at the top of your deck to automatically replace your deprecated commands with the new statement commands whenever you go edit your buttons (you will be able to still review the changes). </i></p>
+   <p> Conditional statements are used to perform different actions based on different conditions. If a condition is true, you can perform one action and if the condition is false, you can perform another action. 
+  </p>
+  <p>
+  <b>If </b> - Commands to be executed if the specified condition is true. <br>
+  <b>Else</b> - Commands to be executed if the specified condition is false.<br>
+  <b>And</b> - All specified conditions need to be true.<br>
+  <b>Or</b> - At least one of the specified conditions needs to be true.<br>
+
+</p>
+
+
+
+
+<h3 id='statementif'>Statement: If</h3>
+
+<p>
+
+<b>If</b> statement is used to specify a block of commands to be executed if a condition is <b>true</b>. <br>
+<b>Else</b> statement is executed if a condition is <b>false</b>. <br>You can think of it as 'If something is true, then do something, otherwise do something else.'. <br>
+
+You can combine <b>If</b> statements with <b>And</b> and <b>Or</b> statements and also create other nested If statements. </p>
+
+
+
+<table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Var./real/"string"</td>
+      <td>Variable, real or string</td>
+      <td>Left side of the comparison you want to evaluate.</td>
+    </tr>
+    <tr>
+      <td>Compare Type</td>
+      <td>Dropdown menu</td>
+      <td><a href="faq.html#statementoperators">Operator</a> you wish to use to compare left and right side.</td>
+    </tr>
+    <tr>
+      <td>Var./real/"string"</td>
+      <td>Variable, real or string</td>
+        <td>Whatever you want to compare the left side with.</td>
+      </tr>
+    
+  </table>
+
+  <p><b>Example 1:</b> If a viewer's name is 'Lioran', say 'Hello Lioran!'. Else If viewer's name is 'Melonax', say 'Hello Melonax!'. Else (if viewer's name is not Lioran or Melonax), say 'Hello random person!'.<br>
+
+    <button id="example" onclick="toggle_visibility('statementif1')">Show example</button>
+    <div id="statementif1" style="display:none"> <img src="https://i.imgur.com/TTMtfN2.png"></div>
+    
+    <p><b>Example 2:</b> If a viewer's badge is subscriber OR vip OR moderator (at least one condition needs to be met), then allow them to change your scene. Else say 'You're not privileged enough to change the scene!<br>
+    <button id="example" onclick="toggle_visibility('statementif2')">Show example</button>
+    <div id="statementif2" style="display:none"> <img src="https://i.imgur.com/fJHu8sn.png"></div>
+    
+    <p><b>Example 3:</b> If my microphone is not muted AND current scene is 'BRB', send a pop up alert 'Your mic is not muted!'<br>
+    <button id="example" onclick="toggle_visibility('statementif3')">Show example</button>
+    <div id="statementif3" style="display:none"> <img src="https://i.imgur.com/g2KHOYO.png"></div>
+    
+    <p><b>Example 4:</b> If I'm currently streaming, then [If my current scene is 'main camera', then take a screenshot. Else (if my current scene is NOT 'main camera') switch to main camera and take a screenshot.] Else (if I'm not streaming) say 'Sorry, the stream is offline!'.' <br>
+    <button id="example" onclick="toggle_visibility('statementif4')">Show example</button>
+    <div id="statementif4" style="display:none"> <img src="https://i.imgur.com/mqc4F3Q.png"></div>
+    
+    
+
+  <h3 id='statementand'>Statement: And</h3>
+  <p>Statement: And is used in junction with a Statement: If. It allows you to compare multiple conditions where ALL of them need to be true. If one of them is false, the whole If statement will be also false. <br> 
+  Statement: And must be placed inside Statement: If as the first command. </p>
+
+
+
+  <table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Var./real/"string"</td>
+      <td>Variable, real or string</td>
+      <td>Left side of the comparison you want to evaluate.</td>
+    </tr>
+    <tr>
+      <td>Compare Type</td>
+      <td>Dropdown menu</td>
+      <td><a href="faq.html#statementoperators">Operator</a> you wish to use to compare left and right side.</td>
+    </tr>
+    <tr>
+      <td>Var./real/"string"</td>
+      <td>Variable, real or string</td>
+        <td>Whatever you want to compare the left side with.</td>
+      </tr>
+  </table>
+
+  <p><b>Example:</b> If my microphone is not muted AND current scene is 'BRB', send a pop up alert 'Your mic is not muted!'<br>
+    <button id="example" onclick="toggle_visibility('statementandx')">Show example</button>
+    <div id="statementandx" style="display:none"> <img src="https://i.imgur.com/g2KHOYO.png"></div>
+
+
+
+  <h3 id='statementor'>Statement: Or</h3>
+  <p>Statement: Or is used in junction with a Statement: If. It allows you to compare multiple conditions where at least one of them needs to be true. Statement: Or must be placed inside Statement: If as the first command. </p>
+
+
+
+  <table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Var./real/"string"</td>
+      <td>Variable, real or string</td>
+      <td>Left side of the comparison you want to evaluate.</td>
+    </tr>
+    <tr>
+      <td>Compare Type</td>
+      <td>Dropdown menu</td>
+      <td><a href="faq.html#statementoperators">Operator</a> you wish to use to compare left and right side.</td>
+    </tr>
+    <tr>
+      <td>Var./real/"string"</td>
+      <td>Variable, real or string</td>
+        <td>Whatever you want to compare the left side with.</td>
+      </tr>
+    
+  </table>
+
+  <p><b>Example:</b> If a viewer's badge is subscriber OR vip OR moderator (at least one condition needs to be met), then allow them to change your scene. Else say 'You're not privileged enough to change the scene!<br>
+    <button id="example" onclick="toggle_visibility('statementor2')">Show example</button>
+    <div id="statementor2" style="display:none"> <img src="https://i.imgur.com/fJHu8sn.png"></div>
+
+  
+  
+
+  <h3 id='statementreenable'>Statement: Re-enable if</h3>
+  <p>
+  Commands inside the statement will be repeated for x number of times with x milliseconds of delay between each repeat IF the condition is true. Else they will be executed only once. <br>
+  Statement: Re-enable if can contain AND and Or statements as well. <br>
+  You can create some really cool effects with this command.
+    </p>
+  
+  
+
+  <table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Var./real/"string"</td>
+      <td>Variable, real or string</td>
+      <td>Left side of the comparison you want to evaluate.</td>
+    </tr>
+    <tr>
+      <td>Compare Type</td>
+      <td>Dropdown menu</td>
+      <td><a href="faq.html#statementoperators">Operator</a> you wish to use to compare left and right side.</td>
+    </tr>
+    <tr>
+      <td>Var./real/"string"</td>
+      <td>Variable, real or string</td>
+        <td>Whatever you want to compare the left side with.</td>
+      </tr>
+      <tr>
+        <td>Reactivate (ms)</td>
+        <td>Int</td>
+          <td>Delay between each re-enable. If set to 0, it will repeat indefinitely.</td>
+        </tr>
+        <tr>
+          <td>Amount</td>
+          <td>Int</td>
+            <td>How many times you want to re-enable the commands. Set to -1 for unlimited amount. </td>
+          </tr>
+  </table>
+
+  <p><b>Example 1:</b> Simple command that triggers another button every 10 seconds.<br>
+    <button id="example" onclick="toggle_visibility('timerX')">Show example</button>
+    <div id="timerX" style="display:none"> <img src="https://i.imgur.com/lKYEo1e.png"></div>
+  <p><b>Example 2:</b> Animated stream deck button. <br>  
+    <button id="example" onclick="toggle_visibility('animatedbutton')">Show example</button>
+    
+    <div id="animatedbutton" style="display: none;">
+      <img src="https://i.imgur.com/EOFicZc.png"> 
+            <div class="videowrap"> <div class="video"> <iframe src="https://i.gyazo.com/4bf8cea8e399c50543172f2b3782bbca.mp4"  ></iframe></div></div><br /></div>
+
+            <p><b>Example 3:</b> Type text in your OBS letter by letter. <br>  
+              <button id="example" onclick="toggle_visibility('typetext')">Show example</button>
+              
+              <div id="typetext" style="display: none;">
+                <img src="https://i.imgur.com/gNzQtG8.png"> 
+                      <div class="videowrap"> <div class="video"> <iframe src="https://i.gyazo.com/d0c045344a951c10ded8821b17622304.mp4"  ></iframe></div></div><br /></div>
+
+                      <p><b>Example 4:</b> Continuous yaw rotation of an image source in OBS. <br>  
+                        <button id="example" onclick="toggle_visibility('yawrotate')">Show example</button>
+                        
+                        <div id="yawrotate" style="display: none;">
+                          <img src="https://i.imgur.com/8EytbFy.png"> 
+                                <div class="videowrap"> <div class="video"> <iframe src="https://i.gyazo.com/6dc0199d51a4b11294c376da0c388046.mp4"  ></iframe></div></div><br /></div>
+
+  <h3 id='repeat'>Repeat</h3>
+  <p>This command instantly repeats all the commands inside the block for a specified number of times. This is useful for instantly retrieving multiple values from File: Load Value/String or from Stack: Pull command. </p>
+
+
+  <table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Repeat amount</td>
+      <td>Int (number)</td>
+      <td>How many times you wish to repeat commands inside the block.</td>
+    </tr>
+    </table>
+
+
+  <p><b>Example:</b> Instantly pull all the values from a stack and save them in separate variables.<br>
+    <button id="example" onclick="toggle_visibility('repeat1')">Show example</button>
+    <div id="repeat1" style="display:none"> <img src="https://i.imgur.com/BJz6gYF.png"></div>
+    
+
+  <h3 id='statementexitif'>Statement: Exit if</h3>
+  <p>If the condition is true, it terminates all the commands and prevents them from happening until the button is pressed again.  <br> 
+    Will not cancel button macros or sounds attached to the button. <br>
+    You can use this command in junction with  <a href="#statementand">Statement: And</a> and <a href="#statemento">Statement: Or</a> commands.</p>
+
+
+  <table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Var./real/"string"</td>
+      <td>Variable, real or string</td>
+      <td>Left side of the comparison you want to evaluate.</td>
+    </tr>
+    <tr>
+      <td>Compare Type</td>
+      <td>Dropdown menu</td>
+      <td><a href="faq.html#statementoperators">Operator</a> you wish to use to compare left and right side.</td>
+    </tr>
+    <tr>
+      <td>Var./real/"string"</td>
+      <td>Variable, real or string</td>
+        <td>Whatever you want to compare the left side with.</td>
+      </tr>
+  </table>
+
+  <p><b>Example 1:</b> Temporarily disable a button <br>
+    <button id="example" onclick="toggle_visibility('disablebuttonX')">Show example</button>
+    <div id="disablebuttonX" style="display:none"> <img src="https://i.imgur.com/eL6NCCK.png"><br></div>
+    <p><b>Example 2:</b> Give your subscribers (and yourself) a perk where they can feed the fish. Terminate the button for anyone else. <br>
+      <button id="example" onclick="toggle_visibility('disablebuttonX2')">Show example</button>
+      <div id="disablebuttonX2" style="display:none"> <img src="https://i.imgur.com/1DUb29j.png"><br></div>
+
+  <h3 id='statementbreakif'>Statement: Break If</h3>
+  <p>If the condition is true, this command will break out of a repeat or re-enable statement, cancelling every command inside of the block if it hasn't been executed yet. Re-enable statement will be disabled as well.
+    If you place the command inside multiple repeat or re-enable statements, it will only break out of its parent statement. <br>
+  You can use this command in junction with  <a href="#statementand">Statement: And</a> and <a href="#statemento">Statement: Or</a> commands. </p> 
+
+
+  <table>
+
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Var./real/"string"</td>
+      <td>Variable, real or string</td>
+      <td>Left side of the comparison you want to evaluate.</td>
+    </tr>
+    <tr>
+      <td>Compare Type</td>
+      <td>Dropdown menu</td>
+      <td><a href="faq.html#statementoperators">Operator</a> you wish to use to compare left and right side.</td>
+    </tr>
+    <tr>
+      <td>Var./real/"string"</td>
+      <td>Variable, real or string</td>
+        <td>Whatever you want to compare the left side with.</td>
+      </tr>
+  </table>
+
+  
+  <p><b>Example:</b> Attempt to find a winning number 72 in the provided stack by randomly pulling its values. Once a match is found, inform the chat how many tries it took.  <br>
+    <button id="example" onclick="toggle_visibility('statementbreakifx')">Show example</button>
+    <div id="statementbreakifx" style="display:none"> <img src="https://i.imgur.com/fpt4ZGa.png"></div>
+
+
+
+</section>
+
+</div>
+</div>  
+</body>
+<script>$(document.links).filter(function() {return this.hostname != window.location.hostname;}).attr('target', '_blank');</script>
+</html> 

@@ -76,7 +76,7 @@ Basic Setup</a></dt></dl>
                           
                   
                           <dd>
-                              <a class="sub-page" href="comparecommands.html" >Compare Commands</a>
+                              <a class="sub-page" href="statementcommands.html" >Statement Commands</a>
                               </dd>
                               <dd>
                                   <a class="sub-page" href="filecommands.html" >File Commands</a>
@@ -89,11 +89,7 @@ Basic Setup</a></dt></dl>
                                   <dd>
                                       <a class="sub-page" href="othercommands.html" >Other Commands</a>
                                       </dd>
-                            <dd>
-                                <a href="#repeatprevious">
-                                    Repeat Previous
-                                </a>
-                            </dd>
+                      
                             <dd>
                                 <a href="#setclipboard">
                                     Set Clipboard
@@ -174,6 +170,9 @@ Basic Setup</a></dt></dl>
                                     Comment
                                 </a>
                             </dd>
+                            <dd>
+                              <a class="sub-page" href="deprecatedcommands.html" >Deprecated Commands</a>
+                              </dd>
                     
                           </dl>
 
@@ -203,44 +202,13 @@ Basic Setup</a></dt></dl>
     <section class="doc-content">
 		
 
-        <h2>Other commands
+        <h2>Other Commands
         </h2>
 
 
      
 
 
-<h3 id='repeatprevious'>Repeat Previous</h3>
-
-<p>
-Repeats the previous commands in the list. 
-Unlike Compare: Redo command, this command will repeat everything instantly. <br>
-For example, this is useful for instantly retrieving multiple values from File: Load Value/String or from Stack: Pull command. <br>
-<i>If you include Repeat in your Compare: Redo steps, it will reset the repeat count to 0 and therefore it might create an infinite loop. Same goes for repeat, repeating other repeats. </i>
-</p>
-<table>
-
-    <tr>
-      <td>Name</td>
-      <td>Type</td>
-      <td>Description</td>
-    </tr>
-    <tr>
-      <td>Repeat amount</td>
-      <td>Int</td>
-      <td>How many times the steps should be repeated</td>
-    </tr>
-    <tr>
-      <td>Repeat Step</td>
-      <td>Int</td>
-      <td>Number of steps to repeat</td>
-    </tr>
-
-  </table>
-
-
-<button id="example" onclick="toggle_visibility('repeatstackinstant')">Show example</button>
-<div id="repeatstackinstant" style="display:none"> <img src="https://i.imgur.com/aUe2u4x.png"></div>
 
 
 
@@ -295,9 +263,10 @@ You can then use Right Click-Paste or CTRL+V to paste it anywhere else.
 <h3 id='triggerbutton'> Trigger Button </h3>
 
 <p>
-Triggers any button of a given ID. You can right click on a button to retrieve its button ID. <Br>
+Triggers any button of a given ID. You can right click on a button to retrieve its button ID. <br>
+If the button ID does not exist, sends an extension trigger instead. </p>
 
-<i>Buttons can not have the same ID. If you copy and paste a button, it will have a new ID unless you deleted the original one.</i>
+<p><i>Buttons can not have the same ID. If you copy and paste a button, it will have a new ID unless you deleted the original one.</i>
 
 <table>
 
@@ -348,18 +317,18 @@ If you wish to reset the button back to its default appearance, set the values t
       <td>Button ID to change the appearance of</td>
     </tr>
     <tr>
-      <td>Red</td>
+      <td>Red *</td>
       <td>Int</td>
       <td>Red value, 0-255.</td>
     </tr>
     <tr>
-        <td>Green</td>
+        <td>Green *</td>
         <td>Int</td>
         <td>Green value, 0-255.</td>
       </tr>
 
       <tr>
-        <td>Blue</td>
+        <td>Blue *</td>
         <td>Int</td>
         <td>Blue value, 0-255.</td>
       </tr>
@@ -644,7 +613,6 @@ This is a useful command if you want to make sure your notification alerts do no
 
 <p>
 This is helpful if you want to leave a comment explaining what each command/section does in your button. <br>
-This command does not do anything, however it still needs to be counted as a step when using Skip/Redo/Repeat commands.
 </p>
 <table>
 

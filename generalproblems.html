@@ -104,11 +104,17 @@
                                         Keyboard Macros 
                                     </a>
                                     </dd>
+                                    <dd>
+                                        <a href="#cappedfps" class="active" >
+                                            FPS is capped
+                                        </a>
+                                        </dd>
                                      <dd>
                                     <a href="#extensions" class="active" >
                                         Installing Extensions
                                     </a>
                                     </dd>
+
                                          <dd>
                                     <a href="#otherapps" class="active" >
                                         Other Apps 
@@ -161,20 +167,20 @@ Sound drivers can be also causing this issue, you can try reinstalling them.
                     You can try these steps to troubleshoot your OBS Websocket connection to LB: 
 
                     <ol>
-                    <li><b>Redownload OBSwebsocket</b><br>
+                    <li><b>Redownload OBS websocket</b><br>
                         If in doubt, try completely reinstalling the plugin. Make sure you have the latest version. You can check whether your OBS websocket is correctly installed by going to OBS-Tools-Websockets Server Settings </li>
                         <li><b>Check OBS websocket password</b><br>
                         Make sure your passwords in OBS-Tools-Websockets Server Settings and LioranBoard Receiver-Options match. If you do not use a password, uncheck Enable authentication.  
                         <button id="example" onclick="toggle_visibility('OBSpassX')">Show example</button>
                     <div id="OBSpassX" style="display:none"> <br><img src="https://i.imgur.com/5avoL2h.png">>
                     </li>
-                        <li><b>Change Ports</b><br>Change the ports of OBSwebsocket to a new one, try a random number like 19838.<br>
-                            Make sure you also change the port for OBSwebsocket in LioranBoard to the SAME number, the box labeled OBSWebsocket Port inside Options. </li>
-                        <li><b>Lower or increase timeout</b><br>Open connect.ini (either in Lioranboard Receiver or in APPDATA/local/lioranboard folder). <br>
+                        <li><b>Change Ports</b><br>Change the ports of OBS websocket to a new one, try a random number like 19838.<br>
+                            Make sure you also change the port for OBS websocket in LioranBoard to the SAME number, the box labeled OBSWebsocket Port inside Options. </li>
+                        <li><b>Lower or increase timeout</b><br>Open connect.ini (either in LioranBoard Receiver or in APPDATA/local/lioranboard folder). <br>
                             Add timeout="1000" under [connection] . Try 100 and 5000. At 100ms you can just spam the connect to OBS button see if that helps..</li>
                         <li><b>Try Non Blocking Connection</b><br>In your Receiver, go to options and check/uncheck non blocking connection. </li>
                         <li><b>Change IP connection</b><br>Normally you use 127.0.0.1 to connect to OBS, but you can try local IP as well.<br>
-                            Run whats my local ip.bat located in Lioranboard folder and copy your IPv4 address (it will start with 192.168). 
+                            Run whats my local ip.bat located in LioranBoard folder and copy your IPv4 address (it will start with 192.168). 
                             Open connect.ini file and add websocket_ip="192.168.2.10" under [connection]</li>
                         <li><b>Running as Admin or non-Admin</b><br>You can test both scenarios to see if it helps. </li>
                         <li><b>Make sure your firewall is not blocking LB</b><br>You can try completely disabling your antivirus/firewall or adding an exception to allow the app through. </li>
@@ -240,7 +246,7 @@ Try <a href="setup.html#renewingtoken" target="_blank" >relinking your Twitch ac
                    <ol>
                     <li>Try disabling your Antivirus and/or Firewall. You can also try changing <a href="https://www.laptopmag.com/articles/take-ownership-folder-windows-10-using-file-explorer" target="_blank">folder permissions</a>.
                     <li>Check these two locations: <code>lioranboard/Receiver</code> and <code>C:/user/%username/appdata/local/lioranboard</code> folder. <br>
-                    Only one of these locations should contain <code>configs.ini</code> files. If both folders contain them, back them up and delete the files from both locatiions. Restart LioranBoard and see if this step helped. 
+                    Only one of these locations should contain <code>configs.ini</code> files. If both folders contain them, back them up and delete the files from both locations. Restart LioranBoard and see if this step helped. 
                     </li>
                    </ol>
                  </p>
@@ -270,6 +276,33 @@ Try <a href="setup.html#renewingtoken" target="_blank" >relinking your Twitch ac
                   If you are still having problems, try going to a keyboard tester website, like <a href="https://www.keyboardtester.com/" target=target="_blank">this one</a>. In your Receiver create a new keyboard shortcut button with 2000ms delay. As soon as you trigger the button, switch to the Keyboard tester page to see if it actually pushes the button. If it does, the other app might be ignoring the input for some reason. <br>
                   <button id="example" onclick="toggle_visibility('macrotextX')">Show example</button>    <div id="macrotextX"  style="display:none"><img src="https://i.imgur.com/eOpkK4v.png"></div>
                  </p>
+
+
+                 <h3 id="cappedfps"> FPS is capped</h3>
+                <p>You can see your current FPS in the right upper corner of LioranBoard Receiver (version 1.43 and newer). If you set it up to 60 FPS and find that it's capped at a lower number, you might need to manually change it in your graphics card settings as well.</p>
+                <p>
+                <b>Nvidia Users:</b>
+                <ol>
+                <li>Open your Nvidia Control Panel. </li>
+                <li>Click on Manage 3D settings.</li>
+                <li>Click on 'Program Settings' tab. </li>
+                <li>Click on Add if you don't see LioranBoard Receiver in the dropdown list. Search for and add lioranboard receiver.exe.</li>
+                <li>In the settings list below, find 'Max Frame Rate' option.</li>
+                <li>Change it from 'Use global settings' to 'On' and set it to 60 FPS.</li>
+                <li>Do not forget to click on 'Apply'.</li>
+                <li>Close and reopen your Receiver. It should now be running at the correct FPS. </li>
+                <button id="example" onclick="toggle_visibility('nvidiasettings')">Show example</button>
+                <div id="nvidiasettings" style="display: none;"><img src="https://i.imgur.com/Zszm9Ib.png" /><br /></div>
+                </ol>
+
+         
+
+                <p>Sorry AMD users, you will need to figure that out yourselves! </p>
+               
+                </p>
+
+
+
                             <h3 id="extensions"> Installing Extensions</h3>
                  <p>
                     <b>I installed an extension, but do not see it anywhere.</b><br>

@@ -161,7 +161,7 @@
                             </dd>
 
                             <dd>
-                                <a class="sub-page" href="comparecommands.html">Compare Commands</a>
+                                <a class="sub-page" href="statementcommands.html">Statement Commands</a>
                             </dd>
                             <dd>
                                 <a class="sub-page" href="filecommands.html">File Commands</a>
@@ -174,6 +174,9 @@
                             <dd>
                                 <a class="sub-page" href="othercommands.html">Other Commands</a>
                             </dd>
+                            <dd>
+                                <a class="sub-page" href="deprecatedcommands.html" >Deprecated Commands</a>
+                                </dd>
                         </dl>
 
                         <dl>
@@ -431,12 +434,12 @@
                             <td>Source name</td>
                         </tr>
                         <tr>
-                            <td>Field: X</td>
+                            <td>Field: X *</td>
                             <td>Real (optional)</td>
                             <td>X position to set the source to. Can leave blank to not modify it.</td>
                         </tr>
                         <tr>
-                            <td>Field: Y</td>
+                            <td>Field: Y *</td>
                             <td>Real (optional)</td>
                             <td>Y position to set the source to. Can leave blank to not modify it.</td>
                         </tr>
@@ -462,7 +465,7 @@
                             <td>Scene name containing the source. Leave blank for current active scene.</td>
                         </tr>
                         <tr>
-                            <td>volume %</td>
+                            <td>volume % *</td>
                             <td>Real</td>
                             <td>Percentage to set the volume to, between 0 and 100.</td>
                         </tr>
@@ -499,12 +502,12 @@
                             <td>Source name to change size.</td>
                         </tr>
                         <tr>
-                            <td>X Scale</td>
+                            <td>X Scale *</td>
                             <td>Real (optional)</td>
                             <td>X Scaling to set the source to. Can leave blank to not modify it. 1.0=100%</td>
                         </tr>
                         <tr>
-                            <td>Y Scale</td>
+                            <td>Y Scale *</td>
                             <td>Real (optional)</td>
                             <td>Y Scaling to set the source at. Can leave blank to not modify it. 1.0=100%</td>
                         </tr>
@@ -539,7 +542,7 @@
                             <td>Source name to change rotation.</td>
                         </tr>
                         <tr>
-                            <td>rotation</td>
+                            <td>rotation *</td>
                             <td>Real</td>
                             <td>Rotation angle to change the source to. 0=normal, 180=turned around, 360=normal.</td>
                         </tr>
@@ -754,28 +757,28 @@
                             <td>Source name to move</td>
                         </tr>
                         <tr>
-                            <td>Start X</td>
+                            <td>Start X *</td>
                             <td>Real</td>
                             <td>Starting X position</td>
                         </tr>
 
                         <tr>
-                            <td>Start Y</td>
+                            <td>Start Y *</td>
                             <td>Real</td>
                             <td>Starting Y position</td>
                         </tr>
                         <tr>
-                            <td>Final X</td>
+                            <td>Final X *</td>
                             <td>Real</td>
                             <td>Final X position</td>
                         </tr>
                         <tr>
-                            <td>Final Y</td>
+                            <td>Final Y *</td>
                             <td>Real</td>
                             <td>Final Y position</td>
                         </tr>
                         <tr>
-                            <td>Dur.(MS)</td>
+                            <td>Dur.(MS) *</td>
                             <td>Int</td>
                             <td>Duration of the transition in milliseconds</td>
                         </tr>
@@ -818,28 +821,28 @@
                             <td>Source name to move</td>
                         </tr>
                         <tr>
-                            <td>Start X</td>
+                            <td>Start X *</td>
                             <td>Real</td>
                             <td>Starting X position</td>
                         </tr>
 
                         <tr>
-                            <td>Start Y</td>
+                            <td>Start Y *</td>
                             <td>Real</td>
                             <td>Starting Y position.</td>
                         </tr>
                         <tr>
-                            <td>Final X</td>
+                            <td>Final X *</td>
                             <td>Real</td>
                             <td>Final X position</td>
                         </tr>
                         <tr>
-                            <td>Final Y</td>
+                            <td>Final Y *</td>
                             <td>Real</td>
                             <td>Final Y position</td>
                         </tr>
                         <tr>
-                            <td>Curve %</td>
+                            <td>Curve % *</td>
                             <td>Real</td>
                             <td>
                                 The amplitude of the curve. Can be negative or over 100.<br />
@@ -848,7 +851,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Dur.(MS)</td>
+                            <td>Dur.(MS) *</td>
                             <td>Int</td>
                             <td>Duration of the transition in milliseconds.</td>
                         </tr>
@@ -885,28 +888,28 @@
                             <td>Source name to move</td>
                         </tr>
                         <tr>
-                            <td>Start Xscale</td>
+                            <td>Start Xscale *</td>
                             <td>Real</td>
                             <td>Starting X size</td>
                         </tr>
 
                         <tr>
-                            <td>Start Yscale</td>
+                            <td>Start Yscale *</td>
                             <td>Real</td>
                             <td>Starting Y size</td>
                         </tr>
                         <tr>
-                            <td>Final Xscale</td>
+                            <td>Final Xscale *</td>
                             <td>Real</td>
                             <td>Final X size</td>
                         </tr>
                         <tr>
-                            <td>Final Yscale</td>
+                            <td>Final Yscale *</td>
                             <td>Real</td>
                             <td>Final Y size</td>
                         </tr>
                         <tr>
-                            <td>Dur.(MS)</td>
+                            <td>Dur.(MS) *</td>
                             <td>Int</td>
                             <td>Duration of the transition in milliseconds</td>
                         </tr>
@@ -945,17 +948,17 @@
                             <td>Source name to change the volume</td>
                         </tr>
                         <tr>
-                            <td>Start Volume%</td>
+                            <td>Start Volume% *</td>
                             <td>Real</td>
                             <td>Starting volume percentage. 0-100</td>
                         </tr>
                         <tr>
-                            <td>Final Volume%</td>
+                            <td>Final Volume% *</td>
                             <td>Real</td>
                             <td>Final volume percentage. 0-100</td>
                         </tr>
                         <tr>
-                            <td>Dur.(MS)</td>
+                            <td>Dur.(MS) *</td>
                             <td>Int</td>
                             <td>Transition duration in milliseconds</td>
                         </tr>
@@ -989,17 +992,17 @@
                             <td>Filter name. Must be a Color Correction filter.</td>
                         </tr>
                         <tr>
-                            <td>Start Alpha%</td>
+                            <td>Start Alpha% *</td>
                             <td>Real</td>
                             <td>Starting transparency percentage. 0-100</td>
                         </tr>
                         <tr>
-                            <td>Final Alpha%</td>
+                            <td>Final Alpha% *</td>
                             <td>Real</td>
                             <td>Final transparency percentage. 0-100</td>
                         </tr>
                         <tr>
-                            <td>Dur.(MS)</td>
+                            <td>Dur.(MS) *</td>
                             <td>Int</td>
                             <td>Transition duration in milliseconds</td>
                         </tr>
@@ -1030,17 +1033,17 @@
                             <td>Source name to change the rotation.</td>
                         </tr>
                         <tr>
-                            <td>Start Rotation</td>
+                            <td>Start Rotation *</td>
                             <td>Real</td>
                             <td>Starting Rotation. 0-360</td>
                         </tr>
                         <tr>
-                            <td>Final Rotation</td>
+                            <td>Final Rotation *</td>
                             <td>Real</td>
                             <td>Final Rotation. 0-360</td>
                         </tr>
                         <tr>
-                            <td>Dur.(MS)</td>
+                            <td>Dur.(MS) *</td>
                             <td>Int</td>
                             <td>Transition duration in milliseconds</td>
                         </tr>
@@ -1088,7 +1091,7 @@
                         </h3>
                         
                         <p>
-                          Executes hotkey routine. This will not actually perform the key presses, it simply activate any hotkey action you've set.
+                          Executes hotkey routine. This will not actually perform the key presses, it simply activates any hotkey action you've set.
                           Keep in mind that if your hotkey is ctrl+A, setting ctrl+shift+alt+OBS_KEY_A will trigger it.
                         </p>
                         <table>

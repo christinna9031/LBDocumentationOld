@@ -69,6 +69,12 @@
                                 </a>
                             </dd>
 
+                            <dd>
+                                <a href="#Discordrelay">
+                                   Discord Relay
+                                </a>
+                            </dd>
+
 
                         </dl>
 
@@ -237,7 +243,7 @@ Search for a song by keyword: Can search for a song by its name only or by its n
 
 <p><b>Prerequisites:</b><br> OBS Websocket 4.9, LioranBoard 1.42 or newer <br></p>
 <p><b>Setup:</b>
-<p>After downloading the .zip file, place the whole Spotify folder in your <code>lioranboard\LioranBoard Receiver(PC)\Ext</code> folder. Go to your Receiver and install the extension. It shoud automatically copy all the files, add a new deck and create a new Spotify OBS scene. If, for some reason, the image files do not get copied automatically, you can manually move them from the Spotify/img folder to your Receiver/image folder. <b>Unless the extension was not installed properly in the first place, you do not need to press 'Install Extension' button anymore.</b> <br>
+<p>After downloading the .zip file, place the whole Spotify folder in your <code>lioranboard\LioranBoard Receiver(PC)\Ext</code> folder. Go to your Receiver and install the extension. It should automatically copy all the files, add a new deck and create a new Spotify OBS scene. If, for some reason, the image files do not get copied automatically, you can manually move them from the Spotify/img folder to your Receiver/image folder. <b>Unless the extension was not installed properly in the first place, you do not need to press 'Install Extension' button anymore.</b> <br>
 As soon as you install the extension, a new browser window should open where you need to <a href="https://christinna9031.github.io/LioranBoard-Files/Spotify_auth.html">authenticate your Spotify account</a>. Follow all the instructions. <br>
 Once your Spotify account is successfully linked, it should automatically show currently playing track in 3 separate locations: your Streamdeck, your Spotify scene in OBS and your Spotify tab in Transmitter. The Spotify tab in Transmitter contains some extra information about the current track. <br></p>
 <p> <img id="smallimg" src="https://i.imgur.com/02LT9qQ.png" ><b>INIT button</b> <br>
@@ -300,7 +306,7 @@ Send to extension input fields: <br>
 
         <p><img style="width:5%;border:0px;vertical-align:middle;" src="https://i.imgur.com/a0HIao5.png">  <b>Clear Queue </b><br>
         Experimental button. Should be able to clear your Spotify queue. If used while you have song requests in your queue, it will clear those as well. 
-        This will temporatily mute your Spotify while the queue is being cleared and unmute it as soon as it's finished. <br>
+        This will temporarily mute your Spotify while the queue is being cleared and unmute it as soon as it's finished. <br>
         Note: Spotify does not natively offer this feature, so it might not always work 100%. 
 
 
@@ -322,7 +328,6 @@ Send to extension input fields: <br>
             <b>Preview:</b> On 100 bit donation play a fast rainbow.  Accomplished by running a loop that increments HUE += 20 every 800ms and then loops that 3 times for 3 cycles.<br><iframe  frameborder="0" width="455" height="252"
             src="https://clips.twitch.tv/embed?clip=NeighborlyExcitedBeefCurseLit-sYuoeGcY-_7Tka_m&parent=christinna9031.github.io&autoplay=false" allowfullscreen>
             </iframe></p><br>
-
 
            
                         
@@ -738,7 +743,7 @@ Selectors which generally specify multiple lights, <code>all</code>, <code>group
                             <tr>
                             <td></td>
                             <td>Period</td>
-                            <td>The time in seconds for one cyles of the effect.</td>
+                            <td>The time in seconds for one cycle of the effect.</td>
                             <td>2</td>
                             </tr>
                             <tr>
@@ -801,10 +806,96 @@ Selectors which generally specify multiple lights, <code>all</code>, <code>group
                                     </td>
                                     <td>50,0.5,1.0 <br> 50,X,0.2  </td>
                                     </tr>
-    
     </table>
- 
 
+    <h3 id="Discordrelay">Discord Relay</h3>
+            <p><b>Creator: </b>Christinna<br>
+            <b>Download: <a href="https://christinna9031.itch.io">Itch.io</a></b><br>
+            <b>Description: </b>
+
+            Discord relay is an extension which lets you relay messages from Discord to Twitch and from Twitch to Discord. It can also enable Discord message triggers for LioranBoard. </b>   <br>
+            <b>Preview:</b><br><iframe width="420" height="315"
+            src="https://www.youtube.com/embed/Qn1puWHfMYs?controls=1" allowfullscreen>
+            </iframe><br></p>
+            <p><b>How it works</b><br>
+            The extension utilizes both Discord webhook and Discord websocket (which you connect to with a bot token). Your Discord websocket is listening to all Discord chat messages and tells the extension to relay them to your Twitch chat (by using the already existing connection in your Transmitter). <Br> The extension listens to all Twitch chat messages, fires a Discord webhook every 2 seconds and posts them in your Discord channel as either embeds or plain text. <br>
+            Since the Discord websocket already listens to all your Discord messages, I implemented a feature that automatically converts them to the same payload Twitch chat uses and sends them to LioranBoard. This means you can use chat triggers from Discord in your LioranBoard. You can also configure which Discord server roles correspond to specific Twitch badges (broadcaster, mod, subscriber, vip).<br>
+            When the relay is open, it automatically starts storing and regularly updating all your current Twitch chatters profile image URLs. It can then display their icon in the relayed messages on Discord. <br>
+            I have also set up a simple AWS API service which can retrieve all your Discord server emojis and save them into .ini file (this cannot be done from your Transmitter due to CORS and Cloudfare blocking the access). This helps the extension to convert Twitch emojis to Discord emojis and correctly display them when relaying messages from Twitch. <br>
+            </p>
+            <p><b>Setup:</b> </p>
+            <ol>
+            <li><b>Install the extension:</b> Follow <a href="https://christinna9031.github.io/LBDocumentation/setup.html#extensions">this link</a> to properly install the extension.</li>
+            <li>You should see a new premade deck in your Receiver. We will need to edit all the values in the <b>'set params' button</b>. Right click on the button - Edit commands: </li>
+            <ol>
+            <li>Fill out your <b>twitch channel name</b> (example: Dashducks). This is where all the Discord messages will be sent to. This is also the channel our relay will be listening to and relaying messages to Discord. You have to be already connected to it (use <a href="https://christinna9031.github.io/LBDocumentation/twitchcommands.html#twitchjoinchannel">Twitch: Join Channel</a> command if needed).</li>
+            <li>
+        <b>Enable developer mode in Discord: </b>Open your Discord settings (the next to your name at the bottom left) and click on Appearance. There you will find Developer Mode. Click the toggle to enable it.
+            </li>
+            <li><b>Retrieve your Discord server ID: </b>Right click on the sidebar icon of your server - copy ID and paste it in the dc_server value.  </li>
+            <li><b>Create a webhook for the Discord channel you want to relay Twitch chat messages to: </b>Right click on channel - Edit channel - integrations - Create Webhook. Copy its URL and paste it in the dc_webhook value. </li>
+            <li><b>Create an application in Discord Developer Portal:</b></li>
+             <ul>
+            <li>
+            Open this link: <a href="https://discord.com/developers/applications">https://discord.com/developers/applications.</a>
+            </li>    
+            <li>Click on 'New Application' button.  <button id="example" onclick="toggle_visibility('relayx')">Show example</button>
+            <div id="relayx" style="display: none;"><img src="https://i.imgur.com/kWz3z2B.png" /><br /></div> </li>
+            <li>Give it a name.</li>
+            <li>After it is created, click on 'Bot' in the left side menu. Click on 'Add Bot' button and click on 'Yes, do it!' button. <br>
+           <i>If you get 'Too many users have this username, please try another.' error, try changing your application name to something less generic.</i>    <button id="example" onclick="toggle_visibility('relayx1')">Show example</button>
+            <div id="relayx1" style="display: none;"><img src="https://i.imgur.com/C1Z58xR.png" /><br /></div></li> 
+            <li>Once your bot is created, click on 'Click to reveal token' link, copy the token and paste it in the bot_token value. All other settings should be left at default.
+            <button id="example" onclick="toggle_visibility('relayx2')">Show example</button>
+            <div id="relayx2" style="display: none;"><img src="https://i.imgur.com/MkOH8QQ.png" /><br /></div></li>
+            <li>Click on 'OAuth2' in the side menu and check 'bot' in the scopes list. This will open up a new menu below where you need to check 'Read Message History'. Remember this is only for reading messages, so your bot does not need any other permissions.</li>
+            <li>Scroll up a bit and click on 'Copy'. Open the link in a new browser window and invite the bot to your Discord channel. You can restrict your bot to only see certain channels, otherwise it will be relaying messages from all the channels it can see on your server.  <button id="example" onclick="toggle_visibility('relayx5')">Show example</button>
+                <div id="relayx5" style="display: none;"><img src="https://i.imgur.com/skfzXnr.png" /><br /></div></li>
+          </ul>  
+          <li>Click Done in your button commands screen. You can now (optionally) modify roles and ignore button and retrieve your Discord emojis (read below). Once you're done editing those, you can press the 'set params' button. It should now be initiated every time you connect to the Transmitter, so you will only need to manually open the relay connection.  </li>  
+           </ol>
+            </ol>
+        <p><b>Roles button</b><br>
+        This button stores the relation between your Discord roles and Twitch badges (broadcaster, mod, sub etc.). What is it for? This extension can convert your Discord posts to regular Twitch chat triggers you use in LioranBoard. <br>
+        Right click on the button - Edit commands. There are already pre-filled values including broadcaster, mod, subscriber and vip. All you need to do is change the role ID. Do not modify anything else. 
+        You can retrieve your role ID by going to your Discord server settings - Roles, right clicking on the role name and pressing 'Copy ID' button. Replace the pre-filled ID with your own. Make sure to keep the formatting: <code>"badgename:ROLEID"</code>
+            <button id="example" onclick="toggle_visibility('relayx3')">Show example</button>
+            <div id="relayx3" style="display: none;"><img src="https://i.imgur.com/dbY7kOW.png" /><br /></div>
+         </p>
+
+         <p><b>Ignore button</b><br>
+        You can add any names you do not want to relay the messages from. For example, you might not want to relay messages from your bot accounts. 
+
+        <p><b>Discord Emojis button</b><br>
+        This button should retrieve all your custom Discord emojis and save them in <code>DiscordEmojis.ini</code> file in your Receiver folder. If your Twitch viewers use any of the same emojis in the Twitch chat, they will be auto converted and properly displayed in your relayed messages to Discord. <br>
+        Do not edit anything in this button. Simply press it and it should do all the work for you. If your Twitch emojis do not match the Discord ones (= they have a different name), you can open the DiscordEmojis.ini file and manually edit the Twitch emojis part. <br>
+        For example, you have a subscriber emoji on Twitch called 'RamsreLord', but your Discord custom emoji's name is 'RamsreFish'. After pressing the button and opening the DiscordEmojis.ini file, the emoji will be stored as <code>'RamsreFish=RamsreFish:EMOJIID'</code>. You want to change the first 'RamsreFish' to 'RamsreLord' as this is the Twitch emoji name which the extension will look for to replace it with the Discord emoji ID.     <button id="example" onclick="toggle_visibility('relayx4')">Show example</button><br>
+       <i>
+     Note: Press this button only once, as it will always override any values you have edited in the .ini file.</i> </p>
+     <div id="relayx4" style="display: none;"><img src="https://i.imgur.com/DCXkCCZ.png" /><br /></div> </li></ul>
+     <p><b>Buttons to control the Relay: </b>
+     <ul>
+     <li>Pressing <b>'Relay Open'</b> button will connect you to Discord and start relaying messages between Discord and Twitch. You should see a yellow notification message 'Connected to Discord! Listening to messages' (you can also check the connection status in your Transmitter - Discord Relay tab). Please note that you need to be already connected to Twitch chat with the channel you specified in your 'set params' button.  
+    If you click on the button - Edit commands, you can edit the following values: 
+    <ul>
+    <li>
+    <b>status</b> - enable, disable, triggers only 
+    </li>    
+    <li>
+    <b>oauth_token</b> - your Twitch token. No need to change unless you're using a bot account
+    </li>
+    <li><b>discord_trigger</b> - whether you want to enable Discord chat message triggers</li>
+    <li><b>discord_mode</b> - pretty (each relayed Twitch chat message will be embed displaying the viewer's profile picture and the sidebar will match the user's Twitch color) vs. simple (all relayed messages are posted as plain text). <br>Please note that there's a limit to how many messages and embeds the webhook can send. If your Twitch chat gets spammed with a lot of messages, it will automatically switch to simple mode to keep up.  </li>
+    </ul>
+    </li>
+     <li>Pressing <b>'Relay Close'</b> button will disconnect you from Discord and stop relaying messages. </li>
+     <li>Pressing <b>'Relay Trigger Only'</b> button will connect you to Discord and start listening to Discord chat triggers only (will not relay messages). These triggers will be converted to your regular Twitch chat triggers (including roles converted to badges, so you can make a button that only a 'mod' role can trigger). There is a '!test from Discord' button to demonstrate how to use it. Just type !test in your Discord channel after pressing the button and it should trigger it.          <button id="example" onclick="toggle_visibility('relayx6')">Show example</button>
+        <div id="relayx6" style="display: none;"><img src="https://i.imgur.com/G6xlPLE.png" /><br /></div> </li></ul>
+
+     <p>Note: If you use 'Relay Open' or 'Relay Trigger only' button, you should see your Discord bot online in your server. That means it is ready and listening to messages. You can restrict your bot to only see certain channels, otherwise it will be relaying messages from all the channels it can see. </p>
+
+ 
+     <div id="relayx4" style="display: none;"><img src="https://i.imgur.com/DCXkCCZ.png" /><br /></div>
                 
                   
                 </section>

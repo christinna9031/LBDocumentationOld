@@ -882,14 +882,14 @@ Selectors which generally specify multiple lights, <code>all</code>, <code>group
     <b>status</b> - enable, disable, triggers only 
     </li>    
     <li>
-    <b>oauth_token</b> - your Twitch token. No need to change unless you're using a bot account
+    <b>oauth_token</b> - your Twitch token. Should be already pre-filled, no need to change it.  
     </li>
     <li><b>discord_trigger</b> - whether you want to enable Discord chat message triggers</li>
     <li><b>discord_mode</b> - pretty (each relayed Twitch chat message will be embed displaying the viewer's profile picture and the sidebar will match the user's Twitch color) vs. simple (all relayed messages are posted as plain text). <br>Please note that there's a limit to how many messages and embeds the webhook can send. If your Twitch chat gets spammed with a lot of messages, it will automatically switch to simple mode to keep up.  </li>
     </ul>
     </li>
      <li>Pressing <b>'Relay Close'</b> button will disconnect you from Discord and stop relaying messages. </li>
-     <li>Pressing <b>'Relay Trigger Only'</b> button will connect you to Discord and start listening to Discord chat triggers only (will not relay messages). These triggers will be converted to your regular Twitch chat triggers (including roles converted to badges, so you can make a button that only a 'mod' role can trigger). There is a '!test from Discord' button to demonstrate how to use it. Just type !test in your Discord channel after pressing the button and it should trigger it.          <button id="example" onclick="toggle_visibility('relayx6')">Show example</button>
+     <li>Pressing <b>'Relay Trigger Only'</b> button will connect you to Discord and start listening to Discord chat triggers only (will not relay messages). These triggers will be converted to your regular Twitch chat triggers (including roles converted to badges, so you can make a button that only a 'mod' role can trigger). There is a '!test from Discord' button to demonstrate how to use it. Just type !test in your Discord channel after pressing the button and it should trigger it. This acts like a regular Twitch chat trigger and supports both wild cards and Math: Trigger pull command.          <button id="example" onclick="toggle_visibility('relayx6')">Show example</button>
         <div id="relayx6" style="display: none;"><img src="https://i.imgur.com/G6xlPLE.png" /><br /></div> </li></ul>
 
      <p>Note: If you use 'Relay Open' or 'Relay Trigger only' button, you should see your Discord bot online in your server. That means it is ready and listening to messages. You can restrict your bot to only see certain channels, otherwise it will be relaying messages from all the channels it can see. </p>

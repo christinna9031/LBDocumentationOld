@@ -92,6 +92,14 @@
                                 </a>
                             </dd>
 
+                            <dd>
+                                <a href="#getfolderfiles">
+                                    Get Folder Files
+                                </a>
+                            </dd>
+
+                            
+
 
 
                             <dd>
@@ -340,8 +348,56 @@ After you fill out all the fields, press the button and let it do all the magic.
                         <div id="censorX" style="display: none;"><img src="https://i.imgur.com/VmjNGgx.png" /><br /></div>
 
                                          
-                                             
-             
+                           
+
+                        <h3 id="getfolderfiles">Get Folder Files</h3>
+                        <p><b>Creator: </b>Christinna<br>
+                        <b>Download: <a href="Itch">Itch.io</a></b><br>
+                        <b>Description: </b>This extension allows you scan a folder to retrieve all the file names and save them into a stack and .ini file. Very useful if you need to iterate through a lot files with different names and file types. <br>
+ 
+                        <b>Setup: </b> 
+                        Place the whole <code>Get_Folder_Files</code> folder into your <code>LioranBoard Receiver(PC)\Ext</code> folder. There is a <code>get_files.bat</code> file that will be executed from LioranBoard. You can (and should) right click on it-edit to see the cmd commands: <code>cd /d %1</code> navigates to your selected folder, <code>dir /b /a-d</code> outputs all the file names in the folder and <code>|clip</code> saves the output in your clipboard. Please make sure your antivirus did not delete or modify the batch file. </p>
+                            <p>
+                        Follow the premade button instructions and fill out the following values: 
+                        <ol>
+                        <li>
+                        <code>folder_path</code> - full path to the folder which you wish to retrieve your file names from. "E:\Stream" or "E:/Stream" both work, but will be converted and saved as "E:/Stream".  
+                        </li>
+                        <li>
+                        <code>ini_file</code> - name of the .ini file you wish to save your file names into. Will be created in lioranboard\LioranBoard Receiver(PC) folder if it doesn't exist. 
+                        </li>
+                        <li>
+                        <code>filter_types</code> (optional) - a string of file types you wish to include, all other types will be ignored. Separated by comma. Example: "png,jpg,bmp"
+                        </li>
+                        <li>
+                        <code>sort_order</code> - sort your stack either alphabetically or numerically
+                        </li>
+                        <li>
+                        <code>save_as</code> - save the values either as file names (hello.png) or including the full path (E:/Stream/hello.png).
+                        </li> 
+                        </ol>
+
+                       <p> Do not edit any other values. <br>
+                        Once you press the button, it will take some time to execute, depending on the amount of files. If there are more than 500 files in your folder, LioranBoard might temporarily become unresponsive for up to several minutes. Just wait and let it do its own thing. Please note that there is a character limit, which corresponds to around 2000-3000 file names. It will not save all the files if it reaches the limit.  </p>
+                      <p>  <b>Important:</b> Please do not use your clipboard to copy anything (CTRL+C) for at least 5 seconds just after you press the button. The button relies on clipboard functionality and it might not execute properly otherwise. 
+                       <p>
+                        Once the button is executed, all file names are saved in the specified .ini file, including their stringified stack and amount. Please note the paths in the .ini file will always contain forward slashes, even if you use backward slashes in your file_path value.               <button id="example" onclick="toggle_visibility('getfilesX')">Show example</button>
+                        <div id="getfilesX" style="display: none;"><img src="https://i.imgur.com/szdLpw2.png" /><br /></div>
+          
+                        
+                       <p> You can use <a href="mathcommands.html#mathrandom">Math:Random</a> and <a href="filecommands.html#fileloadstring">File:Load String</a> commands to load a random file name, or you can use <a href="filecommands.html#fileloadstring">File:Load String</a> and <a href="stackcommands.html#stackparse">Stack:Parse</a> commands to load up the whole stack of file names. Make sure to use forward slashes in your section name. 
+                        <button id="example" onclick="toggle_visibility('getfilesX2')">Show example</button>
+                        <div id="getfilesX2" style="display: none;"><img src="https://i.imgur.com/GZ81gBh.png" /><br /></div>
+                        <p>If the contents of your scanned folder change, you can freely rescan the folder, which will automatically override the file names in your .ini file (and delete all non existing ones). </p>
+                        <p>  If there are any errors, you should get a yellow notification message in your Receiver. <br>
+
+                          
+
+                        </p>
+
+
+                        
+                            
 
                 </section>
             </div>

@@ -22,6 +22,67 @@ body {
     padding: 0px 100px 10px 20px;
     
   }
+
+  .exwrapper {
+       flex: auto; 
+     max-width: 1080px;
+  }
+  
+ .exitem {
+   height:280px;
+   width:260px;
+  flex-basis: 250px;
+  flex-grow: 0;
+    flex-shrink: 0;
+    margin: 5px;
+    float: left;
+    background-color: #8dbfff;
+    text-align: center;
+    box-shadow: 5px 5px 5px grey;
+  }
+
+  .exitem h3 {
+    font-size: 0.7em;
+    line-height:1.1em;
+    font-weight: 550;
+    padding-top:10px;
+    color:#0b215d;
+  }
+
+  .exitem:hover {
+    background-color: #2a6cc3;
+    
+}
+
+.exitem:hover h3 {
+
+  color:#ecf1ff;
+}
+
+
+.exitem a {
+  color:#00000f;
+
+  
+  }
+
+
+.exitem:hover a {
+color:#eaf0ff;
+text-shadow: 1px 1px 1px rgb(0, 11, 73), 0 0 4px rgb(0, 1, 80), 0 0 3px rgb(0, 0, 70);
+
+}
+
+.exitem p {
+  font-weight: 0;
+
+  
+  }
+  
+
+  
+  
+
   
 
   
@@ -563,6 +624,8 @@ form {
     line-height:0.9em;
     font-weight: 400;
     padding-top:20px; }
+
+
 
     .videowrap {
     width:50%;

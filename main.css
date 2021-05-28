@@ -148,8 +148,54 @@ form {
  display:inline;
  
 }
+
+.btnbasic {
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #2a95ff;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  text-shadow: 2px 2px 2px #2b2b2b;
+
+}
  
   
+  #btnyellow {
+    background: #eebf02;
+  }
+
+  .btnblue {
+  background: #2a95ff;
+
+  }
+
+  .btnpink {
+    background: #CE0885;
+  }
+
+  
+  .btngreen {
+    background: #06D500;
+  
+  }
+
+  .btnorange{
+    background: #FF7C13;
+
+  }
+
+  .btndarkblue {
+    background: #003CFF;
+
+  }
+  
+
+  .btnpurple {
+    background: #4800FF;
+
+  }
   
   
   .text-content {

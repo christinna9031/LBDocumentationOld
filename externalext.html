@@ -75,6 +75,12 @@
                                 </a>
                             </dd>
 
+                            <dd>
+                                <a href="#Googlesheets">
+                                   Google Sheets
+                                </a>
+                            </dd>
+
 
                         </dl>
 
@@ -896,6 +902,146 @@ Selectors which generally specify multiple lights, <code>all</code>, <code>group
 
  
      <div id="relayx4" style="display: none;"><img src="https://i.imgur.com/DCXkCCZ.png" /><br /></div>
+
+     <h3 id="Googlesheets">Google Sheets (NOT RELEASED)</h3>
+     <p><b>Creator: </b>Christinna<br>
+     <b>Download: <a href="https://christinna9031.itch.io/">Itch.io</a></b><br>
+     <b>Description: </b>
+     Google Sheets is an extension which lets you retrieve and modify data in your Google Sheets.  <br>
+     <b>Available commands:</b>  
+    <ul><li>Get Data, Append Data, Update Data, Batch Update, Copy Paste, Clear Data </li>
+    <li>Auto Fill, Auto Sort, Randomize, Find and replace, Delete Duplicates, Split text into columns </li>
+    <li>Merge Cells, Unmerge Cells, Insert Range, Delete range</li>
+    <li>Create Spreadsheet, Duplicate Sheet, Add Sheet</li></ul>
+   
+     <b>Preview:</b><br><iframe width="420" height="315"
+     src="https://www.youtube.com/embed/XXX?controls=1" allowfullscreen>
+     </iframe><br></p>
+     <p><b>How it works</b><br>
+     The extension utilizes Google Sheets API endpoints to read and write data. <br>
+     While reading data is easy, as it only requires an API key, writing data is a bit more complex. The extension ulitizes a custom made AWS Rest API to retrieve your refresh token, as this is only possible server-side and cannot be done from your Transmitter.  <br>
+     Exchanging refresh token for a temporary access token is also retrieved through the same API, as it would otherwise expose my Google Cloud Project credentials and could be potentially abused. <br> 
+     AWS API Gateway is secure and encrypted, your credentials are simply passed to Google Sheets API and never collected or stored. <br>
+     <p><i>Note for other devs: If you would like to use your own project credentials instead, you will need a bit of Google Cloud and JS coding knowledge, but it is possible to edit the extension for this purpose. I have added comments inside the .lbe file on what modifications to make and some very basic explanation on how to retrieve your refresh token. </i> </p>
+     </p>
+     <p><b>Setup:</b> </p>
+     <ol>
+     <li><b>Install the extension:</b> Follow <a href="https://christinna9031.github.io/LBDocumentation/setup.html#extensions">this link</a> to properly install the extension.</li>
+     <li><b>Configure INIT button:</b> You should see a new premade deck in your Receiver. Right click on the red INIT button - edit commands. Scroll down to the Send to extension command and fill out the following fields: (if you cannot see them, reinstall the extension and refresh your Transmitter). </li>
+        <ul>
+         <li>
+        <b>refreshToken</b> - you need to allow the app to access your Google Sheets and retrieve the refresh token. Please follow <a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=772733629610-952dp5qu1gm9802ka1t6f73o6u8m7drn.apps.googleusercontent.com&redirect_uri=https://christinna9031.github.io/LioranBoard-Files/sheetsauth.html&response_type=code&scope=https://www.googleapis.com/auth/spreadsheets&access_type=offline&prompt=consent" target="_blank">this link</a> and all its instructions after you get redirected. 
+         </li>   
+         <li>
+        <b>ApiKey</b> - you will need your own Google API Key: 
+        <ol>
+        <li>
+            Go to the <a href="https://console.cloud.google.com/">Google Cloud Console.</a>
+            <li>Click the project drop-down and select or create the project for which you want to add an API key.</li>
+            <li>Click the menu button and select APIs & Services. </li>
+            <li>Click on the + Enable APIs and services. Search for Google Sheets, click on the search result - Enable.  </li>
+            <li>Click the menu button again and select APIs & Services > Credentials.  </li>
+            <li>On the Credentials page, click + Create Credentials > API key. You can optionally restrict it to Google Sheets API only. </li>
+            <li>Copy the newly create key and paste it in the ApiKey field in your INIT button.</li>
+            <button id="example" onclick="toggle_visibility('sheetsapikey')">Show video guide</button>
+            <div id="sheetsapikey" style="display: none;"> <div class="video"><iframe 
+                src="https://www.youtube.com/embed/oDCYJ33uu5o?controls=1" allowfullscreen></iframe></div>
+                </iframe><br></div></li>
+        </li></ol>
+        <li><b>userKey</b> - key which was provided to you on the Itch.io purchase page. You can also click on the purchase confirmation link that was sent to your email to retrieve it. If you have any issues retrieving your key, please join our <a href="https://discord.gg/dXez8Zh"> Discord server</a> and ask for assistance or directly DM Christinna#9031. <br>
+        <i>Note: This is a randomly generated key, which protects your anonymity, while allowing me to monitor any potential abuse of the extension, as the project quota is shared among all the extension users. </i>         
+        </li>
+        <li><b>ShowAlerts</b> - whether you want to show yellow notification messages for successful requests. If you set it to false, only errors are shown.</li>
+        
+         </li>
+         <li>You can optionally fill out the <b>spreadsheetID</b> in Math:Change Variable command if you're going to use the extension only for one specific SpreadSheet. <br>Spreadsheet ID can be retrieved by going to your spreadsheet in the browser and copying it from the URL: <code>https://docs.google.com/spreadsheets/d/YOURSPREADSHEETID/edit?usp=sharing</code></li> 
+        </ul>
+        <li><b>Configure OPTIONS button:</b> Inside the button you can choose which extension commands you wish to use and display in your Extension drop down menu (this is to prevent clutter as there are a lot of them). Select true to display it or false to hide it and press the button. <br> Default commands which are always displayed after pressing INIT button: Get Data, Append Data, Update Data, Sort Range.</li>
+        <li>Your basic setup is now done. You're ready to start using the extension! </li>   </ol>
+       
+       <p> <b style="color: crimson;font-weight: 1000;">IMPORTANT:</b> In order for this extension to work properly, make sure <b>Sharing is set to 'Anyone with the link'</b> for any SpreadSheet you intend to use with it. 
+        
+        <button id="example" onclick="toggle_visibility('sheetsaccess')">Show video guide</button>
+        <div id="sheetsaccess" style="display: none;">       <a href="https://gyazo.com/923b069e7cacc9d9950b6ccf6ab1770c"><video alt="Video from Gyazo" width="70%" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/923b069e7cacc9d9950b6ccf6ab1770c.mp4" type="video/mp4" /></video></a>
+            </iframe><br></div>
+
+        <p><b>Parameters</b><br>
+        A lot of buttons share the same parameters, which are going to be skipped in the Buttons section below: 
+        <ol>
+        <li> <code>SpreadsheetID</code> - you can either fill it out manually for each button or set up spreadsheetID variable in your INIT button if you intend to use a single Spreadsheet. <br> 
+        Spreadsheet ID can be retrieved by going to your spreadsheet in the browser and copying it from the URL: 'https://docs.google.com/spreadsheets/d/YOURSPREADSHEETID/edit?usp=sharing'</li>
+        <li><code>SheetName</code> - name of the particular Sheet you want to Get or Edit data in. <Br>
+         <b>Important:</b> The extension automatically converts your sheet name to your sheet ID to make it easier to work with. If you rename a sheet to another sheet's name that previously existed in your SpreadSheet (i.e. Sheet1 becomes Sheet2 and Sheet2 becomes Sheet1), you must completely close and reopen Transmitter to reset your session. Otherwise it will still assign the old sheet ID to the name. 
+        </li>
+        <li><code>Range</code> - range you wish to Get or Edit data in, such as A1:B10.</li>
+        <li><code>Dimension</code> - major dimension to Get or Edit data in. <br> For example, if you use the Get Data command and set the range to A1:B10 and your dimension to ROWS, it will return 10 stacks, each containing one row (first stack will be A1-B1 values, second one A2-B2 values, etc.). However, if you change your dimension to COLUMNS, it will return 2 stacks, each containing 1 column (first stack will be A1-A10 values and second stack will have B1-B10 values). 
+        </li>
+   
+
+        <li><code>Values</code>(applies to Append Data, Update Data and Batch Update commands) - you can send values to the extension in two diffent ways: 
+        <ol>
+        <li>A string of values separated by | marking individual cells. For example, if you want to insert values in A1:A7 range (make sure dimension is COLUMNS), you can enter them like this: <code>Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday</code>. Result: <br> <img src="https://i.imgur.com/Nv05PeI.png"></li>
+        <li>A stringified stack. All values from the stack will be inserted into the selected range, starting from position 0 and ending with the last position. <br>
+        <ol>
+        <li>Create a stack with some entries.</li>
+        <li>Use Stack: Stringify command.</li>
+        <li>Use String: Replace command on the newly stringified stack. Replace <code>"</code> with <code>'</code></li>
+        <li>Insert the stringified stack variable in the Values field.</li>
+        </ol>
+        </li>
+        </ol>     
+        </li>
+        </ol>
+        
+
+      <p>  <b>Buttons:</b><br>
+       <p> <b class="btnbasic" id="btnblue">Get Data</b> 
+       <p> Retrieves data based on the range and dimension, and saves them into a stack. <br>
+        <ul>
+            <li><code>Render</code> - How values should be represented in the output. Default is <a href="https://developers.google.com/sheets/api/reference/rest/v4/ValueRenderOption">formatted value.</a></li>
+        <li><code>Delete Empty</code> - whether to delete empty values before putting them into the stack. </li>
+        <li><code>StackName</code> - base name of the stack for the retrieved data. For a base name 'My Stack' and request for data from 2 columns, you will get back 'My Stack1' and 'My Stack2' stacks, each containing 1 row of values. </li>
+
+        <button id="example" onclick="toggle_visibility('sheetget')">Show example</button>
+        <div id="sheetget" style="display: none;"><img src=" https://i.imgur.com/PKYyDdq.png" /><br /></div></li>
+    </ul>
+
+        <p> <b class="btnbasic" id="btnyellow">Append Data</b> 
+        <p>Appends values to a spreadsheet. The range is used to search for existing data and find a "table" within that range. Values will be appended to the next row of the table, starting with the first column of the table.</p>
+        <p> Please note you can append values either to rows or columns, but not both in the same command. This is to avoid any user erros as it would require more complex inputs.
+        <ul>
+            <li><code>inputType</code> - How the data should be interpreted. Default is <a href="https://developers.google.com/sheets/api/reference/rest/v4/ValueInputOption">User Entered.</a> </li>
+        <li><code>InsertType</code>How the input data should be <a href="https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/append#InsertDataOption">inserted</a>.</li>
+        <button id="example" onclick="toggle_visibility('sheetappend')">Show string column example</button>
+        <button id="example" onclick="toggle_visibility('sheetappend2')">Show stack row example</button>
+        <div id="sheetappend" style="display: none;"><img src="https://i.imgur.com/FgaAs16.png" /><br /></div></li>
+        <div id="sheetappend2" style="display: none;"><img src="https://i.imgur.com/eKuBZYD.png" /><br /></div></li>
+
+        </ul>
+
+        <p> <b class="btnbasic" id="btnorange">Update Data</b>   
+       <p> Same as Append Data command, except it will update (=overwrite) data in the selected range instead of appending them. <br>
+        <code>batchID</code> should be left empty as it is only used if you're doing a Batch Update request.
+        <p> <b class="btnbasic" id="btnpink">Batch Update</b>  <br> 
+       <p> This is a very important button to understand if you want to perform update data batch requests. Want to Update Data in multiple rows or columns at once? Instead of sending multiple single requests, use Batch Update button instead. <br> Please remember that you share write request quota with all other users using the extension, so try your best to group up your Update Data requests. 
+        <ol>
+        <li>Send 'Google Sheets Batch Update' command and specify the number of requests and their ID.</li>
+        <li>Use the same BatchID for your all following Update Data requests and send them as you normally would.</li>
+        </ol>
+       <p> The extension will queue them up and wait for the last request to send them all at once. If you fail to supply all requests within the next 10 seconds, the queue will be deleted and resetted. Simply said, either all requests are sent or none. 
+
+
+
+    <ul>
+        <li><code></code></li>
+        <li><code></code></li>
+        </ul>
+     
+
+
+
+
+  
                 
                   
                 </section>

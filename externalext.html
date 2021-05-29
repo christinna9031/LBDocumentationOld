@@ -830,9 +830,17 @@ Selectors which generally specify multiple lights, <code>all</code>, <code>group
             I have also set up a simple AWS API service which can retrieve all your Discord server emojis and save them into .ini file (this cannot be done from your Transmitter due to CORS and Cloudfare blocking the access). This helps the extension to convert Twitch emojis to Discord emojis and correctly display them when relaying messages from Twitch. <br>
             </p>
             <p><b>Setup:</b> </p>
+<<<<<<< HEAD
+            <ul>
+            <li><p><b>Install the extension:</b> Follow <a href="https://christinna9031.github.io/LBDocumentation/setup.html#extensions">this link</a> to properly install the extension.</p></li>
+
+             
+            <li><p><b class="btnbasic" id="btnpurple">Set Params</b> </p><p>You should see a new premade deck in your Receiver. We will need to edit all the values in the <b>'set params' button</b>. Right click on the button - Edit commands: </li>
+=======
             <ol>
             <li><b>Install the extension:</b> Follow <a href="https://christinna9031.github.io/LBDocumentation/setup.html#extensions">this link</a> to properly install the extension.</li>
             <li>You should see a new premade deck in your Receiver. We will need to edit all the values in the <b>'set params' button</b>. Right click on the button - Edit commands: </li>
+>>>>>>> 4fd274cf0a4302b66f21aa059c8a677f107fb876
             <ol>
             <li>Fill out your <b>twitch channel name</b> (example: Dashducks). This is where all the Discord messages will be sent to. This is also the channel our relay will be listening to and relaying messages to Discord. You have to be already connected to it (use <a href="https://christinna9031.github.io/LBDocumentation/twitchcommands.html#twitchjoinchannel">Twitch: Join Channel</a> command if needed).</li>
             <li>
@@ -858,15 +866,60 @@ Selectors which generally specify multiple lights, <code>all</code>, <code>group
             <li>Scroll up a bit and click on 'Copy'. Open the link in a new browser window and invite the bot to your Discord channel. You can restrict your bot to only see certain channels, otherwise it will be relaying messages from all the channels it can see on your server.  <button id="example" onclick="toggle_visibility('relayx5')">Show example</button>
                 <div id="relayx5" style="display: none;"><img src="https://i.imgur.com/skfzXnr.png" /><br /></div></li>
           </ul>  
+<<<<<<< HEAD
+          <li><p>Click Done in your button commands screen. You can now (optionally) modify roles and ignore button and retrieve your Discord emojis (read below). Once you're done editing those, you can press the 'set params' button. It should now be initiated every time you connect to the Transmitter, so you will only need to manually open the relay connection. </ </li>  
+           </ol>
+
+        <li><b class="btnbasic" id="btnaqua">Roles</b> </p>
+        <p>This button stores the relation between your Discord roles and Twitch badges (broadcaster, mod, sub etc.). What is it for? This extension can convert your Discord posts to regular Twitch chat triggers you use in LioranBoard. <br>
+=======
           <li>Click Done in your button commands screen. You can now (optionally) modify roles and ignore button and retrieve your Discord emojis (read below). Once you're done editing those, you can press the 'set params' button. It should now be initiated every time you connect to the Transmitter, so you will only need to manually open the relay connection.  </li>  
            </ol>
             </ol>
         <p><b>Roles button</b><br>
         This button stores the relation between your Discord roles and Twitch badges (broadcaster, mod, sub etc.). What is it for? This extension can convert your Discord posts to regular Twitch chat triggers you use in LioranBoard. <br>
+>>>>>>> 4fd274cf0a4302b66f21aa059c8a677f107fb876
         Right click on the button - Edit commands. There are already pre-filled values including broadcaster, mod, subscriber and vip. All you need to do is change the role ID. Do not modify anything else. 
         You can retrieve your role ID by going to your Discord server settings - Roles, right clicking on the role name and pressing 'Copy ID' button. Replace the pre-filled ID with your own. Make sure to keep the formatting: <code>"badgename:ROLEID"</code>
             <button id="example" onclick="toggle_visibility('relayx3')">Show example</button>
             <div id="relayx3" style="display: none;"><img src="https://i.imgur.com/dbY7kOW.png" /><br /></div>
+<<<<<<< HEAD
+         </p></li>
+
+       <li>  <p><b class="btnbasic" id="btnaqua">Ignore</b> 
+      <p>  You can add any names you do not want to relay the messages from. For example, you might not want to relay messages from your bot accounts. </li>
+
+     <li>   <p><b class="btnbasic" id="btnaqua">Discord Emojis</b> </p>
+        <p>This button should retrieve all your custom Discord emojis and save them in <code>DiscordEmojis.ini</code> file in your Receiver folder. If your Twitch viewers use any of the same emojis in the Twitch chat, they will be auto converted and properly displayed in your relayed messages to Discord. <br>
+        Do not edit anything in this button. Simply press it and it should do all the work for you. If you decide to make any changes in your .ini file, do not press the button again as it will override any changes you made. </p>
+       <p> Note: If your <b>Twitch emojis do not match the Discord ones</b> (= they have a different name), you can open the DiscordEmojis.ini file and manually edit the Twitch emojis part. <br>
+        For example, you have a subscriber emoji on Twitch called 'RamsreLord', but your Discord custom emoji's name is 'RamsreFish'. After pressing the button and opening the DiscordEmojis.ini file, the emoji will be stored as <code>'RamsreFish=RamsreFish:EMOJIID'</code>. You want to change the first 'RamsreFish' to 'RamsreLord' as this is the Twitch emoji name which the extension will look for to replace it with the Discord emoji ID.     <button id="example" onclick="toggle_visibility('relayx4')">Show example</button>  <div id="relayx4" style="display: none;"><img src="https://i.imgur.com/DCXkCCZ.png" /><br /></div>
+       
+
+       <p> <b style="color:red">IMPORTANT:</b> The API cannot see <b>Discord emojis you did not upload yourself manually.</b> If your Discord server emojis come from linking your Discord to your Twitch channel, they will not show up in the list. You can fix this in two ways: 
+        <ol>
+        <li>Manually reupload all the externally linked emojis on your Discord server and press the Discord Emojis button again. They should now all show up in your DiscordEmojis.ini file.</li>
+        <li>Manually change the DiscordEmojis.ini file to add your externally linked emojis: <br>
+        <ol>
+        <li>In your Discord server, insert the emoji you want to add in the message window, type <code>:\</code> before the emoji and hit enter. The emoji will be displayed as <code><:EMOJI_NAME:ID></code>.</li>
+        <li>Add a new category (if it doesn't exist already) <code>[default_emojis]</code> to your DiscordEmojis.ini file. </li>
+        <li>Add a new line to your DiscordEmojis.ini file in this format: [number]="TWITCH_EMOJI_NAME=DISCORD_EMOJI_NAME:DISCORD_EMOJI_ID". (remember to start from 0)</li>
+        <li>Add or change size to reflect the amount of new emojis you added. For example, <code>size="1"</code> if you have a single emoji. Save the file. </li>
+        <li>Restart your Transmitter or press relay close, set params and open relay button again. </li>
+        <li>Your newly added emojis should now be correctly displayed.</li>
+        </ol> 
+        <button id="example" onclick="toggle_visibility('relayeditemojis')">Show video guide</button>
+        <div id="relayeditemojis" style="display: none;"> <div class="video"><iframe 
+            src="https://www.youtube.com/embed/vogpZb7WXoY?controls=1" allowfullscreen></iframe></div>
+            </iframe><br></div>
+        </li>
+        </ul>
+
+    </li></ul>
+</li>            </ol>
+
+    <p><b class="btnbasic" id="btngreen">Relay Open</b> </p> <p>Pressing this button will connect you to Discord and start relaying messages between Discord and Twitch. You should see a yellow notification message 'Connected to Discord! Listening to messages' (you can also check the connection status in your Transmitter - Discord Relay tab). Please note that you need to be already connected to Twitch chat with the channel you specified in your 'set params' button.  
+=======
          </p>
 
          <p><b>Ignore button</b><br>
@@ -882,6 +935,7 @@ Selectors which generally specify multiple lights, <code>all</code>, <code>group
      <p><b>Buttons to control the Relay: </b>
      <ul>
      <li>Pressing <b>'Relay Open'</b> button will connect you to Discord and start relaying messages between Discord and Twitch. You should see a yellow notification message 'Connected to Discord! Listening to messages' (you can also check the connection status in your Transmitter - Discord Relay tab). Please note that you need to be already connected to Twitch chat with the channel you specified in your 'set params' button.  
+>>>>>>> 4fd274cf0a4302b66f21aa059c8a677f107fb876
     If you click on the button - Edit commands, you can edit the following values: 
     <ul>
     <li>
@@ -894,11 +948,19 @@ Selectors which generally specify multiple lights, <code>all</code>, <code>group
     <li><b>discord_mode</b> - pretty (each relayed Twitch chat message will be embed displaying the viewer's profile picture and the sidebar will match the user's Twitch color) vs. simple (all relayed messages are posted as plain text). <br>Please note that there's a limit to how many messages and embeds the webhook can send. If your Twitch chat gets spammed with a lot of messages, it will automatically switch to simple mode to keep up.  </li>
     </ul>
     </li>
+<<<<<<< HEAD
+    <p><b class="btnbasic" id="btnred">Relay Close</b> </p><p>Pressing this button will disconnect you from Discord and stop relaying messages. </li>
+     <p><b class="btnbasic" id="btnblue">Relay Trigger Only</b> </p> <p>Pressing this button will connect you to Discord and start listening to Discord chat triggers only (will not relay messages). These triggers will be converted to your regular Twitch chat triggers (including roles converted to badges, so you can make a button that only a 'mod' role can trigger). There is a '!test from Discord' button to demonstrate how to use it. Just type !test in your Discord channel after pressing the button and it should trigger it. This acts like a regular Twitch chat trigger and supports both wild cards and Math: Trigger pull command.          <button id="example" onclick="toggle_visibility('relayx6')">Show example</button>
+        <div id="relayx6" style="display: none;"><img src="https://i.imgur.com/G6xlPLE.png" /><br /></div> </li></ul>
+
+     <p>Note: If you use 'Relay Open' or 'Relay Trigger only' button, you should see your Discord bot online in your server. That means it is ready and listening to messages. You can restrict your bot to only see certain channels by manually removing its channel read permissions, otherwise it will be relaying messages from all the channels it can see. </p>
+=======
      <li>Pressing <b>'Relay Close'</b> button will disconnect you from Discord and stop relaying messages. </li>
      <li>Pressing <b>'Relay Trigger Only'</b> button will connect you to Discord and start listening to Discord chat triggers only (will not relay messages). These triggers will be converted to your regular Twitch chat triggers (including roles converted to badges, so you can make a button that only a 'mod' role can trigger). There is a '!test from Discord' button to demonstrate how to use it. Just type !test in your Discord channel after pressing the button and it should trigger it. This acts like a regular Twitch chat trigger and supports both wild cards and Math: Trigger pull command.          <button id="example" onclick="toggle_visibility('relayx6')">Show example</button>
         <div id="relayx6" style="display: none;"><img src="https://i.imgur.com/G6xlPLE.png" /><br /></div> </li></ul>
 
      <p>Note: If you use 'Relay Open' or 'Relay Trigger only' button, you should see your Discord bot online in your server. That means it is ready and listening to messages. You can restrict your bot to only see certain channels, otherwise it will be relaying messages from all the channels it can see. </p>
+>>>>>>> 4fd274cf0a4302b66f21aa059c8a677f107fb876
 
  
      <div id="relayx4" style="display: none;"><img src="https://i.imgur.com/DCXkCCZ.png" /><br /></div>

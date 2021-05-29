@@ -166,33 +166,67 @@ form {
     background: #eebf02;
   }
 
+<<<<<<< HEAD
+  #btnblue {
+=======
   .btnblue {
+>>>>>>> 4fd274cf0a4302b66f21aa059c8a677f107fb876
   background: #2a95ff;
 
   }
 
+<<<<<<< HEAD
+  #btnpink {
+=======
   .btnpink {
+>>>>>>> 4fd274cf0a4302b66f21aa059c8a677f107fb876
     background: #CE0885;
   }
 
   
+<<<<<<< HEAD
+  #btngreen {
+=======
   .btngreen {
+>>>>>>> 4fd274cf0a4302b66f21aa059c8a677f107fb876
     background: #06D500;
   
   }
 
+<<<<<<< HEAD
+  #btnorange{
+=======
   .btnorange{
+>>>>>>> 4fd274cf0a4302b66f21aa059c8a677f107fb876
     background: #FF7C13;
 
   }
 
+<<<<<<< HEAD
+  #btndarkblue {
+=======
   .btndarkblue {
+>>>>>>> 4fd274cf0a4302b66f21aa059c8a677f107fb876
     background: #003CFF;
 
   }
   
+<<<<<<< HEAD
+  #btnaqua {
+    background: #00b7ff;
+
+  }
+
+  #btnred {
+    background: #bb0303;
+
+  }
+
+  #btnpurple {
+=======
 
   .btnpurple {
+>>>>>>> 4fd274cf0a4302b66f21aa059c8a677f107fb876
     background: #4800FF;
 
   }

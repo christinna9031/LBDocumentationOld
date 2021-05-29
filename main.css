@@ -166,33 +166,42 @@ form {
     background: #eebf02;
   }
 
-  .btnblue {
+  #btnblue {
   background: #2a95ff;
 
   }
 
-  .btnpink {
+  #btnpink {
     background: #CE0885;
   }
 
   
-  .btngreen {
+  #btngreen {
     background: #06D500;
   
   }
 
-  .btnorange{
+  #btnorange{
     background: #FF7C13;
 
   }
 
-  .btndarkblue {
+  #btndarkblue {
     background: #003CFF;
 
   }
   
+  #btnaqua {
+    background: #00b7ff;
 
-  .btnpurple {
+  }
+
+  #btnred {
+    background: #bb0303;
+
+  }
+
+  #btnpurple {
     background: #4800FF;
 
   }

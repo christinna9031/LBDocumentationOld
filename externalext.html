@@ -254,7 +254,7 @@ Search for a song by keyword: Can search for a song by its name only or by its n
 <p><b>Prerequisites:</b><br> OBS Websocket 4.9, LioranBoard 1.42 or newer <br></p>
 <p><b>Setup:</b>
 <p>After downloading the .zip file, place the whole Spotify folder in your <code>lioranboard\LioranBoard Receiver(PC)\Ext</code> folder. Go to your Receiver and install the extension. It should automatically copy all the files, add a new deck and create a new Spotify OBS scene. If, for some reason, the image files do not get copied automatically, you can manually move them from the Spotify/img folder to your Receiver/image folder. <b>Unless the extension was not installed properly in the first place, you do not need to press 'Install Extension' button anymore.</b> <br>
-As soon as you install the extension, a new browser window should open where you need to <a href="https://christinna9031.github.io/LioranBoard-Files/Spotify_auth.html">authenticate your Spotify account</a>. Follow all the instructions. <br>
+As soon as you install the extension, you might get a popup message saying that your credentials are wrong. That is OK, it means it's trying to connect to Spotify, but we haven't set up the credentials yet. You should also have a new browser window  open where you need to <a href="https://christinna9031.github.io/LioranBoard-Files/Spotify_auth.html">authenticate your Spotify account</a>. Follow all the instructions and do not forget to refresh your Transmitter after setting up all parameters. <br>
 Once your Spotify account is successfully linked, it should automatically show currently playing track in 3 separate locations: your Streamdeck, your Spotify scene in OBS and your Spotify tab in Transmitter. The Spotify tab in Transmitter contains some extra information about the current track. <br></p>
 <p> <img id="smallimg" src="https://i.imgur.com/02LT9qQ.png" ><b>INIT button</b> <br>
 This button should be automatically initiated every time you restart your Transmitter. You can use it 'wake up' your Spotify extension, as it sometimes goes into sleep mode after some period of inactivity (you can also simply tap play in your Spotify player). <br>
@@ -267,7 +267,7 @@ Send to extension input fields: <br>
 <li><code>device_type </code> (optional) - device type you want to control your Spotify playback on. If set to default, it will pick the first one it can find.</li>
 <li><code>device_id</code> (optional) - device ID you want to control your Spotify playback on. It should be displayed in your Spotify tab in your Transmitter. Can leavy empty if you do not have multiple devices of the same type.  </li>
 
-<strong style="color:rgb(182, 2, 38)">Please make sure you do NOT wrap any of the parameters in double quotes.</strong></ul>
+<strong style="color:rgb(182, 2, 38)">Please make sure you do NOT wrap any of the parameters in double quotes. <br> Refresh your Transmitter whenever you make any changes to the parameters. Do NOT press the INIT button manually. </strong></ul>
 
 
 

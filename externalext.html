@@ -2,8 +2,11 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        
         <link rel="stylesheet" href="main.css" />
+        
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
         <script src="main.js"></script>
         <title>Extensions | LioranBoard</title>
     </head>
@@ -111,8 +114,8 @@
                 <h3 id="pollyTTS">Text to Speech Polly</h3>
                 <p><b>Creator: </b>Christinna<br>
                 <b>Download: <a href="https://christinna9031.itch.io/lioranboard-polly-text-to-speech">Itch.io</a></b><br>
-            
 
+                
 
                 <b>Description: </b>
 
@@ -134,7 +137,7 @@ Play and Pause, Skip to Next/Play previous recording, Fast Forward/Backwards, Ch
 <b>Setup: </b>
 <ol>
 <li>You need AWS credentials to use this extension. If you do not have an Amazon account, you will need to <a href="https://aws.amazon.com/" target="_blank"> sign up</a> for one. Amazon will ask you to verify your identity by providing your phone number and payment method (credit or debit card, some prepaid cards work too). This is needed because AWS provides many other paid services, although we will be using Polly TTS as a part of their free tier. <br>
- Once you have your account, make sure you <a href="https://aws.amazon.com/activate/"> activated the services</a> and follow the steps <a href="https://aws.amazon.com/blogs/security/wheres-my-secret-access-key/" target="_blank">here</a> to get your credentials. As a safety precaution, you might want to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html" target="_blank">create an IAM user</a> and use their credentials instead. <button id="example" onclick="toggle_visibility('awskey')">Show example</button>
+ Once you have your account, make sure you <a href="https://aws.amazon.com/activate/"> activated the services</a> and follow the steps <a href="https://aws.amazon.com/blogs/security/wheres-my-secret-access-key/" target="_blank">here</a> to get your credentials. As a safety precaution, you might want to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html" target="_blank">create an IAM user</a>, set up <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html">their permissions</a> to be only able to access Polly TTS</a> and use their credentials instead. <button id="example" onclick="toggle_visibility('awskey')">Show example</button>
  <div id="awskey" style="display: none;"><img src="https://i.imgur.com/UC4cCaR.png" /><br /></div>
  </li>
  <li>Once you have your credentials, install the extension following these <a href="faq.html#installextensions" target="_blank">steps</a>. In your zip folder you should also see img and lib folders: 
@@ -1048,9 +1051,90 @@ Selectors which generally specify multiple lights, <code>all</code>, <code>group
        <p> This is a very important button to understand if you want to perform update data batch requests. Want to Update Data in multiple rows or columns at once? Instead of sending multiple single requests, use Batch Update button instead. <br> Please remember that you share write request quota with all other users using the extension, so try your best to group up your Update Data requests. 
         <ol>
         <li>Send 'Google Sheets Batch Update' command and specify the number of requests and their ID.</li>
-        <li>Use the same BatchID for your all following Update Data requests and send them as you normally would.</li>
+        <li>Use the same BatchID for your all following Update Data requests and send them as you normally would. <br>
+        The extension will queue them up and wait for the last request to send them all at once. If you fail to supply all requests within the next 10 seconds, the queue will be deleted and resetted. Simply said, either all requests are sent or none. </li>
         </ol>
-       <p> The extension will queue them up and wait for the last request to send them all at once. If you fail to supply all requests within the next 10 seconds, the queue will be deleted and resetted. Simply said, either all requests are sent or none. 
+       <p> 
+
+        <p><b class="btnbasic" id="btngreen">Create SpreadSheet</b> </p>
+        <p>Creates a new SpreadSheet.</p>
+        <ul>
+        <li><code>Title</code> - name for your new SpreadSheet</li>
+        <li><code>Variable</code> - variable to save your new SpreadSheet ID into.</li>
+        </ul>
+
+        <p><b class="btnbasic" id="btngreen">Duplicate Sheet</b> </p>
+        <p>Duplicates an existing sheet.
+        <ul><li><code>SourceSheetName</code> - name of the sheet you wish to duplicate</li>
+        <li><code>newSheetName</code> - name of the new duplicated sheet</li>
+        <li><code>insertSheetIndex</code> - where in your SpreadSheet you want to insert the duplicated sheet</li></ul>
+        <p><b class="btnbasic" id="btngreen">Add Sheet</b> </p>
+        <p>Adds a new sheet to the selected SpreadSheet
+        <ul><li><code>Name</code> - name for your new sheet</li>
+        <li><code>Index</code> - where in your SpreadSheet you want to insert the new sheet</li></ul>
+        <p><b class="btnbasic" id="btngreen">Copy Paste</b> </p>
+        <p>Copies data from the source to the destination</p>
+       <ul> <li><code>Range</code> - source range to copy</li>
+        <li><code>TargetSheet</code> - sheet name to paste the data to</li>
+        <li><code>TargetRange</code> - range to paste the data to</li>
+        <li><code>PasteType</code> - what kind of data to paste</li>
+        <li><code>PasteOrientation</code> - how the pasted data should be oriented. Transpose = all rows become columns.</li>
+    </ul>
+        <p><b class="btnbasic" id="btnorange">Auto Fill</b> </p>
+        <p>Fills in more data based on existing data.</p>
+       <ul> <li><code>Range</code> - range to autofill.</li>
+        <li><code>useAlternateSeries</code> - generate data with the "alternate" series. Differs based on the type and amount of data.</li></ul>
+        <p><b class="btnbasic" id="btnorange">Find Replace</b> </p>
+        <p>Finds and replaces data in cells over a selected range.</p>
+        <ul><li><code>Range</code> - range to find/replace over </li>
+        <li><code>Find</code> - value to search (string). <br> If you want to use regex, prefix the expression with 'regex'. Example:  find: <code>"regex o.* (.*)"</code>, replace: <code>"$1 Hello"</code> Your formatting must follow <a href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html">Java regex rules.</a></li>
+        <li><code>Replace</code> - value to use as the replacement</li>
+        <li><code>matchCase</code> - true if the search is case sensitive</li>
+        <li><code>matchEntireCell</code> -  true if the find value should match the entire cell</li></ul>
+        <p><b class="btnbasic" id="btnorange">Split Text</b> </p>
+        <p>Splits a column of text into multiple columns, based on a delimiter in each cell.</p>
+        <ul><li><code>Range</code> - the source data range. This must span exactly one column.</li>
+        <li><code>Delimiter</code> - the delimiter to use. For example ":" or ",".</li></ul>
+
+        <p><b class="btnbasic" id="btnblue">Sort Range</b> </p>
+        <p>Sorts data in rows based on a sort order per column.</p> 
+        <ul>
+        <li><code>Range</code> - the range to sort</li>
+        <li><code>sortOrder</code> - the order the data should be sorted.</li>
+        <li><code>dimIndex</code> - the dimension the sort should be applied to</li>
+        </ul>
+        
+        <p><b class="btnbasic" id="btnblue">Randomize</b> </p>
+        <p>Randomizes the order of the rows in a selected range.</p>
+        <ul>
+        <li><code>Range</code> - the range to randomize</li>
+        </ul>
+        <p><b class="btnbasic" id="btnblue">Merge Cells</b> </p>
+        <p></p>
+       <ul> <li><code>Range</code> - the range of cells to merge</li>
+        <li><code>mergeType</code> - how the cells should be merged. MERGE_ALL creates a single merge from the range. MERGE_COLUMNS will create a merge for each column in the range. MERGE_ROWS will create a merge for each row in the range.</li></ul>
+        <p><b class="btnbasic" id="btnblue">Unmerge Cells</b> </p>
+        <p>Unmerges cells in the given range.</p>
+       <ul> <li><code>Range</code> - the range within which all cells should be unmerged. If the range spans multiple merges, all will be unmerged. The range must not partially span any merge.</li></ul>
+
+        <p><b class="btnbasic" id="btnpurple">Clear Data</b> </p>
+        <p>Clears all data in the selected range. </p>
+        <ul>
+        <li><code>Range</code> - range to clear the data from. Example: A1:A10.</li>
+        </ul>
+        <p><b class="btnbasic" id="btnpurple">Insert Range</b> </p>
+        <p>Inserts cells into a range, shifting the existing cells over or down.</p>
+        <ul><li><code>Range</code> - range to insert new cells into</li>
+        <li><code>Shift</code> - dimension to be shifted when inserting cells. ROWS = shifted down. COLUMNS = shifted right.</li></ul>
+        <p><b class="btnbasic" id="btnpurple">Delete Range</b> </p>
+       <ul> <li><code>Range</code> - the range of cells to delete</li>
+        <li><code>Shift</code> - ROWS = existing cells will be shifted upward, COLUMNS = cells will be shifted left</li></ul>
+        <p><b class="btnbasic" id="btnpurple">Delete Duplicates</b> </p>
+        <p>Removes rows within this range that contain values in the specified columns that are duplicates of values in any previous row. Removes duplicates with different letter cases, formatting, or formulas.</p>
+        <ul><li><code>Range</code> - the range to remove duplicates rows from.</li>
+        <li><code>Dimension</code> -  dimension to analyze for duplicate values</li>
+        <li><code>StartIndex</code> - The start (inclusive) of the span. The columns in the range to analyze for duplicate values.</li>
+        <li><code>EndIndex</code> - The end (exclusive) of the span.  The columns in the range to analyze for duplicate values.</li></ul>
 
 
 

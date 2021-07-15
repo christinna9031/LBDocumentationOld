@@ -104,6 +104,17 @@
                                 </a>
                             </dd>
 
+                            <dd>
+                                <a href="#obsresizer">
+                                    OBS Resizer
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#puzzlegame">
+                                    Puzzle Game
+                                </a>
+                            </dd>
                     
                             <dd>
                                 <a class="sub-page" href="twitchext.html">Twitch</a>
@@ -401,9 +412,9 @@ After you fill out all the fields, press the button and let it do all the magic.
                         <p><b>Creator: </b>Christinna<br>
                             <b>Download: <a href="https://christinna9031.itch.io/lioranboard-color-converter">Itch.io</a></b><br>
                             <b>Description: </b>This extension allows you to convert various color formats to an OBS accepted color format (int).This is useful if you want to let your viewers easily change your OBS source and filter colors. <br>
-                            <b>Preview: </b> <br>     <div class="video"> <iframe width="420" height="315"
+                            <b>Preview: </b> <br>     <iframe width="420" height="315"
                             src="https://www.youtube.com/embed/TWenZosErOM?controls=1" allowfullscreen>
-                            </iframe> </div><br> <p>
+                            </iframe> <br> <p>
 
                             <p><b>Supported color formats:</b> 
                                 <ul>
@@ -421,9 +432,155 @@ After you fill out all the fields, press the button and let it do all the magic.
 
                             <b>Note:</b><br> I previously released this extension under the name 'Color Code'. This new version fixes a bug where colors would not properly change in some OBS sources and adds new formats to work with. It is recommended to uninstall the old Color Code extension first. 
 
-                     
+                            <h3 id="obsresizer">OBS Resizer</h3>
+                            <p><b>Creator: </b>Christinna<br>
+                                <b>Download: <a href="https://christinna9031.itch.io/lioranboard-obs-resizer">Itch.io</a></b><br>
+                                <b>Description: </b>OBS Resizer allows you to effortlessly resize your scenes, nested scenes, their sources and move source filters with one push of a button.  <br>
+                                <b>Preview: </b> <br>  <iframe  width="420" height="315"
+                                src="https://www.youtube.com/embed/vncGv_Q0p8w?controls=1" allowfullscreen>
+                                </iframe> <br> <p>
+    
+                                    <p>This is an extremely useful extension if you need to switch&nbsp;to a different video resolution&nbsp;or you often create and share your scene collections with other people who&nbsp;need them for a&nbsp;different resolution.&nbsp;</p>
+                                    <p>If you've ever had to change all your pixel-size perfect scenes to another canvas size,&nbsp;you know how much of a hassle it was and how long it took you to get it all back to perfection. Not anymore, one button does it all!&nbsp;<br></p>
+                                    <p>As a bonus, the extension should automatically resize&nbsp;your <strong >crop and move source filters</strong>, so you don't need to worry about manually doing that either.&nbsp;</p>
+                                    <p>It comes with a premade deck where you need to change only two values - your scene name and the original width you're resizing it from. After that you can just press the button and let all the magic happen.&nbsp;</p>
+                                    <p><strong style="color:#D60000">Important note:</strong> &nbsp;Although the extension has been thoroughly tested, bugs sometimes happen! I strongly recommend duplicating your scene collection as a backup before using the extension.&nbsp;</p>
+                                
+                               <p> <b>Setup: </b> <br>
+                                After installing the extension, go to the premade deck and edit the Resize button: 
+                                <ul>
+                                <li><code>SceneResize</code> - name of the scene you wish to resize. All sources, nested scenes and their sources will be resized. Crop and Move Source filters should be also correctly resized. </li>
+                                <li><code>OrigWidth</code> - original width of the scene. For example, if you just switch from 720p to 1080p, the orignal width will be 1280.</li>
+                                <li>Your current canvas width you're resizing your scene to will be automatically pulled from OBS. You do not need to set this one up.</li>
+                                <li><code>obsws_port</code> - your OBS websocket port. Should be 4444 unless you changed it.</li>
+                                <li><code>obsws_pw</code> - your OBS websocket password, if you set up any. Leave empty if you have no password.</li>
+                                </ul>
+
+                              <p>  Once you edit the Resize button, you can now proceed to press it. Don't forget to back up your scene collection first! 
+
+                               <p><i> The extension automatically saves the last width you resized the scene to. If the saved value is different from what you manually entered, you might get a popup warning message. You can choose to edit the width value to match the one in the popup message, or ignore it and press the button again to proceed
+                                with your manually entered width. This is just a safety net in case of any typos. </i>
                         
-                            
+                                <h3 id="puzzlegame">Puzzle Game</h3>
+                                <p><b>Creator: </b>Christinna<br>
+                                    <b>Download: <a href="https://christinak.itch.io/lioranboard-puzzle-game">Itch.io</a></b><br>
+                                    <b>Description: </b>This extension allows you to transform any OBS source into a puzzle game. Your viewers can use the chat to swap the individual pieces to solve it! <br>
+                                    <b>Preview: </b> <br>     <iframe width="420" height="315"
+                                    src="https://www.youtube.com/embed/fL8GVWe1bv8?controls=1" allowfullscreen>
+                                    </iframe> 
+                                       <p> <b>Dependencies:</b>
+                                       <br>OBS Shader Filter: 1.21 <br>
+                                       StreamFX: 0.10.0.0 <br>
+                                       Move Transition: 2.4.4 <br>
+                                       <i>Older versions might or might not work.</i>
+                                       <p> <b> Important Stuff to know:</b>
+                                           <P> <b><code>puzzle_running</code></b> - you can use this variable to check if a puzzle is running or not. 1 = running, 0 = not running.</p>
+                                           <p><b id="important"></b></p> 
+                                           <p><b>oversized sources</b> - please make sure you're not using overly oversized pictures or videos for your puzzle game. Their original size should not be much larger than your OBS canvas. Why? The extension creates a mirror source for each puzzle piece and it might unnecessarily tax your GPU. Downsize the original file if needed.</p>
+                                           <p><b>If you're running Transmitter outside of OBS in a browser (for example in Chrome), make sure it's the active tab (i.e. you can actually see the Transmitter) when you press Create puzzle button. If Transmitter is not the active tab, it might throttle the script and take quite a bit longer to create the puzzle.</b></p>
+                                       <p> <b>Setup: </b> <br>
+                                        After installing the extension, go to the premade deck and follow these steps: 
+                                        <ol> 
+                                        <li>
+                                        <p><b class="btnbasic" id="btndarkgreen">set variables</b></p>
+                                        <p><b>Edit 'set variables button': </b></p>
+                                        <ul>
+                                        <li>
+                                        <code>obsws_password</code> - your OBS websocket password. Leave empty if you do not use a password.
+                                        </li>
+                                        <li>
+                                        <code>obsws_port</code> - your OBS Websocket Port. Default is 4444. 
+                                        </li>
+                                          <li>
+                                        <code>puzzle_scene</code> - name for your NEW puzzle scene that will be created. Make sure it doesn't exist already. Please note there is a bug in OBS where if you delete a scene and try to recreate it without completely restarting OBS, it will tell you it already exists. 
+                                        </li>
+                                          <li>
+                                        <code>puzzle_source</code> - name of the source you're using to create the puzzle from. Can be your camera, random video, picture, etc. <Br> Please make sure you're not using overly oversized pictures or videos - their original size should not be much larger than your canvas in OBS for performance reasons.
+                                        </li>
+                                          <li>
+                                        <code>puzzle_source_scene</code> - name of the scene where your source resides.
+                                        </li>
+                                          <li>
+                                        <code>puzzle_rows</code> - number of rows you want your puzzle to have. Maximum is 26, but 3-4 is most likely what you're aiming for. 
+                                        </li>
+                                              <li>
+                                        <code>puzzle_columns</code> - number of columns you want your puzzle to have. Columns and rows affect the difficulty of puzzle and also its performance - older streaming machines might not be able to handle something crazy as 10x10 puzzle grid (which is 100 puzzle mirror sources your GPU has to animate!). 
+                                        </li>
+                                        <b>The following are OPTIONAL values and can be left at default. Edit them for the best customization. </b>
+                                        <li>
+                                        <code>puzzle_border</code> - whether you want a border around every piece. 1 = border, 0 = no border. 
+                                        </li>
+                                         <li>
+                                        <code>puzzle_border_thickness</code> - how thick the puzzle border should be in pixels. Depending on how much you're going to resize the puzzle scene, you might want to increase the border thickness. If you set it to 1 pixel, but resize your puzzle scene to 1/3 of its original size, the border will partially or completely disappear. Play around with it and see what works for your case the best.
+                                        </li>
+                                         <li>
+                                        <code>puzzle_border_margin</code> - this affects the space between the pieces if border is present. Again, different settings might be needed for different resolutions and grid size. 
+                                        </li>
+                                         <li>
+                                        <code>puzzle_border_color</code> - the color of the border, it accepts only color hex values. 
+                                        </li>
+                                         <li>
+                                        <code>puzzle_text_size</code> - font size for the puzzle coordinates. This again depends on your much you resize your puzzle scene - increase/decrease the font size depending on your own settings.
+                                        </li>
+                                        <li>
+                                            <code>puzzle_text_font</code> - font name for the puzzle coordinates
+                                            </li>
+                                            <li>
+                                                <code>puzzle_text_color</code> - text color for the puzzle coordionates, it accepts only color hex values. 
+                                                </li>
+                                                <li>
+                                                    <code>puzzle_text_outline</code> - whether you want the text to have an outline. 1 = outline, 0 = no outline.
+                                                    </li>
+                                                    <li>
+                                                        <code>puzzle_text_outline_thick</code> - thickness of the outline in pixels.
+                                                        </li>
+                                                                                                    <li>
+                                                    <code>puzzle_text_outline_color</code> - the color of the outline, it accepts only color hex values. 
+                                                    </li>
+
+                                        </ul>
+                                        
+                                        </li>
+                                        <li>
+                                            <p><b class="btnbasic" id="btngreen">create puzzle</b></p>
+                                            <p><b>Once you're done editing the set variables button, press Done and again Done (twice total) to make sure it's saved.</b> <br>
+                                            1. You must be connected to Transmitter, OBS and be on the scene with the source you want to create your puzzle game from. Make sure the source isn't hidden. <br>
+                                            2. If your Transmitter is running outside of OBS in a browser, make sure it's the <b>active tab</b>, otherwise the browser throttles its execution and it might take a while to create your puzzle. <br>
+                                            <b>Press 'create puzzle' button.</b></p>
+                                            </p></li>
+                                            <li>The create puzzle button should change to 'in progress'. Wait until the button changes to SUCCESS!, which means it finished creating the puzzle scene in your OBS (it might take longer depending on the size of the grid). <br> 
+                                            You will get a popup message if there are any errors creating the puzzle. <br>
+                                            You will not see anything once the puzzle is created, because the whole puzzle scene has a Color Correction filter with its opacity set to 0. You can right click on the puzzle scene and disable the filter to check if it was created correctly. </li>
+                                            <li>
+                                                <p><b class="btnbasic" id="btnpink">start game</b></p>
+                                                <p>Edit the start game button variables:
+                                                    <ul>
+                                                    <li><code>puzzle_scene</code> - the same name you chose for your new puzzle scene earlier</li>
+                                                    <li><code>puzzle_sounds</code> - whether you want to enable sound effects</li>
+                                                    <li><code>puzzle_shuffle_mid</code> - whether you want all pieces to go to mid when shuffling the puzzle.</li>
+                                                    </ul>
+                                                    You can optionally delete the <code>Statement: Exit if puzzle_running == 1</code> command, however I recommend leaving it in, so you don't accidentally start a puzzle game when one is already running already. 
+                                            
+                                                    Press Done and Done again (twice total).
+                                                </p>
+                                            </li>
+                                            <li><b>Press the start game button.</b> The puzzle should automatically appear in your original scene and shuffle. </li>
+                                            <li><B>Let your viewers play the game</b></li>
+                                            <ul>
+                                            <li>
+                                                <p><b class="btnbasic" id="btnaqua">move</b> - use !puzzle move chat command to swap pieces, for example <code>!puzzle A1 to C3</code>. 
+                                            </li>
+                                            <li>
+                                                <p><b class="btnbasic" id="btnyellow">shuffle</b> - use !puzzle shuffle chat command to reshuffle the pieces. By default only broadcaster and their mods can use this command. Leaderboard will not be cleared. </li>
+                                            <li><p><b class="btnbasic" id="btnblue">solve</b> - use !puzzle solve command to automatically solve the puzzle. By default only broadcaster and their mods can use this command. Leaderboard, variables and stacks will be all cleared. </li>
+                                            <li><p><b class="btnbasic" id="btnpurple">leaderboard</b> - use !puzzle leaderboard to post the name of the viewers with the most correct moves. The default number of viewers shown is 5. You can change this value inside the button.</li>
+                                            <li><b class="btnbasic" id="btnred">reset</b> - use !puzzle reset to completely clear the leaderboard and all variables and stacks. This button is automatically pressed when puzzle is started or solved.</li>
+                                            </ul>
+                                            </li>
+
+                                            </ol>
+
+
 
                 </section>
             </div>

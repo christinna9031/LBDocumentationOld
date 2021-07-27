@@ -49,7 +49,14 @@
                             <dd>
                                 <a class="sub-page" href="twitchext.html"  class="active">Twitch</a>
                             </dd>
-                                    
+
+                            <dd>
+                                <a href="#eventsub">
+                                    Twitch EventSub Webhook
+                                </a>
+                            </dd>
+
+                                   
                             <dd>
                                 <a class="sub-page" href="externalext.html">External</a>
                             </dd>
@@ -77,7 +84,7 @@
             <div class="main">
                 <section class="doc-content">
                     <h2>Twitch Extensions</h2>
-                    <p>In progress... </p>
+               <!--    <p>In progress... </p>
                    
                     <h3 id="getprofilepicture">Get Profile Picture</h3>
                     <p><b>Creator: </b>Exeldro<br>
@@ -102,16 +109,12 @@
                     </p>
            
 
-
-
-
                     <h3 id="getlatestsub">Get Latest Subscriber</h3>
                     <p><b>Creator: </b>Christinna<br>
                     <b>Download: <a href="https://discord.com/channels/699319482442711072/712274509389889618/753949869323845653">Discord Link</a></b><br>
                     <b>Description: </b>
                     </p>
          
-
 
                     <h3 id="getlatestfollower">Get Latest Follower</h3>
                     <p><b>Creator: </b>Christinna<br>
@@ -155,7 +158,224 @@
                     <p><b>Creator: </b>Christinna<br>
                     <b>Download: <a href="https://github.com/christinna9031/LB-Twitch-Clip-Length">Github Link</a></b><br>
                     <b>Description: </b>
-                    </p>
+                    </p> -->  
+
+                    <h3 id="eventsub">Twitch EventSub Webhook</h3>
+                    <p><b>Creator: </b>Christina<br>
+                    <b>Download: <a href="https://christinak.itch.io/lb-eventsub-webhook">Itch.io</a></b><br>
+                    <b>Description: </b> Receive Twitch EventSub triggers in your LioranBoard. Polls, Predictions and Hype Train events are now functional! 
+      
+                    <h4>Setup:</h4>
+                     <ol>
+                     <li>Follow <a href="https://christinna9031.github.io/LioranBoard-Files/eventsub_auth.html">this link</a> and its instructions to authorize the extension to listen to Twitch alerts. Make sure you're authorizing it on your Twitch streaming account. <br> You can have a maximum of one Twitch account per your Itch key authorized. Bot accounts for testing are OK, but please de-authorize them once you're done testing by <a href="https://www.twitch.tv/settings/connections">disconnecting them from Twitch EvenTsub</a> in your Connections tab. Otherwise they might get automatically removed. </li>
+                     <li><a href="https://christinna9031.github.io/LBDocumentation/setup.html#extensions">Install the extension.</a> </li>
+                     <li>Go to the premade deck and edit the INIT button: 
+                        <ul>
+                        <li><code>itchKey</code> - key you received when you purchased the extension on Itch.io. <br> If you did not receive your key, it should be in your purchase confirmation email. Contact Christinna#9031 on Discord if you're having any technical issues retrieving it.</li>
+                        <li><code>channel_id</code> - your channel ID you authorized in step 1. You can use a premade variable <code>/$channel_id$/</code> if you're not using a bot account with LB. In that case you will find your channel id in your Receiver/connect.ini file under [account] section.</li>
+                        <b id="important">NOTE:</b> You do NOT use quotes in these parameter boxes.     </ul>
+                        <li>Save the changes you made in the INIT button by pressing DONE twice. Refresh/open your Transmitter.</li>
+                        <li>Once the extension successfully connects, you should see a yellow notification message in your Receiver: <code>EventSub connection opened! Listening for events.</code> It means the extension is ready to receive event triggers that you authorized it to listen to in step 1. </li>
+                                         </li>
+                     </ol>  
+
+                <h4>Polls Triggers:</h4>
+                <p>There are triggers for poll begin, progress and ended. </p>
+                <button id="example" onclick="toggle_visibility('pollstriggers')">Expand</button>    <div id="pollstriggers"  style="display:none">
+               <p> Each time a new poll starts, there will be a stack <code>esPollChoice{CHOICE NUMBER}</code> created for each choice, i.e. esPollChoice1, esPollChoice2, esPollChoice3 etc. The stacks will be updated every time there's any change in votes. The stack contains: 
+                <ol>
+                <li><b>title [0]</b> - for example <Code>[0]esPollChoice1</Code> is a title for the first choice in the poll.</li>
+                <li><b>choice ID [1]</b> - for example <Code>[1]esPollChoice1</Code> is the ID for the first choice in the poll.</li>
+                <li><b>total votes [2]</b> - for example <Code>[2]esPollChoice1</Code> is the amount of total votes received for the first choice.</li>
+                <li><b>channel point votes [3]</b> - for example <Code>[3]esPollChoice1</Code> is the amount of channel point votes received for the first choice. </li>
+                <li><b>bits votes [4]</b> - for example <Code>[4]esPollChoice1</Code> is the amount of bits votes received for the first choice.</li>
+                </ol> </p>
+                <p><b class="btnbasic" id="btngreen">Poll Begin</b> </p>
+                <p>Extension trigger for this event is <code>EventSub Poll Begin</code>. <br> 
+                The premade button will be triggered every time you start a new poll. 
+                Math Trigger Pull Values: 
+                <ol>
+                <li><b>Value 1</b> Title of the poll </li>
+                <li><b>Value 2</b> Poll ID </li>
+                <li><b>Value 3</b> Amount of choices in the poll </li>
+                <li><b>Value 4</b> When the poll ends (timestamp) </li>
+                <li><b>Value 5</b> Time remaining until the poll ends (in milliseconds) </li>
+                </ol>
+                </p>
+                <p><b class="btnbasic" id="btnorange">Poll Progress</b> </p>
+                <p>Extension trigger for this event is <code>EventSub Poll Progress</code>. <br> 
+                The premade button will be triggered every time there's any change in the votes in the poll.
+                Math Trigger Pull Values: 
+                <ol>
+                <li><b>Value 1</b> Title of the poll </li>
+                <li><b>Value 2</b> Poll ID </li>
+                <li><b>Value 3</b> Amount of choices in the poll </li>
+                <li><b>Value 4</b> Total poll votes </li>
+                <li><b>Value 5</b> When the poll ends (timestamp) </li>
+                <li><b>Value 6</b> Time remaining until the poll ends (in milliseconds) </li>
+                </ol>
+                </p>
+                <p><b class="btnbasic" id="btndarkblue">Poll End</b> </p>
+                <p>Extension trigger for this event is <code>EventSub Poll End</code>. <br> 
+                The premade button will be triggered once when the poll ends.
+                Math Trigger Pull Values: 
+                <ol>
+                <li><b>Value 1</b> Title of the poll </li>
+                <li><b>Value 2</b> Poll ID</li>
+                <li><b>Value 3</b> Amount of choices in the poll </li>
+                <li><b>Value 4</b> Total poll votes </li>
+                <li><b>Value 5</b> When the poll ended (timestamp) </li>
+                <li><b>Value 6</b> Winning choice:  </li>
+                <ol>
+                <li><b>Single Winner</b> - name of the stack that won the poll if there is a single winner, i.e. "esPollChoice1". Get its title, amount of votes etc. by peeking in the winning stack.  </li>
+                <li><b>Draw</b> - if there are two or more choices with the same amount of votes, value 6 will be "draw", with an optional pull for value 7 and 8.  
+                <ul>
+                 <li><b>Value 7</b>- Amount of winning choices with the same amount of votes.</li> 
+                 <li><b>Value 8</b>- String containing all winning choices stack names separated by |. I.E. "esPollChoice2|esPollChoice3". You can use String: Position and String: Clamp to extract them. </li>  
+                </ul>
+                </li>
+                </ol>
+                </ol>
+                </p>
+                <p>  Poll Reset button which clears all variables and stacks will be triggered as well. If you do not wish to clear them, you can remove this command (all the way at the end).
+            </div>
+                <h4>Prediction Triggers:</h4>
+                <p>There are triggers for Prediction begin, progress, lock and ended.</p>
+                <button id="example" onclick="toggle_visibility('predtriggers')">Expand</button>    <div id="predtriggers"  style="display:none">
+                <p> Each time a new prediction starts, there will be two stacks created for each outcome:<code>esOutcome1</code>  and <code>esOutcome2</code>. The stacks will be updated every time there's any change in votes. The stacks contain: 
+                 <ol>
+                 <li><b>title [0]</b>> - for example <Code>[0]esOutcome1</Code> is a title for the first outcome.</li>
+                 <li><b>outcome ID [1]</b>> - for example <Code>[1]esOutcome1</Code> is the ID for the first outcome.</li>
+                 <li><b>outcome color [2]</b> - for example <Code>[2]esOutcome1</Code> is the color for the first outcome.</li>
+                 <li><b>users participating [3]</b>> - for example <Code>[3]esOutcome1</Code> is the amount of users who votes for the first outcome.</li>
+                 <li><b>channel points used [4]</b>> - for example <Code>[4]esOutcome1</Code> is the amount of channel point votes used for the first outcome. </li>
+                 </ol> </p>
+                <p> There will be also two stacks created for each outcome predictors: <code>esOutcome1_predictors</code> and <code>esOutcome2_predictors</code>. Each predictor stack contains predictor objects: {name, login, id, points used, points won}. <br> 
+                 How to parse the object to create a stack for a specific predictor: 
+                <ol>
+                <li>
+                <b>Stack: Peek</b> Peek into the stack to retrieve the stringified object. 
+                <li><b>String: Replace</b> Replace all single quotes for double quotes in the variable from Stack Peek.</li>
+                <li><b>Stack: Parse String</b> Parse the stringified object into a new stack.</li>
+                <li>The new predictor stack will contain:
+                    <ol>
+                        <li><b>name [0]</b> display name of the viewer</li>
+                        <li><b>login [1]</b> username of the viewer</li>
+                        <li><b>user ID [2]</b> user ID of the viewer</li>
+                        <li><b>channel points used [3]</b> how many points the viewer used for the specific outcome </li>
+                        <li><b>channel points won [4]</b> how many points the viewer won</li>
+                    </ol>
+                </li>
+
+                </li>
+                 </ol>
+
+                <p> <i>Examples working with the stacks mentioned above can be found in the premade buttons.</i>
+
+
+
+                 <p><b class="btnbasic" id="btngreen">Prediction Begin</b> </p>
+                 <p>Extension trigger for this event is <code>EventSub Prediction Begin</code>. <br> 
+                 The premade button will be triggered every time you start a new prediction.
+                 Math Trigger Pull Values: 
+                 <ol>
+                 <li><b>Value 1</b> Title of the prediction </li>
+                 <li><b>Value 2</b> Prediction ID </li>
+                 <li><b>Value 3</b> Prediction locks at timestamp</li>
+                 <li><b>Value 4</b> Time remaining until the prediction locks in milliseconds </li>
+                 </ol>
+                 </p>
+                 <p><b class="btnbasic" id="btnorange">Prediction Progress</b> </p>
+                 <p>Extension trigger for this event is <code>EventSub Prediction Progress</code>. <br> 
+                 Math: Trigger pull values are the same as for Prediction Begin.
+                 </p>
+                 <p><b class="btnbasic" id="btnpurple">Prediction Lock</b> </p>
+                 <p>Extension trigger for this event is <code>EventSub Prediction Lock</code>. <br> 
+                 The premade button will be triggered once when the prediction locks.
+                 Math Trigger Pull Values: 
+                 <ol>
+                    <li><b>Value 1</b> Title of the prediction </li>
+                    <li><b>Value 2</b> Prediction ID </li>
+                    <li><b>Value 3</b> Prediction locked at timestamp</li>
+                    </ol>
+                 <p><b class="btnbasic" id="btndarkblue">Prediction End</b> </p>
+                 <p>Extension trigger for this event is <code>EventSub Prediction End</code>. <br> 
+                 The premade button will be triggered once when the prediction ends (i.e. when the streamer selects the final outcome).
+                 Math Trigger Pull Values: 
+                 <ol>
+                    <li><b>Value 1</b> Title of the prediction </li>
+                    <li><b>Value 2</b> Prediction ID </li>
+                    <li><b>Value 3</b> Prediction locked at timestamp</li>
+                    <li><b>Value 4</b> Prediction winning outcome - name of the stack. Will be either "esOutcome1" or "esOutcome2". You can peek into the stack to pull its title, users participating, points used etc. </li>
+                    </ol>
+                <p> Prediction Reset button which clears all variables and stacks will be triggered as well. If you do not wish to clear them, you can remove this command (all the way at the end).
+                 </p>
+                </div>
+
+                 <h4>Hype Train Triggers:</h4>
+                 <p>There are triggers for Hype Train begin, progress and ended.</p>
+                 <button id="example" onclick="toggle_visibility('hypetriggers')">Expand</button>    <div id="hypetriggers"  style="display:none">
+                 <p> Each time a new Hype Train starts, there will be a maximum of two stacks created: <code>esHypeTop1</code> and <code>esHypeTop2</code>. One stack is for top bits contributor and one stack is for top subscription contributor. Make sure to check the size of esHypeTop2 stack, as there might not always be both stacks created (if you get only subscribers but no bits, there will be no bit stack). Each stack contains: 
+        
+                  <ol>
+                  <li><b>display name [0]</b> - for example <Code>[0]esHypeTop1</Code> is the top contributor's display name.</li>
+                  <li><b>login name [1]</b> - for example <Code>[1]esHypeTop1</Code> is the top contributor's login name.</li>
+                  <li><b>user ID [2]</b> - for example <Code>[2]esHypeTop1</Code> is the top contributor's user ID.</li>
+                  <li><b>type [3]</b> - for example <Code>[3]esHypeTop1</Code> is the top contributor's type of contribution. Will be either sub or bits. </li>
+                  <li><b>total points [4]</b> - for example <Code>[4]esHypeTop1</Code> is the the top contributor's total points used. </li>
+                  </ol> </p>
+             
+ 
+                  <p><b class="btnbasic" id="btngreen">Hype Train Begin</b> </p>
+                  <p>Extension trigger for this event is <code>EventSub Hype Train Begin</code>. <br> 
+                  The premade button will be triggered every time a new Hype Train begins.
+                  Math Trigger Pull Values: 
+                  <ol>
+                  <li><b>Value 1</b> Hype Train ID </li>
+                  <li><b>Value 2</b> Total points contributed to the Hype Train </li>
+                  <li><b>Value 3</b> The current level of the Hype Train.</li>
+                  <li><b>Value 4</b> The number of points contributed to the Hype Train at the current level </li>
+                  <li><b>Value 5</b> The number of points required to reach the next level </li>
+                  <li><b>Value 6</b> The time when the Hype Train expires (timestamp) </li>
+                  <li><b>Value 7</b> Most recent contributor's viewer name. </li>
+                  <li><b>Value 8</b> Most recent contributor's login. </li>
+                  <li><b>Value 9</b> Most recent contributor's user ID. </li>
+                  <li><b>Value 10</b> Most recent contribution type (bits or subscription). </li>
+                  <li><b>Value 11</b> Total contributed (for the last contribution) </li>
+                  <li><b>Value 12</b> Time remaining until Hype Train expires (in milliseconds) </li>
+                  </ol>
+                  </p>
+                  <p><b class="btnbasic" id="btnorange">Hype Train Progress</b> </p>
+                  <p>Extension trigger for this event is <code>EventSub Hype Train Progress</code>. <br> 
+                    The premade button will be triggered every time there's a progress in Hype Train. <br>
+                  Math: Trigger pull values are the same as for Hype Train Begin.
+                  </p>
+                  <p><b class="btnbasic" id="btndarkblue">Hype Train End</b> </p>
+                  <p>Extension trigger for this event is <code>EventSub Hype Train End</code>. <br> 
+                  The premade button will be triggered once when the Hype Train ends.
+                  Math Trigger Pull Values: 
+                  <ol>
+                    <li><b>Value 1</b> Hype Train ID </li>
+                    <li><b>Value 2</b> Total points contributed to the Hype Train </li>
+                    <li><b>Value 3</b> The current level of the Hype Train.</li>
+                    <li><b>Value 4</b> Time when the Hype Train ended. </li>
+                    <li><b>Value 5</b> Time when the Hype Train cooldown ends so that the next Hype Train can start. </li>
+                    <li><b>Value 6</b> Time remaining until Hype cooldown ends (in milliseconds). </li>
+                     </ol>
+                     <p> Hype Train Reset button which clears all variables and stacks will be triggered as well. If you do not wish to clear them, you can remove this command (all the way at the end).
+                </p>
+            </div>
+
+            <h4>Troubleshooting</h4>
+            <p>Considering the extension relies on an external server acting as a relay between Twitch and LioranBoard, there might be some downtimes for hot fixes or updates in the early stages. You will be alerted of any upcoming maintenance via yellow notification message in your Receiver and in your browser's console log. </p>
+            <p>If you happen to not receive any alerts for longer periods of time, please follow these steps: </p>
+            <ol>
+            <li>Check your itchKey in the INIT button. Do not wrap it in the quotes and make sure you copied the whole thing. If you shared or accidentally leaked your key, it might have been revoked. Please contact Christinna#9031 on Discord. </li>
+            <li>Double check your channel ID in the INIT button, that it's the same one you authorized in Setup step 1. Your channel ID is NOT your channel name, it's a string of numbers. One of the easy methods to retrieve it is using the Get Channel ID default extension. </li>
+            <li>Go back to the <a href="https://christinna9031.github.io/LioranBoard-Files/eventsub_auth.html">authorization page </a> and reauthorize the app. Make sure you checked all the events you wish to listen to. Upon successful authorization, look at the log it generates - you should see "Subscription already exists", which means the subsription has been succesfully activated the first time you authorized it. If you see any other errors, such as verification pending even after 1 hour of authorizing it multiple times, please contact Christinna#9031 on Discord.</li>
+            <li>If all the steps above did not help you, please go to your Transmitter, refresh it and make sure it's connected to the Receiver. Go to the Eventsub Webhooks tab and Enable Message Logging (you will need to reenable it if you reload your Transmitter again). Give it some time to log some messages and send me the log from each tab.  </li>
+            </ol>
+
             
                   
                 </section>

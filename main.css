@@ -684,6 +684,12 @@ form {
     font-weight: 400;
     padding-top:20px; }
 
+    h4 {
+      font-size: 0.7em;
+      line-height:0.7em;
+      font-weight: 600;
+      padding-top:10px; }
+
 
 
     .videowrap {
@@ -731,18 +737,8 @@ form {
   white-space: -o-pre-wrap; 
 }
   
-  h4 {
-    font-size: 0.6em;
-    line-height:0.6em;
-    font-weight: 400; }
- }
   
-  h5 {
-    font-size: 1.6rem;
-    line-height: 1.5;
-    letter-spacing: -.05rem;
-    margin-top: 0; }
-  
+
 
   p {
     margin-top: 0;

@@ -178,6 +178,7 @@
                         <li>Once the extension successfully connects, you should see a yellow notification message in your Receiver: <code>EventSub connection opened! Listening for events.</code> It means the extension is ready to receive event triggers that you authorized it to listen to in step 1. </li>
                                          </li>
                      </ol>  
+               <p> <b id="important"> IMPORTANT: </b> <b> Do not share your itchKey or the websocket endpoint you're connecting to (it can be seen in the network tab when you press F12 in your browser). They should be kept private at all times. I do not take responsibility for any loss of data if you accidentally expose them to public. </b>
 
                 <h4>Polls Triggers:</h4>
                 <p>There are triggers for poll begin, progress and ended. </p>
@@ -372,7 +373,27 @@
             <ol>
             <li>Check your itchKey in the INIT button. Do not wrap it in the quotes and make sure you copied the whole thing. If you shared or accidentally leaked your key, it might have been revoked. Please contact Christinna#9031 on Discord. </li>
             <li>Double check your channel ID in the INIT button, that it's the same one you authorized in Setup step 1. Your channel ID is NOT your channel name, it's a string of numbers. One of the easy methods to retrieve it is using the Get Channel ID default extension. </li>
-            <li>Go back to the <a href="https://christinna9031.github.io/LioranBoard-Files/eventsub_auth.html">authorization page </a> and reauthorize the app. Make sure you checked all the events you wish to listen to. Upon successful authorization, look at the log it generates - you should see "Subscription already exists", which means the subsription has been succesfully activated the first time you authorized it. If you see any other errors, such as verification pending even after 1 hour of authorizing it multiple times, please contact Christinna#9031 on Discord.</li>
+            <li> Verify your subscription is active and you're connected to it: 
+                <ol>
+                <li>
+                    Open Transmitter in a browser outside of OBS. Make sure you see the yellow notification message in your Receiver saying that it's connected to Eventsub and listening to events. If not, reload Transmitter and then press F12 in your browser and switch to Console tab. Leave it open for now. 
+                </li>
+                <li>
+                    Go to the <a href="https://christinna9031.github.io/LioranBoard-Files/eventsub_auth.html">authorization page </a> and reauthorize the app. Make sure you checked all the events you wish to listen to and authorize it again. 
+                </li>
+                <li>
+                    Upon successful authorization, two things should happen: 
+                    <ul>
+                    <li>You should see a log it generated, it will say "Subscription already exists", which means the subscription has been successfully activated the first time you authorized it. If you see any other errors, please contact Christinna#9031 on Discord. </li>
+                    <li>Back in your Transmitter tab, you should see a message "Eventsub: Verification request for XXX" where XXX is the event you subscribed to. If you do not see the message and you're sure you're connected, it means either your itchKey or channel id in the INIT button is wrong.  </li>
+                    </ul>
+                </li>
+                <li></li>
+                </ol>
+                
+                Open Transmitter in a browser outside of OBS. 
+                
+                Go back to the <a href="https://christinna9031.github.io/LioranBoard-Files/eventsub_auth.html">authorization page </a> and reauthorize the app. Make sure you checked all the events you wish to listen to. Upon successful authorization, look at the log it generates - you should see "Subscription already exists", which means the subsription has been succesfully activated the first time you authorized it. If you see any other errors, such as verification pending even after 1 hour of authorizing it multiple times, please contact Christinna#9031 on Discord.</li>
             <li>If all the steps above did not help you, please go to your Transmitter, refresh it and make sure it's connected to the Receiver. Go to the Eventsub Webhooks tab and Enable Message Logging (you will need to reenable it if you reload your Transmitter again). Give it some time to log some messages and send me the log from each tab.  </li>
             </ol>
 

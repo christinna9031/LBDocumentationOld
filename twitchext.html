@@ -169,16 +169,18 @@
                      <ol>
                      <li>Follow <a href="https://christinna9031.github.io/LioranBoard-Files/eventsub_auth.html">this link</a> and its instructions to authorize the extension to listen to Twitch alerts. Make sure you're authorizing it on your Twitch streaming account. <br> You can have a maximum of one Twitch account per your Itch key authorized. Bot accounts for testing are OK, but please de-authorize them once you're done testing by <a href="https://www.twitch.tv/settings/connections">disconnecting them from Twitch EvenTsub</a> in your Connections tab. Otherwise they might get automatically removed. </li>
                      <li><a href="https://christinna9031.github.io/LBDocumentation/setup.html#extensions">Install the extension.</a> </li>
-                     <li>Go to the premade deck and edit the INIT button: 
+                     <li>Go to the premade deck and edit the <b>INIT button</b>: 
                         <ul>
                         <li><code>itchKey</code> - key you received when you purchased the extension on Itch.io. <br> If you did not receive your key, it should be in your purchase confirmation email. Contact Christinna#9031 on Discord if you're having any technical issues retrieving it.</li>
-                        <li><code>channel_id</code> - your channel ID you authorized in step 1. You can use a premade variable <code>/$channel_id$/</code> if you're not using a bot account with LB. In that case you will find your channel id in your Receiver/connect.ini file under [account] section.</li>
+                        <li><code>channel_id</code> - your channel ID you authorized in step 1. You can use a premade variable <code>/$channel_id$/</code> if you're not using a bot account with LB (in that case you will find your channel id in your Receiver/connect.ini file under [account] section/).</li>
                         <b id="important">NOTE:</b> You do NOT use quotes in these parameter boxes.     </ul>
                         <li>Save the changes you made in the INIT button by pressing DONE twice. Refresh/open your Transmitter.</li>
                         <li>Once the extension successfully connects, you should see a yellow notification message in your Receiver: <code>EventSub connection opened! Listening for events.</code> It means the extension is ready to receive event triggers that you authorized it to listen to in step 1. </li>
                                          </li>
                      </ol>  
-               <p> <b id="important"> IMPORTANT: </b> <b> Do not share your itchKey or the websocket endpoint you're connecting to (it can be seen in the network tab when you press F12 in your browser). They should be kept private at all times. I do not take responsibility for any loss of data if you accidentally expose them to public. </b>
+               <p> <b id="important"> IMPORTANT: </b> <b> Do not share your itchKey or the websocket endpoint you're connecting to (it can be seen in the network tab when you press F12 in your browser). They should be kept private at all times. I do not take responsibility for any loss of data if you accidentally expose them to public. </b> 
+
+             <p><b> You can check your Eventsub connection status in the Eventsub tab in your Transmitter.</b> <br><img src="https://i.imgur.com/8GIdHKS.png"></p>
 
                 <h4>Polls Triggers:</h4>
                 <p>There are triggers for poll begin, progress and ended. </p>
@@ -229,11 +231,7 @@
                 <li><b>Value 6</b> Winning choice:  </li>
                 <ol>
                 <li><b>Single Winner</b> - name of the stack that won the poll if there is a single winner, i.e. "esPollChoice1". Get its title, amount of votes etc. by peeking in the winning stack.  </li>
-                <li><b>Draw</b> - if there are two or more choices with the same amount of votes, value 6 will be "draw", with an optional pull for value 7 and 8.  
-                <ul>
-                 <li><b>Value 7</b>- Amount of winning choices with the same amount of votes.</li> 
-                 <li><b>Value 8</b>- String containing all winning choices stack names separated by |. I.E. "esPollChoice2|esPollChoice3". You can use String: Position and String: Clamp to extract them. </li>  
-                </ul>
+                <li><b>Draw</b> - if there are two or more choices with the same amount of votes, <b>value 6</b> will be "draw" and <b>value 7</b> will be the amount of winning choices with the same amount of votes. <br> There will be a new stack <code>esPollWinners</code> created containing all winning choices stack names. You can first peek into the stack to pull winners stack names and then peek into the individual stacks to pull title, amount of votes etc. 
                 </li>
                 </ol>
                 </ol>
@@ -369,32 +367,24 @@
 
             <h4>Troubleshooting</h4>
             <p>Considering the extension relies on an external server acting as a relay between Twitch and LioranBoard, there might be some downtimes for hot fixes or updates in the early stages. You will be alerted of any upcoming maintenance via yellow notification message in your Receiver and in your browser's console log. </p>
-            <p>If you happen to not receive any alerts for longer periods of time, please follow these steps: </p>
+            <p><b>If you happen to not receive any alerts for longer periods of time, please follow these steps: </b></p>
             <ol>
-            <li>Check your itchKey in the INIT button. Do not wrap it in the quotes and make sure you copied the whole thing. If you shared or accidentally leaked your key, it might have been revoked. Please contact Christinna#9031 on Discord. </li>
-            <li>Double check your channel ID in the INIT button, that it's the same one you authorized in Setup step 1. Your channel ID is NOT your channel name, it's a string of numbers. One of the easy methods to retrieve it is using the Get Channel ID default extension. </li>
-            <li> Verify your subscription is active and you're connected to it: 
+            <li>Check you're connected. In your <b>Transmitter</b>, go to Eventsub Webhook tab. The status should say <b>connected</b></li>
+            <li>Check your <b>itchKey</b> in the INIT button. Do not wrap it in the quotes and make sure you copied the whole thing. If you do not remember or lost your key, go to the download link that was sent to your email from Itch after you purchased the extension. <br> If you shared or accidentally leaked your key, it might have been revoked. Please contact Christinna#9031 on Discord. </li>
+            <li>Double check your <b>channel ID</b> in the INIT button, it has to be the same one you authorized in Setup step 1. Your channel ID is NOT your channel name, it's a string of numbers. One of the easy methods to retrieve it is using the Get Channel ID default extension. </li>
+            <li> Verify your <b>subscription is active</b>: 
                 <ol>
-                <li>
-                    Open Transmitter in a browser outside of OBS. Make sure you see the yellow notification message in your Receiver saying that it's connected to Eventsub and listening to events. If not, reload Transmitter and then press F12 in your browser and switch to Console tab. Leave it open for now. 
-                </li>
                 <li>
                     Go to the <a href="https://christinna9031.github.io/LioranBoard-Files/eventsub_auth.html">authorization page </a> and reauthorize the app. Make sure you checked all the events you wish to listen to and authorize it again. 
                 </li>
                 <li>
-                    Upon successful authorization, two things should happen: 
-                    <ul>
-                    <li>You should see a log it generated, it will say "Subscription already exists", which means the subscription has been successfully activated the first time you authorized it. If you see any other errors, please contact Christinna#9031 on Discord. </li>
-                    <li>Back in your Transmitter tab, you should see a message "Eventsub: Verification request for XXX" where XXX is the event you subscribed to. If you do not see the message and you're sure you're connected, it means either your itchKey or channel id in the INIT button is wrong.  </li>
-                    </ul>
+                    Upon <b>successful authorization</b>, you should see a log it generated, it will say "Subscription already exists", which means the subscription has been successfully activated the first time you authorized it. If you see any other errors, please contact Christinna#9031 on Discord.
+                    <button id="example" onclick="toggle_visibility('eventsubtroubleshoot2')">Show example</button>
+                    <div id="eventsubtroubleshoot2" style="display: none;"><img src="https://i.imgur.com/x8MaMXX.png" /><br /></div>    
                 </li>
-                <li></li>
                 </ol>
-                
-                Open Transmitter in a browser outside of OBS. 
-                
-                Go back to the <a href="https://christinna9031.github.io/LioranBoard-Files/eventsub_auth.html">authorization page </a> and reauthorize the app. Make sure you checked all the events you wish to listen to. Upon successful authorization, look at the log it generates - you should see "Subscription already exists", which means the subsription has been succesfully activated the first time you authorized it. If you see any other errors, such as verification pending even after 1 hour of authorizing it multiple times, please contact Christinna#9031 on Discord.</li>
-            <li>If all the steps above did not help you, please go to your Transmitter, refresh it and make sure it's connected to the Receiver. Go to the Eventsub Webhooks tab and Enable Message Logging (you will need to reenable it if you reload your Transmitter again). Give it some time to log some messages and send me the log from each tab.  </li>
+            <li>If all the steps above did not help you, please go to your <b>Transmitter</b>, reload it and make sure it's connected to the Receiver. Go to the Eventsub Webhooks tab and double check the status says <b>connected</b>. You can now <b>Enable Message Logging</b>, which should log all the Eventsub events from Twitch (you need to reenable it if you reload Transmitter again). Give it some time to log some messages (try to run a test poll or prediction on your channel) and send me the log from each tab. <br> 
+            </li>
             </ol>
 
             

@@ -942,28 +942,25 @@ Selectors which generally specify multiple lights, <code>all</code>, <code>group
      <b>Description: </b>
      Google Sheets is an extension which lets you retrieve and modify data in your Google Sheets.  <br>
      <b>Available commands:</b>  
-    <ul><li>Get Data, Append Data, Update Data, Batch Update, Copy Paste, Clear Data </li>
+    <ul><li>Get Data, Append Data, Update Data, Batch Update, Find Data, Copy Paste, Clear Data </li>
     <li>Auto Fill, Auto Sort, Randomize, Find and replace, Delete Duplicates, Split text into columns </li>
     <li>Merge Cells, Unmerge Cells, Insert Range, Delete range</li>
     <li>Create Spreadsheet, Duplicate Sheet, Add Sheet</li></ul>
-   
-     <b>Preview:</b><br><iframe width="420" height="315"
-     src="https://www.youtube.com/embed/XXX?controls=1" allowfullscreen>
-     </iframe><br></p>
-     <p><b>How it works</b><br>
+     <h4>How it works</h4><p>
      The extension utilizes Google Sheets API endpoints to read and write data. <br>
-     While reading data is easy, as it only requires an API key, writing data is a bit more complex. The extension ulitizes a custom made AWS Rest API to retrieve your refresh token, as this is only possible server-side and cannot be done from your Transmitter.  <br>
-     Exchanging refresh token for a temporary access token is also retrieved through the same API, as it would otherwise expose my Google Cloud Project credentials and could be potentially abused. <br> 
-     AWS API Gateway is secure and encrypted, your credentials are simply passed to Google Sheets API and never collected or stored. <br>
+     While reading data is easy, as it only requires an API key, writing data is more complex. The extension ulitizes a custom made API to retrieve your refresh token, as this is only possible server-side and cannot be done from your Transmitter.  <br>
+     <b>Important:</b> This extension can only modify public spreadsheets that have been previously created with it. It cannot modify or delete any of your other Drive files. 
      <p><i>Note for other devs: If you would like to use your own project credentials instead, you will need a bit of Google Cloud and JS coding knowledge, but it is possible to edit the extension for this purpose. I have added comments inside the .lbe file on what modifications to make and some very basic explanation on how to retrieve your refresh token. </i> </p>
      </p>
-     <p><b>Setup:</b> </p>
+     <p><h4>Setup</h4> </p>
+     <button id="example" onclick="toggle_visibility('setupsheets')">Show all steps</button>    
+     <div id="setupsheets"  style="display:none"> 
      <ol>
      <li><b>Install the extension:</b> Follow <a href="https://christinna9031.github.io/LBDocumentation/setup.html#extensions">this link</a> to properly install the extension.</li>
      <li><b>Configure INIT button:</b> You should see a new premade deck in your Receiver. Right click on the red INIT button - edit commands. Scroll down to the Send to extension command and fill out the following fields: (if you cannot see them, reinstall the extension and refresh your Transmitter). </li>
         <ul>
          <li>
-        <b>refreshToken</b> - you need to allow the app to access your Google Sheets and retrieve the refresh token. Please follow <a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=772733629610-952dp5qu1gm9802ka1t6f73o6u8m7drn.apps.googleusercontent.com&redirect_uri=https://christinna9031.github.io/LioranBoard-Files/sheetsauth.html&response_type=code&scope=https://www.googleapis.com/auth/drive.file&access_type=offline&prompt=consent" target="_blank">this link</a> and all its instructions after you get redirected. 
+        <b>refreshToken</b> - you need to allow the extension to access your Google Sheets and retrieve the refresh token. Please follow <a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=772733629610-952dp5qu1gm9802ka1t6f73o6u8m7drn.apps.googleusercontent.com&redirect_uri=https://christinna9031.github.io/LioranBoard-Files/sheetsauth.html&response_type=code&scope=https://www.googleapis.com/auth/drive.file&access_type=offline&prompt=consent" target="_blank">this link</a> and all its instructions after you get redirected. 
          </li>   
          <li>
         <b>ApiKey</b> - you will need your own Google API Key: 
@@ -971,47 +968,67 @@ Selectors which generally specify multiple lights, <code>all</code>, <code>group
         <li>
             Go to the <a href="https://console.cloud.google.com/">Google Cloud Console.</a>
             <li>Click the project drop-down and select or create the project for which you want to add an API key.</li>
-            <li>Click the menu button and select APIs & Services. </li>
-            <li>Click on the + Enable APIs and services. Search for Google Sheets, click on the search result - Enable.  </li>
-            <li>Click the menu button again and select APIs & Services > Credentials.  </li>
-            <li>On the Credentials page, click + Create Credentials > API key. You can optionally restrict it to Google Sheets API only. </li>
-            <li>Copy the newly create key and paste it in the ApiKey field in your INIT button.</li>
+            <li>Click the menu button and select <b>APIs & Services</b>. </li>
+            <li>Click on the  <b>+ Enable APIs and services</b>. Search for Google Sheets, click on the search result -  <b>Enable</b>. Repeat the same process for Google Drive API (search and enable it as well).   </li>
+            <li>Click the menu button again and select  <b>APIs & Services > Credentials</b>.  </li>
+            <li>On the Credentials page, click <b>+ Create Credentials > API key</b>. You can optionally restrict it to Google Sheets API + Google Drive API only. </li>
+            <li>Copy the newly created key and paste it in the <code>apiKey</code> field in your INIT button.</li>
             <button id="example" onclick="toggle_visibility('sheetsapikey')">Show video guide</button>
             <div id="sheetsapikey" style="display: none;"> <div class="video"><iframe 
-                src="https://www.youtube.com/embed/oDCYJ33uu5o?controls=1" allowfullscreen></iframe></div>
+                src="https://www.youtube.com/embed/JFtBLf44ONs?controls=1" allowfullscreen></iframe></div>
                 </iframe><br></div></li>
         </li></ol>
-        <li><b>userKey</b> - key which was provided to you on the Itch.io purchase page. You can also click on the purchase confirmation link that was sent to your email to retrieve it. If you have any issues retrieving your key, please join our <a href="https://discord.gg/dXez8Zh"> Discord server</a> and ask for assistance or directly DM Christinna#9031. <br>
+        <li><b>itchKey</b> - key which was provided to you on the Itch.io purchase page. You can click on the purchase confirmation link that was sent to your email to retrieve it again. If you have any issues retrieving your key, please join our <a href="https://discord.gg/dXez8Zh"> Discord server</a> and ask for assistance or directly DM Christinna#9031. <br>
         <i>Note: This is a randomly generated key, which protects your anonymity, while allowing me to monitor any potential abuse of the extension, as the project quota is shared among all the extension users. </i>         
         </li>
         <li><b>ShowAlerts</b> - whether you want to show yellow notification messages for successful requests. If you set it to false, only errors are shown.</li>
         
          </li>
-         <li>You can optionally fill out the <b>spreadsheetID</b> in Math:Change Variable command if you're going to use the extension only for one specific SpreadSheet. <br>Spreadsheet ID can be retrieved by going to your spreadsheet in the browser and copying it from the URL: <code>https://docs.google.com/spreadsheets/d/YOURSPREADSHEETID/edit?usp=sharing</code></li> 
+         <li>You can optionally fill out the <b>spreadsheetID</b> in Math:Change Variable command if you're going to use the extension only for one specific SpreadSheet. <p id="important"> Remember you must use Create Spreadsheet button first as this extension can only modify spreadsheets specifically created with it. The Spreadsheet also has to be made public (which the Create Spreadsheet button will do for you).</p><p>Spreadsheet ID can be retrieved by going to your spreadsheet in the browser and copying it from the URL: <code>https://docs.google.com/spreadsheets/d/YOURSPREADSHEETID/edit?usp=sharing</code></li> 
         </ul>
-        <li><b>Configure OPTIONS button:</b> Inside the button you can choose which extension commands you wish to use and display in your Extension drop down menu (this is to prevent clutter as there are a lot of them). Select true to display it or false to hide it and press the button. <br> Default commands which are always displayed after pressing INIT button: Get Data, Append Data, Update Data, Sort Range.</li>
+        <li><b>Configure OPTIONS button:</b> Inside the button you can choose which extension commands you wish to use and display in your Extension drop down menu (this is to prevent clutter as there are a lot of them). Select true to display it or false to hide it and press the button. <br> Default commands which are always displayed after pressing INIT button: Get Data, Append Data, Update Data, Batch Update, Find Data, Sort Range.</li>
         <li>Your basic setup is now done. You're ready to start using the extension! </li>   </ol>
-       
-       <p> <b style="color: crimson;font-weight: 1000;">IMPORTANT:</b> In order for this extension to work properly, make sure <b>Sharing is set to 'Anyone with the link'</b> for any SpreadSheet you intend to use with it. 
-        
-        <button id="example" onclick="toggle_visibility('sheetsaccess')">Show video guide</button>
-        <div id="sheetsaccess" style="display: none;">       <a href="https://gyazo.com/923b069e7cacc9d9950b6ccf6ab1770c"><video alt="Video from Gyazo" width="70%" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/923b069e7cacc9d9950b6ccf6ab1770c.mp4" type="video/mp4" /></video></a>
-            </iframe><br></div>
+        </div>
+        <h4>Walkthrough</h4>
+       <p>I have created a walkthrough with examples showing how to use the extension. <br> Please follow buttons number 1-15 in the specified order while looking at your spreadsheet and commands inside the button to see what they're doing to better understand how to use them. <br>
+        <button id="example" onclick="toggle_visibility('walkthrough')">Show all steps</button>    
+        <div id="walkthrough"  style="display:none">       
 
-        <p><b>Parameters</b><br>
-        A lot of buttons share the same parameters, which are going to be skipped in the Buttons section below: 
+        <ol>
+        <li><b>Create Spreadsheet</b> - we are starting with this button, because our extension can only modify spreadsheets we previously created with it. Go ahead and create Testing Spreadsheet. A new URL should open in your browser with your newly created spreadsheet (or you can go to <a href="https://docs.google.com/spreadsheets">https://docs.google.com/spreadsheets</a>). We will work with this spreadsheet from now on, so keep it open to see what is happening when you press the next buttons. </li>       
+        <li><b>Append by Value</b> - this command will append a few names to our sheet by using a single variable containing all the values. | separator marks one cell. </li>
+        <li><b>Append by Stack</b> - you can also append values by stack. In our example we append some points to our previously created user names. </li>
+        <li><b>Update by Value</b> - this is the same as Append by Value command, except it will override cells if they already contain values. In our example we update a cell with a formula that calculates the total amount of points of all the users and immediately returns the calculated value in a stack called 'updated'. This is to show that you can write simple values into your sheets, but also complex formulas! </li>
+        <li><b>Update by Stack</b> - this is the same as Append by Stack command, except it will override cells if they already contain values. In our example we add some months to our list of users.</li>
+        <li><b>Get Data</b> - this command simply retrieves data by range. We retrieve all users, their points and months by columns, which will be saved in 3 separate stacks: getData1 (containing names), getData2 (containing points) and getData3 (containing months). </li>
+        <li><b>Find Data</b> - to look up an individual user, we can use find data command. In this case we're trying to look for Melonax within our usernames and we want to return the whole row. We want to know what her points and months are. All should be saved in foundData stack now. </li>
+        <li><b>Sort Range</b> - we can sort the users by their points, starting from the one with the most amount of points.</li>
+        <li><b>Auto Fill</b> - in our example we auto fill more months </li>
+        <li><b>Find and Replace</b> - we search for 'ju' (in June and July) and replace it with 'SUMMER:'. Because why not. </li>
+        <li><b>Split Text</b> - now that we have a called 'SUMMER:ne' and 'SUMMER:ly' from our previous command, we can split them into 4 spells, using : as delimiter.  </li>
+        <li><b>Batch Update</b> - extremely useful command to update multiple ranges at once. In our example we add more users and their points to the list.</li>
+        <li><b>Randomize</b> - we shuffle the points around and randomly assign them to our users. They will be surely happy about that... </li>
+        <li><b>Clear Data</b> - now we will just clear all the points. Our users can start all over! </li>
+        <li><b>Delete Duplicates</b> - as you might have noticed, we've got two Melonax entries in our user list. With this command we can easily find the duplicate one and delete it. </li>
+        </ol>
+       </div>
+
+       
+        <h4>Parameters</h4>
+        <p>A lot of buttons share the same parameters, which are going to be skipped in the Buttons section below. 
+         <br>   <button id="example" onclick="toggle_visibility('sheetparams')">Show all parameters</button>    
+            <div id="sheetparams"  style="display:none"> 
         <ol>
         <li> <code>SpreadsheetID</code> - you can either fill it out manually for each button or set up spreadsheetID variable in your INIT button if you intend to use a single Spreadsheet. <br> 
         Spreadsheet ID can be retrieved by going to your spreadsheet in the browser and copying it from the URL: 'https://docs.google.com/spreadsheets/d/YOURSPREADSHEETID/edit?usp=sharing'</li>
         <li><code>SheetName</code> - name of the particular Sheet you want to Get or Edit data in. <Br>
-         <b>Important:</b> The extension automatically converts your sheet name to your sheet ID to make it easier to work with. If you rename a sheet to another sheet's name that previously existed in your SpreadSheet (i.e. Sheet1 becomes Sheet2 and Sheet2 becomes Sheet1), you must completely close and reopen Transmitter to reset your session. Otherwise it will still assign the old sheet ID to the name. 
+         <b id="important">Important:</b> The extension automatically converts your sheet name to your sheet ID to make it easier to work with. If you rename a sheet to another sheet's name that previously existed in your SpreadSheet (i.e. Sheet1 becomes Sheet2 and Sheet2 becomes Sheet1), you must completely close and reopen Transmitter to reset your session. Otherwise it will still assign the old sheet ID to the name. 
         </li>
         <li><code>Range</code> - range you wish to Get or Edit data in, such as A1:B10.</li>
-        <li><code>Dimension</code> - major dimension to Get or Edit data in. <br> For example, if you use the Get Data command and set the range to A1:B10 and your dimension to ROWS, it will return 10 stacks, each containing one row (first stack will be A1-B1 values, second one A2-B2 values, etc.). However, if you change your dimension to COLUMNS, it will return 2 stacks, each containing 1 column (first stack will be A1-A10 values and second stack will have B1-B10 values). 
+        <li><code>Dimension</code> - major dimension to Get or Edit data in. <br> For example, if you use the Get Data command and set the range to A1:B10 and your dimension to ROWS, it will return 10 stacks, each containing one row (first stack will be A1-B1 values, second one A2-B2 values, etc.). <br> If you change your dimension to COLUMNS, it will return 2 stacks, each containing 1 column (first stack will be A1-A10 values and second stack will have B1-B10 values). 
         </li>
    
-
-        <li><code>Values</code>(applies to Append Data, Update Data and Batch Update commands) - you can send values to the extension in two diffent ways: 
+        <li><code>Values</code>(applies to Append Data, Update Data and Batch Update commands) - you can send values to the extension in two different ways: 
         <ol>
         <li>A string of values separated by | marking individual cells. For example, if you want to insert values in A1:A7 range (make sure dimension is COLUMNS), you can enter them like this: <code>Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday</code>. Result: <br> <img src="https://i.imgur.com/Nv05PeI.png"></li>
         <li>A stringified stack. All values from the stack will be inserted into the selected range, starting from position 0 and ending with the last position. <br>
@@ -1021,142 +1038,189 @@ Selectors which generally specify multiple lights, <code>all</code>, <code>group
         <li>Use String: Replace command on the newly stringified stack. Replace <code>"</code> with <code>'</code></li>
         <li>Insert the stringified stack variable in the Values field.</li>
         </ol>
+        <button id="example" onclick="toggle_visibility('appenddata')">Show example</button></p>
+            <div id="appenddata"  style="display:none">     
+        <img src="https://i.imgur.com/v5WZyWV.png"></div>
         </li>
         </ol>     
         </li>
-        </ol>
+        </ol></p></div>
         
 
-      <p>  <b>Buttons:</b><br>
-       <p> <b class="btnbasic" id="btnblue">Get Data</b> 
-       <p> Retrieves data based on the range and dimension, and saves them into a stack. <br>
+      <p>  <H4>Buttons</H4>
+        <button id="example" onclick="toggle_visibility('buttonssheet')">Show all buttons</button></p>
+        <div id="buttonssheet"  style="display:none">     
+        <p> <b>Append by value/stack</b> 
+            <p>Appends values to a spreadsheet, either by a single variable or a stack. Must be either a single column or single row. 
+                <br><button id="example" onclick="toggle_visibility('appenddataxx')">Expand</button></p>
+            <div id="appenddataxx"  style="display:none">     
+            <ul>
+                <li><code>inputType</code> - How the data should be interpreted. Default is <a href="https://developers.google.com/sheets/api/reference/rest/v4/ValueInputOption">User Entered.</a> </li>
+            <li><code>InsertType</code>How the input data should be <a href="https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/append#InsertDataOption">inserted</a>.</li>
+            <button id="example" onclick="toggle_visibility('sheetappend')">Show string column example</button>
+            <button id="example" onclick="toggle_visibility('sheetappend2')">Show stack row example</button>
+            <div id="sheetappend" style="display: none;"><img src="https://i.imgur.com/FgaAs16.png" /><br /></div></li>
+            <div id="sheetappend2" style="display: none;"><img src="https://i.imgur.com/eKuBZYD.png" /><br /></div></li>
+        
+            </ul></div>
+        
+            <p> <b>Update Data</b>   
+           <p> Same as Append Data command, except it will update (=overwrite) data in the selected range instead of appending them. <br>
+            <p> <b>Batch Update</b>  <br> 
+           <p> This is a very important button to understand if you want to perform update data batch requests. Instead of sending multiple single requests, use Batch Update button instead. <br> Please remember that you share write request quota with all other users using the extension, so try your best to group up your Update Data requests.<br>
+            <button id="example" onclick="toggle_visibility('batchupdate')">Expand</button>    
+            <div id="batchupdate"  style="display:none">     
+           <ul><li><code>Amount</code> - amount of Update Data requests you're sending</li></ul>
+             <ol>
+            <li>Send 'Google Sheets Batch Update' command and specify the amount of requests.</li>
+            <li>Send all your following Update Data requests as you normally would. <br></li>
+            <li>The extension will queue them up and wait for the last request to send them all at once. If you fail to supply all requests within the next 10 seconds, the queue will be deleted and resetted. Simply said, either all requests are sent or none. </li>
+            </ol>
+           </div>
+        
+        
+        <p> <b>Get Data</b> 
+        <p> Retrieves data based on the range and dimension, and saves them into a stack. <br>
+        <button id="example" onclick="toggle_visibility('getdata')">Expand</button>    
+        <div id="getdata"  style="display:none">     
         <ul>
             <li><code>Render</code> - How values should be represented in the output. Default is <a href="https://developers.google.com/sheets/api/reference/rest/v4/ValueRenderOption">formatted value.</a></li>
         <li><code>Delete Empty</code> - whether to delete empty values before putting them into the stack. </li>
         <li><code>StackName</code> - base name of the stack for the retrieved data. For a base name 'My Stack' and request for data from 2 columns, you will get back 'My Stack1' and 'My Stack2' stacks, each containing 1 row of values. </li>
-
+        
         <button id="example" onclick="toggle_visibility('sheetget')">Show example</button>
         <div id="sheetget" style="display: none;"><img src=" https://i.imgur.com/PKYyDdq.png" /><br /></div></li>
-    </ul>
-
-        <p> <b class="btnbasic" id="btnyellow">Append Data</b> 
-        <p>Appends values to a spreadsheet. The range is used to search for existing data and find a "table" within that range. Values will be appended to the next row of the table, starting with the first column of the table.</p>
-        <p> Please note you can append values either to rows or columns, but not both in the same command. This is to avoid any user erros as it would require more complex inputs.
-        <ul>
-            <li><code>inputType</code> - How the data should be interpreted. Default is <a href="https://developers.google.com/sheets/api/reference/rest/v4/ValueInputOption">User Entered.</a> </li>
-        <li><code>InsertType</code>How the input data should be <a href="https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/append#InsertDataOption">inserted</a>.</li>
-        <button id="example" onclick="toggle_visibility('sheetappend')">Show string column example</button>
-        <button id="example" onclick="toggle_visibility('sheetappend2')">Show stack row example</button>
-        <div id="sheetappend" style="display: none;"><img src="https://i.imgur.com/FgaAs16.png" /><br /></div></li>
-        <div id="sheetappend2" style="display: none;"><img src="https://i.imgur.com/eKuBZYD.png" /><br /></div></li>
-
-        </ul>
-
-        <p> <b class="btnbasic" id="btnorange">Update Data</b>   
-       <p> Same as Append Data command, except it will update (=overwrite) data in the selected range instead of appending them. <br>
-        <code>batchID</code> should be left empty as it is only used if you're doing a Batch Update request.
-        <p> <b class="btnbasic" id="btnpink">Batch Update</b>  <br> 
-       <p> This is a very important button to understand if you want to perform update data batch requests. Want to Update Data in multiple rows or columns at once? Instead of sending multiple single requests, use Batch Update button instead. <br> Please remember that you share write request quota with all other users using the extension, so try your best to group up your Update Data requests. 
-        <ol>
-        <li>Send 'Google Sheets Batch Update' command and specify the number of requests and their ID.</li>
-        <li>Use the same BatchID for your all following Update Data requests and send them as you normally would. <br>
-        The extension will queue them up and wait for the last request to send them all at once. If you fail to supply all requests within the next 10 seconds, the queue will be deleted and resetted. Simply said, either all requests are sent or none. </li>
-        </ol>
-       <p> 
-
-        <p><b class="btnbasic" id="btngreen">Create SpreadSheet</b> </p>
-        <p>Creates a new SpreadSheet.</p>
+        </ul></div>
+        
+        <p> <b>Find Data</b> 
+        <p>Matches a string/value to a cell in a single column or row and returns its coordinates + related values. Must be an exact match. Finds the first occurence only.  <br>
+            <button id="example" onclick="toggle_visibility('finddata')">Expand</button>    
+            <div id="finddata"  style="display:none">     
+         <ul>
+         <li><code>Range </code> -  range to search. Must be exactly one column or one row, i.e. A1:A10 or A1:K1.  </li>
+         <li><code>find</code> -  string to find (must exactly match the cell contents, case sensitive) </li>
+         <li><code>Dimension</code> - select COLUMNS or ROWS depending on whether your range is a column or row. </li>
+         <li><code>Span</code> the span of the rows/columns to retrieve. If set to 0, the whole column/row is returned. If Span is set to 1:5, it will return row 1-5 if you search by column and column A-E if you search by row. </li>
+         <li><code>Variable</code> - variable to save the cell's coordinates. A stack containing the returned row/column values will be also created (same name as the variable). </li>
+        </ul></div>
+        
+        
+        
+        <p><b>Create SpreadSheet</b> </p>
+        <p>Creates a new SpreadSheet. The extension can only modify spreadsheets specifically created with this command. <br>
+            <button id="example" onclick="toggle_visibility('createspread')">Expand</button>    
+            <div id="createspread"  style="display:none">     
+        <p>The newly created spreadsheet will be automatically made public (which is needed to retrieve data from it). <br>There will be also a hidden sheet added to every spreadsheet you create. This sheet serves as sort of a look up sheet for Find Data command. Please don't delete or rename it.</p>
         <ul>
         <li><code>Title</code> - name for your new SpreadSheet</li>
         <li><code>Variable</code> - variable to save your new SpreadSheet ID into.</li>
-        </ul>
-
-        <p><b class="btnbasic" id="btngreen">Duplicate Sheet</b> </p>
-        <p>Duplicates an existing sheet.
+        </ul> </div>
+        
+        
+        <p><b>Duplicate Sheet</b> </p>
+        <p>Duplicates an existing sheet. <br>
+            <button id="example" onclick="toggle_visibility('dupsheet')">Expand</button>    
+            <div id="dupsheet"  style="display:none">     
         <ul><li><code>SourceSheetName</code> - name of the sheet you wish to duplicate</li>
         <li><code>newSheetName</code> - name of the new duplicated sheet</li>
-        <li><code>insertSheetIndex</code> - where in your SpreadSheet you want to insert the duplicated sheet</li></ul>
-        <p><b class="btnbasic" id="btngreen">Add Sheet</b> </p>
-        <p>Adds a new sheet to the selected SpreadSheet
+        <li><code>insertSheetIndex</code> - where in your SpreadSheet you want to insert the duplicated sheet</li></ul></div>
+        <p><b>Add Sheet</b> </p>
+        <p>Adds a new sheet to the selected SpreadSheet <br>
+            <button id="example" onclick="toggle_visibility('addsheet')">Expand</button>    
+            <div id="addsheet"  style="display:none">     
         <ul><li><code>Name</code> - name for your new sheet</li>
-        <li><code>Index</code> - where in your SpreadSheet you want to insert the new sheet</li></ul>
-        <p><b class="btnbasic" id="btngreen">Copy Paste</b> </p>
-        <p>Copies data from the source to the destination</p>
-       <ul> <li><code>Range</code> - source range to copy</li>
+        <li><code>Index</code> - where in your SpreadSheet you want to insert the new sheet</li>
+        <li><code>Hidden</code> - whether you want to make the sheet hidden</li>
+        </ul></div>
+        <p><b>Copy Paste</b> </p>
+        <p>Copies data from the source to the destination <br>
+        <button id="example" onclick="toggle_visibility('copypaste')">Expand</button>    
+        <div id="copypaste"  style="display:none">     
+        <ul> <li><code>Range</code> - source range to copy</li>
         <li><code>TargetSheet</code> - sheet name to paste the data to</li>
         <li><code>TargetRange</code> - range to paste the data to</li>
         <li><code>PasteType</code> - what kind of data to paste</li>
         <li><code>PasteOrientation</code> - how the pasted data should be oriented. Transpose = all rows become columns.</li>
-    </ul>
-        <p><b class="btnbasic" id="btnorange">Auto Fill</b> </p>
-        <p>Fills in more data based on existing data.</p>
-       <ul> <li><code>Range</code> - range to autofill.</li>
-        <li><code>useAlternateSeries</code> - generate data with the "alternate" series. Differs based on the type and amount of data.</li></ul>
-        <p><b class="btnbasic" id="btnorange">Find Replace</b> </p>
-        <p>Finds and replaces data in cells over a selected range.</p>
+        </ul></div>
+        <p><b>Auto Fill</b> </p>
+        <p>Fills in more data based on existing data.<br>
+        <button id="example" onclick="toggle_visibility('autofill')">Expand</button>    
+        <div id="autofill"  style="display:none">     
+        <ul> <li><code>Range</code> - range to autofill.</li>
+        <li><code>useAlternateSeries</code> - generate data with the "alternate" series. Differs based on the type and amount of data.</li></ul></div>
+        <p><b>Find Replace</b> </p>
+        <p>Finds and replaces data in cells over a selected range.<br>
+        <button id="example" onclick="toggle_visibility('findreplace')">Expand</button>    
+        <div id="findreplace"  style="display:none">     
         <ul><li><code>Range</code> - range to find/replace over </li>
-        <li><code>Find</code> - value to search (string). <br> If you want to use regex, prefix the expression with 'regex'. Example:  find: <code>"regex o.* (.*)"</code>, replace: <code>"$1 Hello"</code> Your formatting must follow <a href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html">Java regex rules.</a></li>
+        <li><code>Find</code> - value to search (string). <br> If you want to use regex, prefix the expression with 'regex'. Example: <b>find</b><code>regex o.* (.*)</code>, <b>replace</b> <code>"$1 Hello"</code> Your formatting must follow <a href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html">Java regex rules.</a></li>
         <li><code>Replace</code> - value to use as the replacement</li>
         <li><code>matchCase</code> - true if the search is case sensitive</li>
-        <li><code>matchEntireCell</code> -  true if the find value should match the entire cell</li></ul>
-        <p><b class="btnbasic" id="btnorange">Split Text</b> </p>
-        <p>Splits a column of text into multiple columns, based on a delimiter in each cell.</p>
+        <li><code>matchEntireCell</code> -  true if the find value should match the entire cell</li></ul></div>
+        <p><b>Split Text</b> </p>
+        <p>Splits a column of text into multiple columns, based on a delimiter in each cell.<br>
+        <button id="example" onclick="toggle_visibility('splitdata')">Expand</button>    
+        <div id="splitdata"  style="display:none">     
         <ul><li><code>Range</code> - the source data range. This must span exactly one column.</li>
-        <li><code>Delimiter</code> - the delimiter to use. For example ":" or ",".</li></ul>
-
-        <p><b class="btnbasic" id="btnblue">Sort Range</b> </p>
-        <p>Sorts data in rows based on a sort order per column.</p> 
+        <li><code>Delimiter</code> - the delimiter to use. For example <code>:</code>> or <code>,</code>>.</li></ul>
+            </div>
+        <p><b>Sort Range</b> </p>
+        <p>Sorts data in rows based on a sort order per column.<br>
+        <button id="example" onclick="toggle_visibility('sortdata')">Expand</button>    
+        <div id="sortdata"  style="display:none">     
         <ul>
         <li><code>Range</code> - the range to sort</li>
         <li><code>sortOrder</code> - the order the data should be sorted.</li>
-        <li><code>dimIndex</code> - the dimension the sort should be applied to</li>
-        </ul>
+        <li><code>dimIndex</code> - the dimension index the sort should be applied to, for example <code>1</code></li>
+        </ul></div>
         
-        <p><b class="btnbasic" id="btnblue">Randomize</b> </p>
-        <p>Randomizes the order of the rows in a selected range.</p>
+        <p><b>Randomize</b> </p>
+        <p>Randomizes the order of the rows in a selected range.<br>
+        <button id="example" onclick="toggle_visibility('randomize')">Expand</button>    
+        <div id="randomize"  style="display:none">     
         <ul>
         <li><code>Range</code> - the range to randomize</li>
-        </ul>
-        <p><b class="btnbasic" id="btnblue">Merge Cells</b> </p>
-        <p></p>
-       <ul> <li><code>Range</code> - the range of cells to merge</li>
-        <li><code>mergeType</code> - how the cells should be merged. MERGE_ALL creates a single merge from the range. MERGE_COLUMNS will create a merge for each column in the range. MERGE_ROWS will create a merge for each row in the range.</li></ul>
-        <p><b class="btnbasic" id="btnblue">Unmerge Cells</b> </p>
-        <p>Unmerges cells in the given range.</p>
-       <ul> <li><code>Range</code> - the range within which all cells should be unmerged. If the range spans multiple merges, all will be unmerged. The range must not partially span any merge.</li></ul>
-
-        <p><b class="btnbasic" id="btnpurple">Clear Data</b> </p>
-        <p>Clears all data in the selected range. </p>
+        </ul></div>
+        <p><b>Merge Cells</b> </p>
+        <p>Merges cells for row or column.<br>
+        <button id="example" onclick="toggle_visibility('merge')">Expand</button>    
+        <div id="merge"  style="display:none">     
+        <ul> <li><code>Range</code> - the range of cells to merge</li>
+        <li><code>mergeType</code> - how the cells should be merged. <br> MERGE_ALL creates a single merge from the range. <br>MERGE_COLUMNS will create a merge for each column in the range. MERGE_ROWS will create a merge for each row in the range.</li></ul></div>
+        <p><b>Unmerge Cells</b> </p>
+        <p>Unmerges cells in the given range.<br>
+        <button id="example" onclick="toggle_visibility('unmerge')">Expand</button>    
+        <div id="unmerge"  style="display:none">     
+        <ul> <li><code>Range</code> - the range within which all cells should be unmerged. If the range spans multiple merges, all will be unmerged. The range must not partially span any merge.</li></ul></div>
+        
+        <p><b>Clear Data</b> </p>
+        <p>Clears all data in the selected range. <br>
+        <button id="example" onclick="toggle_visibility('cleardata')">Expand</button>    
+        <div id="cleardata"  style="display:none">     
         <ul>
         <li><code>Range</code> - range to clear the data from. Example: A1:A10.</li>
-        </ul>
-        <p><b class="btnbasic" id="btnpurple">Insert Range</b> </p>
-        <p>Inserts cells into a range, shifting the existing cells over or down.</p>
+        </ul></div>
+        <p><b>Insert Range</b> </p>
+        <p>Inserts cells into a range, shifting the existing cells over or down.<br>
+        <button id="example" onclick="toggle_visibility('insertrange')">Expand</button>    
+        <div id="insertrange"  style="display:none">     
         <ul><li><code>Range</code> - range to insert new cells into</li>
-        <li><code>Shift</code> - dimension to be shifted when inserting cells. ROWS = shifted down. COLUMNS = shifted right.</li></ul>
-        <p><b class="btnbasic" id="btnpurple">Delete Range</b> </p>
-       <ul> <li><code>Range</code> - the range of cells to delete</li>
-        <li><code>Shift</code> - ROWS = existing cells will be shifted upward, COLUMNS = cells will be shifted left</li></ul>
-        <p><b class="btnbasic" id="btnpurple">Delete Duplicates</b> </p>
-        <p>Removes rows within this range that contain values in the specified columns that are duplicates of values in any previous row. Removes duplicates with different letter cases, formatting, or formulas.</p>
+        <li><code>Shift</code> - dimension to be shifted when inserting cells. ROWS = shifted down. COLUMNS = shifted right.</li></ul></div>
+        <p><b>Delete Range</b> </p> <p>Deletes a range. <br>
+          <button id="example" onclick="toggle_visibility('deleterange')">Expand</button>    
+        <div id="deleterange"  style="display:none">     
+        <ul> <li><code>Range</code> - the range of cells to delete</li>
+        <li><code>Shift</code> - ROWS = existing cells will be shifted upward, COLUMNS = cells will be shifted left</li></ul></div>
+        <p><b>Delete Duplicates</b> </p>
+        <p>Removes rows within this range that contain values in the specified columns that are duplicates of values in any previous row. Removes duplicates with different letter cases, formatting, or formulas.<br>
+        <button id="example" onclick="toggle_visibility('deletedupl')">Expand</button>    
+        <div id="deletedupl"  style="display:none">     
         <ul><li><code>Range</code> - the range to remove duplicates rows from.</li>
         <li><code>Dimension</code> -  dimension to analyze for duplicate values</li>
         <li><code>StartIndex</code> - The start (inclusive) of the span. The columns in the range to analyze for duplicate values.</li>
-        <li><code>EndIndex</code> - The end (exclusive) of the span.  The columns in the range to analyze for duplicate values.</li></ul>
-
-
-
-    <ul>
-        <li><code></code></li>
-        <li><code></code></li>
-        </ul>
-     
-
-
-
-
-  
-                
+        <li><code>EndIndex</code> - The end (exclusive) of the span.  The columns in the range to analyze for duplicate values.</li></ul></div>
+            </div>
+                        
                   
                 </section>
             </div>

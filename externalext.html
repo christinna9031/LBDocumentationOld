@@ -960,7 +960,7 @@ Selectors which generally specify multiple lights, <code>all</code>, <code>group
      <li><b>Configure INIT button:</b> You should see a new premade deck in your Receiver. Right click on the red INIT button - edit commands. Scroll down to the Send to extension command and fill out the following fields: (if you cannot see them, reinstall the extension and refresh your Transmitter). </li>
         <ul>
          <li>
-        <b>refreshToken</b> - you need to allow the extension to access your Google Sheets and retrieve the refresh token. Please follow <a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=772733629610-952dp5qu1gm9802ka1t6f73o6u8m7drn.apps.googleusercontent.com&redirect_uri=https://christinna9031.github.io/LioranBoard-Files/sheetsauth.html&response_type=code&scope=https://www.googleapis.com/auth/drive.file&access_type=offline&prompt=consent" target="_blank">this link</a> and all its instructions after you get redirected. 
+        <b>refreshToken</b> - you need to allow the extension to access your Google Sheets and retrieve the refresh token. Please follow <a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=772733629610-952dp5qu1gm9802ka1t6f73o6u8m7drn.apps.googleusercontent.com&redirect_uri=https://christinna9031.github.io/LioranBoard-Files/sheetsauth.html&response_type=code&scope=https://www.googleapis.com/auth/drive.file&access_type=offline&prompt=consent" target="_blank">this link</a> and all its instructions after you get redirected. <br> Note: This will allow the extension to read and modify only files that have been previously created with it. It does not have permissions to do anything else. 
          </li>   
          <li>
         <b>ApiKey</b> - you will need your own Google API Key: 
@@ -990,7 +990,7 @@ Selectors which generally specify multiple lights, <code>all</code>, <code>group
         <li>Your basic setup is now done. You're ready to start using the extension! </li>   </ol>
         </div>
         <h4>Walkthrough</h4>
-       <p>I have created a walkthrough with examples showing how to use the extension. <br> Please follow buttons number 1-15 in the specified order while looking at your spreadsheet and commands inside the button to see what they're doing to better understand how to use them. <br>
+       <p>I have created a walkthrough with examples showing how to use the extension. <br> Please follow buttons number 1-15 in the specified order while looking at your spreadsheet and commands inside the button to see what they're doing to better understand how to use them. <br> Note: This walkthrough is intended for English version of sheets. You might need to modify some commands (such as your sheet name or button 5. where it adds months in English) for it to work for other languages. 
         <button id="example" onclick="toggle_visibility('walkthrough')">Show all steps</button>    
         <div id="walkthrough"  style="display:none">       
 

@@ -936,9 +936,9 @@ Selectors which generally specify multiple lights, <code>all</code>, <code>group
  
      <div id="relayx4" style="display: none;"><img src="https://i.imgur.com/DCXkCCZ.png" /><br /></div>
 
-     <h3 id="Googlesheets">Google Sheets (NOT RELEASED)</h3>
+     <h3 id="Googlesheets">Google Sheets</h3>
      <p><b>Creator: </b>Christinna<br>
-     <b>Download: <a href="https://christinna9031.itch.io/">Itch.io</a></b><br>
+     <b>Download: <a href="https://christinak.itch.io/lb-google-sheets">Itch.io</a></b><br>
      <b>Description: </b>
      Google Sheets is an extension which lets you retrieve and modify data in your Google Sheets.  <br>
      <b>Available commands:</b>  
@@ -946,6 +946,13 @@ Selectors which generally specify multiple lights, <code>all</code>, <code>group
     <li>Auto Fill, Auto Sort, Randomize, Find and replace, Delete Duplicates, Split text into columns </li>
     <li>Merge Cells, Unmerge Cells, Insert Range, Delete range</li>
     <li>Create Spreadsheet, Duplicate Sheet, Add Sheet</li></ul>
+    <h4>Important to know</h4>
+    <ul>
+    <li>
+    The extension only works with public spreadsheets specifically created with it (<a href="https://www.youtube.com/watch?v=30OHEKIZNiY">video guide on how to make a spreadsheet public</a>). It cannot read or modify any of your other files. </li>
+    <li>Your read quota is 60 requests/minute and you do not share it with other extension users. There is no daily limit. </li>
+    <li>Your write quota is 30 requests/minute (you can send batch requests that count as 1 request) and you share it with other extension users. Total quota is 300 requests/minute. The extension assumes there will be no more 10 users making 30 write requests per minute at the same time. There is no daily limit. </li> 
+    </ul>
      <h4>How it works</h4><p>
      The extension utilizes Google Sheets API endpoints to read and write data. <br>
      While reading data is easy, as it only requires an API key, writing data is more complex. The extension ulitizes a custom made API to retrieve your refresh token, as this is only possible server-side and cannot be done from your Transmitter.  <br>
@@ -990,12 +997,15 @@ Selectors which generally specify multiple lights, <code>all</code>, <code>group
         <li>Your basic setup is now done. You're ready to start using the extension! </li>   </ol>
         </div>
         <h4>Walkthrough</h4>
-       <p>I have created a walkthrough with examples showing how to use the extension. <br> Please follow buttons number 1-15 in the specified order while looking at your spreadsheet and commands inside the button to see what they're doing to better understand how to use them. <br> Note: This walkthrough is intended for English version of sheets. You might need to modify some commands (such as your sheet name or button 5. where it adds months in English) for it to work for other languages. 
+       <p>I have created a walkthrough (sorry, no talking in the video!) with examples showing how to use the extension. <br> Please follow buttons number 1-15 in the specified order while looking at your spreadsheet and commands inside the button to see what they're doing to better understand how to use them. <br> Note: This walkthrough is intended for English version of sheets. You might need to modify some commands (such as your sheet name or button 5. where it adds months in English) for it to work for other languages. 
+        <iframe width="420" height="315"
+                src="https://www.youtube.com/embed/LFNECMyehZo?controls=1" allowfullscreen>
+                </iframe> <br>
         <button id="example" onclick="toggle_visibility('walkthrough')">Show all steps</button>    
         <div id="walkthrough"  style="display:none">       
 
         <ol>
-        <li><b>Create Spreadsheet</b> - we are starting with this button, because our extension can only modify spreadsheets we previously created with it. Go ahead and create Testing Spreadsheet. A new URL should open in your browser with your newly created spreadsheet (or you can go to <a href="https://docs.google.com/spreadsheets">https://docs.google.com/spreadsheets</a>). We will work with this spreadsheet from now on, so keep it open to see what is happening when you press the next buttons. </li>       
+        <li><b>Create Spreadsheet</b> - we are starting with this button, because our extension can only modify spreadsheets we previously created with it. Go ahead and create Testing Spreadsheet. A new URL should open in your browser with your newly created spreadsheet (or you can go to <a href="https://docs.google.com/spreadsheets">https://docs.google.com/spreadsheets</a>). You need to make the <a href="https://www.youtube.com/watch?v=30OHEKIZNiY">spreadsheet public </a>, this extension can only work with public spreadsheets. We will work with this spreadsheet from now on, so keep it open to see what is happening when you press the next buttons. </li>       
         <li><b>Append by Value</b> - this command will append a few names to our sheet by using a single variable containing all the values. | separator marks one cell. </li>
         <li><b>Append by Stack</b> - you can also append values by stack. In our example we append some points to our previously created user names. </li>
         <li><b>Update by Value</b> - this is the same as Append by Value command, except it will override cells if they already contain values. In our example we update a cell with a formula that calculates the total amount of points of all the users and immediately returns the calculated value in a stack called 'updated'. This is to show that you can write simple values into your sheets, but also complex formulas! </li>
@@ -1110,7 +1120,7 @@ Selectors which generally specify multiple lights, <code>all</code>, <code>group
         <p>Creates a new SpreadSheet. The extension can only modify spreadsheets specifically created with this command. <br>
             <button id="example" onclick="toggle_visibility('createspread')">Expand</button>    
             <div id="createspread"  style="display:none">     
-        <p>The newly created spreadsheet will be automatically made public (which is needed to retrieve data from it). <br>There will be also a hidden sheet added to every spreadsheet you create. This sheet serves as sort of a look up sheet for Find Data command. Please don't delete or rename it.</p>
+        <p>You need to manually make the newly created spreadsheet <a href="https://www.youtube.com/watch?v=30OHEKIZNiY">public </a> <br>There will be a hidden sheet added to every spreadsheet you create. This sheet serves as sort of a look up sheet for Find Data command. Please don't delete or rename it.</p>
         <ul>
         <li><code>Title</code> - name for your new SpreadSheet</li>
         <li><code>Variable</code> - variable to save your new SpreadSheet ID into.</li>

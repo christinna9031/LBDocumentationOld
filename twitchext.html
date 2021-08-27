@@ -167,15 +167,20 @@
       
                     <h4>Setup:</h4>
                      <ol>
-                     <li>Follow <a href="https://christinna9031.github.io/LioranBoard-Files/eventsub_auth.html">this link</a> and its instructions to authorize the extension to listen to Twitch alerts. Make sure you're authorizing it on your Twitch streaming account. <br> You can have a maximum of one Twitch account per your Itch key authorized. Bot accounts for testing are OK, but please de-authorize them once you're done testing by <a href="https://www.twitch.tv/settings/connections">disconnecting them from Twitch EvenTsub</a> in your Connections tab. Otherwise they might get automatically removed. </li>
                      <li><a href="https://christinna9031.github.io/LBDocumentation/setup.html#extensions">Install the extension.</a> </li>
+                     <li>Make sure you're logged into your main streaming account on <a href="https://www.twitch.tv/">Twitch</a> and <a href="https://christinna9031.github.io/LioranBoard-Files/eventsub_auth.html">authorize the extension</a>.
                      <li>Go to the premade deck and edit the <b>INIT button</b>: 
                         <ul>
                         <li><code>itchKey</code> - key you received when you purchased the extension on Itch.io. <br> If you did not receive your key, it should be in your purchase confirmation email. Contact Christinna#9031 on Discord if you're having any technical issues retrieving it.</li>
-                        <li><code>channel_id</code> - your channel ID you authorized in step 1. You can use a premade variable <code>/$channel_id$/</code> if you're not using a bot account with LB (in that case you can press tab in your main Receiver window and look for channelid variable with your channel name, i.e. 'lioran_channelid'.).</li>
-                        <b id="important">NOTE:</b> You do NOT use quotes in these parameter boxes.     </ul>
-                        <li>Save the changes you made in the INIT button by pressing DONE twice. Refresh/open your Transmitter.</li>
-                        <li>Once the extension successfully connects, you should see a yellow notification message in your Receiver: <code>EventSub connection opened! Listening for events.</code> It means the extension is ready to receive event triggers that you authorized it to listen to in step 1. </li>
+                        <li><code>channel_id</code> - your streaming account's channel ID. <br> 
+                            <b>In step 1 you should have received your channel ID after authorizing the extension. Skip this step if you already filled it out.</b> <br>
+                            If you haven't filled out your channel_id yet: 
+                           <ul>
+                            <li>Use a premade variable <code>/$channel_id$/</code> if your main LB account (= name of your board in the Receiver) is the same as your main Twitch account.</li>
+                            <li>Use a /$YOURTWITCHUSERNAME_channelid$/ (i.e. /$lioran_channelid$/ - all lower case characters) variable if your main LB account is your alternate/bot Twitch account. </li></ul></li>
+                        <b id="important">NOTE:</b> Do NOT use quotes in these parameter boxes.     </ul>
+                        <li>Save the changes you made in the INIT button by pressing DONE twice. Refresh or close and reopen your Transmitter.</li>
+                        <li>Once the extension successfully connects, you should see a yellow notification message in your Receiver: <code>EventSub connection opened! Listening for events.</code> <br> <i>Please note that if you fill out your channel_id in the INIT button wrong, the yellow message will still say it's listening for events (but for the wrong Twitch channel). It's up to you to make sure you're connected to the right one. </i> </li>
                                          </li>
                                          
              <p><b id="important">Remember that every time you edit the INIT button in your premade deck, you must reload Transmitter for it to take effect. </b></p>
@@ -184,8 +189,18 @@
 
              <p> You can check your Eventsub connection status in the Eventsub Webhook tab in your Transmitter. <br><img src="https://i.imgur.com/8GIdHKS.png"></p>
 
+             <h4>Follower Triggers:</h4>
+             <p>Extension trigger for this event is <code>EventSub Follower</code> 
+             The premade Follower button will be triggered every time you get a new follower. 
+                Math Trigger Pull Values: 
+                <ol>
+                <li><b>Value 1</b> Display Name </li>
+                <li><b>Value 2</b> Username </li>
+                <li><b>Value 3</b> User ID </li>
+                </ol>
+            </p>
 
-                <h4>Polls Triggers:</h4>
+               <p> <h4>Polls Triggers:</h4>
                 <p>There are triggers for poll begin, progress and ended. </p>
                 <button id="example" onclick="toggle_visibility('pollstriggers')">Expand</button>    <div id="pollstriggers"  style="display:none">
                <p> Each time a new poll starts, there will be a stack <code>esPollChoice{CHOICE NUMBER}</code> created for each choice, i.e. esPollChoice1, esPollChoice2, esPollChoice3 etc. The stacks will be updated every time there's any change in votes. The stack contains: 

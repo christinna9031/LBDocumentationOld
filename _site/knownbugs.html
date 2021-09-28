@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="main.css" />
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="main.js"></script>
+        <title>Troubleshooting | LioranBoard</title>
+    </head>
+    <body>
+        <header>
+            <div class="title">
+                <h1>LioranBoard Documentation</h1>
+            </div>
+            <div class="slide">
+                <nav class="sidebar" id="sidebar">
+                    <div class="scroller">
+                        <dl>
+                            <dt>
+                                <a href="index.html"> About LioranBoard</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="setup.html"> Basic Setup</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="commands.html"> Commands</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="faq.html"> FAQ</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="extensions.html"  > Extensions</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="troubleshooting.html" class="active"> Troubleshooting</a>
+                            </dt>
+
+                            <dd>
+                                <a href="generalproblems.html" class="sub-page">
+                                General
+                                </a>
+                                </dd>
+                          
+                                <dd>
+                                <a href="buttonsproblems.html" class="sub-page">
+                                Buttons and commands
+                                </a>
+                                </dd>
+                                <dd>
+                                <a href="knownbugs.html"  class="active" >
+                                Known Bugs
+                                </a>
+                                </dd>
+
+
+
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="commissions.html"> Commissions</a>
+                            </dt>
+                        </dl>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <div class="wrapper">
+            <div class="main">
+                <section class="doc-content">
+                    <h2>Known Bugs</h2>
+                    <p>   <b>When I try to link my Twitch account, it says this site can't be reached. </b>  <br>
+                        This has been fixed. Please download the latest version.          
+</p>
+<p>
+    <b>When I click on -Help- in LB commands, the page doesn't work.</b><br>
+    This has been fixed. Please download the latest version.  
+</p>     
+<p><b>When I use the command Open URL, it doesn't work.</b><br>This has been fixed. Please download the latest version. </p>
+<p><b>Every time I close OBS, it crashes.</b><br>This has nothing to do with LB. It is a known bug that happens with some plugins (like obs-websocket) installed in OBS.</p>
+<p><b>I get a grey window with an error message when I try to install X extension.</b><br>That sometimes happens due to extra spaces in the file. Press ignore and the extension should install just fine. </p>
+<p><b>Wild cards don't work for Point Redeem name.</b><br>This has been fixed. Please download the latest version. </p>
+<p><b>Multiple accounts do not work when refreshing Transmitter.</b><br>This has been fixed. Please download the latest version. </p>
+<p><b>Some special symbols and foreign language letters don't show up in the input fields.</b><br>This is just a visual bug, the symbols are saved just fine (you can open the deck .ini file and check).</p>
+<p><b>LB shows an empty list of filters for a source.</b><br>This has been reported a few times as a potential bug, although we don't have much information about the circumstances that might cause it. The workaround is to manually type in the filter name (by right clicking in the input field). You can also try switching OBS scene collections around and restarting OBS/LioranBoard.</p>
+<p><b>LB crashes when I try to rename a source in OBS.</b><br>This is a known bug, which happens only in some specific cases. To prevent this from happening, do not rename your OBS source while you're on your edit commands screen in LB.</p>
+
+<p><b></b><br></p>
+<p><b></b><br></p>
+          
+                </section>
+            </div>
+        </div>
+    </body>
+    <script>$(document.links).filter(function() {return this.hostname != window.location.hostname;}).attr('target', '_blank');</script>
+</html>

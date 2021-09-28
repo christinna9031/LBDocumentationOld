@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="main.css" />
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="main.js"></script>
+        <title>Recording Commands | LioranBoard</title>
+    </head>
+    <body>
+        <header>
+            <div class="title">
+                <h1>LioranBoard Documentation</h1>
+            </div>
+            <div class="slide">
+                <nav class="sidebar" id="sidebar">
+                    <div class="scroller">
+                        <dl>
+                            <dt>
+                                <a href="index.html"> About LioranBoard</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="setup.html"> Basic Setup</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="commands.html" class="active"> Commands</a>
+                            </dt>
+
+                            <dd>
+                                <a class="sub-page" href="sourcecommands.html">OBS Source Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="recordingcommands.html" class="active">OBS Recording Commands</a>
+                            </dd>
+
+                                                        <dd>
+                                <a href="#togglestreaming">
+                                    Toggle Streaming
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#startstreaming">
+                                    Start Streaming
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#stopstreaming">
+                                    Stop Streaming
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#togglerecording">
+                                    Toggle Recording
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#startrecording">
+                                    Start Recording
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#stoprecording">
+                                    Stop Recording
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#pauserecording">
+                                    Pause Recording
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#resumerecording">
+                                    Resume Recording
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#togglereplaybuffer">
+                                    Toggle Replay Buffer
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#startreplaybuffer">
+                                    Start Replay Buffer
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#stopreplaybuffer">
+                                    Stop Replay Buffer
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#savereplaybuffer">
+                                    Save Replay Buffer
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="mediacommands.html" >OBS Media Commands</a>
+                                </dd>
+                        
+                                <dd>
+                                  <a class="sub-page" href="transitioncommands.html">OBS Transition Commands</a>
+                                  </dd>
+
+                            <dd>
+                                <a class="sub-page" href="mathcommands.html">Math Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="stringcommands.html">String Commands</a>
+                            </dd>
+                            <dd>
+                                <a class="sub-page" href="stackcommands.html">Stack Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="statementcommands.html">Statement Commands</a>
+                            </dd>
+                            <dd>
+                                <a class="sub-page" href="filecommands.html">File Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="twitchcommands.html" >Twitch Commands</a>
+                                </dd>
+
+                            <dd>
+                                <a class="sub-page" href="othercommands.html">Other Commands</a>
+                            </dd>
+                            <dd>
+                                <a class="sub-page" href="deprecatedcommands.html" >Deprecated Commands</a>
+                                </dd>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="faq.html"> FAQ</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="extensions.html"> Extensions</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="troubleshooting.html"> Troubleshooting</a>
+                            </dt>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="commissions.html"> Commissions</a>
+                            </dt>
+                        </dl>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <div class="wrapper">
+            <div class="main">
+                <section class="doc-content">
+                    <h2>OBS Recording Commands</h2>
+                    <h3 id="togglestreaming">Toggle Streaming</h3>
+                    <p>
+                        Toggle Streaming on and off.
+                    </p>
+
+                    <h3 id="startstreaming">Start Streaming</h3>
+                    <p>
+                        Start a new stream.
+                    </p>
+
+                    <h3 id="stopstreaming">Stop Streaming</h3>
+                    <p>
+                        Stop a stream.
+                    </p>
+
+                    <h3 id="togglerecording">Toggle Recording</h3>
+                    <p>
+                        Toggle recording on and off.
+                    </p>
+
+                    <h3 id="startrecording">Start Recording</h3>
+                    <p>
+                        Start recording.
+                    </p>
+                    <h3 id="stoprecording">Stop Recording</h3>
+                    <p>
+                        Stop current recording.
+                    </p>
+                    <h3 id="pauserecording">Pause Recording</h3>
+                    <p>
+                        Pause the current recording.
+                    </p>
+
+                    <h3 id="resumerecording">Resume Recording</h3>
+                    <p>
+                        Resume/unpause the current recording (if paused].
+                    </p>
+                    <h3 id="togglereplaybuffer">Toggle Replay Buffer</h3>
+                    <p>
+                        Toggle the Replay Buffer on/off.
+                    </p>
+                    <h3 id="startreplaybuffer">Start Replay Buffer</h3>
+                    <p>
+                        Start recording into the Replay Buffer. Will not execute if the Replay Buffer is already active or if the "Save Replay Buffer" hotkey is not set in OBS' settings. Setting this hotkey is mandatory, even when
+                        triggering saves only through obs-websocket.
+                    </p>
+
+                    <h3 id="stopreplaybuffer">Stop Replay Buffer</h3>
+                    <p>
+                        Stop recording into the Replay Buffer.
+                    </p>
+
+                    <h3 id="savereplaybuffer">Save Replay Buffer</h3>
+                    <p>Flush and save the contents of the Replay Buffer to disk. This is basically the same as triggering the "Save Replay Buffer" hotkey.</p>
+
+                </section>
+            </div>
+        </div>
+    </body>
+    <script>$(document.links).filter(function() {return this.hostname != window.location.hostname;}).attr('target', '_blank');</script>
+</html>

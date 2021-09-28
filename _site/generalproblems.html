@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="main.css" />
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="main.js"></script>
+        <title>Troubleshooting | LioranBoard</title>
+    </head>
+    <body>
+        <header>
+            <div class="title">
+                <h1>LioranBoard Documentation</h1>
+            </div>
+            <div class="slide">
+                <nav class="sidebar" id="sidebar">
+                    <div class="scroller">
+                        <dl>
+                            <dt>
+                                <a href="index.html"> About LioranBoard</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="setup.html"> Basic Setup</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="commands.html"> Commands</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="faq.html"> FAQ</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="extensions.html"  > Extensions</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="troubleshooting.html" class="active"> Troubleshooting</a>
+                            </dt>
+
+                            <dd>
+                                <a href="generalproblems.html" class="sub-page" >
+                                General
+                                </a>
+                                </dd>
+                                <dd>
+                                    <a href="#crashesonlaunch" class="active" >
+                                    Crashes On Launch
+                                    </a>
+                                    </dd>
+
+                                    <dd>
+                                        <a href="#streamdeckcrashes" class="active" >
+                                            StreamDeck Crashes
+                                        </a>
+                                        </dd>
+
+
+                                         <dd>
+                                    <a href="#obsconnection" class="active" >
+                                    OBS Connection 
+                                    </a>
+                                    </dd>
+                                    <dd>
+                                        <a href="#twitchconnection" class="active" >
+                                        Twitch Connection 
+                                        </a>
+                                        </dd>
+
+                                        <dd>
+                                            <a href="#transmitterconnection" class="active" >
+                                            Transmitter Connection 
+                                            </a>
+                                            </dd>
+                                      <dd>
+                                    <a href="#deckcreation" class="active" >
+                                        Deck Creation Issues
+                                    </a>
+                                    </dd>
+                                      <dd>
+                                    <a href="#unresponsivebuttons" class="active" >
+                                        Unresponsive Buttons
+                                    </a>
+                                    </dd>
+                                      <dd>
+                                    <a href="#androidstreamdeck" class="active" >
+                                        Android Stream Deck
+                                    </a>
+                                    </dd>
+                                     <dd>
+                                    <a href="#keyboardmacros" class="active" >
+                                        Keyboard Macros 
+                                    </a>
+                                    </dd>
+                                    <dd>
+                                        <a href="#cappedfps" class="active" >
+                                            FPS is capped
+                                        </a>
+                                        </dd>
+                                     <dd>
+                                    <a href="#extensions" class="active" >
+                                        Installing Extensions
+                                    </a>
+                                    </dd>
+
+                                         <dd>
+                                    <a href="#otherapps" class="active" >
+                                        Other Apps 
+                                    </a>
+                                    </dd>
+                                   
+                                                                <dd>
+                                <a href="buttonsproblems.html" class="sub-page" >
+                                Buttons and commands
+                                </a>
+                                </dd>
+                                <dd>
+                                <a href="knownbugs.html" class="sub-page" >
+                                Known Bugs
+                                </a>
+                                </dd>
+
+
+
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="commissions.html"> Commissions</a>
+                            </dt>
+                        </dl>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <div class="wrapper">
+            <div class="main">
+                <section class="doc-content">
+                    <h2>General</h2>
+                   <h3 id="crashesonlaunch"> Crashes On Launch</h3>
+                 <p>
+                    Most likely Antivirus/Firewall problem. Try allowing the app through and/or deleting <code>gmfile.dll</code> in your <code>LioranBoard Receiver</code> folder. <br>
+If you are running Voicemeeter, you need to start it AFTER LioranBoard. Alternatively, the default output audio device needs to be set to the Voicemeeter virtual device. <br>
+Sound drivers can be also causing this issue, you can try reinstalling them.
+                 </p>
+
+                 <h3 id="streamdeckcrashes"> StreamDeck Crashes</h3>
+                 <p>If your Receiver crashes as soon as you press 'Connect' in your StreamDeck, you are probably running an outdated version or have wrong number/corrupted deck files. Make sure your config.ini files are not skipping any numbers in the names. If you have configs1.ini and configs3.ini, you also need to have configs2.ini. </p>
+                 <p>If you press 'Connect' in your StreamDeck and can only see a black/green screen, it means it hasn't established a successful connection to the Receiver. The reason can be a wrong IP address/port, VPN or something else blocking the port.</p>
+        
+
+                       <h3 id="obsconnection"> OBS Connection Issues</h3>
+                 <p>
+
+                    You can try these steps to troubleshoot your OBS Websocket connection to LB: 
+
+                    <ol>
+                    <li><b>Redownload OBS websocket</b><br>
+                        If in doubt, try completely reinstalling the plugin. Make sure you have the latest version. You can check whether your OBS websocket is correctly installed by going to OBS-Tools-Websockets Server Settings </li>
+                        <li><b>Check OBS websocket password</b><br>
+                        Make sure your passwords in OBS-Tools-Websockets Server Settings and LioranBoard Receiver-Options match. If you do not use a password, uncheck Enable authentication.  
+                        <button id="example" onclick="toggle_visibility('OBSpassX')">Show example</button>
+                    <div id="OBSpassX" style="display:none"> <br><img src="https://i.imgur.com/5avoL2h.png">>
+                    </li>
+                        <li><b>Change Ports</b><br>Change the ports of OBS websocket to a new one, try a random number like 19838.<br>
+                            Make sure you also change the port for OBS websocket in LioranBoard to the SAME number, the box labeled OBSWebsocket Port inside Options. </li>
+                        <li><b>Lower or increase timeout</b><br>Open connect.ini (either in LioranBoard Receiver or in APPDATA/local/lioranboard folder). <br>
+                            Add timeout="1000" under [connection] . Try 100 and 5000. At 100ms you can just spam the connect to OBS button see if that helps..</li>
+                        <li><b>Try Non Blocking Connection</b><br>In your Receiver, go to options and check/uncheck non blocking connection. </li>
+                        <li><b>Change IP connection</b><br>Normally you use 127.0.0.1 to connect to OBS, but you can try local IP as well.<br>
+                            Run whats my local ip.bat located in LioranBoard folder and copy your IPv4 address (it will start with 192.168). 
+                            Open connect.ini file and add websocket_ip="192.168.2.10" under [connection]</li>
+                        <li><b>Running as Admin or non-Admin</b><br>You can test both scenarios to see if it helps. </li>
+                        <li><b>Make sure your firewall is not blocking LB</b><br>You can try completely disabling your antivirus/firewall or adding an exception to allow the app through. </li>
+                        <li><b>Try connecting using other means</b><br>You can try this <a href="https://chrome.google.com/webstore/detail/simple-websocket-client/pfdhoblngboilpfeibdedpjgfnlcodoo" target="_blank" >Chrome Extension</a>.</li>
+                    </ol>
+
+
+                 </p>
+                       <h3 id="twitchconnection"> Twitch Connection Issues</h3>
+                 <p>
+                <b> I’m getting an ERR_BADAUTH error. </b><br>
+                   
+Your auth token probably expired. Follow <a href="setup.html#renewingtoken" target="_blank" >this procedure</a> to renew your token.
+                 </p>
+<p><b>Twitch Alerts don't get triggered at all</b><br>
+First, make sure your Transmitter is connected to LioranBoard. If so, try triggering a test alert from your Transmitter. <button id="example" onclick="toggle_visibility('twitchalertstest')">Show example</button>    <div id="twitchalertstest"  style="display:none"><img src="https://i.imgur.com/kOUoBha.png"></div><p>A small yellow notification message should pop up at the bottom of your Receiver: 
+<ul>
+<li>If you do not see the message at all, your Transmitter is not connected to the Receiver. You might be running a wrong version or duplicate instances of your Transmitter (only a single instance can be running at the same time). </li>
+<li>If you see the message, but your buttons do not visually trigger at all, your button triggers are set up wrong. Please follow <a href="faq.html#buttontriggers">this guide</a>. </li>
+<li>If you see the message and your buttons visually trigger, but your commands do not trigger anything in OBS or do not send a Twitch message, you're not connected to OBS/Twitch. Read <a href="generalproblems.html#obsconnection">OBS connection troubleshooting</a> or <a href="generalproblems.html#twitchconnection">Twitch connection troubleshooting</a> section. </li>
+<li>If you see the message, your buttons visually trigger and your commands are executed right, you're not connected to Twitch.
+Try <a href="setup.html#renewingtoken" target="_blank" >relinking your Twitch account</a> and restarting Transmitter. You should see these following yellow messages at the bottom of your Receiver: <br>
+    <ul><li>Twitch is connected</li>
+    <li>   Listening for Channel points</li>
+        <li>  Listening for Bits donations</li>
+            <li>   Listening for Channel subscriptions</li>
+                <li>  Listening for Chat Moderation</li> </ul> </li> </ul></p>
+
+
+                <p>
+                
+                    <b>Twitch alerts work, but Twitch chat does not send or trigger any messages</b><br>
+                    Twitch Alerts and Twitch Chat are two different separate connections. Twitch Alerts are managed by PubSub and Twitch Chat is managed by Twitch IRC. <br>
+                    Restart your Transmitter, make sure you are connected to chat (it needs to say Chat: "Connected" in your Transmitter) and that you see this yellow message in your Receiver: <code>Secure Twitch Chat connected.</code> <br>
+                    You can also try <a href="setup.html#renewingtoken" target="_blank">relinking your Twitch account</a>.
+
+                </p>
+
+                <h3 id="transmitterconnection" > Transmitter Connection</h3>
+                <p> <b>Error message "A second Transmitter attempted to connect. Please close it."</b> <br>
+                   You might encounter this error message in your LB Receiver. 
+                    <button id="example" onclick="toggle_visibility('secondtransmitter')">Show example</button> <br>It means that you have two or more Transmitters open at the same time, which is a big no-no in LioranBoard world. <br> You need to locate the duplicate Transmitter and close it in order for LioranBoard to work correctly. The most likely culprit is another Transmitter added as an OBS source and forgotten about.
+
+                    <div id="secondtransmitter" style="display: none;"><img src="https://i.imgur.com/3hkwpPC.png" /></div><p> 
+                    
+
+                    </p>
+
+
+
+                </p>
+
+
+                       <h3 id="deckcreation" > Deck Creation Issues</h3>
+                 <p>
+                    <b>LB crashes when I try to create a new deck.</b><br>
+                    Probably an antivirus issue. Try deleting <code>gmfile.dll</code> in your <code>LioranBoard Receiver(PC)</code> folder. Could be also a folder permissions problem. More info below. 
+
+                 </p>
+                 <p>
+                    <b>Newly created decks and/or buttons are not saving.</b><br>
+                    This is an antivirus problem. LioranBoard's default file location is in <code>lioranboard/Receiver</code>folder. If something blocks it from writing in this folder, it will attempt to save it in <code>C:/user/%username/appdata/local/lioranboard</code> folder instead.  <br>
+                   <ol>
+                    <li>Try disabling your Antivirus and/or Firewall. You can also try changing <a href="https://www.laptopmag.com/articles/take-ownership-folder-windows-10-using-file-explorer" target="_blank">folder permissions</a>.
+                    <li>Check these two locations: <code>lioranboard/Receiver</code> and <code>C:/user/%username/appdata/local/lioranboard</code> folder. <br>
+                    Only one of these locations should contain <code>configs.ini</code> files. If both folders contain them, back them up and delete the files from both locations. Restart LioranBoard and see if this step helped. 
+                    </li>
+                   </ol>
+                 </p>
+                       <h3 id="unresponsivebuttons"> Unresponsive Buttons</h3>
+                 <p>
+                    If none of your buttons work, you are probably not actually triggering them. <Br>
+                        There is a common misconception where newcomers try to trigger their buttons from inside the Receiver.<br>
+                        Your Receiver only acts as an editor. If you want to press a button, you need to open Stream Deck and trigger it from there instead. 
+                 </p>
+                       <h3 id="androidstreamdeck"> Android Stream Deck Troubleshooting</h3>
+                 <p>
+                       <b>Android Stream Deck will not connect.</b><br>
+                       If your Stream Deck crashes or you can only see a green screen without any buttons when you try to connect to it, try these steps: 
+                       <ol>
+                    <li>Make sure your Android device is connected to the same network as your computer that is running LB Receiver. You cannot natively make a connection outside your network, unless you decide to go through a lot of technical steps involving opening your ports and exposing your local network.  </li>  
+                    <li>Make sure you are using the correct IP. Run <code>whats my local ip.bat</code> in your <code>lioranboard</code> folder and double check your IPv4 Address. It will start with <code>192.168.</code> Anything starting with <code>127.0.</code> is a localhost IP address which only works on the same computer that runs your LB Receiver. <br>
+                    Auto correct on Android devices can also be the culprit.</li> 
+                    <li>Try completely disabling your Antivirus/Firewall and pinging your IPv4 address from your Android device to see if you get any response back. You can use a PingTools app for that.</li>
+                    <li>If none of this helps, you can try changing ports and going to your router settings to see if anything could be blocking the connection.</li>
+                       </ol> 
+                       <p>You can also consult this <a href="https://docs.google.com/document/d/1pNijruPEBA2lSQdTCv6tNk-DTsbbaECQA1tCSqeXUF8/edit">Google Doc guide</a> created by Leggolem. </p>
+                 </p>
+                            <h3 id="keyboardmacros"> Keyboard Macros</h3>
+                 <p>
+                  <b> Keyboard macros are not working. OBS (or any other app) completely ignores them. </b> <br>
+                  Try running both your Receiver and the other app as Administrator. Run your Stream Deck as non administrator. <br>
+                  If you are still having problems, try going to a keyboard tester website, like <a href="https://www.keyboardtester.com/" target=target="_blank">this one</a>. In your Receiver create a new keyboard shortcut button with 2000ms delay. As soon as you trigger the button, switch to the Keyboard tester page to see if it actually pushes the button. If it does, the other app might be ignoring the input for some reason. <br>
+                  <button id="example" onclick="toggle_visibility('macrotextX')">Show example</button>    <div id="macrotextX"  style="display:none"><img src="https://i.imgur.com/eOpkK4v.png"></div>
+                 </p>
+
+
+                 <h3 id="cappedfps"> FPS is capped</h3>
+                <p>You can see your current FPS in the right upper corner of LioranBoard Receiver (version 1.43 and newer). If you set it up to 60 FPS and find that it's capped at a lower number, you might need to manually change it in your graphics card settings as well.</p>
+                <p>
+                <b>Nvidia Users:</b>
+                <ol>
+                <li>Open your Nvidia Control Panel. </li>
+                <li>Click on Manage 3D settings.</li>
+                <li>Click on 'Program Settings' tab. </li>
+                <li>Click on Add if you don't see LioranBoard Receiver in the dropdown list. Search for and add lioranboard receiver.exe.</li>
+                <li>In the settings list below, find 'Max Frame Rate' option.</li>
+                <li>Change it from 'Use global settings' to 'On' and set it to 60 FPS.</li>
+                <li>Do not forget to click on 'Apply'.</li>
+                <li>Close and reopen your Receiver. It should now be running at the correct FPS. </li>
+                <button id="example" onclick="toggle_visibility('nvidiasettings')">Show example</button>
+                <div id="nvidiasettings" style="display: none;"><img src="https://i.imgur.com/Zszm9Ib.png" /><br /></div>
+                </ol>
+
+         
+
+                <p>Sorry AMD users, you will need to figure that out yourselves! </p>
+               
+                </p>
+
+
+
+                            <h3 id="extensions"> Installing Extensions</h3>
+                 <p>
+                    <b>I installed an extension, but do not see it anywhere.</b><br>
+                    After installing any extension, your Transmitter should automatically reload (if you have the newest LB version) and you should see the installed extension there. Please follow <a href="faq.html#installextensions">How to install or uninstall extensions</a> guide. <br>
+                    You can also check write permissions for the <code>transmitter.html</code> file. 
+                 </p>
+                                 <h3 id="otherapps"> Other Apps</h3>
+                 <p>
+                    There are some apps that like to interfere with LioranBoard. <br>
+                    <b>Voicemeeter</b> can crash LioranBoard or make its sound system not work. Make sure you always open LioranBoard first. 
+                 </p>
+            
+
+                  
+                </section>
+            </div>
+        </div>
+    </body>
+    <script>$(document.links).filter(function() {return this.hostname != window.location.hostname;}).attr('target', '_blank');</script>
+</html>

@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="main.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+<script src="main.js"></script>
+<title>FAQ | LioranBoard</title>
+
+</head>
+
+<body>
+    <header>
+
+        <div class=title>
+            <h1>LioranBoard Documentation</h1>
+        </div>
+        <div class="slide">
+            <nav class="sidebar" id=sidebar>
+             <div class="scroller">
+
+                <dl>
+                    <dt>
+                        <a href="index.html" >
+                            About LioranBoard</a>
+                    </dt>
+                </dl>
+
+                <dl>
+                    <dt>
+                        <a href="setup.html">
+                            Basic Setup</a>
+                    </dt>
+                </dl>
+
+                <dl>
+                    <dt>
+                        <a href="commands.html">
+                            Commands</a>
+                    </dt>
+                </dl>
+
+                <dl>
+                    <dt>
+                        <a href="faq.html" class="active">
+                            FAQ</a>
+                    </dt>
+
+                    <dd>
+                        <a href="#howdoidox">
+                            How do I do X?
+                        </a>
+                    </dd>
+
+                                 <dd>
+                        <a href="#exportimport">
+                            Export and import buttons
+                        </a>
+                    </dd>
+
+                    <dd>
+                        <a href="#copydeck">
+                            How to copy a whole deck
+                        </a>
+                    </dd>
+
+                          
+
+                    <dd>
+                        <a href="#mathoperators">
+                            Math Operators
+                        </a>
+                    </dd>
+
+                    <dd>
+                        <a href="#complexmath">
+                            Complex Math
+                        </a>
+                    </dd>
+
+                    <dd>
+                        <a href="#realvsstring">
+                            Real vs. String
+                        </a>
+                    </dd>
+
+                 
+                    <dd>
+                        <a href="#howtoseevariables">
+                            How to see variables
+                        </a>
+                    </dd>
+
+                    <dd>
+                        <a href="#paramsinputboxes">
+                            Parameters in input boxes
+                        </a>
+                    </dd>
+
+                                     
+                    <dd>
+                        <a href="#premadevariables">
+                            Premade variables
+                        </a>
+                    </dd>
+
+                    <dd>
+                        <a href="#buttontriggers">
+                            Button triggers
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="#commanddelays">
+                            Command delays
+                        </a>
+                    </dd>
+
+                    <dd>
+                        <a href="#cooldowns">
+                            Button cooldowns
+                        </a>
+                    </dd>
+
+                               
+
+                    <dd>
+                        <a href="#buttonshortcuts">
+                           Keyboard shortcuts for buttons
+                        </a>
+                    </dd>
+
+
+
+                    <dd>
+                        <a href="#wildcards">
+                            Wild cards
+                        </a>
+                    </dd>
+
+                                  
+
+                    <dd>
+                        <a href="#secondpc">
+                            Control OBS from another PC
+                        </a>
+                    </dd>
+
+                    <dd>
+                        <a href="#remoteconnection">
+                            Remote Connection
+                        </a>
+                    </dd>
+
+                    <dd>
+                        <a href="#obstreamlabs">
+                            OBS Streamlabs
+                        </a>
+                    </dd>
+
+                    <dd>
+                        <a href="#elgato">
+                            Elgato Stream Deck
+                        </a>
+                    </dd>
+
+                    <dd>
+                        <a href="#anyapp">
+                            Connecting LB to other apps
+                    </dd>
+
+                    <dd>
+                        <a href="#extensions">
+                            Make your own extension
+                        </a>
+                    </dd>
+
+                </dl>
+                <dl>
+                    <dt>
+                        <a href="extensions.html">
+                            Extensions</a>
+                    </dt>
+                </dl>
+
+                <dl>
+                    <dt>
+                        <a href="troubleshooting.html">
+                            Troubleshooting</a>
+                    </dt>
+                </dl>
+                <dl>
+                    <dt>
+                        <a href="commissions.html"> Commissions</a>
+                    </dt>
+                </dl>
+            </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <div class="main">
+            <section class="doc-content">
+
+
+                <h2>FAQ
+                </h2>
+
+                <h3 id="howdoidox"> How do I do X?</h3>
+
+                <p>
+                    Making your own buttons in LioranBoard is a little bit like programming. It definitely takes some time to learn how everything works. Don't expect to be able to create complex buttons right away, but rather learn what each command does and try making something as simple as switching scenes. You can then slowly transition to more advanced buttons. <br>
+                    We welcome new members on our <a href="https://discord.gg/dXez8Zh">Discord server</a> to ask questions if they encounter a problem with their buttons or commands, but discourage asking for a whole button to be created just for their needs. If you're not interested in learning LB whatsoever and only want the finished product, you can request a commission instead.
+                </p>
+
+            
+                <h3 id="exportimport"> How to export/import your buttons</h3>
+                <p><b>Follow this video:</b></p>
+                <iframe width="420" height="315"
+    src="https://www.youtube.com/embed/ombi0CqOlOk?controls=1" allowfullscreen>
+</iframe>
+
+<h3 id="copydeck"> How to copy a whole deck</h3>
+<p>Each configs.ini file represents a single deck.</p>
+<p><ol><li>In the main Receiver menu, note the deck number you would like to copy.</li>
+    <li> Look at the bottom of your Receiver, there is a small grey text that says either 'Local' or 'Appdata' </li>
+    <ul>
+        <li>Local - go to <code>LioranBoard Receiver</code> folder and copy the configs.ini file with the same number you noted in step 1. </li>
+        <li>Appdata - go to <code>C:/user/%username/appdata/local/lioranboard</code> and copy the configs.ini file with the same number you noted in step 1.</li>
+    </ul>
+    <li>To make sure you're copying the right deck file, you can open the file and scroll all the way to the bottom to the <code>[configs]</code> section. The name value should be the name of your deck.</li>
+    
+
+</ol>     </p>
+
+
+<h3 id="installextensions"> How to install or uninstall extensions</h3>
+                <p><b>Install an extension:</b></p>
+                <ol>
+                    <li>Download the .lbe extension file</li>
+                    <li>Click on Install Extension in your LioranBoard Receiver</li>
+                    <li>Select the extension file you downloaded </li>
+                    <li>Select your default Transmitter you are using. Make 100% sure it is the correct one. </li>
+                    <li>Your Transmitter will automatically refresh, adding a new tab for the extension you just installed. You should also see it added in at the bottom list of all extensions (with checkboxes).</li>
+                    <li>Most extensions include a premade deck with buttons. If you do not see one, create a new button, add "Send to Extensions" command and select the extension you just installed. If  </li>
+                  </ol>
+
+                  <p><i>Note: Some extensions have built in requirements, such as placing them in the <code>Receiver/Ext</code> folder or running a compatible version of LB/OBS. If you do not meet the requirements, you will receive a popup message and the extension will not be installed to prevent incorrect use. </i></p>
+
+                  <p><b>Extension is installed properly if:</b>
+                  <ul>
+                  <li>You can see all its fields in your Send to extension command. If you can only see the extension name, the extension was not installed properly or your Transmitter is not running. The amount of input fields depends on the extension, but it should in most cases contain at least one. <button id="example" onclick="toggle_visibility('extensionfields')">Show example</button><div id="extensionfields"  style="display:none">  <img src="https://i.imgur.com/LY1nmz0.png"></div></li> 
+                  <li>Your Transmitter displays that it's correctly installed (you should see a new tab and a checkbox at the bottom with the extension name added). </li>
+                  </ul>
+                <p>
+                  <b>Uninstall an extension (version 1.43 and later):</b>
+                  <ol>
+                    <li>
+                    Click on the 'Uninstall Extens.' button in your Receiver.
+                    </li>
+                    <li>Select the correct Transmitter where your extension is installed and press yes when prompted whether you want to replace it.</li>
+                    <li>You will get a dropdown menu in your Receiver. Click on the extension you wish to uninstall and press Yes. 
+                        <button id="example" onclick="toggle_visibility('extensionuninstall')">Show example</button><div id="extensionuninstall"  style="display:none">  <img src="https://i.imgur.com/vnJ0l0x.png"></div>
+                    </li>
+                    <li>Your extension is now uninstalled and you can no longer use it.</li>
+
+
+
+
+                  </ol>
+                
+                </p>
+                
+
+
+                <h3 id="mathoperators"> Math Operators (version 1.43 and newer)
+                </h3>
+                <p>Strings need to be wrapped in "". </p>
+                <table title='basic'>
+
+                    <p><b>Math:Change Variable operators</b> </p>
+
+                    <tr>
+                        <td>Operator</td>
+                        <td>Explanation</td>
+                        <td>Example</td>
+                    </tr>
+                    <tr>
+                        <td>=</td>
+                        <td>Equal. Real values or strings. Strings need to be wrapped in "". <code>x = y</code></td>
+                        <td><code>x = 7</code>
+                            <code>x = "Hello World"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>+=</td>
+                        <td>Addition. Real values or strings. Strings need to be wrapped in "". Same as <code>x = x + y</code></td>
+                        <td><code>7 += 2</code> = 9<br><code>"Hello" += "World"</code> = "Hello World"
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>-= </td>
+                        <td>Subtraction. Real values only. Same as <code>x = x - y</code></td>
+                        <td><code>7 -= 2</code> = 5</td>
+                    </tr>
+                    <tr>
+                        <td>Multiply</td>
+                        <td>Multiplication *=. Real values only. Same as <code>x = x * y</code></td>
+                        <td><code>7 *= 2</code> = 14</td>
+                    </tr>
+                    <tr>
+                        <td>Divide</td>
+                        <td>Division /=. Real values only. Same as <code>x = x / y</code></td>
+                        <td><code>7 /= 2</code> = 3.5</td>
+                    </tr>
+                    <tr>
+                        <td>DIV</td>
+                        <td>Integer division. Real values only. Same as division, but the remainder is discarded. </td>
+                        <td><code>7 DIV 2</code> = 3</td>
+                    </tr>
+                    <tr>
+                        <td>MOD</td>
+                        <td>Modulus. Real values only. Returns the remainder of division.</td>
+                        <td><code>7 MOD 2</code> = 1</td>
+                    </tr>
+                    <tr>
+                        <td>&=</td>
+                        <td>Bitwise AND. Real values only. Same as <code>x = x & y</code></td>
+                        <td><code>7 = 000111</code><br><code>2 = 000010</code><br><code>7 &= 2</code> = 2<br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>^=</td>
+                        <td>Bitwise XOR. Real values only. Same as <code> x = x ^ y</code></td>
+                        <td><code>7 = 000111</code><br><code>2 = 000010</code><br><code>7 ^= 2</code> = 5</td>
+                    </tr>
+                    <tr>
+                        <td>| =</td>
+                        <td>Bitwise OR. Real values only. Same as <code>x = x | y</code></td>
+                        <td><code>7 = 000111</code><br><code>2 = 000010</code><br><code>7 |= 2</code> = 7</td>
+                    </tr>
+                                      <tr>
+                        <td>Cos</td>
+                        <td>Returns a numeric value between -1 and 1, which represents the cosine of the angle given in radians. </td>
+                        <td><code>Cos 90</code> = -0.45</td>
+                    </tr>
+                    <tr>
+                        <td>Sin</td>
+                        <td>Returns a numeric value between -1 and 1, which represents the sine of the angle given in radians</td>
+                        <td><code>Sin 90</code> = 0.89</td>
+                    </tr>
+                    <tr>
+                        <td>Tan</td>
+                        <td>Returns a numeric value that represents the tangent of the angle. Tan = Sin/Cos.</td>
+                        <td><code>Tan 90</code> = 1/0 = -2.00</td>
+                    </tr>
+
+
+                </table> 
+
+                <p id="statementoperators"><b>Statement operators (version 1.43 and newer)</b> </p>
+
+                <table title='basic'>
+ 
+                 <tr>
+                     <td>Operator</td>
+                     <td>Explanation</td>
+                     <td>Example</td>
+                 </tr>
+                 <tr>
+                     <td>==</td>
+                     <td>Equal. Checks whether the variables are equal. <br> Real values or strings. Strings need to be wrapped in " ". </td>
+                     <td><code>1 == 3</code> = false<br><code>"Hello" == "Hello"</code> = true</td>
+                 </tr>
+                 <tr>
+                     <td>!=</td>
+                     <td>Not Equal. Checks whether the variables are not equal. <br> Real values or strings. Strings need to be wrapped in " ".</td>
+                     <td><code>1 != 3</code> = true<br><code>"Hello" != "Hello"</code> = false</td>
+                 </tr>
+                 <tr>
+                     <td>></td>
+                     <td>Greater than. Checks whether the variable is greater than the second variable/value.<br> Real values only.</td>
+                     <td><code>1 > 3</code> = false<br><code>3 > 2</code> = true</td>
+                 </tr>
+                 <tr>
+                     <td><</td>
+                     <td>Less than. Checks whether the variable is less than the second variable/value. <br>Real values only.</td>
+                     <td><code>1 < 3</code> = true<br><code>3 < 2</code> = false</td>
+                 </tr>
+                 <tr>
+                     <td>>=</td>
+                     <td>Greater than or equal. Checks whether the variable is greater than or equal to the second variable/value.<br> Real values only.</td>
+                     <td><code>1 >= 3</code> = false<br><code>3 >= 3</code> = true</td>
+                 </tr>
+                 <tr>
+                     <td><=</td>
+                     <td>Less than or equal. Checks whether the variable is less than or equal to the second variable/value. <br>Real values only.</td>
+                     <td><code>1 <= 3</code> = true<br><code>3 <= 3</code> = true</td>
+                 </tr> 
+                 </table>
+
+
+                <h3 id="complexmath">  Complex Math (version 1.43 and newer)</h3>
+              <p>  You can execute complex math operations in every parameter box, using a mix of variables and real values. <br></p>
+                <ul>
+                <li>
+                Each time you want LB to execute any kind of math, you need to wrap the whole sequence in parentheses, for example <code>(variable+3*5+round(variable2))</code> or <code>(variable+10)</code>. <br> 
+                If you just want to insert a stack or variable name, it still needs to be wrapped in <code>()</code>, for example <code>(variable)</code>. <br>
+                For stacks you can use <code>([x]stackname)</code> with x being the position of the stack value. <br>                
+                There is a maximum of 256 characters per input box. The more complex math, the longer it will take to execute the command.</li>
+                <li>Possible math operators:
+                <table>
+                <tr>
+                <td>
+                Operator    
+                </td>
+                <td>
+                Name</td>
+                <td>
+                    Example (without parentheses)</td>
+                </tr>
+                <tr>
+                <td>+</td>
+                <td>Add</td>   
+                <td><code>3+2</code></td> 
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>Subtract</td>   
+                    <td><Code>3-2</Code></td> 
+                    </tr>
+                    <tr>
+                        <td>/</td>
+                        <td>Divide (including decimals)</td>  
+                        <td><code>3/2</code>= 1.5</td>   
+                        </tr>
+                        <tr>
+                            <td>*</td>
+                            <td>Multiply</td>   
+                            <td><code>3*2</code>= 6</td>  
+                            </tr>
+                            <tr>
+                                <td>^</td>
+                                <td>XOR</td>   
+                                <td><code>3^2</code>= 1</td> 
+                                </tr>
+                                <tr>
+                                    <td>|</td>
+                                    <td>OR</td>   
+                                    <td><code>3|2</code>= 3</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>&</td>
+                                        <td>AND</td> 
+                                        <td><code>3&2</code>= 2</td>   
+                                        </tr>
+                                        <tr>
+                                            <td>$</td>
+                                            <td>Hexadecimal</td>   
+                                            <td><code>$FFF</code>= 4095</td>
+                                            </tr>
+                                            <tr>
+                                                <td>round()</td>
+                                                <td>Round to nearest integer</td>   
+                                                <td><code>round(3.4)</code>= 3</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>ceil()</td>
+                                                    <td>Ceil (Round up)</td>   
+                                                    <td><code>ceil(3.4)</code>= 4</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>floor()</td>
+                                                        <td>Floor (Round down)</td>   
+                                                        <td><code>floor(3.8)</code>= 3</td>  
+                                                        </tr>
+                                                        <tr>
+                                                            <td>mod</td>
+                                                            <td>Modulus (division remainder). Space required before and after mod. </td>   
+                                                            <td><code>7 mod 3</code>= 1 or <code>(7+3) mod (2+4)</code>= 4 </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>div</td>
+                                                                <td>Divide (no decimals). Space required before and after div.</td>
+                                                                <td><code>7 div 3</code>= 2 or <code>(7+3) div (2+4)</code>= 1 </td>   
+                                                                </tr>
+                                             
+                </table>
+
+
+                </li>
+                </ul> 
+
+                
+                <h3 id="realvsstring"> Real vs. string</h3>
+                <p>
+                    Real value is a number, while string is text. While a string can contain numbers, a real value cannot contain letters. <br>
+                    If we use Turn to Real command, the following will happen: 
+                <ul>
+                    <li>Turning string <code>“Hello there”</code> to real will result in <code>0</code>.</li>
+                    <li>Turning string <code>“1234”</code> to real will result in <code>1234</code>.</li>
+                    <li>Turning string <code>“Hello there 1234”</code> will result in <code>0</code>.
+                    <li>Turning string <code>“5 Hello there 1234”</code> to real will result in <code>5</code>. </li>
+
+
+                </ul>
+                <p>You cannot execute real operations on strings and string operations on real values.</p>
+                </p>
+        
+                
+                <h3 id="howtoseevariables"> How to see variables and their values</h3>
+                <p>
+                    Press tab in the main LioranBoard Receiver menu. You can then type in the variable name. You can see the stack values if you type the whole name of the stack.
+                </p>
+
+                <h3 id="paramsinputboxes"> Using parameters in input boxes 
+                </h3>
+                <p> Any input box that is marked with a * recognizes the following parameter types: <br>
+                    <ul>
+                        <li>Another variable</li>
+                        <li>Real value (number)</li>
+                        <li>String - needs to be wrapped in " ".</li>
+                        <li>Stack value - [position]stackname </li>
+                        <li>Math expression including variables and <a href="faq.html#complexmath">Complex Math operators</a>. Must be wrapped in (). </li>
+                        <button id="example" onclick="toggle_visibility('typesofvar')">Show example</button>
+                        <div id="typesofvar" style="display: none;"><img src="https://i.imgur.com/sKKRfto.png" /><br /></div>
+                    </ul>
+        
+                    </p>
+                   <p> Any input box that is NOT called 'variable' and is NOT marked with a * accepts only direct values (and math expressions) and needs anything stored in a variable or a stack wrapped in /$$/. <br>
+
+                    <button id="example" onclick="toggle_visibility('typesofvar2')">Show example</button>
+                    <div id="typesofvar2" style="display: none;"><img src="https://i.imgur.com/B7t0YG2.png" /><br /></div>
+                
+                </p>   
+
+                <h3 id="premadevariables"> Premade variables</h3>
+                <p>There are a few premade variables in your LB Receiver: 
+                    <ul>
+                    <li><code>current_scene</code> - always shows your current OBS scene</li>
+                    <li><code>previous_scene</code> - always shows your previous OBS scene </li>
+                    <li><code>elapsed_time</code> - time elapsed since LB was launched</li>
+                    <li><code>lioranboard_version</code> - your LioranBoard Receiver version</li>
+                    <li><code>obs_studio_version</code> - your OBS version </li>
+                    <li><code>obs_websocket_version</code> - your OBS websocket version </li>
+                    <li><code>channel_id</code>(hidden) - Twitch Channel ID. Does not show in the list of variables, but can be passed as a parameter in extension fields.</li>
+                    <li><code>oauth_token</code>(hidden) - Twitch Channel ID. Does not show in the list of variables, but can be passed as a parameter in extension fields.</li>    
+                                       </ul>
+
+                </p>
+
+                <h3 id="buttontriggers"> Button Triggers
+                </h3>
+                <p>
+                LioranBoard has a way of triggering your buttons with different kinds of events. <br>
+                For example, a button can be set up to trigger every time you get a new subscriber. Or, another button can be set up to trigger after a viewer sends a specific message in your Twitch chat. <br>
+                Setting up a trigger is as easy as right clicking on a button and selecting <code>Add Twitch Triggers.</code> Do not get confused by the name, as you can set up triggers for non Twitch events (extensions) as well. <br>
+                We recommend checking <code>Add to Request Queue</code>, which acts as a button queue. If there is another trigger event while the button is still active (for example if you get two subscribers at the same time), it will place it in the request queue and reactivate the button as soon as it's ready again. <br>
+                You can test your Twitch triggers by clicking on the test buttons in your Transmitter. 
+            </p>
+
+                <p><b>Types of triggers: </b>
+                    <ul>
+
+                        <li><b>Chat / Whisper messages</b> - listens to all chat messages and triggers when specific conditions are met. Will also listen to whisper messages if you use <a href="twitchcommands.html#twitchopenwhispers">Twitch: Open Whispers</a> command. <br>
+                            For example, if your message field is <code>!info</code>, it will trigger every time a viewer sends <code>!info</code> command in chat. Can also contain <a href="#wildcards">Wild Cards</a>.<br>
+                            Once the trigger activates the button, you can use <a href="mathcommands.html#mathtriggerpull" target="_blank">Math: Trigger Pull</a> to retrieve all the basic information (viewer's name, full message, emotes and badge list) and/or use <a href="stringcommands.html#stringwildcard" target="_blank">String: Wilcard Pull</a> to retrieve your wildcard values.<br>
+                            
+                    <button id="example" onclick="toggle_visibility('currenttimeX')">Basic example</button> <button id="example" onclick="toggle_visibility('chatwildcardx')">Wildcard example</button>
+                    <div id="currenttimeX" style="display:none"> <br><img src="https://i.imgur.com/VN33hES.png"> </div>
+                    <div id="chatwildcardx" style="display:none"> <br><img src="https://i.imgur.com/TnzSI5e.png"> </div>
+                    <li><b>Followers</b> - this requires a standalone extension, as Twitch Pubsub does not send follower alerts. You need to either initiate <a href="lbext.html#followeralert">Follower Alert</a> extension (which is already pre-installed for you) or download <a href="https://github.com/christinna9031/LB-Streamlabs-Alerts">Streamlabs Alerts</a> extension, which contains Follower Alerts. The latter sends instantaneous alerts, however you need to have a Streamlabs account connected to your Twitch for it to work.<br>
+                        Once the trigger activates the button, you can use <a href="mathcommands.html#mathtriggerpull" target="_blank">Math: Trigger Pull</a> to retrieve the follower's name.<br>
+                        
+
+                    <li><b>Bits</b> - triggers every time a viewer cheers with bits on your stream. <br>You can set up a minimum and maximum amount of bits allowed for the trigger to get activated. This way you can have different animations/sounds played depending on how many bits the viewer sent. <br>
+                    Once the trigger activates the button, you can use <a href="mathcommands.html#mathtriggerpull" target="_blank">Math: Trigger Pull</a> to retrieve all the information (bits amount, viewer's name, viewer's message)<br>
+
+                    <button id="example" onclick="toggle_visibility('bitsX')">Show example</button>
+                <div id="bitsX" style="display:none"> <br><img src="https://i.imgur.com/WaYVMpz.png"> </div>
+                </li>
+
+                <li><b>Subs</b> - triggers every time you get a new subscriber.  <br>
+                    T1/T2/T3 - regular subscribers (tier1 to tier3)<br>
+                    Prime - Twitch Prime subscriber <br>
+                    SubGift - A gifted subscriber <br>
+                    AnonSubGift - Anonymously gifted subscriber <br>
+                    Once the trigger activates the button, you can use <a href="mathcommands.html#mathtriggerpull" target="_blank">Math: Trigger Pull</a> to retrieve all the information (sub name, sub type, recipient for gifted subs, sub message, total number of months subbed etc. )<br>
+
+                    <button id="example" onclick="toggle_visibility('subX')">Regular Sub example</button> 
+                <div id="subX" style="display:none"> <br><img src="https://i.imgur.com/JikZ6nN.png"> </div>
+                
+              
+                </li>
+
+                <li><b>Gift Sub Amount</b> - triggers every time a viewer gifts a subscriber to another viewer.<br>
+                    Once the trigger activates the button, you can use <a href="mathcommands.html#mathtriggerpull" target="_blank">Math: Trigger Pull</a> to retrieve name of the gifter, amount of subs gifted and types of tiers. <br>
+                    If you want to retrieve all the names of the gifted subs, you need to also use <b>Subs</b> trigger (check SubGift and AnonSubGift fields).<br>
+                    <button id="example" onclick="toggle_visibility('gsubX')">Gifted Sub example</button>
+                    <div id="gsubX" style="display:none"> <br><b>Button 1</b><br><img src="https://i.imgur.com/S9xhsEF.png"><br><b>Button 2</b><br><img src="https://i.imgur.com/y7sLZcR.png"> </div>
+
+                </li>
+
+                <li><b>Host/Raid</b> - triggers every time your stream gets hosted/raided. <br>
+                    Once the trigger activates the button, you can use <a href="mathcommands.html#mathtriggerpull" target="_blank">Math: Trigger Pull</a> to retrieve all the information (viewer's name, amount of viewers)<br>
+
+        
+                </li>
+
+                <li><b>Point Redeem</b> - triggers every time a viewer redeems a channel point reward. Only works for custom rewards (text or no text) <br>
+                    Once the trigger activates the button, you can use <a href="mathcommands.html#mathtriggerpull" target="_blank">Math: Trigger Pull</a> to retrieve all the information (viewer's name, reward's name, message, reward ID)<br>
+                    If you put <code>*</code> in the Redeem Name field, it will get triggered with any reward. This <code>*</code> does not act as a wildcard (do not use String: Wilcard Pull). <br>
+
+
+                </li>
+
+                <li><b>Point Redeem with message</b> - triggers every time a viewer redeems a channel point reward. Only works for custom rewards which require viewers to enter text.  <br>The message field can contain wildcards.<br>
+                    Once the trigger activates the button, you can use <a href="mathcommands.html#mathtriggerpull" target="_blank">Math: Trigger Pull</a> to retrieve all the information (viewer's name, reward's name, message, reward ID) and/or use <a href="stringcommands.html#stringwildcard" target="_blank">String: Wilcard Pull</a> to retrieve your wildcard values.<br>
+                                      If you put a single <code>*</code> in the message field, it will get triggered with any message. This <code>*</code> does not act as a wildcard (do not use String: Wilcard Pull). <br>
+
+         
+                </li>
+                <li><b>Extension trigger</b> - controlled by LioranBoard extensions. Can contain wildcards depending on the extension. <br>
+                    Once the trigger activates the button, you can use <a href="mathcommands.html#mathtriggerpull" target="_blank">Math: Trigger Pull</a> to retrieve all the information (value1, value2, value3) and/or use <a href="stringcommands.html#stringwildcard" target="_blank">String: Wilcard Pull</a> to retrieve your wildcard values.<br>
+                    If an extension uses a trigger, it will be documented in the extension manual.<br>
+                   
+
+          
+                </li>
+                <li><b>LioranBoard premade triggers</b> - these are all extension triggers covering different LioranBoard and Twitch chat events.
+                <ul>
+                    <li>
+                        <code>!initlioranboard</code> - Every time Lioranboard starts up
+                    </li>
+                    <li>
+                        <code>!reinitializing</code> - When decks are reloaded.
+                    </li>
+                    <li>
+                        <code>!resetlioranboard</code> - When you use the reset button 
+                    </li>
+                    <li>
+                        <code>!obsconnected</code> - Lioranboard's first connection to OBS
+                    </li>
+                    <li>
+                        <code>!twitchconnected </code> - Twitch chat first connection
+                    </li>
+                    <li>
+                        <code>!transmitterconnected</code> - Transmitter's first connection
+                    </li>
+                    <li>
+                        <code>!obsalways</code> - Every time LioranBoard connects to OBS
+                    </li>
+                    <li>
+                        <code>!twitchalways</code> - Every time Lioranboard connects to Twitch
+                    </li>
+                    <li>
+                        <code>!transmitteralways</code> - Every time Transmitter connects to Lioranboard
+                    </li>
+                    <li>
+                        <code>!leavescene Scene Name</code> - Every time you switch scene, Math: Trigger Pull 1= transition type,  2= transition duration
+                    </li>
+                    <li>
+                        <code>!enterscene Scene Name</code> - Every time you switch scene, Math: Trigger Pull 1= transition type, 2= transition duration
+                    </li>
+                    <li>
+                        <code>!ban</code> - When someone gets banned, Math: Trigger Pull 1=name of the mod, 2=name of the person who got banned
+                    </li>
+                    <li>
+                        <code>!unban</code> - When someone gets unbanned, Math: Trigger Pull 1=name of the mod, 2=name of the person who got unbanned
+                    </li>
+                    <li>
+                        <code>!timeout</code> - When someone gets timed out, Math: Trigger Pull 1=name of the mod, 2=name of the person who got timed out, 3=duration of the timeout in seconds
+                    </li>
+                    <li>
+                        <code>!untimedout</code> - When someone gets unbanned, Math: Trigger Pull 1=name of the mod, 2=name of the person who got untimed out
+                    </li>
+                    <li>
+                        <code>!clearchat</code> - When a mod clears the chat,  Math: Trigger Pull 1=name of the mod.
+                    </li>
+      
+                </li>
+
+                </ul>
+
+
+                    </ul>
+
+
+                </p>
+
+                <h3 id="commanddelays"> How command delays work
+                </h3>
+
+                <p>Command delays are absolute, they’re NOT related to each other. You can think of them as a timeline, where they don't affect each other in any way. <br>
+                    <b>Example 1:</b> If you set up the first command to trigger at 1000ms and the second command to trigger at 1000ms, both commands will trigger at 1000ms, one after another (in this case order matters), exactly 1000ms from when the button was pressed. <br>
+                    <b>Example 2:</b> If you set up your first command to trigger at 5000ms and your second command to trigger at 2000ms, the second command will be triggered exactly 2000ms from when you pressed the button and then first command will be triggered exactly 3000ms after it (5000ms from when you pressed the button). <br>
+                    The command delay is superior to the command order, which means that a second command with a shorter delay will be always triggered before the first command with a longer delay. <br>
+
+                    <button id="example" onclick="toggle_visibility('delayexamplex')">Show example</button>
+                <div id="delayexamplex" style="display:none"> <br><img src="https://i.imgur.com/bzbYOrv.png"> </div>
+                </p>
+
+                <h3 id="cooldowns"> How to set up button cooldowns
+                </h3>
+                <p>
+                If you want to add a cooldown to any button, you can use the <a href="othercommands.html#overtime" target="_blank">Overtime</a> command, which artificially increases the duration of the button and prevents it from triggering again. <br>
+                You can also use <a href="mathcommands.html#mathvariabletransition" target="_blank">Math: Variable Transition</a> + <a href="comparecommands.html#compareskipif" target="_blank">Compare: Skip if</a> command. This will allow you to notify the viewers that the button is on cooldown. 
+                
+                <button id="example" onclick="toggle_visibility('buttoncdtransition')">Show example</button>
+                <div id="buttoncdtransition" style="display:none"> <br><img src="https://i.imgur.com/mZ1emUL.png"> </div>
+                </p>
+                
+
+
+        
+
+                
+
+
+
+
+                <h3 id="buttonshortcuts">How to trigger buttons with keyboard shortcuts</h3>
+                <p>You can set up hotkeys to trigger LioranBoard buttons by selecting Trigger Shortcut button in the main Receiver menu. Click on the little <code>+</code>, choose the type (only keyboard, gamepad and midi keyboard supported), key + optional modifier and fill in your button ID. </p>
+
+
+
+                <h3 id="wildcards"> Wild Cards
+                </h3>
+
+                <p>
+                    A wild card <code>*</code> refers to a character that can be substituted for zero or more characters in a string. They are used to search for partial matches instead of exact ones. <br>
+
+                    Wild cards can be used for Twitch Chat triggers and Redeem points with message triggers. They need to match exactly. You can pull their value by using the <a href="stringcommands.html#stringwildcard">
+                        String: Wildcard Pull
+                    </a> command. 
+
+                    <button id="example" onclick="toggle_visibility('wildcardpullX')">Show example</button>
+<div id="wildcardpullX" style="display:none" class="videowrap"> 
+  <div class="video"> <iframe 
+  src="https://www.youtube.com/embed/QcSQBo4LV3U?controls=1" allowfullscreen >
+  </iframe>  </div><br><img src="https://i.imgur.com/GmeesEF.png"><br></div>
+
+                          <p>   You can use as many wild cards as you want as long as the formatting is matched. 
+                
+                    Wild card trigger examples: </p>
+
+                <table>
+                    <tr>
+                        <td>
+                            Trigger
+                        </td>
+                        <td colspan=4>
+                            Chat Input (green=accepted, red=rejected)
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            world *
+                        </td>
+                        <td>
+                            <mark id="accept">world hello</mark>
+                        </td>
+                        <td>
+                            <mark id="accept">world hello hi there</mark>
+                        </td>
+                        <td>
+                            <mark id="refuse">hello world</mark>
+                        </td>
+                        <td>
+                            <mark id="refuse">hello world hello</mark>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            * world
+                        </td>
+                        <td>
+                            <mark id="refuse">world hello</mark>
+                        </td>
+                        <td>
+                            <mark id="refuse">world hello hi there</mark>
+                        </td>
+                        <td>
+                            <mark id="accept">hello world</mark>
+                        </td>
+                        <td>
+                            <mark id="refuse">hello world hello</mark>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            * world *
+                        </td>
+                        <td>
+                            <mark id="refuse">world hello</mark>
+                        </td>
+                        <td>
+                            <mark id="refuse">world hello hi there</mark>
+                        </td>
+                        <td>
+                            <mark id="refuse">hello world</mark>
+                        </td>
+                        <td>
+                            <mark id="accept">hello world hello</mark>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            world * *
+                        </td>
+                        <td>
+                            <mark id="refuse">world hello</mark>
+                        </td>
+                        <td>
+                            <mark id="accept">world hello hi there</mark>
+                        </td>
+                        <td>
+                            <mark id="refuse">hello world</mark>
+                        </td>
+                        <td>
+                            <mark id="refuse">hello world hello</mark>
+                        </td>
+                    </tr>
+
+                </table>
+                </p>
+
+                <p>
+
+
+                    If you want to allow a single word for your trigger, no matter where it is placed in the sentence, you will need 4 different triggers: <code>word</code>,<code>word *</code>, <code>* word</code> and <code>* word *</code>. <br>
+
+                    
+                    For example, with a trigger <code>!set * to *</code> and a chat message <code>!set timer to 5</code> , you can pull wild card 0 value (<code>timer</code>) and wild card 1 value (<code>5</code>). </p>
+                <p>
+                    Now, what if you have a command <code>!lights *</code> where the wildcard is a color to set your Philips Hue lights to, but your viewers sometimes include extra text after they specify the color? For example, they send a chat message: <code>!lights red Hello there!</code> and you're only interested in pulling the color name instead of the whole <code>red Hello there!</code> value. In this case, you need to use these two chat triggers: <code>lights * *</code> , <code>lights *</code> (order and spaces matter). Now it will always only pull the color, no matter if there is any additional text.
+               
+                    <button id="example" onclick="toggle_visibility('wildcardlightsX')">Show example</button>
+                    <div id="wildcardlightsX" style="display:none"> <br><img src="https://i.imgur.com/3pegH0K.png"> </div> 
+                    <p><i>You can't have 2 wild cards back to back without a space, as it will be turned into just one wildcard. <br>Twitch automatically removes double space, so you don't have to worry about that.</i> <br>
+
+         
+                </p>
+
+                
+                <h3 id="secondpc"> Controlling OBS from another PC with LioranBoard
+                </h3>
+                <p>LioranBoard can connect to your OBS from another PC, as long as they are both sharing the same network. <br> Follow these steps: <br>
+                <ul>
+                    <li>
+                    <b>Streaming PC:</b>
+                    <ol>
+                    <li>Run your OBS as normal.</li> 
+                    <li>Open CMD and type <code>ipconfig</code>. Write down your IPv4 address. It should start with 192.168.</li> 
+                    </ol>
+                    </li>
+                    <li>
+                    <b>Gaming PC:</b>
+                    <ol>
+                    <li>Go to your LioranBoard/Receiver folder and open connect.ini. Under <code>[connection]</code>  section, add a new entry: <code>websocket_ip="YOUR STREAMING PC IPv4"</code>.</li>
+                    <li>
+                    Save the file, open Lioranboard and try connecting to the OBS websocket on your streaming PC. It should work as long as nothing (antivirus, firewall) is blocking connection to your streaming PC. 
+                    </li>
+                    </ol>
+                    </li>
+
+                </ul>
+                             
+               
+                <button id="example" onclick="toggle_visibility('secondpcX')">Show example</button>
+                    <div id="secondpcX" style="display:none"> <br><img src="https://i.imgur.com/xRkzU3I.png"> </div> 
+
+
+                 <h3 id="remoteconnection"> Remote Connection
+                 </h3>    
+                 <p>It's possible to remotely connect and control your LioranBoard via Stream Deck from anywhere in the world.  </p>
+                 <p>There are multiple ways to accomplish this, however I will cover the easiest and most accessible one.</p>
+                 <ol>
+                <li>
+                Download Ngrok and <a href="https://ngrok.com/">sign up for an account</a>.
+                </li>
+                <li>
+                Log in to your account and retrieve your <a href="https://dashboard.ngrok.com/get-started/your-authtoken">authtoken</a>. 
+                </li>
+                <li>
+                Go to the downloaded file, unzip it and run ngrok.exe. You should see a command line open.  
+                </li>
+                <li>
+                Type <code>ngrok authtoken YOURAUTHTOKEN</code> and press enter. You should see a message 'Authtoken saved to configuration file: C:\Users\...'. This step is necessary to prevent your session from timing out. 
+                </li>
+                <li>
+                To start the tunnel, type <code>ngrok tcp 9423</code> and hit enter. <br>
+                Note: The default region is US. You can change it by adding <code>-region=REGION</REGION></code> flag. Regions: us, eu, ap, au, sa, jp, in. Example: <code>ngrok tcp -region=eu 9423</code>.
+                </li>
+                <li>You should see your session started. Go to your Stream Deck and paste the new IP and port from the Forwarding line (make sure to omit the tcp:// part). As long as your tunnel is active, you can connect to your Receiver from anywhere in the world now! :)</li>  <button id="example" onclick="toggle_visibility('remoteconnectionex')">Show example</button>
+                    <div id="remoteconnectionex" style="display:none"> <br><img src="https://i.imgur.com/SkquOIy.png"> </div> 
+                 </ol>
+                 <p>All currently active tunnels can be seen on your <a href="https://dashboard.ngrok.com/endpoints/status">dashboard</a>.</p>
+                 <p>If you wish to close the tunnel, you can press CTRL+C or type <code>taskkill /f /im ngrok.exe</code> in the CMD and press enter.</p>
+                 <p><b>IMPORTANT: </b>Do not share your tunnel IP and port with anyone else. If you manage to leak it by accidentally showing it on stream, you should terminate the service and relaunch it, as anyone who knows the address can freely connect and press buttons in your Stream Deck.</p>
+                 
+       
+                
+                <h3 id="obstreamlabs"> LioranBoard and OBS Streamlabs
+                </h3>
+                <p>LioranBoard natively supports only OBS Studio, as it uses OBS Websocket to communicate. It is possible to make an extension to communicate with OBS Streamlabs, but as of now that hasn't been done yet. </p>
+
+                <h3 id="elgato"> LioranBoard and Elgato Stream Deck
+                </h3>
+                <p>The only way Elgato and LioranBoard can communicate is through key presses. You can trigger LB buttons from your Elgato, but not the other way around. Elgato plugins are unfortunately quite limited, and there is currently no way to trigger Elgato keys within a plugin or via keyboard hotkeys. </p>
+                <iframe width="420" height="315" src="https://www.youtube.com/embed/sLnU2mOOxQg?controls=1">
+                </iframe>
+
+                <h3 id="anyapp"> How to connect LioranBoard to any app
+                </h3>
+                <p>Lioranboard can connect to any app or service that has public API or websocket access. It is done via custom made extension in JavaScript. All extensions are listed in the #Releases channel in our <a href="https://discord.gg/dXez8Zh">Discord server</a>. If none of them suits your needs, feel free ask in the #Suggestions channel or request a <a href="commissions.html">commission</a> for more complex integrations. </p>
+
+
+                <h3 id="extensions"> How to make your own extension
+                </h3>
+                <p>Lioranboard communicates with extensions via Transmitter (written in HTML and JS) and its own websocket. Information about how to make your own extension can be found in <code>LioranBoard/extension/readme.txt</code> file. You can also go over a few examples of extensions to understand the process.</p>
+
+
+
+
+            </section>
+
+        </div>
+    </div>
+
+</body>
+<script>$(document.links).filter(function() {return this.hostname != window.location.hostname;}).attr('target', '_blank');</script>
+</html>

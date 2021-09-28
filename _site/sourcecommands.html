@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="main.css" />
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="main.js"></script>
+        <title>Source Commands | LioranBoard</title>
+    </head>
+    <body>
+        <header>
+            <div class="title">
+                <h1>LioranBoard Documentation</h1>
+            </div>
+            <div class="slide">
+                <nav class="sidebar" id="sidebar">
+                    <div class="scroller">
+                        <dl>
+                            <dt>
+                                <a href="index.html"> About LioranBoard</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="setup.html"> Basic Setup</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="commands.html" class="active"> Commands</a>
+                            </dt>
+
+                            <dd>
+                                <a class="sub-page" href="sourcecommands.html" class="active">OBS Source Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a href="#sceneswitch">
+                                    Scene Switch
+                                </a>
+                            </dd>
+
+                                                
+                            <dd>
+                                <a href="#createscene"> Create Scene </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#createsource"> Create Source </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#sourcemute"> Source Mute </a>
+                            </dd>
+                            <dd>
+                                <a href="#sourcetogglemute"> Source Toggle Mute </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#changeaudiomonitortype"> Change Audio Monitor Type </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#sourcechangevisibility"> Source Change Visibility </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#sourcechangeposition">
+                                    Source Change Position
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#sourcechangevolume"> Source Change Volume </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#sourcechangescale"> Source Change Scale </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#sourcechangerotation"> Source Change Rotation </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#sourcechangesettings"> Source Change Settings </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#textgdichangetext"> Text GDI+ Change Text </a>
+                            </dd>
+                            <dd>
+                                <a href="#freetypechangetext"> Freetype 2 Change Text </a>
+                            </dd>
+                            <dd>
+                                <a href="#filterchangevisibility"> Filter Change Visibility </a>
+                            </dd>
+                            <dd>
+                                <a href="#filterchangesettings"> Filter Change Settings </a>
+                            </dd>
+                            <dd>
+                                <a href="#sourcemotionposition"> Source Motion: Position </a>
+                            </dd>
+                            <dd>
+                                <a href="#sourcemotionpositioncurve"> Source Motion: Position Curve </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#sourcemotionscale"> Source Motion: Scale </a>
+                            </dd>
+                            <dd>
+                                <a href="#sourcemotionvolume"> Source Motion: Volume </a>
+                            </dd>
+                            <dd>
+                                <a href="#sourcemotionalphafilter"> Source Motion: Alpha Filter </a>
+                            </dd>
+                            <dd>
+                                <a href="#sourcemotionrotation"> Source Motion: Rotation </a>
+                            </dd>
+                             <dd>
+                      <a href="#triggerobshotkey">
+                        Trigger OBS Hotkey
+                      </a>
+                  </dd>
+
+                          <dd>
+                            <a href="#triggerobshotkeyseq">
+                              Trigger OBS Hotkey Sequence
+                            </a>
+                        </dd>
+                            <dd>
+                                <a href="#custompacket"> Custom Packet </a>
+                            </dd>
+                            <dd>
+                                <a href="#fetchobsdata"> Fetch OBS Data </a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="recordingcommands.html">OBS Recording Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="mediacommands.html" >OBS Media Commands</a>
+                                </dd>
+                        
+                                <dd>
+                                  <a class="sub-page" href="transitioncommands.html">OBS Transition Commands</a>
+                                  </dd>
+                            <dd>
+                                <a class="sub-page" href="mathcommands.html">Math Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="stringcommands.html">String Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="stackcommands.html">Stack Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="statementcommands.html">Statement Commands</a>
+                            </dd>
+                            <dd>
+                                <a class="sub-page" href="filecommands.html">File Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="twitchcommands.html" >Twitch Commands</a>
+                                </dd>
+
+                            <dd>
+                                <a class="sub-page" href="othercommands.html">Other Commands</a>
+                            </dd>
+                            <dd>
+                                <a class="sub-page" href="deprecatedcommands.html" >Deprecated Commands</a>
+                                </dd>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="faq.html"> FAQ</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="extensions.html"> Extensions</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="troubleshooting.html"> Troubleshooting</a>
+                            </dt>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="commissions.html"> Commissions</a>
+                            </dt>
+                        </dl>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <div class="wrapper">
+            <div class="main">
+                <section class="doc-content">
+                    <h2>OBS Source Commands</h2>
+                    <h3 id="sceneswitch">Scene Switch</h3>
+                    <p>
+                        Switch to the selected scene with normal transition.
+                    </p>
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>scene-name</td>
+                            <td>String</td>
+                            <td>Name of the scene in OBS</td>
+                        </tr>
+                    </table>
+
+                    <p>You can switch to a previous scene by using the premade variable <code>previous_scene</code></p>
+
+                    <button id="example" onclick="toggle_visibility('switchtoprevscene')">Show example</button>
+                    <div id="switchtoprevscene" style="display: none;"><img src="https://i.imgur.com/dhfVm3k.png" /></div>
+
+                    <h3 id="createscene"> Create Scene</h3>
+                    <p id="obsversion">Requires OBS Websocket 4.9</p>
+                    <p>
+                       Creates a new scene in OBS. <br>
+                    <i>Note: There is currently a bug in OBSWS where this command fails if a scene with the requested name has ever existed during the current run of OBS (for example if you deleted a scene with the same name or switched to a different scene collection with the previous one containing the scene name). The only workaround is to completely restart OBS. </i>
+                    </p>
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>SceneName</td>
+                            <td>String</td>
+                            <td>Unique name of the scene to create</td>
+                        </tr>
+                            </table>
+
+                    <h3 id="createsource">Create Source</h3>
+                    <p id="obsversion">Requires OBS Websocket 4.9</p>
+                    <p>
+                        Creates a source and adds it as a scene item to a scene. </p>
+                       <p> The source will be added at the top of the list. If you need to reorder it, you can use a <a href="sourcecommands.html#custompacket">Custom Packet</a> command to send a JSON containing the new order of all sources in your scene (the 'items' value is an array of objects, each containing one source name): <code>{"request-type":"ReorderSceneItems","scene":"YOURSCENENAME","items":[{"name":"YOURSOURCENAME1"},{"name":"YOURSOURCENAME2"},{"name":"YOURSOURCENAME3"},{"name":"YOURSOURCENAME4"}</code>(etc.)<code>],"message-id":"6666"}</code>.    <button id="example" onclick="toggle_visibility('reoderitemsx')">Show example</button>
+                        <div id="reoderitemsx" style="display:none"> <img src="https://i.imgur.com/aub3Kzm.png"></div>
+               
+                    </p>
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>sourceName</td>
+                            <td>String</td>
+                            <td>placeholder</td>
+                        </tr>
+                        <tr>
+                            <td>sourceKind</td>
+                            <td>List</td>
+                            <td>Possible values: <br>
+                                
+                                   <code>ffmpeg_source</code> Media Source<br>  
+                                   <code>vlc_source </code>VLC media source<br>       
+                                   <code>image_source </code>Image Source<br>   
+                                   <code>slideshow </code>Image slide show<br>   
+                                   <code>text_ft2_source </code>Free Type 2 text source<br>   
+                                   <code>text_gdiplus </code>Text GDI+ source<br>               
+                                   <code>browser_source </code>Browser source<br>   
+                                   <code>wasapi_input_capture </code>Audio Input capture<br>   
+                                   <code>wasapi_output_capture </code>Audio Output Capture<br>   
+                                   <code>color_source </code>Color source<br>   
+                                   <code>monitor_capture </code>Display Capture<br>   
+                                   <code>window_capture </code>Window capture<br>   
+                                   <code>game_capture </code>Game Capture<br>   
+                                   <code>dshow_input </code>Capture device(webcam)<br>  
+                                   <code>dshow_input_replay  </code>Video Capture Device with replay buffer<br>    <br>
+
+                                  For plugin sources you need to look at the OBS JSON file to figure out the correct value.
+
+                                                        
+                               
+
+        
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>sceneName</td>
+                            <td>String</td>
+                            <td>Name of the scene to add the source to.</td>
+                        </tr>
+                        <tr>
+                            <td>sourceSettings</td>
+                            <td>JSON</td>
+                            <td>Source settings. Same format which is used in Source Change Settings command.</td>
+                        </tr>
+                        <tr>
+                            <td>setVisible</td>
+                            <td>boolean</td>
+                            <td>Whether the source should be visible.</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="sourcemute">Source Mute</h3>
+                    <p>
+                        Mutes the sound of a source.
+                    </p>
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>source</td>
+                            <td>String</td>
+                            <td>Source name to be muted</td>
+                        </tr>
+                        <tr>
+                            <td>mute</td>
+                            <td>boolean</td>
+                            <td>True=mute or false=unmute</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="sourcetogglemute">Source Toggle Mute</h3>
+
+                    <p>Toggles on and off the sound of a source</p>
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>source</td>
+                            <td>String</td>
+                            <td>Source name</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="changeaudiomonitortype">Change Audio Monitor Type</h3>
+
+                    <p>Changes the monitoring type of an audio source. Same option as in OBS-Audio Mixer-Cogwheel-Advanced Audio Properties.</p>
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>sourceName</td>
+                            <td>String</td>
+                            <td>Audio source name</td>
+                        </tr>
+                        <tr>
+                            <td>monitorType</td>
+                            <td>dropdown menu</td>
+                            <td>Type of monitoring to use</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('changeaudiomonitortypex')">Show example</button>
+                    <div id="changeaudiomonitortypex" style="display: none;"><img src="https://i.imgur.com/2EhV4mW.png" /> <img src="https://i.imgur.com/MgN2R8d.png" /></div>
+
+                    <h3 id="sourcechangevisibility">Source Change Visibility</h3>
+
+                    <p>
+                        Changes the visibility of a source.<br />
+                        It is highly recommended to use True or False. Toggle should be used only if it's a single button command. <br />
+                    </p>
+
+                    <p><i>This command does not always properly work if the source is in a group. It is recommended to use nested scenes instead of groups. </i></p>
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>scene-name</td>
+                            <td>String (optional)</td>
+                            <td>Scene name containing the source. Leave blank for current active scene.</td>
+                        </tr>
+                        <tr>
+                            <td>item</td>
+                            <td>String</td>
+                            <td>Source name</td>
+                        </tr>
+                        <tr>
+                            <td>visible</td>
+                            <td>boolean</td>
+                            <td>True, False or Toggle</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="sourcechangeposition">Source Change Position</h3>
+
+                    <p>
+                        Changes the position of a source. <br />
+                        This happens immediately. If you prefer to have a smooth transition, use <a href="#sourcemotionposition">Source Motion: Position</a> command instead. <br />
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>scene-name</td>
+                            <td>String (optional)</td>
+                            <td>Scene name containing the source. Leave blank for current active scene.</td>
+                        </tr>
+                        <tr>
+                            <td>item</td>
+                            <td>String</td>
+                            <td>Source name</td>
+                        </tr>
+                        <tr>
+                            <td>Field: X *</td>
+                            <td>Real (optional)</td>
+                            <td>X position to set the source to. Can leave blank to not modify it.</td>
+                        </tr>
+                        <tr>
+                            <td>Field: Y *</td>
+                            <td>Real (optional)</td>
+                            <td>Y position to set the source to. Can leave blank to not modify it.</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="sourcechangevolume">Source Change Volume</h3>
+
+                    <p>
+                        Changes the volume of a source. <br />
+                        If you prefer the volume to change gradually, use <a href="#sourcemotionvolume">Source Motion: Volume</a> command instead. <br />
+                        You can use <a href="mathcommands.html#mathpullsourcevalue">Math: Pull Source Value</a> command to get the current volume of a source and incorporate it in this command.<br />
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>source</td>
+                            <td>String (optional)</td>
+                            <td>Scene name containing the source. Leave blank for current active scene.</td>
+                        </tr>
+                        <tr>
+                            <td>volume % *</td>
+                            <td>Real</td>
+                            <td>Percentage to set the volume to, between 0 and 100.</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('changevolumeX')">Show example</button>
+                    <div id="changevolumeX" style="display: none;"><img src="https://i.imgur.com/RoopUVV.png" /></div>
+
+                    <h3 id="sourcechangescale">Source Change Scale</h3>
+
+                    <p>
+                        Changes the size of a source.
+                        <br />
+                        You can use negative values for a horizontal (mirror) or vertical source flip.
+                        <br />
+                        The way it's resized is based on source's positional alignment in OBS (right click on the source in OBS-Transform-Edit Transform).<br />
+                        If you prefer the size to change gradually, use <a href="#sourcemotionscale">Source Motion: Scale</a> command instead. <br />
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>scene-name</td>
+                            <td>String (optional)</td>
+                            <td>Scene name containing the source. Leave blank for current active scene.</td>
+                        </tr>
+                        <tr>
+                            <td>item</td>
+                            <td>String</td>
+                            <td>Source name to change size.</td>
+                        </tr>
+                        <tr>
+                            <td>X Scale *</td>
+                            <td>Real (optional)</td>
+                            <td>X Scaling to set the source to. Can leave blank to not modify it. 1.0=100%</td>
+                        </tr>
+                        <tr>
+                            <td>Y Scale *</td>
+                            <td>Real (optional)</td>
+                            <td>Y Scaling to set the source at. Can leave blank to not modify it. 1.0=100%</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('horizvertflip')">Show example</button>
+                    <div id="horizvertflip" style="display: none;"><img src="https://i.imgur.com/UVJzTp8.png" /></div>
+
+                    <h3 id="sourcechangerotation">Source Change Rotation</h3>
+
+                    <p>
+                        Changes the rotation of a source.
+                        <br />
+                        The center point of the rotation is based on the Positional Alignment option (right click on the source in OBS-Transform-Edit Transform).<br />
+                        If you prefer the rotation to change gradually, use <a href="#sourcemotionrotation">Source Motion: Rotation</a> command instead. <br />
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>scene-name</td>
+                            <td>String (optional)</td>
+                            <td>Scene name containing the source. Leave blank for current active scene.</td>
+                        </tr>
+                        <tr>
+                            <td>item</td>
+                            <td>String</td>
+                            <td>Source name to change rotation.</td>
+                        </tr>
+                        <tr>
+                            <td>rotation *</td>
+                            <td>Real</td>
+                            <td>Rotation angle to change the source to. 0=normal, 180=turned around, 360=normal.</td>
+                        </tr>
+                    </table>
+
+
+
+                    <h3 id="sourcechangesettings">Source Change Settings</h3>
+
+                    <p>
+                        Changes settings of a source.
+                        <br />
+                        You need to know the exact formatting for this to work. <br />
+                        I recommend using a command <a href="#custompacket">Custom Packet</a> first to find out what's the exact name of the value you're trying to change: <br />
+                        <code>{"request-type":"GetSourceSettings","sourceName":"YOURSOURCENAME","message-id":"6666"}</code> <br />
+
+                        Once you execute this particular command, you will get a grey message containing all source's settings. This will be automatically saved to your clipboard, so you can paste in a document for a later review. You can
+                        then find the exact <code>sourceSettings</code> value to use. <button id="example" onclick="toggle_visibility('getsourcesettingsX')">Show example</button>
+                    </p>
+
+                    <div id="getsourcesettingsX" style="display: none;">
+                        <img src="https://i.imgur.com/Un8zMYB.png" /><br />
+                        <img src="https://i.imgur.com/SQR9wJL.png" />
+                    </div>
+
+                        <p>You can easily validate your JSON string <a href="https://jsonlint.com/">here</a>.</p>
+
+              
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>sourceName</td>
+                            <td>String</td>
+                            <td>Source name to change settings.</td>
+                        </tr>
+                        <tr>
+                            <td>sourceSettings</td>
+                            <td>JSON</td>
+                            <td>The settings to be included. This is a JSON format, {} must be present on both sides.</td>
+                        </tr>
+                    </table>
+
+                    <p>
+                        Most common sourceSettings values are:
+                    </p>
+                    <ul>
+                        <li>Change URL of a browser source: <code>{"url":"http://twitch.tv"}</code></li>
+                        <li>Change local file path of a browser source: <code>{"local_file":"E:/Stream/hello.html"}</code></li>
+                        <li>Change local file path of an image source: <code>{"file":"E:/Stream/image.png"}</code></li>
+                        <li>Change local file paths for your VLC source. Each <code>{"value":"X"}</code> represents one file. <br><code>{"playlist": [{"value": "E:/videos/video1.mp4"},{"value": "E:/videos/video2.mkv"}]}</code></li>
+                        <li>Change font settings of your GDI+ text source. Needs to include all values.<code>{"font": {"face": "Arial","flags": 8,"size": 48,"style": "Regular"}}</code></li>
+                    </ul>
+                    <p id="important"><i>Pay special attention to the forward slashes in the file paths, as it will not work if you use back slashes instead. </i></p>
+
+                    <button id="example" onclick="toggle_visibility('changebrowsersourceX')">Show example</button>
+                    <div id="changebrowsersourceX" style="display: none;"><img src="https://i.imgur.com/ZdskjuX.png" /></div>
+
+                    <h3 id="textgdichangetext">Text GDI+ Change Text</h3>
+
+                    <p>
+                        Changes the text of a Text GDI+ source.<br />
+                        If you wish to change the text to a value saved in a variable, you need to wrap it like this: <code>/$variable$/</code>
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>sourceName</td>
+                            <td>String</td>
+                            <td>Text GDI+ source name</td>
+                        </tr>
+                        <tr>
+                            <td>text</td>
+                            <td>String</td>
+                            <td>The new text</td>
+                        </tr>
+                    </table>
+                    <button id="example" onclick="toggle_visibility('deathcounterX')">Show example</button>
+                    <div id="deathcounterX" style="display: none;"><img src="https://i.imgur.com/I47kkva.png" /></div>
+
+                    <h3 id="freetypechangetext">Freetype 2 Change Text</h3>
+
+                    <p>
+                        Changes the text of a Freetype 2 text source.<br />
+                        If you wish to change the text to a value saved in a variable, you need to wrap it like this: <code>/$variable$/</code>
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>sourceName</td>
+                            <td>String</td>
+                            <td>Freetype 2 source name</td>
+                        </tr>
+                        <tr>
+                            <td>text</td>
+                            <td>String</td>
+                            <td>The new text</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="filterchangevisibility">Filter Change Visibility</h3>
+
+                    <p>
+                        Changes visibility of a filter in a given source.<br />
+                        It is highly recommended to use True and False. Toggle should be used only if it's a single button command. <br />
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>sourceName</td>
+                            <td>String</td>
+                            <td>Source name containing the filter</td>
+                        </tr>
+                        <tr>
+                            <td>filterName</td>
+                            <td>String</td>
+                            <td>Filter name to change the visibility</td>
+                        </tr>
+                        <tr>
+                            <td>filterEnabled</td>
+                            <td>boolean</td>
+                            <td>Enable or disable filter's visibility. On/off or toggle.</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="filterchangesettings">Filter Change Settings</h3>
+
+                    <p>
+                        Changes or adds settings to a filter in a specified source.<br />
+                        You need to know the exact formatting for this to work. <br />
+                        I recommend using a command <a href="#custompacket">Custom Packet</a> first to find out what's the exact name of the filter settings you're trying to change: <br />
+                        <code>{"request-type":"GetSourceFilterInfo","sourceName":"YOURSOURCENAME","filterName":"YOURFILTERNAME","message-id":"6666"}</code> <br />
+
+                        Once you execute this particular command, you will get a grey message containing all filter's settings. This will be automatically saved to your clipboard, so you can paste in a document for a later review. You can
+                        then find the exact <code>filterSettings</code> value to use.
+
+                        <button id="example" onclick="toggle_visibility('filterchangepacketX')">Show example</button>
+                    </p>
+
+                    <div id="filterchangepacketX" style="display: none;">
+                        <img src="https://i.imgur.com/OpQhKC4.png" /><br />
+                        <img src="https://i.imgur.com/LlxVaXn.png" />
+                    </div>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>sourceName</td>
+                            <td>String</td>
+                            <td>Source name containing the filter</td>
+                        </tr>
+                        <tr>
+                            <td>filterName</td>
+                            <td>String</td>
+                            <td>Filter name to change the settings</td>
+                        </tr>
+                        <tr>
+                            <td>filterSettings</td>
+                            <td>JSON</td>
+                            <td>The settings you want to set on the filter. JSON format.</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('filterchangesettingsX')">Show example</button>
+                    <div id="filterchangesettingsX" style="display: none;"><img src="https://i.imgur.com/O6tBpRn.png" /></div>
+
+                    <h3 id="sourcemotionposition">Source Motion: Position</h3>
+
+                    <p>
+                        Moves a source from point A to point B over a given duration.
+                        <br />
+                        If you want to move a source from its current position that is not always the same, you can use the command Math: Pull Source Value to find the current source's X and Y position and incorporate it into this command.
+                        <br />
+                    </p>
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>scene</td>
+                            <td>String</td>
+                            <td>Scene name containing the source</td>
+                        </tr>
+                        <tr>
+                            <td>source</td>
+                            <td>String</td>
+                            <td>Source name to move</td>
+                        </tr>
+                        <tr>
+                            <td>Start X *</td>
+                            <td>Real</td>
+                            <td>Starting X position</td>
+                        </tr>
+
+                        <tr>
+                            <td>Start Y *</td>
+                            <td>Real</td>
+                            <td>Starting Y position</td>
+                        </tr>
+                        <tr>
+                            <td>Final X *</td>
+                            <td>Real</td>
+                            <td>Final X position</td>
+                        </tr>
+                        <tr>
+                            <td>Final Y *</td>
+                            <td>Real</td>
+                            <td>Final Y position</td>
+                        </tr>
+                        <tr>
+                            <td>Dur.(MS) *</td>
+                            <td>Int</td>
+                            <td>Duration of the transition in milliseconds</td>
+                        </tr>
+                        <tr>
+                            <td>Smooth</td>
+                            <td>dropdown menu</td>
+                            <td>
+                                Type of transition. None= Normal, Out=Starts out fast and ends slow, In=Starts out slow and ends fast, <br />
+                                In/Out= Starts out slow, gets faster and then slows down at the end again.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('motionpositioncurrentX')">Show example</button>
+                    <div id="motionpositioncurrentX" style="display: none;"><img src="https://i.imgur.com/fC0E4Ns.png" /></div>
+
+                    <h3 id="sourcemotionpositioncurve">Source Motion: Position Curve</h3>
+
+                    <p>
+                        Moves a Source from point A to point B over a given duration AND curves it in a circle pattrern. <br />
+                        You can make a source complete a half circle or have a slight curve in its transition.
+                        <br />
+                        If you want to move a source from its current position that is not always the same, you can use the command Math: Pull Source Value to find current source's X and Y position and incorporate it into this command.
+                        <br />
+                    </p>
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>scene</td>
+                            <td>String</td>
+                            <td>Scene name containing the source</td>
+                        </tr>
+                        <tr>
+                            <td>source</td>
+                            <td>String</td>
+                            <td>Source name to move</td>
+                        </tr>
+                        <tr>
+                            <td>Start X *</td>
+                            <td>Real</td>
+                            <td>Starting X position</td>
+                        </tr>
+
+                        <tr>
+                            <td>Start Y *</td>
+                            <td>Real</td>
+                            <td>Starting Y position.</td>
+                        </tr>
+                        <tr>
+                            <td>Final X *</td>
+                            <td>Real</td>
+                            <td>Final X position</td>
+                        </tr>
+                        <tr>
+                            <td>Final Y *</td>
+                            <td>Real</td>
+                            <td>Final Y position</td>
+                        </tr>
+                        <tr>
+                            <td>Curve % *</td>
+                            <td>Real</td>
+                            <td>
+                                The amplitude of the curve. Can be negative or over 100.<br />
+                                100% is a perfect half circle, 0% is straight line with a slower start and slower finish.<br />
+                                -200% is an elongated half circle on the opposite side.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Dur.(MS) *</td>
+                            <td>Int</td>
+                            <td>Duration of the transition in milliseconds.</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('sourcemotionpositioncurveX')">Show example</button>
+                    <div id="sourcemotionpositioncurveX" style="display: none;"><img src="https://i.imgur.com/GoH15y1.png" /></div>
+
+                    <h3 id="sourcemotionscale">Source Motion: Scale</h3>
+
+                    <p>
+                        Resizes a source from Size A to size B over a given duration. <br />
+                        Due to the way the OBS source resizing work, the result might look a bit snappy sometimes.
+                        <br />
+                        The way the source is resized is based on what the source's point of origin is set to in OBS.
+                        <br />
+                        You can use negative values for a horizontal (mirror) or vertical source flip. <br />
+                        You can use <a href="mathcommands.html#mathpullsourcevalue">Math: Pull Source Value</a> command to find current source's X and Y size and incorporate it into this command. <br />
+                    </p>
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>scene</td>
+                            <td>String</td>
+                            <td>Scene name containing the source</td>
+                        </tr>
+                        <tr>
+                            <td>source</td>
+                            <td>String</td>
+                            <td>Source name to move</td>
+                        </tr>
+                        <tr>
+                            <td>Start Xscale *</td>
+                            <td>Real</td>
+                            <td>Starting X size</td>
+                        </tr>
+
+                        <tr>
+                            <td>Start Yscale *</td>
+                            <td>Real</td>
+                            <td>Starting Y size</td>
+                        </tr>
+                        <tr>
+                            <td>Final Xscale *</td>
+                            <td>Real</td>
+                            <td>Final X size</td>
+                        </tr>
+                        <tr>
+                            <td>Final Yscale *</td>
+                            <td>Real</td>
+                            <td>Final Y size</td>
+                        </tr>
+                        <tr>
+                            <td>Dur.(MS) *</td>
+                            <td>Int</td>
+                            <td>Duration of the transition in milliseconds</td>
+                        </tr>
+                        <tr>
+                            <td>Smooth</td>
+                            <td>dropdown menu</td>
+                            <td>
+                                Type of transition. None= Normal, Out=Starts out fast and ends slow, In=Starts out slow and ends fast, <br />
+                                In/Out= Starts out slow, gets faster and then slows down at the end again.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('sourcemotionscaleX')">Show example</button>
+                    <div id="sourcemotionscaleX" style="display: none;">
+                        <img src="https://i.imgur.com/s9NqopD.png" /><br />
+                        <img src="https://i.imgur.com/BdJkZ0C.png" />
+                    </div>
+
+                    <h3 id="sourcemotionvolume">Source Motion: Volume</h3>
+
+                    <p>
+                        Changes the volume of a given source from volume A to B over a duration.<br />
+                        You can use <a href="mathcommands.html#mathpullsourcevalue">Math: Pull Source Value</a> command to get the current volume of a source and incorporate it in this command.<br />
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>source</td>
+                            <td>String</td>
+                            <td>Source name to change the volume</td>
+                        </tr>
+                        <tr>
+                            <td>Start Volume% *</td>
+                            <td>Real</td>
+                            <td>Starting volume percentage. 0-100</td>
+                        </tr>
+                        <tr>
+                            <td>Final Volume% *</td>
+                            <td>Real</td>
+                            <td>Final volume percentage. 0-100</td>
+                        </tr>
+                        <tr>
+                            <td>Dur.(MS) *</td>
+                            <td>Int</td>
+                            <td>Transition duration in milliseconds</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('sourcevolumegradX')">Show example</button>
+                    <div id="sourcevolumegradX" style="display: none;"><img src="https://i.imgur.com/lMcn7ne.png" /><br /></div>
+
+                    <h3 id="sourcemotionalphafilter">Source Motion: Alpha Filter</h3>
+
+                    <p>
+                        Changes the transparency of a source over a set duration.<br />
+                        Requires you to add a Color Correction filter to your source.<br />
+                        This way you can gradually fade out a source before turning its visibility completely off and gradually fade in a source after turning its visibility on. <br />
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>source</td>
+                            <td>String</td>
+                            <td>Source name to change the transparency of.</td>
+                        </tr>
+                        <tr>
+                            <td>filterName</td>
+                            <td>String</td>
+                            <td>Filter name. Must be a Color Correction filter.</td>
+                        </tr>
+                        <tr>
+                            <td>Start Alpha% *</td>
+                            <td>Real</td>
+                            <td>Starting transparency percentage. 0-100</td>
+                        </tr>
+                        <tr>
+                            <td>Final Alpha% *</td>
+                            <td>Real</td>
+                            <td>Final transparency percentage. 0-100</td>
+                        </tr>
+                        <tr>
+                            <td>Dur.(MS) *</td>
+                            <td>Int</td>
+                            <td>Transition duration in milliseconds</td>
+                        </tr>
+                    </table>
+
+                    <h3 id="sourcemotionrotation">Source Motion: Rotation</h3>
+
+                    <p>
+                        Changes the rotation of a source over a set duration.<br />
+                        The center point of the rotation is based on the Positional Alignment option (right click on the source in OBS-Transform-Edit Transform).<br />
+                        You can use <a href="mathcommands.html#mathpullsourcevalue">Math: Pull Source Value</a> command to get the current rotation of a source and incorporate it in this command.<br />
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>scene</td>
+                            <td>String</td>
+                            <td>Scene name including the source.</td>
+                        </tr>
+                        <tr>
+                            <td>item</td>
+                            <td>String</td>
+                            <td>Source name to change the rotation.</td>
+                        </tr>
+                        <tr>
+                            <td>Start Rotation *</td>
+                            <td>Real</td>
+                            <td>Starting Rotation. 0-360</td>
+                        </tr>
+                        <tr>
+                            <td>Final Rotation *</td>
+                            <td>Real</td>
+                            <td>Final Rotation. 0-360</td>
+                        </tr>
+                        <tr>
+                            <td>Dur.(MS) *</td>
+                            <td>Int</td>
+                            <td>Transition duration in milliseconds</td>
+                        </tr>
+                        <tr>
+                            <td>Smooth</td>
+                            <td>Dropdown menu</td>
+                            <td>
+                                Type of transition. None= Normal, Out=Starts out fast and ends slow, In=Starts out slow and ends fast,<br />
+                                In/Out= Starts out slow, gets faster and then slows down at the end again.
+                            </td>
+                        </tr>
+                    </table>
+
+                     <button id="example" onclick="toggle_visibility('sourcerotsmoothX')">Show example</button>
+                    <div id="sourcerotsmoothX" style="display: none;"><img src="https://i.imgur.com/h0AU0v5.png" /><br /></div>
+
+                    <h3 id='triggerobshotkey'> Trigger OBS Hotkey
+                        <p id="obsversion">Requires OBS Websocket 4.9</p>
+                    </h3>
+                    
+                    <p>
+                    This command lets you activate any OBS hotkey without having to actually press it. <br>
+                    You can find the unique name of any general hotkey by going to <code>C:/Users/USERNAME/AppData/Roaming/obs-studio/basic/profiles/YOUR_CURRENT_PROFILE</code> and opening basic.ini file. The [HOTKEYS] section should have all your unique hotkey names listed. <br>
+                    For scene and source specific hotkeys, you need to go to <code>C:/Users/USERNAME/AppData/Roaming/obs-studio/basic/scenes/YOUR_CURRENT_SCENE.json</code>, look for the specific source name and 'hotkeys' object which contains all hotkeys for the selected source.
+                    </p>
+                    <table>
+                    
+                        <tr>
+                          <td>Name</td>
+                          <td>Type</td>
+                          <td>Description</td>
+                        </tr>
+                        <tr>
+                          <td>hotkeyName</td>
+                          <td>String</td>
+                          <td>Unique name of the hotkey, as defined when registering the hotkey (e.g. <code>ReplayBuffer.Save</code>) 
+                       </td>
+                        </tr>
+                      
+                    
+                      </table>
+                  
+                       
+                  
+                        <h3 id='triggerobshotkeyseq'> Trigger OBS Hotkey Sequence
+                            <p id="obsversion">Requires OBS Websocket 4.9</p>
+                        </h3>
+                        
+                        <p>
+                          Executes hotkey routine. This will not actually perform the key presses, it simply activates any hotkey action you've set.
+                          Keep in mind that if your hotkey is ctrl+A, setting ctrl+shift+alt+OBS_KEY_A will trigger it.
+                        </p>
+                        <table>
+                        
+                            <tr>
+                              <td>Name</td>
+                              <td>Type</td>
+                              <td>Description</td>
+                            </tr>
+                            <tr>
+                              <td>keyId</td>
+                              <td>List</td>
+                              <td>Main key ID, such as A or F1. It has to be the OBS name for it, such as <code>OBS_KEY_A</code>. <br>
+                                  All OBS hotkeys can be found <a href="https://github.com/obsproject/obs-studio/blob/master/libobs/obs-hotkeys.h" target="_blank">here.</a>
+                           </td>
+                            </tr>
+                                <tr>
+                              <td>Shift</td>
+                              <td>Boolean</td>
+                              <td>Whether to include Shift key</td>
+                            </tr>
+                                <tr>
+                              <td>Alt</td>
+                              <td>Boolean</td>
+                              <td>Whether to include Alt key</td>
+                            </tr>    <tr>
+                              <td>Control</td>
+                              <td>Boolean</td>
+                              <td>Whether to include CTRL key</td>
+                            </tr>
+                          
+                        
+                          </table>
+
+                    <h3 id="custompacket">Custom Packet</h3>
+
+                    <p>
+                        Sends a custom packet to the OBS websocket plugin in JSON format.<br />
+                        All the possible requests are documented in <a href="https://github.com/Palakis/obs-websocket/blob/4.x-current/docs/generated/protocol.md">OBS websocket protocol reference</a>. <br />
+                        Message-id 6666 means you will get a pop up message on your screen every time you send the packet (useful for troubleshooting). If you do not wish to see this, use message-id 1.
+
+                        <p>You can easily validate your JSON string <a href="https://jsonlint.com/">here</a>.</p>
+                  
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>String</td>
+                            <td>JSON</td>
+                            <td>JSON string to send to obswebsocket. Comes with an example to toggle studio mode.</td>
+                        </tr>
+                    </table>
+
+                    <p>A few examples of various requests:</p>
+
+                    <ul>
+                        <li><code>{"request-type":"GetVersion","message-id":"6666"}</code> - current OBS websocket version, status and available requests</li>
+                        <li><code>{"request-type":"GetStats","message-id":"6666"}</code> - OBS stats (similar info as provided in OBS's stats window)</li>
+                        <li><code>{"request-type":"SetCurrentProfile","profile-name":"YOURPROFILENAME","message-id":"1"}</code> - changes active profile in OBS</li>
+                        <li><code>{"request-type":"StartRecording","message-id":"1"}</code> - starts recording</li>
+                        <li><code>{"request-type":"StartReplayBuffer","message-id":"1"}</code> - starts replay buffer</li>
+                        <li><code>{"request-type":"GetSceneList","message-id":"6666"}</code> - retrieves a list of scenes in the current profile</li>
+                        <li><code>{"request-type":"GetSceneItemProperties","scene-name":"YOURSCENENAME", "item":"YOURSOURCENAME","message-id":"6666"}</code> - retrieves source item properties (like position, rotation, scale etc.)</li>
+
+                        <li><code>{"request-type":"GetSourceFilterInfo", "sourceName":"YOURSOURCENAME", "filterName":"YOURFILTERNAME", "message-id":"6666"}</code> - retrieves current source filter settings</li>
+                    </ul>
+
+                    <h3 id="fetchobsdata">Fetch OBS Data</h3>
+
+                    <p>
+                        Allows you to request data from OBS websocket and save it in a variable.<br />
+                        All the possible requests are documented in <a href="https://github.com/Palakis/obs-websocket/blob/4.7.0/docs/generated/protocol.md">OBS websocket protocol reference</a>. <br />
+                        Keep in mind that this is over a TCP connection, which means the value will not be saved immediately (give it 100ms delay). 
+                    </p><p>
+                        If the requested value is inside another object already, you can access it with a simple dot-notation: <code>.</code>. 
+                        <br> For example, if you want to retrieve Brightness value from Color Correction Filter, you will notice that it is inside an object called settings. <code>{"settings": {"brightness": 0.78}, "status": "ok", "type": "color_filter"}</code>. In this case, the Fetch Value will be <code>settings.brightness</code>.</p>
+                        <p>You can easily validate your JSON string <a href="https://jsonlint.com/">here</a>.</p>
+                        <p><i>Note: If the name of the fetched value contains dots, you need to wrap in a parentheses like this: <code>(Filter.Transform.Rotation.X)</code>. Otherwise LioranBoard will think you're trying to access a value inside an object. </i><br>
+                  
+
+
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>OBS command</td>
+                            <td>JSON</td>
+                            <td>
+                                Works the same as the custom packet command, but you need to omit the "message-id" part.<br />
+                                Instead of sending <code>{"request-type":"GetStats","message-id":"1"}</code>, you will just send <code>{"request-type":"GetStats"}</code>.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Fetch Value</td>
+                            <td>String or object</td>
+                            <td>Name of a value you wish to get. If it's an object value, you need to include that. <br /></td>
+                        </tr>
+
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Name of a variable to save the data under. <br /></td>
+                        </tr>
+                        <tr>
+                            <td>Turn to real</td>
+                            <td>boolean</td>
+                            <td>Whether you expect a real value (=number) or a string. <br /></td>
+                        </tr>
+                    </table>
+
+                    <p>A few command examples:</p>
+
+                    <ul>
+                        <li>
+                            <b>Retrieve current width of a source</b><br />
+                            OBS command: <code>{"scene-name":"YOURSCENENAME","item":"YOURSOURCENAME","request-type":"GetSceneItemProperties"}</code><br />
+                            Fetch value: <code>width</code>
+                        </li>
+                        <li>
+                            <b>Get CPU usage</b><br />
+                            OBS command: <code>{"request-type":"GetStats"}</code><br />
+                            Fetch value: <code>stats.cpu-usage</code>
+                        </li>
+                        <li>
+                            <b>Get Text GDI+ source content</b><br />
+                            OBS command: <code>{"request-type":"GetTextGDIPlusProperties","source":"YOURSOURCENAME"}</code><br />
+                            Fetch value: <code>text</code>
+                        </li>
+                        <li>
+                            <b>Time elapsed since streaming started</b><br />
+                            OBS command: <code>{"request-type":"GetStreamingStatus"}</code><br />
+                            Fetch value: <code>stream-timecode</code>
+                        </li>
+
+                        <li>
+                            <b>Get a Render delay filter value</b><br />
+                            OBS command: <code>{"request-type":"GetSourceFilterInfo","sourceName":"YOURSOURCENAME","filterName":"Render Delay"}</code><br />
+                            Fetch value: <code>settings.delay_ms</code>
+                        </li>
+
+                        <li>
+                            <b>Get an opacity value for Color Correction filter</b><br />
+                            OBS command: <code>{"request-type":"GetSourceFilterInfo","sourceName":"YOURSOURCENAME","filterName":"Color Correction"}</code><br />
+                            Fetch value: <code>settings.opacity</code>
+                        </li>
+                    </ul>
+
+                    <button id="example" onclick="toggle_visibility('cpuusageX')">Show example</button>
+                    <div id="cpuusageX" style="display: none;"><img src="https://i.imgur.com/LLsvXPm.png" /><br /></div>
+                </section>
+            </div>
+        </div>
+    </body>
+    <script>$(document.links).filter(function() {return this.hostname != window.location.hostname;}).attr('target', '_blank');</script>
+</html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="main.css" />
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="main.js"></script>
+        <title>File Commands | LioranBoard</title>
+    </head>
+    <body>
+        <header>
+            <div class="title">
+                <h1>LioranBoard Documentation</h1>
+            </div>
+            <div class="slide">
+                <nav class="sidebar" id="sidebar">
+                    <div class="scroller">
+                        <dl>
+                            <dt>
+                                <a href="index.html"> About LioranBoard</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="setup.html"> Basic Setup</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="commands.html" class="active"> Commands</a>
+                            </dt>
+
+                            <dd>
+                                <a class="sub-page" href="sourcecommands.html">OBS Source Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="recordingcommands.html">OBS Recording Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="mediacommands.html" >OBS Media Commands</a>
+                                </dd>
+
+                                <dd>
+                                    <a class="sub-page" href="transitioncommands.html">OBS Transition Commands</a>
+                                    </dd>
+
+                            <dd>
+                                <a class="sub-page" href="mathcommands.html">Math Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="stringcommands.html">String Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="stackcommands.html">Stack Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a class="sub-page" href="statementcommands.html">Statement Commands</a>
+                            </dd>
+                            <dd>
+                                <a class="sub-page" href="filecommands.html">File Commands</a>
+                            </dd>
+
+                            <dd>
+                                <a href="#introduction">
+                                    Introduction
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#savetxt">
+                                    Saving to .txt files
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#filesavevalue">
+                                    File: Save Value
+                                </a>
+                            </dd>
+
+                            <dd>
+                                <a href="#fileloadvalue">
+                                    File: Load Value
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#filesavestring">
+                                    File: Save String
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="#fileloadstring">
+                                    File: Load String
+                                </a>
+                            </dd>
+                            <dd>
+                                <a class="sub-page" href="twitchcommands.html" >Twitch Commands</a>
+                                </dd>
+                            <dd>
+                                <a class="sub-page" href="othercommands.html">Other Commands</a>
+                            </dd>
+                            <dd>
+                                <a class="sub-page" href="deprecatedcommands.html" >Deprecated Commands</a>
+                                </dd>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="faq.html"> FAQ</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="extensions.html"> Extensions</a>
+                            </dt>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <a href="troubleshooting.html"> Troubleshooting</a>
+                            </dt>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="commissions.html"> Commissions</a>
+                            </dt>
+                        </dl>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <div class="wrapper">
+            <div class="main">
+                <section class="doc-content">
+                    <h2>File Commands</h2>
+
+                    <h3 id="introduction">Introduction</h3>
+
+                    <p>
+                        LioranBoard can natively read and modify only .ini files in its own folder. There are two possible default locations for the .ini files:
+                    </p>
+
+                    <ol>
+                        <li><code>\lioranboard\LioranBoard Receiver</code> - this is the primary location</li>
+                        <li><code>C:\Users\USERNAME\\Local\LioranBoard</code> - this is the secondary location. Files are saved here instead if something blocks LioranBoard from saving them in their primary location.</li>
+                    </ol>
+                    <p>
+                        Each file needs to have a specific structure for LioranBoard to read it, containing <code>[section]</code> and <code>key="value"</code>.
+                        <button id="example" onclick="toggle_visibility('filestructure')">Show example</button>
+                    </p>
+
+                    <div id="filestructure" style="display: none;"><img src="https://i.imgur.com/AKZkBVa.png" /></div>
+
+                    <h3 id="savetxt">Saving to .txt files</h3>
+
+                    <p>There is a way to save a value to a .txt file:</p>
+
+                    <ol>
+                        <li>
+                            Create a <code>text.bat</code> file with this content: <br />
+                            <code>@echo off</code><br>
+                            <code>echo %~2 >> %1.txt</code><br>
+                            <img src="https://i.imgur.com/FW3U4C7.png" />
+                        </li>
+                        <li>Save the file in your <code>lioranboard/LioranBoard Receiver</code> folder.</li>
+                        <li>
+                            Use a Command Line command in LB: <code>text.bat FILENAME "VALUE"</code><br />
+
+                            <button id="example" onclick="toggle_visibility('textbat')">Show example</button>
+                            <div id="textbat" style="display: none;"><img src="https://i.imgur.com/bjcduS4.png" /><br /></div>
+                        </li>
+                        <li>
+                            The .txt file will be created in your Receiver folder if it doesn't exist yet. If it does exist, it will just add another line to it. <br />
+
+                        
+                            <button id="example" onclick="toggle_visibility('texttxtresult')">Show example</button>
+                            <div id="texttxtresult" style="display: none;"><img src="https://i.imgur.com/6QXuhZx.png" /><br /></div>
+                      
+                        </li>
+                    </ol>
+
+                    <p><i>Note: If your text input already contains double quotes, it will split it and only save the first half. Single quotes are OK. </i>
+
+                    <h3 id="filesavevalue">File: Save Value</h3>
+
+                    <p>
+                        Saves a real value to .ini file. <br />
+                        Can be used to permanently save a value (or a stack), so you can retrieve it even after you close or restart LioranBoard.
+                        <br />
+                        <i>Make sure you're using the correct command, as it will not properly save if you use File: Save Value on a string. </i>
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>File Name</td>
+                            <td>String</td>
+                            <td>
+                                Name of the file. Only .ini files are accepted. Will create one if it doesn't exist. <br />
+                                Do not include path. You do not need to include the .ini extension.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Section</td>
+                            <td>String</td>
+                            <td>The section to save the key under.</td>
+                        </tr>
+                        <tr>
+                            <td>Key</td>
+                            <td>String</td>
+                            <td>The name of the value to be saved.</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable to be saved as the key value.</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('deathcountsaveX')">Show example</button>
+                    <div id="deathcountsaveX" style="display: none;"><img src="https://i.imgur.com/qa4AZIA.png" /></div>
+
+                    <h3 id="fileloadvalue">File: Load Value</h3>
+
+                    <p>
+                        Loads a real value from .ini file. Will return 0 if it doesn't exist. <br />
+                        Can be used to retrieve previously saved values after you close/restart LioranBoard. Can be also used to keep a list of file paths and use it together with Math: Random command to display a random picture or play a
+                        random sound/video.
+                        <br />
+                        <i>Make sure you're using the correct command, as it will not properly load if you use File: Load Value on a string. </i>
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>File Name</td>
+                            <td>String</td>
+                            <td>
+                                Name of the file. Only .ini files are accepted. <br />
+                                You do not need to include the .ini extension.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Section</td>
+                            <td>String</td>
+                            <td>The section to load the key.</td>
+                        </tr>
+                        <tr>
+                            <td>Key</td>
+                            <td>String</td>
+                            <td>The name of the key to be loaded.</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name you want to save the loaded value under.</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('fileloadvalueexample')">Show example</button>
+                    <div id="fileloadvalueexample" style="display: none;"><img src="https://i.imgur.com/lBBkGBW.png" /></div>
+
+                    <h3 id="filesavestring">File: Save String</h3>
+
+                    <p>
+                        Saves a string to .ini file. <br />
+                        For example, it can be used to save a list of followers or subscribers from the given day.
+                        <br />
+                        <i>Make sure you're using the correct command, as it will not properly save if you use File: Save String on a real value. </i>
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>File Name</td>
+                            <td>String</td>
+                            <td>
+                                Name of the file. Only .ini files are accepted. Will create one if it doesn't exist. <br />
+                                You do not need to include the .ini extension.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Section</td>
+                            <td>String</td>
+                            <td>The section to save the key under.</td>
+                        </tr>
+                        <tr>
+                            <td>Key</td>
+                            <td>String</td>
+                            <td>The name of the value to be saved.</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable to be saved as the key value.</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('filesavestringsubs')">Show example</button>
+                    <div id="filesavestringsubs" style="display: none;"><img src="https://i.imgur.com/dJ99ZDN.png" /></div>
+                    <h3 id="fileloadstring">File: Load String</h3>
+
+                    <p>
+                        Loads a string from .ini file. Will return 0 if it doesn't exist. <br />
+                        Can be used to retrieve previously saved strings after you close/restart LioranBoard. Can be also used to keep a list of file paths and use it together with Math: Random command to display a random picture or play a
+                        random sound/video.
+                        <br />
+                        <i>Make sure you're using the correct command, as it will not properly load if you use File: Load String on a real value. </i>
+                    </p>
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td>File Name</td>
+                            <td>String</td>
+                            <td>
+                                Name of the file. Only .ini files are accepted. <br />
+                                You do not need to include the .ini extension.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Section</td>
+                            <td>String</td>
+                            <td>The section to load the key.</td>
+                        </tr>
+                        <tr>
+                            <td>Key</td>
+                            <td>String</td>
+                            <td>The name of the key to be loaded.</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>String</td>
+                            <td>Variable name you want to save the loaded string under.</td>
+                        </tr>
+                    </table>
+
+                    <button id="example" onclick="toggle_visibility('fileloadstringimage')">Show example</button>
+                    <div id="fileloadstringimage" style="display: none;"><img src="https://i.imgur.com/10LvGFr.png" /></div>
+                </section>
+            </div>
+        </div>
+    </body>
+    <script>$(document.links).filter(function() {return this.hostname != window.location.hostname;}).attr('target', '_blank');</script>
+</html>
